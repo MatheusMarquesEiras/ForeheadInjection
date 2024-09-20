@@ -17,7 +17,7 @@ Com o intuito de auxiliar as pessoas que queiram colaborar com este projeto, dis
 ## App
 Aqui se encontram todos os arquivos das interfaces do projeto.
 
-## Infra
+## App/Infra
 Aqui estão todos os arquivos relacionados ao banco de dados.
 
 ## Docs
