@@ -1,5 +1,6 @@
 import flet as ft
 from pages import index, article
+from infra.actions import init_database
 
 def main(page: ft.Page):
 
@@ -12,15 +13,14 @@ def main(page: ft.Page):
             page.views.append(article(page))
         else:
             page.views.clear()
-            page.views.append(index(page))  # Rota padrão
+            page.views.append(index(page))
 
         page.update()
 
-    # Configurando o evento de mudança de rota
     page.on_route_change = route_change
 
-    # Definindo a rota inicial
     page.go(page.route if page.route else "/")
 
-# Iniciando o app na porta 8000
-ft.app(target=main)
+if __name__ == "__main__":
+    init_database()
+    ft.app(target=main)
