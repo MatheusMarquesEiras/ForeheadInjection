@@ -2,43 +2,74 @@ import flet as ft
 from components.navigation import go_to_page
 
 def index(page):
-    # Barra de navegação com uma barra de pesquisa centralizada
+
+    def search(e):
+        pass
+
     nav_bar = ft.Container(
         content=ft.Row(
             controls=[
                 ft.IconButton(
                     icon=ft.icons.HOME,
                     hover_color='white',
-                    icon_size=60,
                     icon_color=ft.colors.BLACK,
-                    width=200,
+                    icon_size=50,
+                    on_click=go_to_page(page, '/'),
                 ),
             ],
             alignment=ft.MainAxisAlignment.CENTER,
         ),
         bgcolor="blue",
-        height=80,  
-        alignment=ft.alignment.center 
+        height=80,
+        alignment=ft.alignment.center,
+        border_radius=10,
+        padding=ft.padding.symmetric(vertical=0, horizontal=50)
     )
 
-    # Corpo da página
-    page_content = ft.Column(
+    search_container = ft.Container(
+        content=ft.Column(
+            controls=[
+                ft.TextField(
+                    hint_text="Digite algo para pesquisar",
+                    width=300,
+                ),
+                ft.ElevatedButton(
+                    text="Pesquisar", 
+                    on_click=search
+                )
+            ],
+            alignment=ft.MainAxisAlignment.CENTER,
+            horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+            spacing=20
+        ),
+        alignment=ft.alignment.center,
+        padding=ft.padding.symmetric(vertical=10),
+    )
+
+    content_below_search = ft.Container(
+        content=ft.Column(
+            scroll=ft.ScrollMode.ALWAYS,
+        ),
+        alignment=ft.alignment.center,
+        margin=30,
+        bgcolor=ft.colors.WHITE,
+        expand=True,
+        border_radius=10,
+        border=ft.border.all(3, ft.colors.BLACK),
+    )
+
+    main_content = ft.Column(
         controls=[
-            ft.Container(
-                content=ft.ElevatedButton("Ir para o artigo", on_click=go_to_page(page, "/article")),
-                alignment=ft.alignment.center,
-            )
+            search_container,
+            content_below_search,
         ],
-        alignment=ft.MainAxisAlignment.CENTER,
-        horizontal_alignment=ft.CrossAxisAlignment.CENTER,
         expand=True,
     )
 
-    # Combina tudo em uma visualização
     return ft.View(
         "/",
         controls=[
-            nav_bar,         # Barra de navegação com barra de pesquisa
-            page_content,    # Conteúdo da página
+            nav_bar,
+            main_content,
         ],
     )

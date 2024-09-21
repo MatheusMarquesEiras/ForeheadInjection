@@ -18,6 +18,7 @@ def main(page: ft.Page):
         page.update()
 
     page.on_route_change = route_change
+    page.theme_mode = "light"
 
     page.go(page.route if page.route else "/")
 
