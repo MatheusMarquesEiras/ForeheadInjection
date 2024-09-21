@@ -1,2 +1,2 @@
 from .index import index
-from .article import article
+from .course import course

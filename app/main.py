@@ -1,5 +1,5 @@
 import flet as ft
-from pages import index, article
+from pages import index, course
 from infra.actions import init_database
 
 def main(page: ft.Page):
@@ -10,7 +10,7 @@ def main(page: ft.Page):
             page.views.append(index(page))
         elif page.route == "/article":
             page.views.clear()
-            page.views.append(article(page))
+            page.views.append(course(page))
         else:
             page.views.clear()
             page.views.append(index(page))
@@ -22,5 +22,5 @@ def main(page: ft.Page):
     page.go(page.route if page.route else "/")
 
 if __name__ == "__main__":
-    init_database()
+    # init_database()
     ft.app(target=main)
