@@ -45,13 +45,13 @@ def course(page):
             ],
             alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
         ),
-        bgcolor="blue",
+        bgcolor="#77BA99",
         height=80,
         alignment=ft.alignment.center,
         border_radius=10,
         padding=ft.padding.symmetric(vertical=0, horizontal=50)
     )
-
+            
     main_content = ft.Container(
         content=ft.Column(
             controls=[
@@ -65,7 +65,7 @@ def course(page):
             alignment=ft.MainAxisAlignment.CENTER,
             scroll=ft.ScrollMode.ALWAYS,
         ),
-        bgcolor=ft.colors.RED,
+        bgcolor='#D7C0D0',
         expand=True, 
         alignment=ft.alignment.center,
         padding=ft.padding.only(left=80, top=40, right=80),
@@ -84,6 +84,7 @@ def course(page):
                     expand=True
                 )
             ],
+            bgcolor='#EFF0D1'
             
         
     )
