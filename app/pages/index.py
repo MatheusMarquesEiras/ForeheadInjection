@@ -1,54 +1,75 @@
 import flet as ft
-from components.navigation import go_to_page
+from components import go_to_page
+from infra.actions import querry_course_dev
 
 def index(page):
     def search(e):
         print("Search initiated")
 
+    nav_bar = ft.Container(
+                content=ft.Row(
+                    controls=[
+                        ft.IconButton(
+                            icon=ft.icons.HOME,
+                            hover_color='white',
+                            icon_color=ft.colors.BLACK,
+                            icon_size=50,
+                            on_click=go_to_page(page, '/'),
+                        ),
+                    ],
+                    alignment=ft.MainAxisAlignment.CENTER,
+                ),
+                bgcolor="#77BA99",
+                height=80,
+                alignment=ft.alignment.center,
+                border_radius=10,
+                padding=ft.padding.symmetric(vertical=0, horizontal=50),
+                shadow=ft.BoxShadow(
+                    spread_radius=1,
+                    blur_radius=15,
+                    color=ft.colors.GREY,
+                    offset=ft.Offset(0, 0),
+                    blur_style=ft.ShadowBlurStyle.NORMAL,
+                ),
+            )
+
     def create_items():
+        names = querry_course_dev()
+
         return [
             ft.Container(
                 content=ft.Column(
                     [
-                        ft.Icon(name=ft.icons.HOME, size=30, color=ft.colors.WHITE),
-                        ft.Text(
-                            f"Este é o texto do Item {i + 1}. Ele pode ser bem longo e precisa ser truncado se ultrapassar duas linhas.",
-                            size=16,
-                            max_lines=2,
-                            overflow=ft.TextOverflow.ELLIPSIS
+                        ft.Container(
+                            content=ft.Icon(
+                                name=ft.icons.HOME, 
+                                size=150, 
+                                color=ft.colors.WHITE,
+                            ),
+                            margin=ft.margin.symmetric(vertical=20, horizontal=0)
+                        ),
+                        ft.Container(
+                            content=ft.Text(
+                                f"{name}",
+                                size=20,
+                                max_lines=2,
+                                overflow=ft.TextOverflow.ELLIPSIS,
+                                text_align=ft.TextAlign.CENTER
+                            ),
+                            margin=ft.margin.symmetric(vertical=20, horizontal=20),
                         )
                     ],
                     alignment=ft.MainAxisAlignment.CENTER,
-                    horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+                    horizontal_alignment=ft.CrossAxisAlignment.STRETCH,
                     spacing=5
                 ),
                 padding=10,
                 alignment=ft.alignment.center,
-                bgcolor='#D7C0D0',
+                bgcolor='#92DBD0',
                 border_radius=ft.border_radius.all(5),
                 on_click=go_to_page(page, '/article')
-            ) for i in range(20)
+            ) for name in names
         ]
-
-    nav_bar = ft.Container(
-        content=ft.Row(
-            controls=[
-                ft.IconButton(
-                    icon=ft.icons.HOME,
-                    hover_color='white',
-                    icon_color=ft.colors.BLACK,
-                    icon_size=50,
-                    on_click=go_to_page(page, '/'),
-                ),
-            ],
-            alignment=ft.MainAxisAlignment.CENTER,
-        ),
-        bgcolor="#77BA99",
-        height=80,
-        alignment=ft.alignment.center,
-        border_radius=10,
-        padding=ft.padding.symmetric(vertical=0, horizontal=50)
-    )
 
     search_container = ft.Container(
         content=ft.Column(
@@ -95,7 +116,10 @@ def index(page):
         content=grid_view,
         expand=True,
         alignment=ft.alignment.center,
-        margin=30,
+        margin=ft.margin.symmetric(vertical=10, horizontal=20),
+        border=ft.border.all(2, ft.colors.BLACK),
+        border_radius=20,
+        padding=ft.padding.all(5)
     )
 
     main_content = ft.Column(

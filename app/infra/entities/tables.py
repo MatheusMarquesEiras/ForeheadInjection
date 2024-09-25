@@ -1,12 +1,12 @@
 from infra.configs import Base
 from sqlalchemy import Column, Integer, String, ForeignKey
 
-class Couse(Base):
+class Course(Base):
     __tablename__ = 'Couses'
 
     id = Column(Integer, primary_key=True)
     name = Column(String, nullable=False, unique=True)
-    icon_path = Column(String, nullable=False)
+    # icon_path = Column(String, nullable=False)
 
 class Topic(Base):
     __tablename__ = 'Topics'

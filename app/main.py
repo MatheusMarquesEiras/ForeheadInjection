@@ -1,6 +1,6 @@
 import flet as ft
 from pages import index, course
-from infra.actions import init_database
+from infra.actions import init_database, init_couses_dev
 
 def main(page: ft.Page):
 
@@ -23,5 +23,6 @@ def main(page: ft.Page):
     page.go(page.route if page.route else "/")
 
 if __name__ == "__main__":
-    # init_database()
+    init_database()
+    init_couses_dev()
     ft.app(target=main)

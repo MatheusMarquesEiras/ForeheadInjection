@@ -1,4 +1,4 @@
-all: run
+all: clean build run
 
 run:
 	cls
