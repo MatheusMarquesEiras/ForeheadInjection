@@ -14,3 +14,4 @@ install:
 
 clean:
 	cd docker && docker compose down
+	cls

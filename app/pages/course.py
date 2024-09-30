@@ -1,7 +1,8 @@
 import flet as ft
 from components import go_to_page
+from infra.actions import query_topic_dev
 
-def course(page):
+def course(page, course_id):
 
     def animate_side_bar(e):
         if topics.offset == ft.transform.Offset(0, 0):
@@ -9,6 +10,15 @@ def course(page):
         else:
             topics.offset = ft.transform.Offset(0, 0)
         topics.update()
+
+    def get_topics():
+        topics = query_topic_dev(course_id)
+        return [ft.TextButton(
+                        f"{name[0]}",
+                        autofocus=False,
+                        icon_color=ft.colors.WHITE
+                    ) for name in topics
+                ] 
 
     nav_bar = ft.Container(
             content=ft.Row(
@@ -51,9 +61,14 @@ def course(page):
         )
 
     topics = ft.Container(
+        content=ft.Column(
+            controls=get_topics(),
+            alignment=ft.MainAxisAlignment.START,
+            horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+        ),
         width=page.width * 0.20,
         expand=True,
-        bgcolor="blue",
+        bgcolor="#E5F58F",
         border_radius=10,
         offset=ft.transform.Offset(-2, 0),
         animate_offset=ft.animation.Animation(500),
@@ -63,7 +78,7 @@ def course(page):
         content=ft.Column(
             controls=[
                 ft.Text(
-                    """texto""",
+                    f"Conteúdo do curso {course_id}",
                     expand=True,
                     text_align=ft.TextAlign.CENTER,
                     size=20
@@ -80,7 +95,7 @@ def course(page):
     )
 
     return ft.View(
-        "/",
+        "/article",
             controls=[ 
                 nav_bar,
                 ft.Stack(
@@ -91,7 +106,5 @@ def course(page):
                     expand=True
                 )
             ],
-            bgcolor='#EFF0D1'
-            
-        
+            bgcolor='#EFF0D1'   
     )

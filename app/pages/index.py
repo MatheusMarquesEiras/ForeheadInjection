@@ -1,6 +1,6 @@
 import flet as ft
 from components import go_to_page
-from infra.actions import querry_course_dev
+from infra.actions import query_course_dev
 
 def index(page):
     def search(e):
@@ -33,8 +33,8 @@ def index(page):
                 ),
             )
 
-    def create_items():
-        names = querry_course_dev()
+    def get_courses():
+        names = query_course_dev()
 
         return [
             ft.Container(
@@ -50,7 +50,7 @@ def index(page):
                         ),
                         ft.Container(
                             content=ft.Text(
-                                f"{name}",
+                                f"{name[0]}",
                                 size=20,
                                 max_lines=2,
                                 overflow=ft.TextOverflow.ELLIPSIS,
@@ -67,7 +67,7 @@ def index(page):
                 alignment=ft.alignment.center,
                 bgcolor='#92DBD0',
                 border_radius=ft.border_radius.all(5),
-                on_click=go_to_page(page, '/article')
+                on_click=go_to_page(page, f'/article/{name[1]}')
             ) for name in names
         ]
 
@@ -110,7 +110,7 @@ def index(page):
         child_aspect_ratio=1.0,
     )
 
-    grid_view.controls.extend(create_items())
+    grid_view.controls.extend(get_courses())
 
     content_below_search = ft.Container(
         content=grid_view,
