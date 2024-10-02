@@ -3,8 +3,53 @@ from components import go_to_page
 from infra.actions import query_course_dev
 
 def index(page):
+    all_courses = query_course_dev()  # Todos os cursos recuperados uma vez
+
     def search(e):
-        print("Search initiated")
+        # Função de pesquisa que atualiza os cursos exibidos com base no filtro
+        filtered_courses = [
+            course for course in all_courses if e.control.value.lower() in course[0].lower()
+        ]
+        update_courses(filtered_courses)
+
+    def update_courses(courses):
+        # Limpa os controles atuais e adiciona os cursos filtrados ao GridView
+        grid_view.controls.clear()
+        grid_view.controls.extend([
+            ft.Container(
+                content=ft.Column(
+                    [
+                        ft.Container(
+                            content=ft.Icon(
+                                name=ft.icons.HOME, 
+                                size=150, 
+                                color=ft.colors.WHITE,
+                            ),
+                            margin=ft.margin.symmetric(vertical=20, horizontal=0)
+                        ),
+                        ft.Container(
+                            content=ft.Text(
+                                f"{course[0]}",
+                                size=20,
+                                max_lines=2,
+                                overflow=ft.TextOverflow.ELLIPSIS,
+                                text_align=ft.TextAlign.CENTER
+                            ),
+                            margin=ft.margin.symmetric(vertical=20, horizontal=20),
+                        )
+                    ],
+                    alignment=ft.MainAxisAlignment.CENTER,
+                    horizontal_alignment=ft.CrossAxisAlignment.STRETCH,
+                    spacing=5
+                ),
+                padding=10,
+                alignment=ft.alignment.center,
+                bgcolor='#92DBD0',
+                border_radius=ft.border_radius.all(5),
+                on_click=go_to_page(page, f'/article/{course[1]}')
+            ) for course in courses
+        ])
+        page.update()  # Atualiza a página para refletir as mudanças
 
     nav_bar = ft.Container(
                 content=ft.Row(
@@ -33,44 +78,6 @@ def index(page):
                 ),
             )
 
-    def get_courses():
-        names = query_course_dev()
-
-        return [
-            ft.Container(
-                content=ft.Column(
-                    [
-                        ft.Container(
-                            content=ft.Icon(
-                                name=ft.icons.HOME, 
-                                size=150, 
-                                color=ft.colors.WHITE,
-                            ),
-                            margin=ft.margin.symmetric(vertical=20, horizontal=0)
-                        ),
-                        ft.Container(
-                            content=ft.Text(
-                                f"{name[0]}",
-                                size=20,
-                                max_lines=2,
-                                overflow=ft.TextOverflow.ELLIPSIS,
-                                text_align=ft.TextAlign.CENTER
-                            ),
-                            margin=ft.margin.symmetric(vertical=20, horizontal=20),
-                        )
-                    ],
-                    alignment=ft.MainAxisAlignment.CENTER,
-                    horizontal_alignment=ft.CrossAxisAlignment.STRETCH,
-                    spacing=5
-                ),
-                padding=10,
-                alignment=ft.alignment.center,
-                bgcolor='#92DBD0',
-                border_radius=ft.border_radius.all(5),
-                on_click=go_to_page(page, f'/article/{name[1]}')
-            ) for name in names
-        ]
-
     search_container = ft.Container(
         content=ft.Column(
             controls=[
@@ -78,6 +85,7 @@ def index(page):
                     hint_text="Digite algo para pesquisar",
                     width=page.width * 0.6,
                     border_radius=20,
+                    on_change=search  # Adiciona o listener para a função de busca
                 ),
                 ft.Container(
                     content=ft.ElevatedButton(
@@ -99,7 +107,6 @@ def index(page):
         padding=ft.padding.symmetric(vertical=20),
     )
 
-
     grid_view = ft.GridView(
         expand=True,
         runs_count=4,
@@ -110,7 +117,8 @@ def index(page):
         child_aspect_ratio=1.0,
     )
 
-    grid_view.controls.extend(get_courses())
+    # Inicializa com todos os cursos
+    update_courses(all_courses)
 
     content_below_search = ft.Container(
         content=grid_view,

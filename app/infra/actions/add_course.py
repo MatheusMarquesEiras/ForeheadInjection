@@ -16,12 +16,12 @@ def init_courses_dev():
         db.session.commit()
 
         newt1 = Topic(name='linear', sequence=0, course_reference=newc1.id)
-        newt2 = Topic(name='geometria', sequence=0, course_reference=newc1.id)
-        newt3 = Topic(name='cos x', sequence=0, course_reference=newc1.id)
-        newt4 = Topic(name='sen x', sequence=0, course_reference=newc1.id)
-        newt5 = Topic(name='tan x', sequence=0, course_reference=newc1.id)
-        newt6 = Topic(name='financial', sequence=0, course_reference=newc1.id)
-        newt7 = Topic(name='sum', sequence=0, course_reference=newc1.id)
+        newt2 = Topic(name='geometria', sequence=1, course_reference=newc1.id)
+        newt3 = Topic(name='cos x', sequence=2, course_reference=newc1.id)
+        newt4 = Topic(name='sen x', sequence=3, course_reference=newc1.id)
+        newt5 = Topic(name='tan x', sequence=4, course_reference=newc1.id)
+        newt6 = Topic(name='financial', sequence=5, course_reference=newc1.id)
+        newt7 = Topic(name='sum', sequence=6, course_reference=newc1.id)
 
         db.session.add_all([newt1, newt2, newt3, newt4, newt5, newt6, newt7])
         db.session.commit()

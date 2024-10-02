@@ -1,6 +1,6 @@
 import flet as ft
 from components import go_to_page
-from infra.actions import query_topic_dev
+from infra.actions import query_topic_dev, query_content_dev
 
 def course(page, course_id):
 
@@ -11,54 +11,66 @@ def course(page, course_id):
             topics.offset = ft.transform.Offset(0, 0)
         topics.update()
 
+    def put_text(id):
+        content_text = query_content_dev(id)
+        main_content.content = ft.Text(
+                                    content_text,
+                                    expand=True,
+                                    text_align=ft.TextAlign.CENTER,
+                                    size=20
+                                )
+        main_content.update()
+
     def get_topics():
-        topics = query_topic_dev(course_id)
-        return [ft.TextButton(
-                        f"{name[0]}",
-                        autofocus=False,
-                        icon_color=ft.colors.WHITE
-                    ) for name in topics
-                ] 
+        topic_list = query_topic_dev(course_id)
+        return [
+            ft.TextButton(
+                f"{name[0]}",
+                autofocus=False,
+                icon_color=ft.colors.WHITE,
+                on_click=lambda e, id=name[1]: put_text(id)  # Correção aqui
+            ) for name in topic_list
+        ]
 
     nav_bar = ft.Container(
-            content=ft.Row(
-                controls=[
-                    ft.IconButton(
-                        icon=ft.icons.MENU,
-                        icon_color=ft.colors.BLACK,
-                        hover_color=ft.colors.WHITE,
-                        icon_size=50,
-                        on_click=animate_side_bar
-                    ),
-                    ft.IconButton(
-                        icon=ft.icons.HOME,
-                        hover_color='white',
-                        icon_color=ft.colors.BLACK,
-                        icon_size=50,
-                        on_click=go_to_page(page, '/'),
-                    ),
-                    ft.IconButton(
-                        icon=ft.icons.LIST,
-                        icon_color=ft.colors.BLACK,
-                        hover_color=ft.colors.WHITE,
-                        icon_size=50,
-                    ),
-                ],
-                alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
-            ),
-            bgcolor="#77BA99",
-            height=80,
-            alignment=ft.alignment.center,
-            border_radius=10,
-            padding=ft.padding.symmetric(vertical=0, horizontal=50),
-            shadow=ft.BoxShadow(
-                spread_radius=1,
-                blur_radius=15,
-                color=ft.colors.GREY,
-                offset=ft.Offset(0, 0),
-                blur_style=ft.ShadowBlurStyle.NORMAL,
-            ),
-        )
+        content=ft.Row(
+            controls=[
+                ft.IconButton(
+                    icon=ft.icons.MENU,
+                    icon_color=ft.colors.BLACK,
+                    hover_color=ft.colors.WHITE,
+                    icon_size=50,
+                    on_click=animate_side_bar
+                ),
+                ft.IconButton(
+                    icon=ft.icons.HOME,
+                    hover_color='white',
+                    icon_color=ft.colors.BLACK,
+                    icon_size=50,
+                    on_click=lambda e: page.go('/')
+                ),
+                ft.IconButton(
+                    icon=ft.icons.LIST,
+                    icon_color=ft.colors.BLACK,
+                    hover_color=ft.colors.WHITE,
+                    icon_size=50,
+                ),
+            ],
+            alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
+        ),
+        bgcolor="#77BA99",
+        height=80,
+        alignment=ft.alignment.center,
+        border_radius=10,
+        padding=ft.padding.symmetric(vertical=0, horizontal=50),
+        shadow=ft.BoxShadow(
+            spread_radius=1,
+            blur_radius=15,
+            color=ft.colors.GREY,
+            offset=ft.Offset(0, 0),
+            blur_style=ft.ShadowBlurStyle.NORMAL,
+        ),
+    )
 
     topics = ft.Container(
         content=ft.Column(

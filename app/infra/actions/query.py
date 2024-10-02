@@ -1,5 +1,5 @@
 from infra.configs import DBConnector
-from infra.entities import Course, Topic  
+from infra.entities import Course, Topic, Content
 
 def query_course_dev():
     with DBConnector() as db:
@@ -13,3 +13,8 @@ def query_topic_dev(id):
     
     return topics
 
+def query_content_dev(id):
+    with DBConnector() as db:
+        contents = db.session.query(Content.content).where(Content.topic_reference == id).first()
+    
+    return contents[0]
