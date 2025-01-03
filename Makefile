@@ -1,17 +1,13 @@
 all: clean build run
 
 run:
-	cls
+	sleep 5
+	clear
 	flet run --web --port 8000 app
 
 build:
-	cd docker && docker compose up -d
-
-install:
-	python -m venv venv
-	venv/script/activate
-	pip install -r requirements.txt
+	cd docker && docker-compose up -d
 
 clean:
-	cd docker && docker compose down
-	cls
+	cd docker && docker-compose down
+	clear

@@ -7,7 +7,5 @@ RUN pip install --upgrade pip && \
     pip install -r requirements.txt
 
 COPY app ./app
-COPY infra ./infra
-COPY requirements.txt .
 
 CMD ["python", "main.py"]

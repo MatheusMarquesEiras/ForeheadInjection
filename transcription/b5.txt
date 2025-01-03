@@ -1,0 +1,298 @@
+Bom, seja bem-vindo para mais uma aula de Python.
+Essa é a aula 6, onde a gente vai lidar com listas e operações com listas como adicionar, remover, iterar, selecionar item.
+Tuplas, quando e por que usar chave e valor, que faz parte dos dicionários em Python,
+que é semelhante ao conteúdo de maps, se a gente colocar isso para outras linguagens,
+para quem entende mais de outras linguagens.
+Mas basicamente o dicionário é chave e valor, é semelhante ao contexto que a gente utilizou variável,
+que carrega um valor específico, é semelhante a essa ideia.
+Vamos também fazer exemplos práticos com isso.
+A gente define uma lista aqui, assim como a gente definiu uma lista de maçã, pera, sei lá, várias frutas nas aulas passadas,
+a gente define aqui uma lista com valores aleatórios.
+Poderia ser números misturados com números floats, misturados com valores inteiros, strings, poderia ser qualquer coisa.
+Tudo junto, misturado, não tem importância dentro de uma lista.
+Na lista você pode adicionar o item usando o termo append.
+Quando você adiciona o 4, você imprime 1, 2, 3, 4, porque o 4 você adicionou ele ali depois, né?
+E quando você imprime, você mostra que você adicionou esse valor.
+Minha lista extend, você consegue colocar vários valores simultaneamente dentro de uma lista.
+Então não precisa necessariamente colocar um valor por vez, você pode colocar uma sequência de valores de uma vez só dentro de uma lista.
+Basicamente aqui também a gente consegue acessar um valor dentro dessa lista.
+E aqui a gente está explicando aqui, a contagem de posições se inicia em 0 e vai até o último valor.
+Lembra que dentro de um loop a gente também inicia o valor 0, 1, 2, 3, 4, 5, 6, 7, infinito.
+Aqui também, quando a gente quer pegar o primeiro item, a gente tem que escolher o valor 0.
+O valor do índice do primeiro item, o valor da posição do primeiro item é 0.
+Do segundo é 1, do terceiro é 2, do quarto é 3, do quinto é 4.
+Então é como se fosse 0, 1, 2, 3, 4.
+Então quando a gente seleciona o item 1, a gente está selecionando esse segundo valor aqui.
+Porque o índice começa em 0.
+Então ele conta 0, 1.
+E aqui a gente pega esse valor e é esse valor que vai ser impresso nesse caso específico.
+Remoção de itens na lista.
+Remove.
+Remove é remove um item específico.
+Tipo aqui, eu queria que removesse o valor 3 e ele removeu o valor 3.
+Diferente do pop.
+O pop você consegue remover o item pelo índice dele.
+Então eu removi o índice 1.
+E qual que é o índice 1?
+Qual que é o valor do índice 1?
+É o 2, porque 0, 1.
+Ele achou o 1 aqui e removeu ele.
+Tanto é que quando ele imprime, ele imprime 1, 4 e 5.
+Porque a gente já tinha removido 3 e a gente já tinha removido 1.
+Nesse caso específico, pelo menos.
+No caso, a gente tinha removido o índice 1.
+No caso, seria o valor 2, para poder não confundir a mente da gente.
+Na prática, vai fazer sempre mais sentido.
+Interação de lista.
+A gente viu até na aula passada.
+Não sei se foi aula passada ou foi atrasada.
+Mas a gente teve aí o conteúdo que interava sobre listas.
+Então eu não vou entrar muito profundamente nisso, porque a gente já conhece.
+Você consegue pegar o item...
+Em cada loop, você consegue pegar um item de dentro de uma lista.
+Tupla é uma lista que é fixa.
+Que você não pode alterar, não pode remover, não pode adicionar, não pode mudar o valor.
+Porque essa é uma lista imutável.
+Ela é representada por parênteses.
+Diferente de uma lista normal, que é cochetes.
+Lista normal é cochetes.
+Tuplas são parênteses.
+É isso.
+É a diferença entre os dois.
+Dicionários.
+Dicionário é uma lista que possui relação de chave e valor, onde o valor pode ser acessado por meio da chave.
+Tipo, semelhante ao conteúdo de variável que a gente comentou.
+O nome é a chave de João.
+Idade é a chave de 30.
+Cidade é a chave de São Paulo.
+Basicamente, quando eu coloco aqui meu dicionário e imprimo a chave nome, ele vai imprimir o conteúdo dessa chave, que é o João.
+É literalmente semelhante ao conteúdo de variável.
+Agora vamos meter a mão na massa.
+Vamos para a prática, que é aí que a gente vai entender melhor esse conteúdo.
+Vamos lá.
+Vamos começar por uma lista simples.
+Minha lista igual a 1, 2, 3.
+Se eu imprimo essa lista, essa minha lista, ele vai imprimir o quê?
+1, 2, 3.
+Ok.
+Se eu quero acrescentar um valor na lista, que a gente representou na questão lá, ponto, apende, 4.
+Então, basicamente, eu quis acrescentar o valor 4.
+Só que aí eu tenho que imprimir para mostrar essa alteração.
+1, 2, 3, 4.
+Aí vamos botar vários valores de maneira simultânea.
+Então a gente coloca extend.
+É como se a gente conseguisse colocar uma lista de valores dentro dessa lista.
+Ah, eu coloquei, mas não imprimi, né?
+Aí fica difícil.
+Minha lista.
+Agora está mais cheia.
+Está com 1, 2, 3, 4, 5, 6, 7.
+Agora a próxima parte que a gente planejou foi pegar um conteúdo específico da lista.
+Basicamente, minha lista, eu quero pegar o item 0, como a gente viu.
+Só que eu quero imprimir isso, né?
+Eu quero mostrar esse item.
+O item 0 é o valor 1.
+Basicamente, eu quero pegar esse valor último aqui, então.
+Seria 0, 1, 2, 3, 4, 5, 6.
+Seria o valor 6.
+Ó.
+6.
+A gente pega o valor 7.
+Tem outro método, que se não me falha a memória, seria menos 1.
+Ele vai pegar o último valor da lista.
+Não sei se menos 2 funciona.
+Acho que menos 2 já não funciona.
+Funciona.
+É como se ele estivesse fazendo a operação inversa, vindo da ponta até a raiz da lista.
+Basicamente é isso.
+Vou apagar isso aqui tudo.
+Vou deixar só uma lista já com valores prontos aqui.
+Para facilitar a nossa vida e ficar um código mais limpo visualmente falando.
+Eu quero remover na minha lista o item 3.
+Basicamente.
+Só que aqui ele não refletiu a mudança.
+Agora eu vou colocar aqui o print.
+Minha lista para poder refletir a mudança.
+Mostrar na tela.
+O 3 sumiu.
+Basicamente.
+Agora eu quero remover por meio do índice o item 1, por exemplo.
+Quando eu falo do índice 1, na verdade.
+O índice 1 vai remover esse item aqui.
+Vamos lá na prática.
+Print valor.
+Minha lista.
+Na prática vocês vão observar que isso faz sentido.
+Ele removeu o índice 1.
+O índice 1 é igual a esse 2.
+Se eu fosse remover o índice 0.
+Ele removeria esse primeiro valor aqui.
+Aí ficaria 2, 4, 5.
+Então tem uma diferença.
+Nem sempre lembre.
+Índice 0, índice 1, índice 2, 3, 4.
+Então é a posição desses valores basicamente.
+Vamos lá para mais operações.
+Agora eu quero fazer uma tupla, na verdade.
+Minha.
+Nem precisa excluir tudo, né?
+Mas eu coloquei só para poder.
+Deixar bonitinho.
+A tupla, diferente dos colchetes, a gente utiliza os parênteses.
+Para a gente dizer que isso é uma tupla.
+Print tupla.
+Tupla.
+Tupla é uma lista que não pode variar.
+É uma tupla.
+Beleza, ok.
+Só que qual é a diferença da tupla para uma lista?
+Se a gente tentar fazer qualquer operação de tipo...
+Ah, eu quero fazer um append na minha tupla.
+Minha tupla.append.
+7.
+Ele não vai aceitar.
+A tupla, ela não aceita.
+Ela rejeita esse tipo de atributo.
+Sei lá, vamos dizer que a gente queira pegar...
+Se a gente quiser acessar um item específico, o item 0, e modificar esse valor do item 0 para, sei lá, 8.
+Ou seja, esse 1 eu quero que ele vire 8.
+O código não vai aceitar.
+Porque é uma tupla.
+Se fosse uma lista, ele aceitaria tranquilamente a mudança.
+Minha lista.
+Só mudar o nome para poder ficar bonitinho, porque vocês sabem que não é necessário ter essa diferenciação de nome, eclatura e tudo mais.
+Aqui embaixo eu vou fazer o print aqui da minha lista, depois que eu modifiquei o primeiro item dela.
+Agora o 1 foi igual a 8.
+Eu posso fazer isso aqui porque é uma lista.
+Se fosse uma tupla, eu não conseguiria fazer isso aqui.
+Se eu quiser agora fazer um dicionário, qual a diferença de lista, dupla e dicionário?
+Lista, a gente usa cochetes.
+Duplas, a gente usa parênteses.
+E dicionário, a gente usa chaves.
+Vamos lá.
+Meu dicionário igual a chaves.
+Nome, eu vou colocar, essa chave chamada nome, vai receber o nome João, vírgula.
+A chave idade vai receber 30, o valor 30.
+A chave idade vai receber o nome João, vírgula, e aqui acho que vem vírgula, não vem vírgula, acho que acaba aqui mesmo.
+Se não me falha a memória.
+É isso mesmo.
+Ah, só esqueci disso aí.
+Então se eu vier aqui, imprimir, print meu dicionário.
+É isso que vai aparecer, basicamente.
+Ok.
+Mas o que a gente pode fazer com esse dicionário?
+Vamos pegar um item específico.
+Eu quero pegar o item nome.
+É literalmente igual, literalmente semelhante ao conceito de variável.
+Basicamente o nome, ele recebe um valor.
+Basicamente a chave recebe um valor.
+É literalmente isso.
+Quando eu seleciono o nome, eu estou selecionando o João.
+Porque eu estou pegando o conteúdo que o João tem guardado dentro dessa chave.
+Então o nome é a chave, João é o apalouco.
+Vou querer pegar a idade em específico.
+Então basicamente, isso que a chave poderia ser um 7 também.
+Que daria tudo certo.
+Então 7 vai receber o valor 30, só que é meio confuso.
+Então basicamente é a mesma coisa.
+Vai imprimir, porque como a gente falou, é uma variável, variável.
+Só que diferente de uma variável, você não poderia pegar e dizer que 7 é igual a 8, sei lá, é igual a 9.
+Porque isso aqui não existe.
+Você tem que nomear um nome real igual ao valor de um número.
+Mas só um exemplo.
+Já no dicionário não tem essa limitação.
+Basicamente se a gente quiser deletar um item do dicionário, a gente coloca...
+Vamos copiar aqui, para facilitar a nossa vida.
+Eita.
+Del.
+E o nome do item.
+Então del de deletar e o item que a gente quer deletar.
+E aí se eu tentar chamar, aqui se não me engano não vai dar certo.
+Ele vai dar o erro.
+Ele não vai tentar tratar o erro.
+Basicamente se eu também quiser adicionar um item dentro dessa lista, um item que não existe, eu teria que colocar aqui o meu dicionário, o nome do item que eu quero, aqui mesmo.
+Sei lá, altura.
+Espero que tenha altura nesse item.
+Igual a 1.83.
+É como se o código perguntasse, pô, essa chave existe?
+Não existe.
+Então se não existe, eu irei criar.
+É o que o código diz.
+Meu dicionário.
+Meu dicionário.
+Ele vai criar a chave porque ele vê que a chave não existe.
+Então ela surgiu aqui, altura, tal.
+Beleza.
+Vamos ver mais o que a gente pode fazer com o dicionário.
+Deletar.
+A gente pode brincar com isso de várias formas diferentes.
+É interessante para a gente guardar valores longos.
+A gente utiliza em várias partes de códigos mais elaborados também.
+Códigos que a gente precisa guardar, tipo código de jogo.
+Já coloquei muito em código de jogo que eu desenvolvi.
+De você armazenar dados de maneira que faça sentido ali na organização.
+E vocês podem também armazenar listas dentro de um dicionário.
+Vamos dizer aqui.
+Eu quero criar uma lista.
+Calma aí, calma aí.
+Lista 1.
+Lista 2.
+Lista 3.
+Eu poderia armazenar aqui.
+7.
+8.
+9.
+Poderia armazenar aqui.
+Uva.
+Pera.
+Abacaxi.
+Eu poderia armazenar aqui, nessa parte.
+Céu.
+Mar.
+Vento.
+Sei lá.
+Estou chutando valores.
+Palavras aleatórias.
+E aí, quando eu imprimo aqui embaixo.
+Print.
+Meu dicionário.
+E vou ter as três listas de valores.
+E aí, eu vou poder acessar de formas diferentes.
+Lista 1, valor 0.
+Então, ele vai ter que acessar o 7.
+Ele vai pegar a lista 1, valor 7.
+7.
+Agora, eu quero pegar da lista 2.
+O valor 2.
+Que é esse valor do abacaxi aqui.
+Que é 0, 1, 2.
+Abacaxi.
+E daí por diante.
+O céu é o limite.
+Brinquem.
+Descubra.
+Explore.
+Tente resolver problemas do dia a dia com isso.
+Crie uma lista de compras.
+E faça isso.
+Acontecer.
+Treine.
+E vai dar tudo certo.
+É basicamente isso.
+Não tenho mais nada a declarar.
+Se quiser comentar alguma coisa.
+Se tiver alguma dúvida.
+Eu respondo.
+E é isso aí.
+Muito obrigado pela sua atenção.
+E nos vemos na aula 7.
+E aí
+E aí
+E aí
+E aí
+E aí
+E aí
+E aí
+E aí
+E aí
+E aí

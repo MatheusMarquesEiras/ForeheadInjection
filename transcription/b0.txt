@@ -1,0 +1,376 @@
+Bom, olá, tudo bem? Eu me chamo Agel Felipe Nunes Moraes e eu estarei ensinando um pouco sobre a linguagem Python.
+Na verdade é um curso assim, um curso não, digamos que aulas bem completas sobre a base que a pessoa precisa saber
+para poder entender a linguagem Python, como variáveis, funções, classes, loops, condicionais, leitura de arquivos
+e tudo que a pessoa necessita para poder conseguir pelo menos ter uma base para entrar no mundo da programação.
+Bom, a linguagem Python é utilizada muito para análise de dados, para automatização ou automação de tarefas no geral
+e é uma linguagem muito fácil de aprender, é uma linguagem de nível de abstração muito alto.
+Ela também é uma linguagem de alto nível, considerada linguagem de alto nível, porque ela se torna mais próxima à linguagem humana
+do que as demais linguagens que existem no mundo ali.
+Claro que tem umas que são semelhantes, mas o Python está sendo amplamente utilizado por grandes empresas em diversas frentes, digamos assim.
+Bom, essa será a aula 1.
+Nessa aula, eu vou poder dar essa breve explicação do que é Python, mas eu vou contar a história e algumas aplicações.
+Aplicações eu já comentei também agora, porque eu sou meio ansioso, já comentei para vocês.
+Mas aqui eu vou contar uma breve história sobre Python, vou mostrar como é que a gente instala as IDEs para poder programar o Python.
+As IDEs nada mais do que são plataformas onde você escreve uma linguagem que será traduzida para o computador
+e de certa forma ele vai entender e vai executar o que você pediu, conforme essa tradução.
+A gente vai entender isso melhor mais para frente, em alguns slides mais para frente.
+E também eu vou fazer ali uma introdução, a questão terminal, de como é que você vai rodar os primeiros códigos
+e o primeiro programa Hello World, que isso aí é o básico, o Olá Mundo que a gente chama,
+que é um dos primeiros códigos, se não o primeiro código, se não me falha a memória, criado na programação.
+E ensinar a fazer comentários nos códigos, vocês vão entender o que significa isso.
+Aqui eu vou ensinar toda a base, como eu comentei, da programação ali, para você ingressar no mercado da programação.
+E um conselho que eu dou, que foi a forma que eu aprendi a programar,
+é sempre procure tentar resolver problemas usando a programação.
+E quando você achar que você não consegue, você pode pesquisar, de certa forma,
+em sites como python.org, sites que vão te instruir a conseguir resolver os seus problemas.
+Porque na tentativa de resolver problemas é que você acha soluções,
+e soluções que vão levar você a um amadurecimento na linguagem tecnológica,
+na linguagem de programação em si, em qualquer linguagem de programação na realidade.
+O que é python?
+Python, ele basicamente trabalha como um interpretador.
+A pessoa, ela consegue se comunicar com o computador usando o python como um intérprete,
+como uma linguagem que vai pegar a sua linguagem e transformar em linguagem de máquina.
+Só que você vai ver da parte mais humanificada,
+só que o python vai transformar para o computador de forma que o computador entenda,
+porque o computador, ele entende só binários, 0, 1, 0, 0, 0.
+O ser humano entende palavras como as palavras que eu estou utilizando para poder me comunicar com vocês.
+É exatamente esse o contexto.
+O python, ele vai transformar a sua linguagem numa linguagem que o computador entenda.
+Uma breve história, não vou me aprofundar tanto, mas é bom saber sobre essas questões por questões autorais mesmo.
+O criador do python foi o Guido Van Hossen, em 1989, que foi ali onde teve o início do desenvolvimento do python.
+Em 1991 foi lançado a versão 0.9, com funcionalidades básicas ali do python.
+Nos anos 2000 foi lançado o python 2.0, que foi utilizado pelas empresas e tudo mais,
+por muito tempo, tanto é que tem código até hoje rodando em python 2.0.
+Em python 2, né?
+Em 2008 foi lançado o 3.0, uma reescrita não compatível com versões anteriores,
+então é aconselhável vocês já começarem com a versão mais atualizada,
+apesar das outras ainda funcionarem.
+Em 2020 foi o fim do suporte para Python 2.7, promovendo a adoção do Python 3.
+Aqui são duas IDEs que a gente mais utiliza na programação.
+Eu gosto do PyCharm, na realidade, para o Python.
+O VS Code é bom para diversas linguagens também,
+mas especificamente para o Python eu gosto bastante,
+porque é fácil de instalar bibliotecas,
+é fácil de você conseguir manipular algumas informações ali e tal.
+O VS Code já é bom para extensões de tipo cor de letra,
+conexão com inteligência artificial,
+mas para as nossas aulas básicas eu vou usar o PyCharm,
+porque se eu precisar me importar alguma biblioteca ele vai me ajudar.
+Então vamos para a prática, vamos lá.
+Primeiramente, se você não tem o Python instalado no seu sistema,
+você vai colocar python.org,
+que é o site oficial do Python,
+que inclusive você vai utilizar para pesquisar também
+quando vocês tiverem dúvidas em relação a alguma coisa.
+Você vem aqui em download,
+se seu computador for Windows, você clica Python 3.12 ali.
+No macOS eu não vou lembrar, mas dizem que é bem mais fácil.
+E no Linux a gente colocaria
+sudoapt get install python 3.
+Se não me falha a memória,
+porque faz tempo que eu não uso Linux para rodar Python.
+É isso.
+No geral, se você tem um computador Windows,
+você só clica aqui,
+Python 3.12.
+Vai instalar,
+tem um tempo ali de instalação do Python,
+eu acredito que vai ser bem rápido.
+Instalou o Python.
+Basicamente aqui a gente vem,
+downloads,
+calma aí, downloads.
+É, a gente já tinha instalado aqui esse Python aqui,
+mas enfim,
+vamos lá instalar de fato na máquina.
+Aqui a gente vai colocar aqui,
+adicionar o pacote Python,
+aqui vai pegar todos os pacotes necessários.
+Usar a privilégia de admin,
+quando instalar o PyPodex,
+executável, né?
+E é isso aí.
+Instalar agora.
+E vai perguntar aqui,
+se deseja permitir que o aplicativo faça alterações na máquina,
+e sim,
+vocês ficam seguros,
+porque é tranquilo.
+Demora um pouquinho aí,
+tudo mais.
+sempre corram atrás
+de tentar entender,
+descobrir,
+explorar.
+Programação é isso.
+Eu acredito que a base dos estudos,
+a base de aprender,
+é errando.
+Se você não erra,
+você não sabe o que não fazer.
+É mais fácil você lembrar do que não fazer,
+do que fazer.
+E é mais fácil você errar
+em algo que você nunca errou.
+Isso aqui é filosofia,
+mas faz sentido,
+faz muito sentido.
+Eu só aprendi realmente com os meus erros,
+e não foram poucos erros.
+A programação em si força
+a gente a ter pensamentos e analogias
+que às vezes não nos levam a caminhos interessantes.
+E a gente aprende padrões
+que levam a gente a caminhos melhores ali,
+digamos,
+na programação.
+Então são práticas que vão fazer vocês crescerem
+muito na área.
+Então é bom pensar dessa forma.
+Demora um pouquinho mesmo para poder instalar.
+ainda mais se a sua máquina é meio lenta.
+Então basicamente aqui,
+desabilitar limite de tamanho,
+não,
+mudar,
+incluindo Python,
+não,
+não quero limitações.
+Close.
+Basicamente,
+então aqui a gente tem que ter o idle,
+pelo menos.
+aqui,
+o idle e o Python,
+se vocês forem pesquisar.
+Olha o Python,
+que é esse aqui.
+Eu vou pelo idle
+para vocês terem uma noção aqui rápida.
+E dar o primeiro comando,
+o primeiro código de todo o programador,
+o código que abençoa os programadores
+para iniciar essa jornada da programação.
+print significa imprimir,
+que significa mostrar algo na tela.
+E a gente coloca aqui parênteses,
+que a gente vai mostrar alguma informação.
+O que tiver entre os parênteses
+vai ser a informação que você vai mostrar.
+Se tiver entre aspas,
+é porque essa informação é texto,
+que é o que a gente quer imprimir agora.
+A gente quer imprimir um texto.
+Seria o Olá Mundo.
+E quando você clica em Enter aqui no idle,
+Olá Mundo,
+ele imprime o que você colocou.
+Print
+meu nome é
+Agel.
+E ele vai imprimir.
+Outra coisa,
+operações matemáticas.
+8 mais 8.
+16.
+Ele já imprime.
+Poderia falar,
+colocar também,
+se não me engano,
+aqui ó.
+8 mais 8.
+Também vai imprimir.
+Multiplicação,
+divisão,
+soma.
+E você faz o que você quiser.
+O céu é o limite da programação.
+Agora vamos baixar o PaiCharme, né?
+Bom, basicamente,
+para instalar o PaiCharme,
+a gente vai ter que colocar
+o PaiCharme.
+Pesquisar o site oficial dele.
+Vamos entrar no site oficial do PaiCharme.
+Vamos vir aqui.
+Deixa eu ver.
+Education.
+Não tem como ir diretamente.
+Então,
+vamos ir para cá,
+para downloads.
+Esse site mudou bastante
+desde a época que eu
+fiz pela primeira vez
+o processo lá.
+A gente vai aqui
+em outras versões,
+porque a versão que ele está disponibilizando
+aqui é a versão profissional
+e nós queremos a educacional,
+na verdade,
+perdão,
+a comunidade,
+a versão da comunidade,
+que é o que eles permitem ser de forma open source, né?
+Ou, pelo menos, parcialmente open source.
+Aqui a gente vai escolher o Windows executável,
+que é a versão que é compatível geralmente
+com a maioria dos computadores.
+E a gente vai salvar.
+Vai ter o tempo de download,
+que eu vou pausar aqui o vídeo por um tempo,
+porque vai demorar um pouquinho.
+E já voltamos.
+Então, basicamente,
+já foi instalado o Pai Charme Community.
+E aí você clica aqui nele,
+na pasta de downloads,
+que é onde vai estar
+o arquivo Pai Charme.
+Ele vai demorar um pouquinho,
+mas ele vai abrir agora.
+Você vai colocar aqui sim,
+que deseja que esse aplicativo,
+enfim,
+faça o que tiver que ser feito
+na sua máquina.
+Coloca aqui, ó.
+Você vai marcar aqui,
+aqui,
+e aqui.
+Aqui a gente vai fazer manualmente,
+que é atualizar,
+questão de abrir folder,
+porque é pasta, né?
+Como projeto,
+a gente vai fazer isso manualmente.
+Na context,
+é.
+Vai instalar,
+next, next, next,
+install.
+E, basicamente,
+vamos aguardar um tempinho antes de...
+Bom, basicamente,
+vai aparecer essa tela pra vocês.
+E aqui você coloca o I1,
+I1 na manual...
+É, tipo,
+eu quero fazer o reboot manualmente depois,
+que é tipo você reiniciar a sua máquina ali pro...
+É...
+No momento que você quiser,
+ao invés de reiniciar,
+reiniciar automaticamente,
+como aqui tá pedindo.
+Aí você vai finalizar,
+e ok.
+Tá na sua máquina,
+você pode abrir aqui o PyCharm,
+no momento que você quiser.
+Tá disponível.
+E pronto pra você
+começar a fazer seus projetos.
+Basicamente,
+ele vai abrir aqui,
+já,
+na parte pra você iniciar aqui,
+ó.
+É...
+Tá perguntando se eu queria importar
+algumas configurações
+de alguma outra ideia que eu já tenho
+antes, né,
+da ideia atual.
+Eu vou pular essa parte de importação.
+Eu quero criar diretamente aqui no PyCharm.
+Eu crio aqui new project,
+que é o novo projeto.
+É...
+O nome do projeto,
+eu vou colocar aqui...
+Aulas.
+Python.
+É...
+Eu não quero criar repositório no Git.
+No Git.
+De Git, no caso.
+Eu não quero criar um...
+Um script de bem-vindo.
+Também não quero.
+Ele já cria, já,
+um ambiente virtual aqui,
+pra você programar de boa.
+E é só create.
+É só mudar o nome lá,
+pra o nome que você quiser,
+e create.
+Eu aconselho a colocar já,
+Aulas.Python,
+porque...
+Vamos meter muito mão na massa aqui.
+Basicamente é isso.
+Vamos esperar carregar aqui.
+É bem rápido.
+Acredito.
+Não lembro de demorar tanto na minha época,
+como se fosse muito tempo atrás.
+É...
+Beleza.
+Vamos criar os primeiros arquivos em Python, então.
+Vamos esperar carregar de boa.
+Deixa eu ver esse arquivo que ele já abre aqui, ó.
+Isso aqui são, talvez,
+certas dependências.
+Acho que algumas atualizações,
+provavelmente, do próprio sistema.
+Você vem aqui, ó.
+Aulas.Python.
+E você vai criar
+new
+Python File.
+E você vai dar o nome,
+por...
+Python, né?
+Olá, mundo.
+Vai ser o primeiro código.
+Ponto.Py.
+E aqui,
+aquela mesma coisa que a gente fez lá,
+no Idle,
+a gente vai fazer aqui
+para poder testar a nossa IDE.
+Python
+Olá, mundo.
+Primeira linha de código aqui
+que consagra qualquer programador.
+E rodar o código.
+E ele tem que aparecer
+Olá, mundo.
+Então, é isso.
+Você está pronto
+para poder começar a programar,
+começar a meter a mão na massa.
+Então, vejo vocês na aula 2,
+onde a gente vai ter
+alguns conhecimentos
+um pouco mais técnicos.
+E é isso.
+Muito obrigado
+por ter acompanhado
+até esse momento.
+E não desista,
+porque isso aqui
+é um conhecimento
+muito valioso
+e que,
+cada vez mais,
+vai ser
+mais necessário
+no mundo
+onde a tecnologia
+está crescendo
+exponencialmente.
+E é isso.
+E é isso.
