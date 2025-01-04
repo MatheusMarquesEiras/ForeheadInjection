@@ -9,54 +9,78 @@ const Content = () => {
   const [loading, setLoading] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(true);
   const [contentData, setContentData] = useState([]);
-  const [expandedStates, setExpandedStates] = useState({});
+  const [isExpanded, setIsExpanded] = useState(false);
   const navigate = useNavigate();
 
-  const createHtmlElement = (item) => {
-    const { type_content, content, id } = item;
-
-    const isExpanded = expandedStates[id] || false;
-
-    const handleExpandClick = () => {
-      setExpandedStates((prevState) => ({
-        ...prevState,
-        [id]: !isExpanded,
-      }));
-    };
-
-    switch (type_content) {
-      case 'video':
-        return (
-          <div className="flex items-center justify-center iframe-container w-full h-[50vh] mb-8">
-            <iframe
-              className="w-6/12 min-h-[40vh]"
-              src={`https://www.youtube.com/embed/${content}`}
-              title="YouTube Video"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
-          </div>
-        );
-      case 'transcription':
-        return (
-          <div className="flex flex-col items-center justify-start w-full">
-            <p className={`text-xl ${isExpanded ? '' : 'line-clamp-2'}`}>
-              {content}
-            </p>
-            <button
-              onClick={handleExpandClick}
-              className="mt-4 text-blue-600 hover:underline"
-            >
-              {isExpanded ? 'Mostrar menos' : 'Mostrar mais'}
-            </button>
-          </div>
-        );
-      case 'paragraph':
-        return <p className="paragraph">{content}</p>;
-      default:
-        return <span className="default">{content}</span>;
-    }
+  const handleExpandClick = () => {
+    setIsExpanded((prev) => !prev);
   };
+
+  const createHtmlElement = (item) => {
+  const { type_content, content } = item;
+
+  switch (type_content) {
+    case 'video':
+      return (
+        <div className="flex items-center justify-center iframe-container w-full h-full">
+          <iframe
+            className="w-6/12 min-h-full"
+            src={`https://www.youtube.com/embed/${content}`}
+            title="YouTube Video"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+        </div>
+      );
+    case 'transcription':
+      return (
+        <div className="flex flex-col items-center justify-start w-full">
+          <p className={`text-xl`}>{content}<br /><br /></p>
+        </div>
+      );
+    case 'paragraph':
+      return <p className="paragraph">{content}</p>;
+    default:
+      return <span className="default">{content}</span>;
+  }
+};
+
+const renderElements = (items) => {
+  const groupedElements = {
+    preVideos: [],
+    videos: [],
+    postVideos: [],
+  };
+
+  // Group elements into preVideos, videos, and postVideos
+  let foundVideo = false;
+  items.forEach(item => {
+    if (item.type_content === 'video') {
+      foundVideo = true;
+      groupedElements.videos.push(item);
+    } else if (!foundVideo) {
+      groupedElements.preVideos.push(item);
+    } else {
+      groupedElements.postVideos.push(item);
+    }
+  });
+
+  // Render elements in the desired order
+  return (
+    <>
+      {groupedElements.preVideos.map((item, index) => (
+        <div key={`pre-${index}`}>{createHtmlElement(item)}</div>
+      ))}
+      {groupedElements.videos.map((item, index) => (
+        <div key={`video-${index}`}>{createHtmlElement(item)}</div>
+      ))}
+      {groupedElements.postVideos.map((item, index) => (
+        <div key={`post-${index}`}>{createHtmlElement(item)}</div>
+      ))}
+    </>
+  );
+};
+
 
   const handleMenuClick = (topicId) => {
     setLoading(true);
@@ -137,10 +161,36 @@ const Content = () => {
 
         {/* Content */}
         <div className="flex flex-grow pt-4 pb-4 px-4 bg-slate-400">
-          <div className="flex flex-col items-center justify-start w-full h-full overflow-y-auto px-8">
-            {contentData.map((item, index) => (
-              <React.Fragment key={index}>{createHtmlElement(item)}</React.Fragment>
-            ))}
+          <div className="flex flex-col items-center">
+            {/* Div para o vídeo */}
+            <div className="flex items-center justify-center w-full min-h-80 ">
+              {contentData
+                .filter((item) => item.type_content === 'video')
+                .map((item, index) => (
+                  <React.Fragment key={index}>{createHtmlElement(item)}</React.Fragment>
+                ))}
+            </div>
+            <h2 className='text-3xl py-4 underline'>Transcrição</h2>
+            {/* Div para transcrições */}
+            <div
+              className={`flex flex-col items-center justify-start w-full px-8 transition-all duration-300 ease-in-out ${
+                isExpanded ? 'max-h-full overflow-y-auto' : 'max-h-20 overflow-hidden'
+              }`}
+            >
+              {contentData
+                .filter((item) => item.type_content !== 'video')
+                .map((item, index) => (
+                  <React.Fragment key={index}>{createHtmlElement(item)}</React.Fragment>
+                ))}
+            </div>
+
+            {/* Botão para expandir */}
+            <button
+              onClick={handleExpandClick}
+              className="mt-4 text-blue-800 hover:underline"
+            >
+              {isExpanded ? 'Mostrar menos' : 'Mostrar mais'}
+            </button>
           </div>
         </div>
       </div>

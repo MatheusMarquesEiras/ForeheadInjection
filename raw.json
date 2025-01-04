@@ -1,0 +1,72 @@
+{
+    "courses": [
+      {"name": "clang", "img": "http://localhost:5000/static/clang.png"},
+      {"name": "python", "img": "http://localhost:5000/static/python.jpg"},
+      {"name": "Ollama", "img": "http://localhost:5000/static/ollama.webp"},
+      {"name": "cpp", "img": "http://localhost:5000/static/cpp.png"},
+      {"name": "php", "img": "http://localhost:5000/static/php.png"},
+      {"name": "react", "img": "http://localhost:5000/static/react.webp"},
+      {"name": "java", "img": "http://localhost:5000/static/jav.svg"}
+    ],
+    "topics": [
+        {
+            "name": "Video: Introduçõa ao python",
+            "sequence": 10,
+            "course_reference": "python"
+        },
+        {
+            "name": "Video: Tipos de dados e operadores",
+            "sequence": 11,
+            "course_reference": "python"
+        },
+        {
+            "name": "Video: Estruturas condicionais",
+            "sequence": 12,
+            "course_reference": "python"
+        },
+        {
+            "name": "Video: Laços de repetição",
+            "sequence": 13,
+            "course_reference": "python"
+        },
+        {
+            "name": "Video: Função e modularização",
+            "sequence": 14,
+            "course_reference": "python"
+        },
+        {
+            "name": "Video: Lista, tupla e dicionarios",
+            "sequence": 15,
+            "course_reference": "python"
+        },
+        {
+            "name": "Video: Manipulação de arquivos",
+            "sequence": 16,
+            "course_reference": "python"
+        },
+        {
+            "name": "Video: Introdução a programação orientada a objetos",
+            "sequence": 17,
+            "course_reference": "python"
+        }
+    ],
+    "contents": [
+      {"type_content": "video", "content": "", "topic_reference": "Video: Vetores e matrizes", "sequence": 1},
+      {"type_content": "transcription", "content": "","topic_reference": "Video: Vetores e matrizes", "sequence": 2},
+      {"type_content": "video", "content": "", "topic_reference": "Video: Manipulando strings", "sequence": 1},
+      {"type_content": "transcription", "content": "", "topic_reference": "Video: Manipulando strings", "sequence": 2},
+      {"type_content": "video", "content": "", "topic_reference": "Video: Registros", "sequence": 1},
+      {"type_content": "transcription", "content": "", "topic_reference": "Video: Registros", "sequence": 2},
+      {"type_content": "video", "content": "", "topic_reference": "Video: Funções", "sequence": 1},
+      {"type_content": "transcription", "content": "", "topic_reference": "Video: Funções", "sequence": 2},
+      {"type_content": "video", "content": "", "topic_reference": "Video: Vetores e matrizes", "sequence": 1},
+      {"type_content": "transcription", "content": "", "topic_reference": "Video: Vetores e matrizes", "sequence": 2},
+      {"type_content": "video", "content": "", "topic_reference": "Video: Manipulando strings", "sequence": 1},
+      {"type_content": "transcription", "content": "", "topic_reference": "Video: Manipulando strings", "sequence": 2},
+      {"type_content": "video", "content": "", "topic_reference": "Video: Registros", "sequence": 1},
+      {"type_content": "transcription", "content": "", "topic_reference": "Video: Registros", "sequence": 2},
+      {"type_content": "video", "content": "", "topic_reference": "Video: Funções", "sequence": 1},
+      {"type_content": "transcription", "content": "", "topic_reference": "Video: Funções", "sequence": 2}
+    ]
+  }
+  

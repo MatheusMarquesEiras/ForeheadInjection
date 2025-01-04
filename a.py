@@ -21,7 +21,7 @@ def split_transcription(transcription):
     return chunks
 
 # Load data from data.json
-with open('data.json', 'r', encoding='utf-8') as file:
+with open('raw.json', 'r', encoding='utf-8') as file:
     data = json.load(file)
 
 new_contents = []
@@ -51,7 +51,7 @@ for content in data['contents']:
 
 # Save updated contents to data1.json
 data['contents'] = new_contents
-with open('data1.json', 'w', encoding='utf-8') as file:
+with open('tmp.json', 'w', encoding='utf-8') as file:
     json.dump(data, file, ensure_ascii=False, indent=4)
 
 print("Data processed and saved to data1.json.")
