@@ -154,7 +154,7 @@ const renderElements = (items) => {
               className="bg-slate-900 w-full p-4 my-2 rounded-md hover:bg-slate-500 hover:cursor-pointer"
               onClick={() => handleMenuClick(course.id)}
             >
-              <p className="text-lg font-semibold">{course.name}</p>
+              <p className="text-lg font-semibold line-clamp-2 overflow-hidden text-ellipsis whitespace-nowrap">{course.name}</p>
             </div>
           ))}
         </div>
