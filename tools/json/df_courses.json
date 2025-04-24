@@ -1,0 +1,32 @@
+{
+  "courses": [
+    {
+      "name": "clang",
+      "img": "http://localhost:5000/static/clang.png"
+    },
+    {
+      "name": "python",
+      "img": "http://localhost:5000/static/python.jpg"
+    },
+    {
+      "name": "Ollama",
+      "img": "http://localhost:5000/static/ollama.webp"
+    },
+    {
+      "name": "cpp",
+      "img": "http://localhost:5000/static/cpp.png"
+    },
+    {
+      "name": "php",
+      "img": "http://localhost:5000/static/php.png"
+    },
+    {
+      "name": "react",
+      "img": "http://localhost:5000/static/react.webp"
+    },
+    {
+      "name": "java",
+      "img": "http://localhost:5000/static/jav.svg"
+    }
+  ]
+}

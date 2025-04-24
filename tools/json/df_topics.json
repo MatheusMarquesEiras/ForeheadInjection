@@ -1,0 +1,84 @@
+{
+  "topics": [
+    {
+      "name": "Video: Fundamentos (clang)",
+      "sequence": 1,
+      "course_reference": "clang"
+    },
+    {
+      "name": "Video: Variáveis e constantes (clang)",
+      "sequence": 2,
+      "course_reference": "clang"
+    },
+    {
+      "name": "Video: Estruturas condicionais (clang)",
+      "sequence": 3,
+      "course_reference": "clang"
+    },
+    {
+      "name": "Video: Laçoes de repetição (clang)",
+      "sequence": 4,
+      "course_reference": "clang"
+    },
+    {
+      "name": "Video: Vetores e matrizes (clang)",
+      "sequence": 5,
+      "course_reference": "clang"
+    },
+    {
+      "name": "Video: Manipulando strings (clang)",
+      "sequence": 6,
+      "course_reference": "clang"
+    },
+    {
+      "name": "Video: Registros (clang)",
+      "sequence": 7,
+      "course_reference": "clang"
+    },
+    {
+      "name": "Video: Funções (clang)",
+      "sequence": 8,
+      "course_reference": "clang"
+    },
+    {
+      "name": "Video: Introduçõa ao python (python)",
+      "sequence": 10,
+      "course_reference": "python"
+    },
+    {
+      "name": "Video: Tipos de dados e operadores (python)",
+      "sequence": 11,
+      "course_reference": "python"
+    },
+    {
+      "name": "Video: Estruturas condicionais (python)",
+      "sequence": 12,
+      "course_reference": "python"
+    },
+    {
+      "name": "Video: Laços de repetição (python)",
+      "sequence": 13,
+      "course_reference": "python"
+    },
+    {
+      "name": "Video: Função e modularização (python)",
+      "sequence": 14,
+      "course_reference": "python"
+    },
+    {
+      "name": "Video: Lista, tupla e dicionarios (python)",
+      "sequence": 15,
+      "course_reference": "python"
+    },
+    {
+      "name": "Video: Manipulação de arquivos (python)",
+      "sequence": 16,
+      "course_reference": "python"
+    },
+    {
+      "name": "Video: Introdução a programação orientada a objetos (python)",
+      "sequence": 17,
+      "course_reference": "python"
+    }
+  ]
+}
