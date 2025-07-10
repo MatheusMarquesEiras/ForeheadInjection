@@ -21,7 +21,7 @@ def split_transcription(transcription):
     return chunks
 
 # Load data from data.json
-with open('raw.json', 'r', encoding='utf-8') as file:
+with open('./tools/json/raw.json', 'r', encoding='utf-8') as file:
     data = json.load(file)
 
 new_contents = []

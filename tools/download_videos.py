@@ -37,7 +37,7 @@ if __name__ == "__main__":
         "https://www.youtube.com/watch?v=",
         "https://www.youtube.com/watch?v=",
         "https://www.youtube.com/watch?v=",
-        "https://www.youtube.com/watch?v=",
+        "https://www.youtube.com/watch?v="
     ]
 
     # Caminho onde os arquivos serão salvos

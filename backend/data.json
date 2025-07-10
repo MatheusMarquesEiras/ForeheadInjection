@@ -27,6 +27,10 @@
         {
             "name": "java",
             "img": "http://localhost:5000/static/jav.svg"
+        },
+        {
+            "name": "web",
+            "img": "http://localhost:5000/static/web.png"
         }
     ],
     "topics": [
@@ -72,43 +76,83 @@
         },
         {
             "name": "Video: Introduçõa ao python (python)",
-            "sequence": 10,
+            "sequence": 9,
             "course_reference": "python"
         },
         {
             "name": "Video: Tipos de dados e operadores (python)",
-            "sequence": 11,
+            "sequence": 10,
             "course_reference": "python"
         },
         {
             "name": "Video: Estruturas condicionais (python)",
-            "sequence": 12,
+            "sequence": 11,
             "course_reference": "python"
         },
         {
             "name": "Video: Laços de repetição (python)",
-            "sequence": 13,
+            "sequence": 12,
             "course_reference": "python"
         },
         {
             "name": "Video: Função e modularização (python)",
-            "sequence": 14,
+            "sequence": 13,
             "course_reference": "python"
         },
         {
             "name": "Video: Lista, tupla e dicionarios (python)",
-            "sequence": 15,
+            "sequence": 14,
             "course_reference": "python"
         },
         {
             "name": "Video: Manipulação de arquivos (python)",
-            "sequence": 16,
+            "sequence": 15,
             "course_reference": "python"
         },
         {
             "name": "Video: Introdução a programação orientada a objetos (python)",
-            "sequence": 17,
+            "sequence": 16,
             "course_reference": "python"
+        },
+        {
+            "name": "Video: Introdução",
+            "sequence": 17,
+            "course_reference": "web"
+        },
+        {
+            "name": "Video: Organizando",
+            "sequence": 18,
+            "course_reference": "web"
+        },
+        {
+            "name": "Video: HTML e CSS",
+            "sequence": 19,
+            "course_reference": "web"
+        },
+        {
+            "name": "Video: Box Model",
+            "sequence": 20,
+            "course_reference": "web"
+        },
+        {
+            "name": "Video: JavaScript",
+            "sequence": 21,
+            "course_reference": "web"
+        },
+        {
+            "name": "Video: Bootstrap",
+            "sequence": 22,
+            "course_reference": "web"
+        },
+        {
+            "name": "Video: Introdução ao React",
+            "sequence": 23,
+            "course_reference": "web"
+        },
+        {
+            "name": "Video: Construindo um projeto",
+            "sequence": 24,
+            "course_reference": "web"
         }
     ],
     "contents": [
@@ -2979,6 +3023,1098 @@
             "content": "E retirando as dúvidas. De acordo com o possível. Então muito obrigado. Pela colaboração de vocês. Pela paciência. Pela atenção. Por me acompanhar. Até esse último vídeo. Dessa saga. De aprender a base do Python. E é isso. Ficamos por aqui. Vejo vocês. Na próxima. Nas próximas aulas. De talvez outros conteúdos. Obrigado.",
             "topic_reference": "Video: Introdução a programação orientada a objetos (python)",
             "sequence": 38
+        },
+        {
+            "type_content": "video",
+            "content": "rYXQoQkcR10",
+            "topic_reference": "Video: Introdução",
+            "sequence": 1
+        },
+        {
+            "type_content": "transcription",
+            "content": "E aí pessoal, beleza? Bem-vindos ao meu curso de introdução à programação web. Meu nome é João Pedro e eu vou, ao longo de oito vídeos, a gente vai desvendar um pouco desse mundo da programação web. HTML, CSS e até dar uma espiada em JavaScript, Bootstrap e React. No final desse curso, você já vai ter construído sua primeira página. Se você nunca escreveu uma linha de código, esse curso é pra você.",
+            "topic_reference": "Video: Vetores e matrizes",
+            "sequence": 2
+        },
+        {
+            "type_content": "transcription",
+            "content": "Eu vou justamente guiar você pelos primeiros passos na criação de um site. Primeiro a gente precisa entender o que é o desenvolvimento web. Pensa na construção de uma casa. O HTML é a estrutura, o esqueleto, ela é a parede, o telhado, as portas da casa. Define o que cada coisa é. O CSS é a decoração da casa. São as cores, são os móveis, são os quadros.",
+            "topic_reference": "Video: Vetores e matrizes",
+            "sequence": 3
+        },
+        {
+            "type_content": "transcription",
+            "content": "Deixa tudo mais bonito. E o JavaScript é a parte funcional de acender as luzes, de abrir a torneira. O JavaScript adiciona interatividade às suas páginas. Hoje o foco desse vídeo é começar bem na base, que é o HTML puro, a base de tudo. Primeiramente, você precisa ter um editor de texto. Eu recomendo fortemente o Visual Studio Code. É uma IDE gratuita que você pode baixar.",
+            "topic_reference": "Video: Vetores e matrizes",
+            "sequence": 4
+        },
+        {
+            "type_content": "transcription",
+            "content": "É muito fácil de usar. E vai ser aqui o nosso editor que a gente vai usar até o final do curso. Então vamos começar pela estrutura básica. Por convenção, o nosso primeiro arquivo HTML que a gente cria é chamado de index.html. Nesse index.html a gente vai construir a nossa página. Mas primeiro a gente precisa dizer para o editor de texto, para a IDE, que a gente vai fazer uma página em HTML.",
+            "topic_reference": "Video: Vetores e matrizes",
+            "sequence": 5
+        },
+        {
+            "type_content": "transcription",
+            "content": "Por isso existe algumas regrinhas, algumas tags específicas para dizer para o editor que a gente está mexendo com HTML. Então no começo de todo o código HTML, a gente precisa escrever menor, exclamação, doc type, tudo manhúsculo, HTML. Isso avisa o navegador que a gente está usando a versão mais recente do HTML. Depois disso, a gente vai começar a abrir a nossa primeira tag.",
+            "topic_reference": "Video: Vetores e matrizes",
+            "sequence": 6
+        },
+        {
+            "type_content": "transcription",
+            "content": "Para você que não entende ainda esse conceito, o HTML funciona muito com essas tags. Então as tags são esses elementos de marcação que definem a estrutura e o conteúdo da página web. Elas são usadas para dizer para o navegador como exibir o conteúdo, como textos, imagens, links e outros elementos que a gente vai ver mais para frente. As tags são escritas entre colcheitas angulares, que são esses maiores e menores.",
+            "topic_reference": "Video: Vetores e matrizes",
+            "sequence": 7
+        },
+        {
+            "type_content": "transcription",
+            "content": "E geralmente isso ocorre em pares. Então se você abre uma tag, você precisa fechar ela. Tem algumas exceções, como por exemplo, desse doc type. E você só é uma tag só, ela não tem um par. Então por exemplo, a nossa tag mãe, a tag principal, é a tag HTML. Então você viu aqui que eu abri uma tag HTML e depois eu fechei ela. Dentro dessa tag, a gente vai fazer outras tags que vai fazer a estrutura bonitinha no nosso site.",
+            "topic_reference": "Video: Vetores e matrizes",
+            "sequence": 8
+        },
+        {
+            "type_content": "transcription",
+            "content": "Mas por que a gente faz essa estrutura? Se você perceber aqui, eu vou escrever qualquer coisa, por exemplo, Oi no meu código. Se você botar para rodar isso no seu navegador, você vai ver que ele aparece lá o Oi. Então você não precisa das tags. Muito ao contrário, as tags são muito importantes para você poder fazer a leitura do seu código. Para você poder identificar o que é cada coisa e onde está cada coisa.",
+            "topic_reference": "Video: Vetores e matrizes",
+            "sequence": 9
+        },
+        {
+            "type_content": "transcription",
+            "content": "Eu vou aqui no meu diretório, na minha pasta e aqui está o meu índex. Se eu clicar duas vezes nele, ele vai abrir o meu navegador padrão e vai estar ali Oi. Se eu fizer a mesma coisa, respeitando aquelas regrinhas, por exemplo, HTML, colocar o Oi aqui dentro, vai acontecer basicamente a mesma coisa. Vou abrir ele aqui. Está lá o meu Oi, ele não mudou.",
+            "topic_reference": "Video: Vetores e matrizes",
+            "sequence": 10
+        },
+        {
+            "type_content": "transcription",
+            "content": "Só que é importante para a gente colocar as tags justamente para a gente poder se achar. Então a gente coloca... Só que a gente não pode só colocar texto simples aqui dentro da nossa tag HTML. Tem outras tags que precisam vir antes. Por exemplo, tem outra tag também que é a tag head. Esse head é a cabeça do site, né? Outra tag que a gente tem também é a tag de título, né?",
+            "topic_reference": "Video: Vetores e matrizes",
+            "sequence": 11
+        },
+        {
+            "type_content": "transcription",
+            "content": "De title. Que vai ser o título que aparece na aba do navegador. Então eu posso colocar aqui, ó. Primeira página. Vou salvar aqui e abrir o meu diretório. Ele vai estar aqui escrito primeira página. Ele deu um pequeno bugzinho aqui, mas deve ser por conta do formato, né? Mas você viu que ele mudou o título, né? Deixa eu deixar assim mais simples. Para ele poder aparecer bonitinho.",
+            "topic_reference": "Video: Vetores e matrizes",
+            "sequence": 12
+        },
+        {
+            "type_content": "transcription",
+            "content": "Primeira página. Uma outra tag bacana é a tag body, né? Todas essas tags são importantes de você ter no seu código HTML. Porque ela vai ser a estrutura do seu código, né? É por aqui que você vai se achar. Então essa tag body é o corpo do site. Tudo que é visível para o usuário, ele vai aqui dentro do body. A gente criou algumas tags de estrutura. Agora a gente vai dando um passo mais à frente para o conteúdo inicial.",
+            "topic_reference": "Video: Vetores e matrizes",
+            "sequence": 13
+        },
+        {
+            "type_content": "transcription",
+            "content": "Adicionar nossas primeiras tags de conteúdo. A gente vai salvar aqui e eu vou mostrar o resultado do navegador. Passo a passo, beleza? Uma tag de conteúdo bem bacana é a tag de título. Que é o H1. Então dentro do H1, se você quiser colocar um título, por exemplo. Olá. Você vê que o formato dele é diferente de um texto normal que eu tinha mostrado atrás.",
+            "topic_reference": "Video: Vetores e matrizes",
+            "sequence": 14
+        },
+        {
+            "type_content": "transcription",
+            "content": "Você vê que ele realmente fica com um título bem grandão. E esse H1, ele tem várias variações. Ele vai do H1 até o H6. Então tem o H2, tem o H3, tem o H4. Eu vou mostrar para vocês que diferentes tipos de tags de título tem diferentes tamanhos também. Então, por exemplo, nós temos o H2. Vamos colocar vários olás aqui. Nós temos o H3. Temos o H4. O bom desse editor de texto do VS Code é que, como vocês podem perceber, eu só digito a tag certinho aqui sem colocar entre os maiores e os menores, então um tab, ele já abre a tag de fechamento e já fecha ela também.",
+            "topic_reference": "Video: Vetores e matrizes",
+            "sequence": 15
+        },
+        {
+            "type_content": "transcription",
+            "content": "Então isso é uma coisa bem bacana do VS Code. Então aqui eu dei vários olás. É um H1 até o H6. Eu vou mostrar para vocês como é que fica. Vão ser vários tipos de tamanhos de títulos diferentes. Isso é importante você saber também, porque em mecanismos de busca, como por exemplo o Google, se o usuário fizer uma busca lá no Google, as palavras-chave da busca, ele vai buscar pelas primeiras tags de título.",
+            "topic_reference": "Video: Vetores e matrizes",
+            "sequence": 16
+        },
+        {
+            "type_content": "transcription",
+            "content": "Por exemplo, se o usuário busca por receita de bolo, você tem que ter, se você quiser que seu site apareça para o usuário, o seu H1 tem que ser receita de bolo. É assim que os mecanismos de busca funcionam. Eles sempre vão procurar pelas tags dentro do código da TML. Para adicionar textos comuns, como por exemplo parágrafos, eu uso a tag P de parágrafo.",
+            "topic_reference": "Video: Vetores e matrizes",
+            "sequence": 17
+        },
+        {
+            "type_content": "transcription",
+            "content": "Então, por exemplo, eu posso colocar um exemplo aqui que o VS Code dá, que é esse lorem. Você dá um tab no lorem, ele faz esse texto enorme aqui, que é um texto em latim. E se você for ver, aqui, se você for ver na nossa página, ele é um texto de parágrafo. Ele é diferente do título, você vê que o título está mais em negrito, ele tem um peso na letra.",
+            "topic_reference": "Video: Vetores e matrizes",
+            "sequence": 18
+        },
+        {
+            "type_content": "transcription",
+            "content": "Ou o parágrafo não. O parágrafo é normal. Mas mais para frente, a gente vai ver como que muda essas fontes. Como é que você define peso, como é que você define fonte, define tamanho da fonte. Por hoje, por esse vídeo, a gente vai ver mais os básicos, mais essas tags de conteúdo e tag de estrutura. Uma coisa muito importante também é, como eu estou usando o VS Code, eu posso usar as extensões que tem no VS Code.",
+            "topic_reference": "Video: Vetores e matrizes",
+            "sequence": 19
+        },
+        {
+            "type_content": "transcription",
+            "content": "E uma extensão extremamente útil e bacana, que eu gosto muito de usar aqui nos códigos de HTML, é a extensão do Prettier. E é uma extensão que formata os códigos de HTML para você. Então, o código HTML não precisa estar indentado. Não precisa estar em uma estrutura específica para funcionar. Como linguagens de programação no Python, por exemplo. O Python é uma linguagem indentada.",
+            "topic_reference": "Video: Vetores e matrizes",
+            "sequence": 20
+        },
+        {
+            "type_content": "transcription",
+            "content": "Ele precisa estar em uma estrutura específica para o código rodar. O HTML não. O HTML você pode fazer tudo em uma linha. Só que para melhorar a legibilidade, melhorar a manutenção do seu código, você segue uma estrutura. E essa extensão que é o Prettier, ele é um formatador de código HTML. Então, se eu vir aqui no meu código HTML, tem aqui essa funcionalidade aqui, botão direito, formate document.",
+            "topic_reference": "Video: Vetores e matrizes",
+            "sequence": 21
+        },
+        {
+            "type_content": "transcription",
+            "content": "Ele vai formatar certinho com o Prettier. Aqui, você vê que ele fez uma quebra de texto aqui no meu parágrafo. Ele deixou aqui mais indentado o meu código para eu poder me localizar mais fácil e melhorar a manutenção do meu código. Então, fica a dica aí dessa extensão para você usar no seu VS Code. Bom, então a gente acaba de criar a nossa primeira página web.",
+            "topic_reference": "Video: Vetores e matrizes",
+            "sequence": 22
+        },
+        {
+            "type_content": "transcription",
+            "content": "Então, a gente aprendeu o HTML, como é que funciona a sua estrutura básica, as tags de estrutura, as tags de conteúdo, como, por exemplo, títulos e parágrafos. No próximo vídeo, a gente vai aprender a organizar esse conteúdo, né? Colocar mais tags, colocar links, imagens, listas. E logo em seguida também, a gente vai começar a mexer com CSS, como que a gente deixa esse site apresentável, esse site bonito.",
+            "topic_reference": "Video: Vetores e matrizes",
+            "sequence": 23
+        },
+        {
+            "type_content": "transcription",
+            "content": "Eu vou terminando por aqui. Se você gostou, deixa um like e até a próxima. Falou!",
+            "topic_reference": "Video: Vetores e matrizes",
+            "sequence": 24
+        },
+        {
+            "type_content": "video",
+            "content": "emYwxMqU2I4",
+            "topic_reference": "Video: Organizando",
+            "sequence": 1
+        },
+        {
+            "type_content": "transcription",
+            "content": "E aí gente, beleza? Bem-vindo de volta à segunda aula do nosso curso de introdução à programação web. No vídeo anterior, demos um passo gigantesco, né? A gente criou a nossa primeira página web do zero, aprendendo sobre a estrutura básica do HTML, as terras de título, parágrafo, etc. A nossa página aqui já existe, mas uma das coisas mais legais da internet é a capacidade de conectar a informação.",
+            "topic_reference": "Video: Manipulando strings",
+            "sequence": 2
+        },
+        {
+            "type_content": "transcription",
+            "content": "Hoje a gente vai fazer exatamente isso. Vamos aprender como adicionar links para outros sites, como colocar imagens para dar vida à nossa página e organizar informações em listas. Vamos deixar nossa página muito mais interessante, muito mais rica em conteúdo. Vamos lá? Então aqui a gente está de volta no nosso código. A primeira coisa que vamos aprender é a tag de link, também chamada de hiperlink.",
+            "topic_reference": "Video: Manipulando strings",
+            "sequence": 3
+        },
+        {
+            "type_content": "transcription",
+            "content": "É ela que permite criar textos clicáveis, né? Que levam o usuário para outras páginas. Para isso, a gente usa a tag A, que é a tag de âncora. Então, por exemplo, eu dou um A aqui, tab, e ele vai abrir aqui uma tag bem diferente. Então o que ele faz aqui? Dentro da tag A, aqui dentro da tag de abertura, ela cria um atributo. Nesse atributo aqui, ele vai receber o link aqui dentro dessas aspas.",
+            "topic_reference": "Video: Manipulando strings",
+            "sequence": 4
+        },
+        {
+            "type_content": "transcription",
+            "content": "Então a gente vai colocar, por exemplo, o site do GitHub. Então, https barra barra, github.com. Essa aqui vai ser a página que vai acessar. E dentro da tag, dentro da âncora, vai ser o texto clicável. Então eu posso colocar aqui, GitHub. Então, basicamente, essa atributo aqui, esse hf, é basicamente para o navegador saber onde o link deve apontar.",
+            "topic_reference": "Video: Manipulando strings",
+            "sequence": 5
+        },
+        {
+            "type_content": "transcription",
+            "content": "Esse hf, ele significa HyperTax Reference. Dentro das aspas... E dentro das aspas do hf, do HyperTax Reference, a gente coloca o reality completo do site que queremos ir. Então aqui, no diretório do nosso site, ele vai ter aqui embaixo uma tag de GitHub. Então ele está aqui em meio azul e meio roxo. Se eu clicar aqui, ele abre o site do GitHub. Só que você percebeu que ele abriu.",
+            "topic_reference": "Video: Manipulando strings",
+            "sequence": 6
+        },
+        {
+            "type_content": "transcription",
+            "content": "Quando eu clico aqui no link, eu perco a minha aba, né? Ele não cria uma nova aba. Para a gente poder fazer com que esse link abra uma nova aba, é muito fácil. É só a gente criar outro atributo lá na nossa âncora. Então aqui do lado do meu link, eu dou um espaço e escrevo tarfit igual... Abre aspas, underline, blank. Voltando lá para o meu site, vou dar um f5 para ele carregar.",
+            "topic_reference": "Video: Manipulando strings",
+            "sequence": 7
+        },
+        {
+            "type_content": "transcription",
+            "content": "Se eu clicar aqui, ele abre em uma nova aba e eu consigo acessar as abas aqui em cima. Os links, eles são ótimos, né? Mas uma imagem vale mais que mil palavras, certo? Então a gente vai adicionar uma foto na nossa página. Para isso, a gente usa a tag... A gente usa a tag IMG. Uma dica importante. Essa tag IMG é uma das poucas que não precisa de tag de fechamento.",
+            "topic_reference": "Video: Manipulando strings",
+            "sequence": 8
+        },
+        {
+            "type_content": "transcription",
+            "content": "Então você percebeu. No vídeo passado eu falei sobre isso, né? Que existe... Praticamente quase todas as tags dentro da KDNL, ela precisa abrir e precisa fechar. Existem algumas exceções, como por exemplo, do doctype HTML e o outro exemplo aqui é o image. Você não precisa fechar a tag de image. Ele só abre com os atributos ali dentro. Dentro do meu diretório, dentro aqui da minha pasta, dos meus códigos, eu preciso criar uma pasta nova.",
+            "topic_reference": "Video: Manipulando strings",
+            "sequence": 9
+        },
+        {
+            "type_content": "transcription",
+            "content": "Então eu vou criar uma pasta nova aqui dentro do VS Code e vai se chamar images, né? Para manter tudo organizado. Dentro dessa pasta, eu vou colocar fotos que vão aparecer lá na minha página web. Então eu salvei aqui dentro da minha pasta images a imagem de um gato, né? O gato.png. Assim como a tag de âncora, a tag image, ela precisa de atributos.",
+            "topic_reference": "Video: Manipulando strings",
+            "sequence": 10
+        },
+        {
+            "type_content": "transcription",
+            "content": "O mais importante é o source. Que é esse S-E-R-C. Source vem da fonte. É onde a imagem está guardada dentro do computador. Como ela está na pasta images, eu escrevo images barra o nome do arquivo. No caso é gato.png. Então ficou aqui bonitinho. Images barra gato.png. Se eu for lá na minha página e recarregar, ele vai subir a foto do gato. O segundo atributo que tem aqui na minha tag image é o atributo de alt, que significa texto alternativo.",
+            "topic_reference": "Video: Manipulando strings",
+            "sequence": 11
+        },
+        {
+            "type_content": "transcription",
+            "content": "Isso é extremamente importante. Se a imagem não carregar por algum motivo, ou se um usuário com deficiência visual estiver usando um leitor de tela, é esse texto que será lido para descrever a imagem. Então aqui, por exemplo, dentro do texto alternativo, eu posso colocar foto de gato. Aqui na minha página web não mudou muita coisa. Mas se eu for aqui e, por exemplo, fazer com que o navegador não consiga carregar o diretor aqui da página, ele vai dar erro e ele vai carregar aqui o texto alternativo.",
+            "topic_reference": "Video: Manipulando strings",
+            "sequence": 12
+        },
+        {
+            "type_content": "transcription",
+            "content": "Bom, dá para perceber que essa imagem ficou bem grande. Não se preocupe, mais para frente a gente vai aprender a controlar o tamanho dela com o CSS no futuro. Por enquanto, a gente vai deixar ela assim. Bom, a nossa página tem texto, ela tem link, ela tem imagem. E para fechar aqui um outro conteúdo, a gente vai aprender sobre organizar as informações em listas.",
+            "topic_reference": "Video: Manipulando strings",
+            "sequence": 13
+        },
+        {
+            "type_content": "transcription",
+            "content": "Existem dois tipos de listas. Listas não ordenadas, para quando a ordem dos itens não importa, como uma lista de ingredientes. E as listas ordenadas, para quando a ordem é fundamental, como um passo a passo. Por enquanto, eu vou apagar tudo o que tem aqui no corpo da minha página. E aqui eu vou digitar uma lista não ordenada. Então, eu vou fazer um H2.",
+            "topic_reference": "Video: Manipulando strings",
+            "sequence": 14
+        },
+        {
+            "type_content": "transcription",
+            "content": "O que eu vou aprender neste curso. Beleza. Feito o nosso H2, a gente vai começar a fazer a lista. A gente abre uma tag chamada UL. Que vem de Unordered List. Lista não ordenada. Dentro dessa tag UL, a gente precisa criar os itens da lista. Então, para cada item, eu preciso criar uma tag. Então, por exemplo, para criar um item, eu faço uma tag li. De list item.",
+            "topic_reference": "Video: Manipulando strings",
+            "sequence": 15
+        },
+        {
+            "type_content": "transcription",
+            "content": "Então, eu coloco aqui. HTML. O próximo. LI. O próximo item. CSS. E, opa. O próximo. LI. JavaScript. Beleza. Dando off 5 lá, você consegue ver que a lista fica bonitinha, como se fosse um tópico. Agora, para listas ordenadas, né? A lógica é a mesma. Só que a gente usa uma tag diferente. Em vez do UL, a gente usa o OL. Que vem de Order List. Lista ordenada.",
+            "topic_reference": "Video: Manipulando strings",
+            "sequence": 16
+        },
+        {
+            "type_content": "transcription",
+            "content": "Então, só trocar aqui pelo L. Beleza. Os itens aqui dentro da Order List, Continuam sendo item, né? A diferença é que o navegador vai renderizar os números na frente de cada item. Automaticamente. Vou mostrar aqui para vocês na página. Ele aparece como um, dois, três. Bonitinho. Uma lista ordenada. Bom, a gente fez um avanço muito bacana. Nossa página aqui era só texto.",
+            "topic_reference": "Video: Manipulando strings",
+            "sequence": 17
+        },
+        {
+            "type_content": "transcription",
+            "content": "Agora, teve links. Teve imagens. Teve informações bem organizadas em listas. E agora vamos recapitular. Como a gente aprendeu sobre a tag âncora, Para criar links, Atributos de referência e target. A tag image, para inserir imagens, né? Com os atributos de source e de texto alternativo. E as tags de listas, né? As listas não ordenadas e das listas ordenadas.",
+            "topic_reference": "Video: Manipulando strings",
+            "sequence": 18
+        },
+        {
+            "type_content": "transcription",
+            "content": "Sempre com os itens list item dentro delas. Sua página tem uma estrutura muito mais rica. Mas eu sei o que você está pensando. Ok, ela ainda está meio feia, né? E você tem razão. A estrutura está pronta. Mas ainda falta aquela parte artística, né? Falta as cores da casa. No nosso próximo vídeo, A gente finalmente vai mergulhar no CSS. Vamos aprender como conectar uma folha de estilo à nossa página.",
+            "topic_reference": "Video: Manipulando strings",
+            "sequence": 19
+        },
+        {
+            "type_content": "transcription",
+            "content": "E como usar seletores para mudar de cores, Mudar a cor do fundo, Mudar as fontes dos textos, Mudar o tamanho dessas fontes, né? É aí que a mágica do design começa a acontecer. Eu espero que você tenha gostado. Se sim, já sabe, já deixa o like. Se inscreva aí para não perder nenhuma aula. E se tiver dúvida, pode deixar aqui nos comentários. Beleza?",
+            "topic_reference": "Video: Manipulando strings",
+            "sequence": 20
+        },
+        {
+            "type_content": "transcription",
+            "content": "Muito obrigado e até a próxima. Boa noite.",
+            "topic_reference": "Video: Manipulando strings",
+            "sequence": 21
+        },
+        {
+            "type_content": "video",
+            "content": "biIiwXOOqfI",
+            "topic_reference": "Video: HTML e CSS",
+            "sequence": 1
+        },
+        {
+            "type_content": "transcription",
+            "content": "E aí pessoal, beleza? Sejam bem-vindos a nossa terceira aula do nosso curso. Até agora a gente construiu a estrutura da nossa página com HTML. Temos títulos, temos textos, links, imagens, listas. Mas a plana da nossa casa digital tá pronta, né? A estrutura dela. Mas sejamos sinceros, ela tá precisando de uma boa decoração, não é mesmo? É exatamente isso que a gente vai fazer hoje.",
+            "topic_reference": "Video: Registros",
+            "sequence": 2
+        },
+        {
+            "type_content": "transcription",
+            "content": "Chegou a hora de conhecermos o nosso segundo super-herói da web, que é o CSS. Ou Cascading Style Sheets. Que seria folhas de estilo em cascata. É com ele que a gente vai definir cor, fonte, espaçamento e transformar a nossa página simples em algo com a nossa cara. Vamos começar a pintar as paredes então. Então de volta aqui no nosso código, existem três formas de adicionar o CSS a uma página.",
+            "topic_reference": "Video: Registros",
+            "sequence": 3
+        },
+        {
+            "type_content": "transcription",
+            "content": "Vamos passar por elas rapidamente, mas focando na mais importante. A primeira forma é o CSS inline. Seria escrever o estilo direto na tag HTML. Então por exemplo, aqui no meu H1, aqui no meu Olá, eu posso colocar aqui dentro da minha tag como se fosse um atributo style. igual. Por exemplo, se eu quero mudar a cor. É color, dois pontos, blue. Você vê aqui que ele já ficou diferente, né?",
+            "topic_reference": "Video: Registros",
+            "sequence": 4
+        },
+        {
+            "type_content": "transcription",
+            "content": "Porque ele aplicou o estilo. Voltando a nossa página aqui, recarregando, você vê que o texto ele muda aqui em cima. Ele fica azul. Esse é o método inline. A segunda forma é o CSS interno. Usando uma tag style dentro do head. É útil para só uma página, por exemplo. Mas ainda não é o ideal se você for mexer com projetos muito grandes. Por exemplo, dentro do head.",
+            "topic_reference": "Video: Registros",
+            "sequence": 5
+        },
+        {
+            "type_content": "transcription",
+            "content": "Você criar aqui uma tag style. E aqui você definir os estilos da sua página. E a terceira forma, e melhor forma, é o CSS externo. É a prática profissional padrão que todos os desenvolvedores usam atualmente, né? A gente cria um arquivo totalmente separado só para fazer estilo. Isso mantém o nosso projeto limpo aqui, né? O código só com HTML e o código só para CSS.",
+            "topic_reference": "Video: Registros",
+            "sequence": 6
+        },
+        {
+            "type_content": "transcription",
+            "content": "Vamos fazer isso então. Aqui no nosso diretório, na nossa página dos códigos web, a gente vai criar um novo arquivo. Esse arquivo vai se chamar style.css. O nome pode ser qualquer um, mas style.css é uma convenção bem forte. Ótimo, a gente tem dois arquivos. Mas como que o index.html sabe que ele deve usar os estilos do style.css? A gente precisa conectar eles.",
+            "topic_reference": "Video: Registros",
+            "sequence": 7
+        },
+        {
+            "type_content": "transcription",
+            "content": "Então a gente vai voltar aqui para o index. E vai aqui dentro do nosso head. Conectar. Então aqui dentro do nosso tag head, eu vou colocar aqui algumas tags, como por exemplo, o meta. para fornecer algumas informações adicionais aqui para a minha página. Por exemplo, o meta.css.utf-8. Esse utf-8 é um padrão de texto que tem na internet. Agora sim, para conectar o nosso CSS, a gente usa o link, a tag link.",
+            "topic_reference": "Video: Registros",
+            "sequence": 8
+        },
+        {
+            "type_content": "transcription",
+            "content": "Ele já faz aqui o rel stylesheet.href, que é a nossa referência. Essa referência aqui, a gente bota o nome do nosso arquivo. Perceba que essa tag de link também não precisa ter fechamento. Ela vai receber dois atributos, que é o rel, e vai dizer que esse é um link para uma folha de estilos. E o mais importante, que é a referência, que é o caminho para o nosso arquivo CSS.",
+            "topic_reference": "Video: Registros",
+            "sequence": 9
+        },
+        {
+            "type_content": "transcription",
+            "content": "Simples assim. Agora eles estão conectados bonitinho. Agora que eles estão conectados, a gente pode começar a estilizar. A sintaxe do CSS é bem simples. Ela funciona da seguinte maneira. A gente tem um seletor, abre chaves, propriedade, dois pontos, valor, ponto e vírgula, fecha essa chave. Então é seletor, propriedade e valor. O seletor é a nossa mira.",
+            "topic_reference": "Video: Registros",
+            "sequence": 10
+        },
+        {
+            "type_content": "transcription",
+            "content": "É como dizemos ao CSS qual elemento do HTML ele deve estilizar. Vamos ver os três tipos básicos. Então se eu quiser mudar a cor de fundo de toda a nossa página, qual tag que contém tudo o que é visível? É a tag body dentro aqui do nosso HTML. Então o nosso seletor vai ser o body. A gente abre chaves. E aqui eu vou colocar background color, que é a cor de fundo.",
+            "topic_reference": "Video: Registros",
+            "sequence": 11
+        },
+        {
+            "type_content": "transcription",
+            "content": "Vou colocar aqui, por exemplo, azul, para ficar uma cor bem viva. Dentro aqui do nosso código, você vê que ele mudou todo o nosso corpo do código para essa cor azul. Aqui no esquema de cores, a gente não precisa só colocar o nome. A gente pode colocar o código hexadecimal das cores. Você pode fazer da seguinte maneira. Por exemplo, 000. Ele recebe a cor preta.",
+            "topic_reference": "Video: Registros",
+            "sequence": 12
+        },
+        {
+            "type_content": "transcription",
+            "content": "O FFF, que é a cor branca. Vamos colocar aqui, por exemplo, um gray. E um outro seletor que a gente pode fazer é para os parágrafos. Então, P. Abre chaves. Color. Color. Posso colocar, sei lá, branco. White. Ponto e vírgula para fechar. Aqui você viu que ele mudou só o texto do parágrafo para branco. Mas então, se eu quiser estilizar só um elemento específico, um grupo de elementos, aí entram as classes e os IDs.",
+            "topic_reference": "Video: Registros",
+            "sequence": 13
+        },
+        {
+            "type_content": "transcription",
+            "content": "A gente usa uma classe quando a gente quer aplicar o mesmo estilo a um ou mais elementos. Mas não a todos. Vamos, por exemplo, destacar um dos nossos objetivos na lista. Primeiro, no HTML, eu preciso dar uma classe a ele. Então, voltando lá no meu HTML, por exemplo, nesse item da lista aqui, o HTML. Eu crio uma classe para ele. Dentro aqui da tag, eu crio uma classe como um atributo.",
+            "topic_reference": "Video: Registros",
+            "sequence": 14
+        },
+        {
+            "type_content": "transcription",
+            "content": "Por exemplo, a classe vai se chamar... Tem que estar dentro dos... Das aspas. A classe, eu posso dar o nome que quiser. Eu vou colocar aqui o nome destaque. Agora, voltando lá no meu CSS, eu posso colocar, por exemplo, para fazer o seletor de classe, eu coloco ponto o nome da classe. Que é destaque. Aí eu mudo a cor dele. Por exemplo, color yellow.",
+            "topic_reference": "Video: Registros",
+            "sequence": 15
+        },
+        {
+            "type_content": "transcription",
+            "content": "Só para deixar bem visível. Então, você viu que só o elemento HTML, que faz parte da classe destaque, recebeu essa mudança. Se eu fosse, por exemplo, dentro aqui do meu HTML, se eu fosse, por exemplo, selecionar essa tag que é o L, ele ia pintar tudo que tem dentro da L. Ou seja, ele ia pintar tudo. Ou pintar só os LI. Ele ia pintar tudo que é LI.",
+            "topic_reference": "Video: Registros",
+            "sequence": 16
+        },
+        {
+            "type_content": "transcription",
+            "content": "Inclusive, pegando esses aqui de baixo, que são de uma outra lista. Então, é importante que a gente defina as classes certinho, para a gente mexer só no que a gente quer. E se eu quisesse que o segundo item também tivesse destaque, era só adicionar a mesma classe nele. Classes são reutilizáveis. Por fim, o ID. A gente usa o ID para mirar em um único elemento na nossa página.",
+            "topic_reference": "Video: Registros",
+            "sequence": 17
+        },
+        {
+            "type_content": "transcription",
+            "content": "Um ID deve ser exclusivo. Como é o nosso número de RG? É perfeito para o nosso título principal, o H1. Já que só temos apenas um. Então, aqui no nosso H1, a gente passa como atributo, ID igual, por exemplo, título principal. E lá no nosso estilo, para usar os IDs, a gente usa hashtag. Título principal. Então, por exemplo, eu quero que a cor dele seja vermelho.",
+            "topic_reference": "Video: Registros",
+            "sequence": 18
+        },
+        {
+            "type_content": "transcription",
+            "content": "Red. No F5 lá, ele mudou. Foi uma baita diferença, né? A nossa página tem mais personalidade, né? Hoje foi um dia denso, mas muito importante. Vamos recapitular tudo que a gente aprendeu. Então, a gente aprendeu sobre a melhor forma de usar o CSS é com o arquivo externo linkado lá no Red. A sintaxe básica do CSS é seletor, propriedade e valor. Os três seletores básicos.",
+            "topic_reference": "Video: Registros",
+            "sequence": 19
+        },
+        {
+            "type_content": "transcription",
+            "content": "Tag. Por exemplo, só o body, né? Mirem todas as tags daquele tipo. Classe. Por exemplo, a ponto destaque, né? Mirem elementos com aquela classe, né? Usar ponto. E o ID, que é o título principal, né? Mirem um único elemento. O que ele é disso? Usa hashtag. Agora você já tem o poder de começar a estilizar qualquer elemento da sua página. No próximo vídeo, a gente vai se aprofundar ainda mais nessas propriedades do CSS.",
+            "topic_reference": "Video: Registros",
+            "sequence": 20
+        },
+        {
+            "type_content": "transcription",
+            "content": "A gente vai falar de fontes, como alterar o tamanho das coisas. E o mais importante, vamos desvendar o segredo de todo o layout na web. Que é o Box Model, o modelo de caixa. Você vai entender como é que funcionam as margens, bordas e preenchimentos. Se você curtiu ver a sua página ganhar cor, deixa aquele like aí pra eu saber. Se inscreva pra não perder a próxima aula, que é fundamental.",
+            "topic_reference": "Video: Registros",
+            "sequence": 21
+        },
+        {
+            "type_content": "transcription",
+            "content": "E qualquer dúvida, o campo de comentários é todo de vocês. Um abraço e até lá.",
+            "topic_reference": "Video: Registros",
+            "sequence": 22
+        },
+        {
+            "type_content": "video",
+            "content": "gaL-42_HiME",
+            "topic_reference": "Video: Box Model",
+            "sequence": 1
+        },
+        {
+            "type_content": "transcription",
+            "content": "E aí, sejam bem-vindos de volta a nossa quarta aula do nosso curso de introdução à programação web. No último vídeo, demos um banho de loja na nossa página com o CSS. Aprendemos a usar seletores, mudar cores de linhas e alinhar textos. Nossa página já tem uma identidade visual. Mas e se quiséssemos ter mais controle, né? E o mais importante, como controlamos os espaços entre os elementos para criar um layout bem harmonioso?",
+            "topic_reference": "Video: Funções",
+            "sequence": 2
+        },
+        {
+            "type_content": "transcription",
+            "content": "É isso que a gente vai aprender hoje. Vamos nos aprofundar em mais propriedades de estilo e desvendar o segredo de todo layout na web, que é o modelo de caixa ou box modo. Então vamos lá. De volta aqui no nosso código, no style.css, vamos começar deixando a nossa tipografia mais interessante. Para mudar a fonte de todo o site, podemos aplicar a propriedade fonte family diretamente no body, que vai englobar tudo.",
+            "topic_reference": "Video: Funções",
+            "sequence": 3
+        },
+        {
+            "type_content": "transcription",
+            "content": "Já que a maioria dos elementos herda o estilo do body. Então aqui dentro das nossas chaves, a gente pode colocar font family. E aqui o nosso editor de texto já dá várias opções de fontes. Eu vou colocar, por exemplo, a Arial Helvetica sem serifa. Vou mudar também o nosso background para white. Ou posso deixar em light gray. Será que tem essa opção?",
+            "topic_reference": "Video: Funções",
+            "sequence": 4
+        },
+        {
+            "type_content": "transcription",
+            "content": "Tem aqui, light gray. Vou deixar a cor do nosso parágrafo. Pode ser preto mesmo. Padrão. Beleza. Você percebeu que ele mudou aquela fonte padrão que estava, eu acho que era times, e aplicou a fonte Arial aqui sem serifa. Bom, você deve ter percebido que eu subi duas fontes, Arial e Auvética. Para uma boa prática colocar duas ou até mais opções, o navegador vai tentar sempre usar a primeira, que no caso aqui é Arial.",
+            "topic_reference": "Video: Funções",
+            "sequence": 5
+        },
+        {
+            "type_content": "transcription",
+            "content": "Se o usuário, por algum motivo, não tiver essa fonte, o navegador vai tentar usar a segunda, e é a Auvética. E assim por diante. Falando mais um pouco das propriedades do CSS, a gente pode também controlar o tamanho da fonte com font size. Então, aqui dentro das minhas ferramentas, eu posso colocar font size, e se eu quiser deixar ela maior, eu posso colocar ou esses atributos aqui, large, larger, médium, small, ou eu posso colocar um número, por exemplo, 18.",
+            "topic_reference": "Video: Funções",
+            "sequence": 6
+        },
+        {
+            "type_content": "transcription",
+            "content": "Vamos recarregando essa página. E se de um 18px. Funciona em pixels. Você vê que ela dá uma aumentada. Uma coisa interessante que eu não mostrei nos últimos vídeos, é como fazer comentários dentro do código HTML. Como nas linguagens de programação, os comentários não aparecem também no navegador, no seu resultado final. Para você fazer comentários, você usa menor, exclamação, traço, traço, e ele precisa também fechar.",
+            "topic_reference": "Video: Funções",
+            "sequence": 7
+        },
+        {
+            "type_content": "transcription",
+            "content": "Então, traço, traço, maior. Então, você vê que eu comentei aqui só esse trecho da imagem. Você vê que como eu comentei, a imagem não aparece, mas ela é um comentário, e sumiu a imagem. Então, voltando aqui do nosso, voltando a nossa propriedade CSS, a gente pode controlar o peso da fonte. Que no caso seria o fonte, que é o fonte Wade. Se eu quero que ela seja uma fonte, por exemplo, em negrito, né?",
+            "topic_reference": "Video: Funções",
+            "sequence": 8
+        },
+        {
+            "type_content": "transcription",
+            "content": "Então, eu coloco aqui Bold. Todas as fontes dentro do meu body, elas vão ficar em negrito. Voltando aqui para a nossa imagem, eu tirei o comentário dela, né? E vocês lembram que ela estava muito grande, ocupando muito espaço aqui da nossa página. A gente pode mudar o tamanho dela usando as propriedades Width, que é a largura, e Hide, que é a altura.",
+            "topic_reference": "Video: Funções",
+            "sequence": 9
+        },
+        {
+            "type_content": "transcription",
+            "content": "Então, aqui eu vou criar um outro seletor, que é o seletor da minha tag ima de lá do meu código. Então, por exemplo, eu defino a largura dela, o widget, em 200 pixels, por uma altura de 200 pixels também. Ela vai ficar bem quadrada. Dando f5 aqui, ela ficou bem quadrada, 200 por 200. Você vê que ele não cortou a imagem, ele redimensionou mesmo. Então, por exemplo, para a imagem ficar mais alta em definição, eu posso aumentar a largura dela, por exemplo, colocar 300 pixels.",
+            "topic_reference": "Video: Funções",
+            "sequence": 10
+        },
+        {
+            "type_content": "transcription",
+            "content": "Ela já deixa mais ou menos no tamanho original que estava na resolução. Sempre tem que ter cuidado ao definir alturas e larguras fixas, porque isso pode distorcer a imagem como a gente fez. Uma técnica melhor é definir apenas a largura e deixar a altura automática para manter a proporção. Mas, por agora, isso funciona, né? Beleza, a gente viu várias propriedades CSS, mas agora a gente vai entrar no conceito mais importante de hoje.",
+            "topic_reference": "Video: Funções",
+            "sequence": 11
+        },
+        {
+            "type_content": "transcription",
+            "content": "Que é, no CSS, tudo é uma caixa. Uma título é uma caixa, um parágrafo é uma caixa, uma imagem é uma caixa. Entender como que essa caixa funciona é a chave para criar qualquer layout. Então, pensa num quadro na parede, ela tem quatro camadas. O conteúdo, que vai ser a foto em si, desse quadro, nosso texto, a nossa imagem. O preenchimento, que é aqui no CSS o padding, é um espaço interno entre a foto e a moldura.",
+            "topic_reference": "Video: Funções",
+            "sequence": 12
+        },
+        {
+            "type_content": "transcription",
+            "content": "A borda, que no CSS é o border, que é a moldura do quadro. E a margin, que dentro do CSS é o margin, é o espaço em branco na parede entre este quadro e os outros. Aqui, no nosso código CSS, eu vou criar aqui uma nova div. Que é uma tag de divisão, de sessão. E essa div vai receber a classe caixa exemplo. Aqui, nossa div, eu coloco aqui esta. É uma caixa para demonstrar o box model.",
+            "topic_reference": "Video: Funções",
+            "sequence": 13
+        },
+        {
+            "type_content": "transcription",
+            "content": "Beleza. Lá no nosso estilo, eu vou modificar essa classe. Então, ponto, caixa exemplo. Abre chaves. Então, eu vou colocar aqui, background color. Eu vou colocar em azul. Vou definir um tamanho para o conteúdo. Então, width 400px. Vou adicionar um padding, um espaçamento interno. Então, padding. 20px. Vou adicionar uma borda. Então, border. 5px. Solid.",
+            "topic_reference": "Video: Funções",
+            "sequence": 14
+        },
+        {
+            "type_content": "transcription",
+            "content": "Vou adicionar uma cor. Sei lá. Blue. Vermelho. Para dar uma diferenciada. E adicionar uma margem. Um espaçamento interno. Então, margin. 40px. Eu esqueci do ponto de ver aqui. Beleza. Então, veja só que legal. O padding, ele criou um espaço dentro da caixa. Que é esse azul. E o margin criou um espaço fora da caixa. Empurrando para longe os outros elementos.",
+            "topic_reference": "Video: Funções",
+            "sequence": 15
+        },
+        {
+            "type_content": "transcription",
+            "content": "Você vê que ele está deslocado aqui. Dentro aqui do navegador. Tem as ferramentas de desenvolvedor. Que são os DevTools. Então, aqui eu posso clicar em inspecionar. Aqui dentro das DevTools. Eu tenho aqui. O próprio navegador nos mostra. Um diagrama da BoxModel. Veja aqui. Está o conteúdo padding. A borda. E a margem. Então, eu posso fechar essa DevTools aqui.",
+            "topic_reference": "Video: Funções",
+            "sequence": 16
+        },
+        {
+            "type_content": "transcription",
+            "content": "E vou selecionar. Esse texto. E vou inspecionar ele. Você pode ver que ele destaca. Cada área correspondente na página. Então, o nosso conteúdo. O padding. A borda. O margin. Entender sobre esse BoxModel. Ajuda muito a você. A criar layout. Então, usem a Booz. Dessa ferramenta. Ela é a melhor amiga. Do desenvolvedor. Font-end. Então, a gente viu muita coisa.",
+            "topic_reference": "Video: Funções",
+            "sequence": 17
+        },
+        {
+            "type_content": "transcription",
+            "content": "A gente tem um controle. Muito mais fino. Sobre a aparência. E principalmente. Sobre o posicionamento. Dos elementos. Da nossa página. Vamos recapitular. Tudo que a gente viu. Nesse vídeo hoje. A gente viu. Como alterar a família. De fontes. O tamanho das fontes. O peso das fontes. Como controlar as dimensões. De um elemento. Usando a widget. E height.",
+            "topic_reference": "Video: Funções",
+            "sequence": 18
+        },
+        {
+            "type_content": "transcription",
+            "content": "Largura e altura. O que é esse BoxModel. A estrutura de todo elemento. Esse modelo de caixa. E entender. E como que entender isso. É fundamental. Para construir qualquer layout. As quatro camadas. Margin. Margin. Border. Padding. E content. Que é o conteúdo. Com esse conhecimento. De hoje. Você já pode. Começar a criar layouts. Mais complexos. Organizando os espaços.",
+            "topic_reference": "Video: Funções",
+            "sequence": 19
+        },
+        {
+            "type_content": "transcription",
+            "content": "Entre os elementos. Brinquem com os valores. De margem. E de padding. Para ver os efeitos. Que isso faz. Na sua página web. Nossa página. Ela já tem a estrutura. HTML. E um estilo. Bem definido. Que é o CSS. Mas ela ainda. É uma página morta. Ela não faz nada. Ela não tem. Nenhuma interação. No próximo vídeo. A gente vai mudar isso radicalmente. Deremos nosso.",
+            "topic_reference": "Video: Funções",
+            "sequence": 20
+        },
+        {
+            "type_content": "transcription",
+            "content": "Primeiro passo. No mundo. Da programação. De fardade. Adicionando interatividade. E a vida. A página. Com a linguagem. De programação. JavaScript. Se você gostou desse vídeo. Deixa um like. Se inscreva no canal. Para não perder. O início da nossa jornada. Com JavaScript. As dúvidas. Sempre podem ir. Nos comentários. Um abraço. E até a próxima aula.",
+            "topic_reference": "Video: Funções",
+            "sequence": 21
+        },
+        {
+            "type_content": "video",
+            "content": "hrULJtR-mBA",
+            "topic_reference": "Video: JavaScript",
+            "sequence": 1
+        },
+        {
+            "type_content": "transcription",
+            "content": "E aí galera, beleza? Bem-vindos à nossa quinta aula do nosso curso de Introdução à Programação Web. Olha só, o caminho que a gente já percorreu. A gente deu a estrutura para a nossa página HTML, demos todo o estilo e aparência com o CSS à nossa casa digital aqui. Ela tem paredes, ela tem portas e já está toda pintada e decorada. Mas ainda é uma maquete, nada se move, nada acontece, ela é estática.",
+            "topic_reference": "Video: Vetores e matrizes",
+            "sequence": 2
+        },
+        {
+            "type_content": "transcription",
+            "content": "E se quiséssemos que ao clicar no botão uma mensagem aparecesse ou que uma imagem mudasse, para isso a gente precisa ligar a eletricidade da nossa casa. E essa eletricidade tem nome, é o JavaScript. Hoje vamos dar nossos primeiros passos na programação de verdade, uma linguagem de programação. Vamos usar o JavaScript para ouvir o que o usuário faz e fazer a nossa página reagir.",
+            "topic_reference": "Video: Vetores e matrizes",
+            "sequence": 3
+        },
+        {
+            "type_content": "transcription",
+            "content": "Vai ser um salto gigantesco, então vamos dar vida para o nosso projeto. De volta aqui no VS Code, de volta ao nosso projeto, assim como a gente fez com o CSS, a melhor forma de organizar o nosso código JavaScript é em um arquivo separado. Então vamos criar o nosso arquivo chamado script.js. Clica aqui em new file, script.js. Agora a gente precisa conectar esse arquivo ao nosso index.",
+            "topic_reference": "Video: Vetores e matrizes",
+            "sequence": 4
+        },
+        {
+            "type_content": "transcription",
+            "content": "html igualzinho ao CSS. Mas aqui tem um detalhe importante sobre onde fazer essa conexão. Com o CSS nós colocamos a tag link lá no head. Então aqui a gente tem a tag link dentro do head para fazer a conexão do CSS com o HTML. Com o JavaScript a melhor prática é colocar a tag script no finalzinho do body. Então antes de fechar aqui a nossa tag do body, a gente adiciona uma tag chamada script.",
+            "topic_reference": "Video: Vetores e matrizes",
+            "sequence": 5
+        },
+        {
+            "type_content": "transcription",
+            "content": "Dentro dessa tag a gente coloca o source, que vai ser o caminho, vai ser o diretório onde o arquivo se encontra. Então dentro da tag de fechamento a gente coloca source igual, entre aspas, o nome do nosso arquivo. script.js. Então a tag é script e a gente usa o atributo, o source, para apontar o nosso arquivo. Porque antes da tag do body fechar. O navegador vai ler o seu arquivo HTML de cima para baixo.",
+            "topic_reference": "Video: Vetores e matrizes",
+            "sequence": 6
+        },
+        {
+            "type_content": "transcription",
+            "content": "Se colocássemos o script no início, ele tentaria executar o JavaScript antes mesmo de ter carregado os elementos HTML da sua página. Como os botões e os títulos. Nosso script não encontrarei os elementos para manipular e pode dar algum erro no meio da execução. Colocando no final a gente garante que toda a página já foi carregada e está pronta para rodar e para ser manipulada pelo nosso script.",
+            "topic_reference": "Video: Vetores e matrizes",
+            "sequence": 7
+        },
+        {
+            "type_content": "transcription",
+            "content": "Então vamos escrever a nossa primeira linha de código aqui dentro do nosso arquivo de JavaScript. Existe uma ferramenta essencial para todo programador, que é o console do navegador. Podemos enviar mensagens para ele testar se o nosso código está funcionando. Então vamos fazer isso com o comando chamado console.log. Que você simplesmente dá um print na tela do console do navegador.",
+            "topic_reference": "Video: Vetores e matrizes",
+            "sequence": 8
+        },
+        {
+            "type_content": "transcription",
+            "content": "É igual que fosse o print do Python ou o printf da linguagem C. Então console.log.log.com.br Então com o arquivo salvo a gente vai aqui na nossa página. Dá um F5. E a gente clica aqui em inspecionar a nossa página. No inspecionar a gente tem aqui a aba console. Aqui em cima. Dentro aqui vai ter a nossa linha lá do JavaScript. A mensagem apareceu aqui.",
+            "topic_reference": "Video: Vetores e matrizes",
+            "sequence": 9
+        },
+        {
+            "type_content": "transcription",
+            "content": "Isso confirma que os nossos arquivos estão conectados. E o JavaScript está rodando bacana. O console é o nosso melhor amigo aqui para debugar e entender o que está acontecendo de fato. Aqui no nosso código se a gente se encontrar com algum erro ou se a gente estiver perdido no meio da execução. Ok. Agora vamos para a mágica de verdade. O nosso objetivo hoje nesse vídeo.",
+            "topic_reference": "Video: Vetores e matrizes",
+            "sequence": 10
+        },
+        {
+            "type_content": "transcription",
+            "content": "Vamos fazer uma mensagem de alerta. Aparecer quando clicar em um botão. Então lá no nosso index HTML a gente precisa criar esse botão. Então depois da nossa lista aqui. A gente cria uma tag chamada button. Como atributo aqui na tag de abertura. A gente coloca um id para ele. Vou colocar botão. E no nosso botão vai estar escrito. Clica aqui. Pronto.",
+            "topic_reference": "Video: Vetores e matrizes",
+            "sequence": 11
+        },
+        {
+            "type_content": "transcription",
+            "content": "A gente conseguiu. A gente deu um id para a tag que é muito importante. Agora a gente vai lá no nosso JavaScript. No nosso JavaScript. E a gente seleciona o elemento que a gente quer manipular aqui dentro. Então a gente cria uma constante. Const. Botão. Igual. Document. Query. Selector. E o nosso id aqui dentro. Botão. Eu vou até mudar o id. Para não ficar o nome da.",
+            "topic_reference": "Video: Vetores e matrizes",
+            "sequence": 12
+        },
+        {
+            "type_content": "transcription",
+            "content": "Igual o nome da variável. Pode acabar dando. Algum problema. Botão interativo. Muda aqui também. Beleza. Agora a gente vai. Definir. A ação que vai acontecer. A nossa função. Então a gente. Abre uma função aqui. Function. Mostrar. Alerta. Abre o nosso bloco de código aqui. A nossa função. E bota. Alert. É. Parabéns. Você acaba de. Executar. Sua primeira.",
+            "topic_reference": "Video: Vetores e matrizes",
+            "sequence": 13
+        },
+        {
+            "type_content": "transcription",
+            "content": "Função. Javascript. Beleza. Depois aqui da nossa função. A gente precisa conectar a ação ao evento. Ouvir o clique do botão. Então a gente pega a nossa. O nome da nossa variável. Dentro do script aqui. Ponto. Add. Event. Listener. Abre parênteses. Aspa simples. Clique. Depois. Vírgula. A nossa função. Mostrar. Alerta. Ponto e vírgula no final. Então vamos por partes aqui.",
+            "topic_reference": "Video: Vetores e matrizes",
+            "sequence": 14
+        },
+        {
+            "type_content": "transcription",
+            "content": "Primeiro. A gente seleciona o botão. A gente usa. Esse document. Ponto. Query selector. Ele busca no documento. HTML. Um elemento. Que corresponda ao seletor. Que a gente passou para ele aqui. Vejam. Que o seletor. O id. Botão. Interativo. É o mesmo seletor de id. Que a gente usa no CSS. Então a gente guarda o botão. Encontrado numa caixinha. Numa espécie de caixinha.",
+            "topic_reference": "Video: Vetores e matrizes",
+            "sequence": 15
+        },
+        {
+            "type_content": "transcription",
+            "content": "Que a gente chama de botão. Que é a nossa variável. Em segundo lugar. A gente define a ação. A gente cria uma função. Que é um bloco de código reutilizável. A gente dá um nome a ela. Que é esse mostrar alerta. E tudo que tiver dentro das chaves. Dentro do bloco de código. Vai acontecer. Quando essa função for chamada. Por enquanto. Ela só vai chamar o botão.",
+            "topic_reference": "Video: Vetores e matrizes",
+            "sequence": 16
+        },
+        {
+            "type_content": "transcription",
+            "content": "O comando alert. Exibe aquela caixinha. De alerta. Padrão do navegador. E terceiro aqui. A gente conecta tudo. Essa linha. É a cola. Dizemos. Ei. Botão. Adiciona um ouvinte de evento. Add event. Event. Event. Event. Lister. O evento. Que você vai ouvir. É o clique. E quando você ouvir um clique. Execute. A função. Mostrar alerta. Simples assim. Então voltando para a nossa página aqui.",
+            "topic_reference": "Video: Vetores e matrizes",
+            "sequence": 17
+        },
+        {
+            "type_content": "transcription",
+            "content": "A gente dá uma recarregada. Já aparece o botãozinho aqui. A gente clica aqui. E ele aparece aqui. Essa caixinha de aviso. Padrão do navegador. Essa página diz parabéns. Você acaba de executar. A sua primeira função. JavaScript. Então fazendo todo esse esquema. Do JavaScript. Você acaba de cruzar. Uma fronteira muito importante. Vocês não estão. Vocês não estão mais apenas.",
+            "topic_reference": "Video: Vetores e matrizes",
+            "sequence": 18
+        },
+        {
+            "type_content": "transcription",
+            "content": "Marcando. E estilizando o conteúdo. Igual você faz com HTML. CSS. Você está programando. O comportamento. De uma página. Tem uma lógica. Por trás disso. Por isso que. A gente não chama. HTML. CSS. De linguagem. De programação. Porque uma linguagem. De programação. Ela necessita. Ter uma lógica. E aqui no nosso JavaScript. A gente tem uma lógica. A gente tem.",
+            "topic_reference": "Video: Vetores e matrizes",
+            "sequence": 19
+        },
+        {
+            "type_content": "transcription",
+            "content": "Variável. A gente tem um bloco de código. Quando esse bloco de código. For acionado. Ele vai mostrar. O que está ali dentro. Ele é reutilizável. Então tem toda uma lógica. Por trás. HTML. CSS. É mais estilização. É mais marcação. Então a gente não chama isso. De linguagem de programação. Então vamos recapitular. Aqui tudo que a gente aprendeu. A gente criou.",
+            "topic_reference": "Video: Vetores e matrizes",
+            "sequence": 20
+        },
+        {
+            "type_content": "transcription",
+            "content": "Um arquivo. Script. Ojs. Linkamos. No final do body. A gente. Eu expliquei. A importância. De ele estar. No final do body. A gente usou. O console. O .log. O .log. Para verificar a conexão. A gente. Aprendeu. Que esse console. Do navegador. É o nosso melhor amigo. Ele que. Se você quiser. Debugar alguma coisa. Se quiser ver. Se alguma função. Está funcionando.",
+            "topic_reference": "Video: Vetores e matrizes",
+            "sequence": 21
+        },
+        {
+            "type_content": "transcription",
+            "content": "Você pode ver aqui. Pelo console. Do navegador. Aprendemos. Essa lógica. De três passos. Selecionar um elemento. Definir uma função. Conectar a função. Usando aquele evento. AddEventListener. E todas essas funções. Esse AddEventListener. Esse Alert. Esse QueerSelector. Eles são funções. Prontas do JavaScript. Então se você tiver. Alguma dúvida. Sobre eles.",
+            "topic_reference": "Video: Vetores e matrizes",
+            "sequence": 22
+        },
+        {
+            "type_content": "transcription",
+            "content": "Se você quiser. Aprender novas funções. Você pode. Ler a documentação. Do JavaScript. No site oficial. Vai estar tudo lá. Bonitinho. Explicando como funciona. Isso que a gente fez. Hoje. É a base. Para tudo. Que é interativo. Na web. Abrir um menu. Validar um formulário. Criar um jogo. Tudo começa. Com esses mesmos princípios. Agora que a gente. Já tem uma noção.",
+            "topic_reference": "Video: Vetores e matrizes",
+            "sequence": 23
+        },
+        {
+            "type_content": "transcription",
+            "content": "Das três grandes. Tecnologias. Né. HTML. CSS. E JavaScript. Que tal. A gente. Prender um atalho. No próximo. No próximo. Vídeo. A gente. Vai conhecer. Uma ferramenta. Que usa. Tudo isso. Para. Nos ajudar. A criar. Layouts. Profissionais. E responsivos. De maneira. Muito mais rápida. A gente. Vai falar. Sobre o framework. CSS. Mais famoso. Do mundo.",
+            "topic_reference": "Video: Vetores e matrizes",
+            "sequence": 24
+        },
+        {
+            "type_content": "transcription",
+            "content": "Que é o Bootstrap. Nossa aula. Vai acabando. Por aqui. Se você gostou. Aperta o botão. De like. E se inscreva. Porque a partir de agora. As coisas. Vão ficar. Cada vez. Mais. Poderosas. Dúvidas. Desabafos. Comemorações. Comentários. Estão aqui embaixo. Viu. Um abraço. E até a próxima.",
+            "topic_reference": "Video: Vetores e matrizes",
+            "sequence": 25
+        },
+        {
+            "type_content": "video",
+            "content": "r2tCxpunc34",
+            "topic_reference": "Video: Bootstrap",
+            "sequence": 1
+        },
+        {
+            "type_content": "transcription",
+            "content": "E aí gente, beleza? Sejam bem-vindos a nossa sexta aula do nosso curso de introdução à programação web. A gente já aprendeu a construir a nossa estrutura com HTML, decorar um pouco com CSS, até adicionar uma pitada de interatividade com o JavaScript. Com isso, a gente já tem o poder de construir qualquer site que a gente quiser do zero. Mas no mundo profissional, tempo é dinheiro e muitas vezes a gente não precisa ficar reinventando a roda.",
+            "topic_reference": "Video: Manipulando strings",
+            "sequence": 2
+        },
+        {
+            "type_content": "transcription",
+            "content": "E se existisse uma caixa de ferramenta enorme, com botões, menus, formulários, um sistema de layout pronto, testados e bem bonitos, que a gente pudesse apenas pegar e usar? Essa caixa de ferramenta existe e a mais famosa delas se chama Bootstrap. O Bootstrap é um framework CSS. Pense nele como se fosse um kit de peças de design prontos. Hoje, a gente vai aprender a usar esse kit para dar uma aparência muito mais profissional à nossa página.",
+            "topic_reference": "Video: Manipulando strings",
+            "sequence": 3
+        },
+        {
+            "type_content": "transcription",
+            "content": "E o mais importante, de forma muito, mas muito mais rápida. Então vamos começar. A nossa primeira coisa a fazer é ir ao site oficial do Bootstrap, que é esse getbootstrap.com. Certifique-se que ele está na versão mais recente. O Bootstrap é, na essência, um conjunto de arquivos CSS e JavaScript também. Para usá-lo, a gente só precisa linkar esses arquivos no nosso HTML, assim como a gente fez com os nossos próprios arquivos.",
+            "topic_reference": "Video: Manipulando strings",
+            "sequence": 4
+        },
+        {
+            "type_content": "transcription",
+            "content": "Então a gente tem duas maneiras de usar o Bootstrap. Uma é instalando um gerente de pacotes e outra é conectar usando uma CDN, que é esse Content Delivery Network. Essa é a forma mais fácil. Isso significa que, em vez de baixar os arquivos para o nosso computador, vamos usar apenas um link para os arquivos que já estão hospedados nos servidores do Bootstrap.",
+            "topic_reference": "Video: Manipulando strings",
+            "sequence": 5
+        },
+        {
+            "type_content": "transcription",
+            "content": "É bem rápido. Bom, então aqui a gente tem dois blocos de código para copiar. O primeiro é um link para um arquivo CSS. Onde que a gente coloca isso? Exatamente, no head. A gente vem aqui e cola o nosso arquivo dentro do head. E antes do nosso style.css. A ordem é importante, né? Porque a gente quer que o Bootstrap seja carregado primeiro e depois do nosso arquivo pessoal.",
+            "topic_reference": "Video: Manipulando strings",
+            "sequence": 6
+        },
+        {
+            "type_content": "transcription",
+            "content": "Voltando aqui para o site do Bootstrap, a gente tem o script. Onde a gente coloca o script no finalzinho do body, antes de fechar a tag. Então, eu clico aqui para a área de transferência. E antes do nosso arquivo script, onde é esse, a gente coloca o link do Bootstrap. E pronto, é só isso. O Bootstrap já está instalado no nosso projeto. Se a gente salvar e olhar nossa página agora, a fonte já mudou.",
+            "topic_reference": "Video: Manipulando strings",
+            "sequence": 7
+        },
+        {
+            "type_content": "transcription",
+            "content": "Isso confirma que o CSS do Bootstrap está funcionando. Agora vem a parte divertida, que é usar os componentes do Bootstrap. A mágica do Bootstrap está em suas classes CSS. A gente não precisa escrever o CSS. É apenas adicionar as classes certas ao nosso elemento HTML. Então, vamos começar pelos botões. Lembra do nosso botão que a gente colocou na aula passada?",
+            "topic_reference": "Video: Manipulando strings",
+            "sequence": 8
+        },
+        {
+            "type_content": "transcription",
+            "content": "Para estilizar ele com o Bootstrap, basta adicionar duas classes. Que é o btn e o btnPrimary. Então, aqui depois do nosso id de botão interativo, a gente coloca class. É o btn, espaço, btn, espaço, primary. Voltando lá para o nosso código, recarregando, ele já muda o estilo de botão. Já dá uma mega diferença. E existem outros estilos, né? É só você substituir lá a class btnPrimary.",
+            "topic_reference": "Video: Manipulando strings",
+            "sequence": 9
+        },
+        {
+            "type_content": "transcription",
+            "content": "Tem esse primary, tem o btnSuccess e vai trocar para verde e o btnDanger para vermelho. Se você tiver alguma dúvida sobre essas classes, é só você ler aqui a documentação no site do Bootstrap. É, explica tudo certinho, passo a passo. Vamos colocar aqui no nosso código, só para a gente ver a diferença. Ele já fica verdinho. Botão de sucesso. E btnDanger.",
+            "topic_reference": "Video: Manipulando strings",
+            "sequence": 10
+        },
+        {
+            "type_content": "transcription",
+            "content": "E aí já fica vermelhão. Agora vamos dar uma olhada numa das ferramentas mais poderosas do Bootstrap, que é o sistema de grid. Ele nos permite criar layouts complexos e responsivos. O que significa responsividade? Responsividade significa que ele se adapta a diferentes tamanhos de tela. Então, por exemplo, um site precisa ser responsivo quando você acessa pelo computador e acessa pelo celular.",
+            "topic_reference": "Video: Manipulando strings",
+            "sequence": 11
+        },
+        {
+            "type_content": "transcription",
+            "content": "Porque o celular tem uma resolução diferente, tem um aspecto diferente das telas de monitor convencional. Fora que existem vários tamanhos de tela de monitor. Então você precisa programar o seu site com essa responsabilidade. E o Bootstrap nos ajuda muito nisso. Então eu vou criar aqui algumas divs e colocar algumas imagens, alguns textos para dar de exemplo.",
+            "topic_reference": "Video: Manipulando strings",
+            "sequence": 12
+        },
+        {
+            "type_content": "transcription",
+            "content": "Então abaixo do nosso botão. Vamos colocar uma div. Essa div vai receber a classe container. Beleza. Dentro dessa div vai ter outra div. Uma classe. Rol. Coluna. Dentro dessa div vai ter outra div. Uma classe. Coluna. 4. Beleza. Dentro dessa div a gente coloca um image. Então eu preciso adicionar uma imagem no diretório do arquivo. Beleza. Adicionei uma imagem ali no meu diretório.",
+            "topic_reference": "Video: Manipulando strings",
+            "sequence": 13
+        },
+        {
+            "type_content": "transcription",
+            "content": "Images. Images.gatinho.png Vou deixar sem texto alternativo. Depois a gente pode adicionar. Beleza. Agora eu posso abrir outra div. Chamada class. Com uma class chamada. Rol. Na 8. Então aqui dentro dessa div vai ter sei lá. Coto de gato. Abaixo. Como a gente coloca um título. A gente pode colocar um parágrafo também. .p Um gatinho. Muito fofo. Beleza.",
+            "topic_reference": "Video: Manipulando strings",
+            "sequence": 14
+        },
+        {
+            "type_content": "transcription",
+            "content": "Então o que a gente fez aqui nesse trecho do código. A gente cria. A primeira div. Ela recebe a classe container. Ela vai criar uma área centralizada para o nosso conteúdo. A div class row. Ela cria uma linha. Para colocar as nossas colunas. A div de classe col 4. Ela cria uma coluna que ocupa 4 das 12 partes. E é aqui que eu vou colocar a imagem.",
+            "topic_reference": "Video: Manipulando strings",
+            "sequence": 15
+        },
+        {
+            "type_content": "transcription",
+            "content": "Na tag da imagem. Eu vou colocar uma tag. Uma class. Image fluid. Img. Fluid. Isso é do bootstrap. E faz com que a imagem nunca ultrapasse. O tamanho da sua coluna. Isso torna ela responsiva. E na última div aqui. A div de classe coluna 8. Ela vai criar uma coluna que ocupa 8. 8 das partes restantes. 4 mais 8. Vai dar 12. E é aqui que eu vou colocar o texto.",
+            "topic_reference": "Video: Manipulando strings",
+            "sequence": 16
+        },
+        {
+            "type_content": "transcription",
+            "content": "Então aqui está o nosso resultado. A imagem e o texto ficaram perfeitamente alinhados. Lado a lado. Eu vou redimensionar aqui. A tela do navegador. Para você ver. Como que o layout se adapta. Para fechar. Com chave de ouro. Vamos adicionar um componente pronto. Que é uma barra de navegação. Ou do bootstrap. Um navbar. Então a gente. Bom. Eu não sei adicionar essa navegador.",
+            "topic_reference": "Video: Manipulando strings",
+            "sequence": 17
+        },
+        {
+            "type_content": "transcription",
+            "content": "Então o que eu faço. Eu vou lá no bootstrap. Lá aqui na documentação. Eu vou encontrar. A seção de navegador. Então vamos ver aqui. Beleza. Achei aqui. A documentação. Do navegador. E aqui. A gente tem. Um exemplo de código. Então aqui. Ele tem um exemplo enorme. Aqui. Já pronto. Para a gente usar. A gente só copia aqui. Vamos aqui. É. No nosso. Código.",
+            "topic_reference": "Video: Manipulando strings",
+            "sequence": 18
+        },
+        {
+            "type_content": "transcription",
+            "content": "Vamos. Colar ele. Bem aqui no começo. No nosso body. Vamos usar o. Primer. Formatar o nosso documento. Só para ele ficar bem. Certinho. Beleza. Vamos ver como é que ficou lá. No nosso site. Então olha só que legal. Ele já criou uma navbar. Aqui com. Vários links de acesso. É. Uma drop down. Que você pode. Customizar. Uma barra de pesquisa. Né. Um botão.",
+            "topic_reference": "Video: Manipulando strings",
+            "sequence": 19
+        },
+        {
+            "type_content": "transcription",
+            "content": "Para você pesquisar. Você pode. Customizar. Tudo isso. Mexendo aqui. Fussando. Nesse código. É um código pronto. Lá da. Do site do Bootstrap. Se você tiver alguma dúvida. Em relação a esses códigos. É. Lá na documentação. Vai ter passo a passo. Certinho. É. Explicando cada coisa. Que tem aqui. Isso é incrível. Não é. Em poucos minutos. A nossa página.",
+            "topic_reference": "Video: Manipulando strings",
+            "sequence": 20
+        },
+        {
+            "type_content": "transcription",
+            "content": "Já passou de um documento. Simples. Para uma cara. Mais profissional. Né. Um layout. Mais expulsivo. Tudo isso. Graças. Ao Bootstrap. Então vamos recapitular. Tudo que a gente viu. Né. A gente viu o que é. Um framework. CSS. Né. Que é essa. Caixa de ferramentas. Para acelerar o desenvolvimento. Não existe só o Bootstrap. Existem diversas outras. Se você tiver alguma dúvida.",
+            "topic_reference": "Video: Manipulando strings",
+            "sequence": 21
+        },
+        {
+            "type_content": "transcription",
+            "content": "É. Em qual usar. Né. Se você. Tiver alguma preferência. É. Ou se tiver dúvida. Se tiver curiosidade. Para conhecer. Novas ferramentas. Você pode entrar em fóruns. Na internet. Falando sobre esses frameworks. E a galera. Sempre deixa. É. O link. De um framework novo. Um framework diferente. Para você usar. A gente viu também. Como instalar o Bootstrap.",
+            "topic_reference": "Video: Manipulando strings",
+            "sequence": 22
+        },
+        {
+            "type_content": "transcription",
+            "content": "Usando. O CDN. Linkando o CSS. No Red. E o JavaScript. No Body. Como que usar as classes. Do Bootstrap. Para utilizar. Estilizar. Os elementos. Por exemplo. A gente fez. Lá no botão. A gente deixou ele azul. A gente deixou ele verde. A gente deixou ele vermelho. Vimos como é que é a ideia. É. Do sistema de grid. É como se fosse uma grelha. É. Uma tela de 12 colunas.",
+            "topic_reference": "Video: Manipulando strings",
+            "sequence": 23
+        },
+        {
+            "type_content": "transcription",
+            "content": "Que a gente usa. Para criar os layouts. Né. É. Usando as divs de container. De coluna. De linha. Então o Bootstrap. É essa ferramenta. Extremamente poderosa. E muito requisitada. No mercado de trabalho. Eu recomendo fortemente. Que vocês explorem a documentação. Brinquem com os outros componentes. Como cards. Alertas. Formulários. Agora que a gente viu.",
+            "topic_reference": "Video: Manipulando strings",
+            "sequence": 24
+        },
+        {
+            "type_content": "transcription",
+            "content": "Como acelerar o lado do CSS. Nosso próximo vídeo. A gente vai dar uma olhada. No futuro do desenvolvimento. Do lado do JavaScript. A gente vai ter uma breve. E fascinante introdução. A biblioteca mais popular. Do momento. Para criar interfaces. De usuário. Dinâmicas. E a biblioteca React. Se você achou o Bootstrap. Um atalho incrível. Mostra o seu apoio com like.",
+            "topic_reference": "Video: Manipulando strings",
+            "sequence": 25
+        },
+        {
+            "type_content": "transcription",
+            "content": "E se inscreva. Porque a introdução React. Vai abrir ainda mais a sua mente. Para as possibilidades. Da web. Deixe nos comentários. Alguma dúvida que você tiver. Um abraço. Até a próxima aula.",
+            "topic_reference": "Video: Manipulando strings",
+            "sequence": 26
+        },
+        {
+            "type_content": "video",
+            "content": "N8LSEDU21S8",
+            "topic_reference": "Video: Introduçõa ao React",
+            "sequence": 1
+        },
+        {
+            "type_content": "transcription",
+            "content": "E aí galera, beleza? Bem-vindos a nossa penúltima aula, que na verdade é a primeira parte da nossa grande final. Esses dois últimos vídeos nessa série eu vou dedicar mais a parte de mostrar o React, que é essa biblioteca JavaScript, para acelerar o processo de criar uma página web. Até agora a gente usou arquivos HTML, CSS e JavaScript de forma separada.",
+            "topic_reference": "Video: Registros",
+            "sequence": 2
+        },
+        {
+            "type_content": "transcription",
+            "content": "Isso é fantástico para aprender os fundamentos, mas o desenvolvimento web moderno evoluiu bastante. Hoje a gente vai entrar de cabeça nesse mundo. Vamos falar sobre a principal ferramenta que domina o mercado, que é o React. E o mais importante, a gente vai deixar de depender de programas online, por exemplo, e vamos preparar na nossa própria máquina, para se tornar um ambiente de desenvolvimento profissional.",
+            "topic_reference": "Video: Registros",
+            "sequence": 3
+        },
+        {
+            "type_content": "transcription",
+            "content": "Exatamente como os desenvolvedores do Facebook, do Netflix, do Instagram fazem. Esse vídeo é o mais técnico de todos, mas também o mais importante é de todo o curso. Antes de instalar, vamos relembrar por que o React é tão incrível, né? Por que ele é tão importante. Duas palavras-chave. Componentes e estados. Os componentes. Você pode pensar eles como blocos de Lego, né?",
+            "topic_reference": "Video: Registros",
+            "sequence": 4
+        },
+        {
+            "type_content": "transcription",
+            "content": "Em vez de uma página gigante, a gente constrói pequenas peças independentes, né? Um botão, um card, uma barra de busca. Cada um com o seu próprio HTML e a sua própria lógica. Depois, a gente monta a nossa aplicação, juntando essas peças. E é organizado, né? Reutilizável. E muito mais fácil de manter. Então, ao invés de você programar tudo numa página só, você faz um arquivo só para fazer o botão, um arquivo só para fazer a barra de busca, só para fazer a nave bar, só para fazer o cabeçalho, só para fazer o rodapé, só para fazer, por exemplo, um carrossel de fotos.",
+            "topic_reference": "Video: Registros",
+            "sequence": 5
+        },
+        {
+            "type_content": "transcription",
+            "content": "São isso que são componentes. E depois, no arquivo principal, você vai juntando todos esses componentes como se fossem blocos de Lego para você ter uma mega página. A segunda palavra-chave são os estados, ou os states. Ela é a memória de cada componente. É o que permite que uma interface seja dinâmica. Quando o estado de um componente muda, por exemplo, o usuário clica no botão e um computador aumenta.",
+            "topic_reference": "Video: Registros",
+            "sequence": 6
+        },
+        {
+            "type_content": "transcription",
+            "content": "O React é reativo. Ele automaticamente atualiza a tela para refletir essa mudança, sem precisar recarregar a página inteira. Isso que é usar nos states. Então, chegou a hora da gente preparar o React para rodar na nossa máquina. Então, a gente precisa de uma ferramenta essencial, que é o Node.js. O que é o Node.js? De forma bem simples, ele permite que a gente execute o código JavaScript fora do navegador.",
+            "topic_reference": "Video: Registros",
+            "sequence": 7
+        },
+        {
+            "type_content": "transcription",
+            "content": "Ele vem com um gerenciador de pacotes, chamado de NPM, e é como se fosse uma loja de aplicativos para nós, desenvolvedores. Vamos instalar. Então, aqui está a tela de instalação. Você clica aqui no instalador, .smn ou no .zip, no NUMIDAR Atômago, para fazer a instalação. Se você tiver alguma dúvida, tem um passo a passo de como fazer essa instalação.",
+            "topic_reference": "Video: Registros",
+            "sequence": 8
+        },
+        {
+            "type_content": "transcription",
+            "content": "Agora, a gente vai usar outra ferramenta nova, que é o Terminal, ou o Prompt de Comando do Windows, ou PowerShell. Vamos procurar aqui, aqui, a gente tem o Prompt de Comando, ou você pode clicar Windows R e CMD. Então, o Prompt de Comando é essa tela preta aqui. Para verificar se o Node for instalado, você digita Node-V, e ele vai retornar a versão.",
+            "topic_reference": "Video: Registros",
+            "sequence": 9
+        },
+        {
+            "type_content": "transcription",
+            "content": "Eu estou usando a versão 22.12.0. Agora, a gente vai ver se aquele pacote de aplicativos está instalado, que é o NPM. NPM-V. Eu estou usando a versão 10.9.0. Se os dois comandos mostraram a versão, a gente tem os pacotes, a instalação foi um sucesso. Agora, o que a margem não acontece? No Terminal aqui, a gente vai usar uma ferramenta moderna, chamada Vite, para criar o nosso projeto React.",
+            "topic_reference": "Video: Registros",
+            "sequence": 10
+        },
+        {
+            "type_content": "transcription",
+            "content": "É incrivelmente rápido. Então, eu só vou navegar aqui nos diretórios, do... CD Documents, CD Documents, MKDIR, Projeto Web. Beleza? CD Projeto Web. Criar aqui uma página, uma pasta aqui dentro dos meus documentos. Então, a gente vai digitar o seguinte comando. NPM Create Byte Arroba Latest Beleza. Dando Enter, ele vai fazer algumas perguntas, né? Ele vai.",
+            "topic_reference": "Video: Registros",
+            "sequence": 11
+        },
+        {
+            "type_content": "transcription",
+            "content": ".. Ele, às vezes, precisa instalar alguns pacotes. Só apertar um Y para proceder. Ele vai fazer algumas perguntas, né? Por exemplo, o nome do projeto. Vamos chamar de... Meu... Projeto. Ou nome do projeto Web. Caso você não dê nenhum nome do projeto, ele vai... Aparecer um nome padrão, lá. Tipo, White Project, alguma coisa assim. Então, projeto traço Web.",
+            "topic_reference": "Video: Registros",
+            "sequence": 12
+        },
+        {
+            "type_content": "transcription",
+            "content": "Selecionar a Framework. Usar setas aqui, ó. A gente consegue... Selecionar o Framework que a gente quer. A gente vai usar o React. Então, você usa setas aqui para escolher. React. Selecionar uma variante. A gente vai selecionar a variante JavaScript. Então, aperta Enter para selecionar. Beleza. Agora, o White aqui, ele deu as instruções finais. Primeiro, a gente precisa entrar na página.",
+            "topic_reference": "Video: Registros",
+            "sequence": 13
+        },
+        {
+            "type_content": "transcription",
+            "content": ".. Na pasta do projeto. Então, você dá um... CD. O nome do seu projeto. Projeto da sua Web. Beleza. Entramos na página do projeto. Agora, a gente precisa... Instalar as dependências. Ou seja, todas as peças de código que o React... Precisa para funcionar. Então, a gente precisa... NPM. Install. Isso, às vezes, acaba demorando um minutinho ou outro, né?",
+            "topic_reference": "Video: Registros",
+            "sequence": 14
+        },
+        {
+            "type_content": "transcription",
+            "content": "Mas a gente espera aqui. Beleza. Ele instalou aqui 153 pacotes. Em 16 segundos. Ok. Ok. Dentro aqui do seu projeto, você pode fazer duas coisas. Você pode dar um code ponto. Ele vai abrir o projeto no VS Code. Ele aqui, ele já monta dentro aqui do seu projeto, uma... Toda uma estrutura aqui. Então, você tem diversas páginas, como... Nódulos do Mode, Public, tem o Source, você tem aqui alguns Assets prontos, né?",
+            "topic_reference": "Video: Registros",
+            "sequence": 15
+        },
+        {
+            "type_content": "transcription",
+            "content": "Você tem aqui, por exemplo, uma imagenzinha, né? Como o Asset. Você já tem um... .css aqui, que ele já tem algumas predefinições, que já vem instalado. Você tem um aplicativo... .jss, você tem um index.css, a sua página principal. Ele já monta uma mega estrutura pra você... em minutos. Dentro aqui do nosso VS Code, a gente abre um terminal novo...",
+            "topic_reference": "Video: Registros",
+            "sequence": 16
+        },
+        {
+            "type_content": "transcription",
+            "content": "Aqui dentro do nosso projeto, e a gente pode... Digitar aqui... NPM... RunDev. Beleza. Então, aqui, ele nos deu um link, né? Um HTTP... É... Uma URL local, né? Geralmente, essa... Localhost... É... 2.5173, né? A gente clica aqui. Dá Ctrl mais clique. E olha só que bacana. Nosso projeto, ele tá rodando. Vocês não estão... É... Mais apenas abrindo um arquivo HTML.",
+            "topic_reference": "Video: Registros",
+            "sequence": 17
+        },
+        {
+            "type_content": "transcription",
+            "content": "Vocês estão rodando um servidor de desenvolvimento local. É... Que compila e serve como uma aplicação React moderna. Diretamente na sua máquina. Foi um vídeo bem intenso. Foi um vídeo mais técnico. Mais explicando. Teve pouca prática aqui. Eu sei que foi muita informação. Mas vocês conseguiram. Então, vamos recapitular. A gente instalou o Node. É.",
+            "topic_reference": "Video: Registros",
+            "sequence": 18
+        },
+        {
+            "type_content": "transcription",
+            "content": ".. E o NPM. É... A gente usou o terminal pra criar um projeto React com o Vite. É... É... É... É... É... É... É... É... É... Executamos o nosso primeiro servidor de desenvolvimento local, né? É... Vocês prepararam o terreno. E no nosso próximo vídeo e último vídeo, né? A gente vai abrir esse projeto que a gente acabou de criar no VS Code. E a gente vai transformar ele.",
+            "topic_reference": "Video: Registros",
+            "sequence": 19
+        },
+        {
+            "type_content": "transcription",
+            "content": "Vamos apagar esse conteúdo que tá aqui. Esse conteúdo pronto. E padrão. e construindo componente por componente a nossa página de portfólio, mas dessa vez do jeito React de fazer as coisas. Se por algum acaso você não conseguiu rodar o projeto na sua máquina, se você teve algum erro ao rodar o Vite ou o React, você pode pedir ajuda a vários fóruns que tem aí afora, como Stack Overflow, sempre a galera tira dúvida, ou você pode perguntar para a inteligência artificial, o chat EPT é muito útil para corrigir vários errinhos que tem, às vezes falta um pacote ali que dá um problema enorme, ou instalou de uma maneira errada, precisa de instalar e instalar de novo, então as inteligências artificial e os fóruns ajudam bastante nisso.",
+            "topic_reference": "Video: Registros",
+            "sequence": 20
+        },
+        {
+            "type_content": "transcription",
+            "content": "Se você tiver dúvidas sobre como começar a usar mais profundamente essas ferramentas, tem a documentação do código lá no site oficial do Node e do React, tenho certeza que lá vai ter toda a ajuda necessária para vocês. Se você conseguiu rodar o projeto na sua máquina aí, deixa um like de comemoração, se inscreva para não perder a nossa grande final, onde a gente vai construir o nosso portfólio.",
+            "topic_reference": "Video: Registros",
+            "sequence": 21
+        },
+        {
+            "type_content": "transcription",
+            "content": "Um abraço e até a próxima. E aí E aí",
+            "topic_reference": "Video: Registros",
+            "sequence": 22
+        },
+        {
+            "type_content": "video",
+            "content": "OVnMFSFdxnc",
+            "topic_reference": "Video: Construindo um Projeto",
+            "sequence": 1
+        },
+        {
+            "type_content": "transcription",
+            "content": "E aí galera, beleza? Sejam bem-vindos a nossa grande aula final, nosso último vídeo do nosso curso de introdução à programação web. No último vídeo a gente fez um trabalho pesadíssimo, a gente preparou o nosso ambiente de desenvolvimento local. Se você está aqui, significa que você já tem um projeto React rodando na sua máquina. Hoje a gente vai transformar esse projeto padrão em algo nosso, em algo real.",
+            "topic_reference": "Video: Funções",
+            "sequence": 2
+        },
+        {
+            "type_content": "transcription",
+            "content": "Vamos abrir em que é o nosso projeto e passo a passo criar a nossa página de um portfólio, usando a mentalidade dos componentes que o React usa. Vamos criar, estilizar e dar vida ao nosso projeto final. Então como eu expliquei um pouquinho no vídeo passado, aqui a gente tem a pasta mais importante do projeto React, que é a nossa pasta source. É onde a máquina acontece, é onde vocês vão modificar tudo.",
+            "topic_reference": "Video: Funções",
+            "sequence": 3
+        },
+        {
+            "type_content": "transcription",
+            "content": "Vamos começar limpando o app.jsx e o app.css. Agora vamos planejar como a gente vai construir isso aqui. A nossa página pode ter um header, um cabeçalho. Uma seção hero, uma lista de projetos. E um footer, um rodapé. Cada um vai ser um componente. Então vai ter um componente para o cabeçalho, um componente para a seção hero, um componente para a lista de projetos e um componente para o footer.",
+            "topic_reference": "Video: Funções",
+            "sequence": 4
+        },
+        {
+            "type_content": "transcription",
+            "content": "A gente vai construir cada bloquinho separado e no final a gente junta tudo e vê no que dá. Então aqui dentro da nossa source a gente cria uma nova pasta chamada components. Para a gente colocar todos esses nossos componentes aqui. Aqui a gente vai criar os nossos arquivos, cada componente. Então um novo arquivo vai ter um arquivo para o header, para o cabeçalho header.",
+            "topic_reference": "Video: Funções",
+            "sequence": 5
+        },
+        {
+            "type_content": "transcription",
+            "content": "jsx. Um componente hero, jsx. Mais um componente projetos, né? A lista de projetos. Projects.jsx. E o nosso último componente aqui. O footer, um rodapé. Jsx. Beleza. Beleza. Vamos criar aqui outro componente que vai ser o nosso cabeçalho. Eu vou construir um cabeçalho aqui. Vou cortar o vídeo e depois eu explico. Beleza. Criei uma funçãozinha aqui.",
+            "topic_reference": "Video: Funções",
+            "sequence": 6
+        },
+        {
+            "type_content": "transcription",
+            "content": "Uma função header. Ele retorna um componente prontinho aqui. Então. Press name header. Press name logo. O item vai ter lá no cabeçalho. Meu portfólio. Então início, projetos, contatos, etc. Vamos criar o nosso hero, né? Que é o nosso componente principal ali, eu diria. Vamos criar outro componente aqui. Uma função hero. Que tem seção com id, com classname.",
+            "topic_reference": "Video: Funções",
+            "sequence": 7
+        },
+        {
+            "type_content": "transcription",
+            "content": "Um titulozinho básico ali. Olá. Eu sou tal. Com parágrafo de desenvolvimento. É informação. Criando soluções com tecnologia. Deixa aqui uma âncora. Um classname também. Para ver os projetos. Beleza. Agora vamos para o próximo componente. Que é o project card. Já tenho aqui um modelinho pronto. Então. Uma função project card. Que vai receber image.",
+            "topic_reference": "Video: Funções",
+            "sequence": 8
+        },
+        {
+            "type_content": "transcription",
+            "content": "Uma imagem. Um título. Uma descrição. Um link. Então eu crio uma div. Um classname ali. Uma imagem. Eu vou adicionar um search depois. Nessa variável. Um título. A descrição. E o link lá. Com o target blank. Para abrir. E uma outra guia. Esse componente aqui. Ele vai funcionar como se fosse um molde. Ele espera receber uma imagem. Um título. Uma descrição.",
+            "topic_reference": "Video: Funções",
+            "sequence": 9
+        },
+        {
+            "type_content": "transcription",
+            "content": "Um link. Agora a gente vai criar o componente. Que vai usar esse molde. A gente vai lá no project.jsx. Beleza. Eu já estou aqui. Com esse componente pronto. O project.jsx. Então a gente importou ele aqui. A gente importa o nosso molde. Aqui eu estou usando as imagens. Que a gente usou. No nosso projeto passado. Só para mostrar como exemplo. A gente tem aqui uma função.",
+            "topic_reference": "Video: Funções",
+            "sequence": 10
+        },
+        {
+            "type_content": "transcription",
+            "content": "Que retorna o nosso componente. Bonitinho. Com título. Descrição. E tal. Você também não precisa usar. Imagens. Se você é baixado. Só no seu computador. Você pode usar. Umas páginas. Com RL de sites. Você só. Ao invés de colocar. O placeholder aqui. Que é. No diretório da foto. Você coloca. O link. O RL. O HTTPS. O que for. E a imagem vai carregar.",
+            "topic_reference": "Video: Funções",
+            "sequence": 11
+        },
+        {
+            "type_content": "transcription",
+            "content": "Agora por fim. A gente vai lá. No nosso footer. .jsx. E criar. O nosso componente. Bom. Então eu criei aqui. É. Um rodapé. Né. E. Faz o uso de states. Então aqui na nossa função. É. Eu usei. Eu criei um estado. Né. Um state. Para controlar. A visibilidade. De um e-mail. Por exemplo. Lembra que eu falei. Né. Eu expliquei. Sobre states. No vídeo passado.",
+            "topic_reference": "Video: Funções",
+            "sequence": 12
+        },
+        {
+            "type_content": "transcription",
+            "content": "Eu expliquei. Como é que eles funcionam. Né. Como que eles. Atualizam a página. Sem você precisar recarregar. Então aqui. Nesse botão. Né. O botão. Ele vai atualizar o estado. Quando clicado. Daí. O e-mail. Só vai aparecer. É. Se o estado. Show o e-mail. For verdadeiro. Beleza. Com o nosso. Último componente. Aqui criado. A gente pode. Voltar lá. No nosso.",
+            "topic_reference": "Video: Funções",
+            "sequence": 13
+        },
+        {
+            "type_content": "transcription",
+            "content": "App. Jota. SX. E juntar tudo. Beleza. Aqui está. A estrutura completa. Mas ainda. Né. A gente não fez a parte. Do CSS. Tá. Tudo sem estilo. Então. A última. Peça. Do nosso. Quebra-cabeça. É o nosso. CSS. Que agora. No app. Css. A gente vai. Adicionar. Alguns estilos básicos. É. Para que as classes. Que criamos. Né. Como aquele. Ponto. Card. O project grid.",
+            "topic_reference": "Video: Funções",
+            "sequence": 14
+        },
+        {
+            "type_content": "transcription",
+            "content": "Etc. Lembre-se. Que. Como a gente está usando. O JSX. É. Em vez de a gente usar. É. Class. Né. A gente. A gente. Usava lá. Naquele. Só o class. A gente. Usava. A gente. Usa. O class name. Como tem bastante coisa. Para estilizar. É. Eu vou cortar um pouco o vídeo. E volto aqui. Com bastante coisa. Estilizada. Só para mostrar de exemplo. Beleza. Deu uma estilizada bacana aqui.",
+            "topic_reference": "Video: Funções",
+            "sequence": 15
+        },
+        {
+            "type_content": "transcription",
+            "content": "É. Utilizei bastante. Daqueles class names. Que eu usei. Tudo isso. A gente viu. A. As aulas atrás. Aí. De como fazer estilos. Com CSS. Agora. Vamos ver. Como o nosso portfólio. Tá. Então. Olha só. Que bacana. Como que o nosso portfólio. Ficou. Uma aplicação net. Completa. Construída do zero. Componente. Por componente. Então. Aqui. A gente tem. O nosso cabeçalho.",
+            "topic_reference": "Video: Funções",
+            "sequence": 16
+        },
+        {
+            "type_content": "transcription",
+            "content": "Que a gente fez lá no header. A gente tem aqui. O nosso hero. Né. Com. A mensagem de boas-vindas. Lá João Pedro. Com o nosso botão. Né. De ver projetos. Ele já vem aqui. Carrega. A partir dos projetos. Então. Tem aqui. As imagens que eu coloquei. Que eu uso. Aí. Nos projetos passados. Né. Aqui. Se você clicar em ver. Eu só coloquei o botão de ver.",
+            "topic_reference": "Video: Funções",
+            "sequence": 17
+        },
+        {
+            "type_content": "transcription",
+            "content": "Projeto. Mas. Se você clicar. Ele não vai em nada. Porque eu não fiz outro componente. Não fiz outra página. Fica aí. Uma melhoria futura. Aqui. Tá. O nosso footer. Né. Tá. O nosso rodapé. Que a gente construiu. Também. Bem bacana. Então. A gente se aprendeu. A pensar em componentes. A passar dados. Com props. A criar interatividade. Com o New State.",
+            "topic_reference": "Video: Funções",
+            "sequence": 18
+        },
+        {
+            "type_content": "transcription",
+            "content": "Né. Com os estados. Essa é a base. Do desenvolvimento. Front-end moderno. Bom. E o que vem agora? A jornada é longa. E fascinante. Eu recomendo fortemente. Que vocês se aprofundem. Bastante em React. Que vocês. Têm essa paixão. Por esse mundo. Front-end. Aprendam sobre. Outras. Coisas bacanas. Que tem nessa biblioteca. Como o Use Effect. Para buscar dados de APIs.",
+            "topic_reference": "Video: Funções",
+            "sequence": 19
+        },
+        {
+            "type_content": "transcription",
+            "content": "Estudem roteamento. Né. Com. Otas. Do React. Para criar. Sites. Com múltiplas páginas. Explorem bastante. Esse ecossistema. E acima de tudo. Continuem construindo. Continuem programando. Que isso. É muito importante. Chegamos ao fim. Do nosso curso. Mas isso. É apenas o começo. Da sua carreira. Criem esse portfólio. Personalizem. Adicionem seus próprios projetos.",
+            "topic_reference": "Video: Funções",
+            "sequence": 20
+        },
+        {
+            "type_content": "transcription",
+            "content": "Usem. Ele. Para mostrar. Ao mundo. O seu talento. Muito obrigado. Por me acompanharem. Nessa jornada. Foi uma honra. Ser seu guia. Agora vão construir. Coisas incríveis. Um grande abraço. E até a próxima. Hoje. Boa noite. Boa noite. Boa noite.",
+            "topic_reference": "Video: Funções",
+            "sequence": 21
         }
     ]
 }
