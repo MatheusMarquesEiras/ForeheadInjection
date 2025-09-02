@@ -1,47 +1,27 @@
 import yt_dlp
 
-def baixar_videos_para_audio(video_urls, pasta_destino):
+def baixar_videos_mp4(video_urls, pasta_destino):
     """
-    Baixa vídeos do YouTube e converte para áudio em formato MP3.
-    
-    Args:
-        video_urls (list): Lista de URLs dos vídeos do YouTube.
-        pasta_destino (str): Caminho da pasta onde os arquivos serão salvos.
+    Baixa vídeos do YouTube em formato MP4.
     """
     opcoes = {
-        'format': 'bestaudio/best',
-        'outtmpl': f'{pasta_destino}/%(title)s.%(ext)s',  # Nomeia os arquivos com base no título do vídeo
-        'postprocessors': [{
-            'key': 'FFmpegExtractAudio',
-            'preferredcodec': 'mp3',
-            'preferredquality': '192',  # Qualidade do áudio em kbps
-        }],
+        'format': 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4',
+        'outtmpl': f'{pasta_destino}/%(title)s.%(ext)s',  # Nome do arquivo baseado no título
+        'merge_output_format': 'mp4',  # Garante que o resultado final seja MP4
     }
 
     with yt_dlp.YoutubeDL(opcoes) as ydl:
         for url in video_urls:
             try:
-                print(f"Baixando: {url}")
+                print(f"Baixando vídeo: {url}")
                 ydl.download([url])
             except Exception as e:
                 print(f"Erro ao baixar {url}: {e}")
 
 # Exemplo de uso
 if __name__ == "__main__":
-    # Lista de URLs dos vídeos que você quer baixar
     videos = [
-        "https://www.youtube.com/watch?v=",
-        "https://www.youtube.com/watch?v=",
-        "https://www.youtube.com/watch?v=",
-        "https://www.youtube.com/watch?v=",
-        "https://www.youtube.com/watch?v=",
-        "https://www.youtube.com/watch?v=",
-        "https://www.youtube.com/watch?v=",
-        "https://www.youtube.com/watch?v="
+        "https://www.youtube.com/watch?v=JiOc0r31-Os&t=1327s"
     ]
-
-    # Caminho onde os arquivos serão salvos
-    pasta_destino = "./audios"
-
-    # Baixa os vídeos e converte para MP3
-    baixar_videos_para_audio(videos, pasta_destino)
+    pasta_destino = "./videos"
+    baixar_videos_mp4(videos, pasta_destino)

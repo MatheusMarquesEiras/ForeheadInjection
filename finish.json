@@ -1,0 +1,51 @@
+{
+    "course": {
+        "name": "5eb47400-8ad0-4911-9dc2-700675a40298",
+        "img": 7
+    },
+    "topics": [
+        {
+            "name": "Stop Using Object Oriented Programming In Rust (Do This Instead).mp3",
+            "sequence": 1,
+            "course_reference": "5eb47400-8ad0-4911-9dc2-700675a40298"
+        }
+    ],
+    "contents": [
+        {
+            "type_content": "video",
+            "content": "0XFq9K7N9o4",
+            "topic_reference": "Stop Using Object Oriented Programming In Rust (Do This Instead).mp3",
+            "sequence": 1
+        },
+        {
+            "type_content": "transcription",
+            "content": " When I started coding in Rust because of my JavaScript brain, I attempted to create very complex hierarchies of objects using traits and structs. Well, we didn't have classes, so I had to do something like that. When you try to use this pattern, you end up having to wrap your objects in box pointers. And this is when I figured that the code was trying to tell me something.",
+            "topic_reference": "Stop Using Object Oriented Programming In Rust (Do This Instead).mp3",
+            "sequence": 2
+        },
+        {
+            "type_content": "transcription",
+            "content": " The code looked just straight up ugly. And after thinking about it for a while, I figured it out. Let me show you an example of how bad composition looks in Rust, in my opinion. Say you want to create a zoo structure that has a vector of animals. This is where the wonky stuff starts. Because you see, because I'm defining an animal to be a struct that implements this particular trait, guess what?",
+            "topic_reference": "Stop Using Object Oriented Programming In Rust (Do This Instead).mp3",
+            "sequence": 3
+        },
+        {
+            "type_content": "transcription",
+            "content": " The Rust compiler does not know the size of that object at compile time. And that's why it says, well, listen, I don't know what this object is going to be, but I know that this is going to implement the animal trait. So I'm just going to dump it in the heap memory and be done with it. And also it becomes ugly and verbose to interact with, because every time you want to create an animal, then you need to put it in a box pointer.",
+            "topic_reference": "Stop Using Object Oriented Programming In Rust (Do This Instead).mp3",
+            "sequence": 4
+        },
+        {
+            "type_content": "transcription",
+            "content": " So send it to the heap memory and then actually use it. And that's just annoying, it's inefficient, it's terrible. So here's a better way of doing things. You can create an enum. And in Rust, enum variants can hold objects. So in this case, we're saying that the variant dog can hold an instance of the dog struck. And an enum called cat can hold an instance of the cat struck.",
+            "topic_reference": "Stop Using Object Oriented Programming In Rust (Do This Instead).mp3",
+            "sequence": 5
+        },
+        {
+            "type_content": "transcription",
+            "content": " So with that, our code comes a lot cleaner because now the compiler has an expectation of the size of this object at compile time, the code becomes a lot cleaner. No wonky box pointers. These will run a lot faster. I'm telling you, if you enjoyed this content, don't forget to like and subscribe. That will, you'll be notified when I launch the next one.",
+            "topic_reference": "Stop Using Object Oriented Programming In Rust (Do This Instead).mp3",
+            "sequence": 6
+        }
+    ]
+}
