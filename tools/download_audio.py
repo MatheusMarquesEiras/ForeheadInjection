@@ -30,8 +30,7 @@ def baixar_videos_para_audio(video_urls, pasta_destino):
 if __name__ == "__main__":
     # Lista de URLs dos vídeos que você quer baixar
     videos = [
-        "https://www.youtube.com/watch?v=gPKJboykVWo&list=PL6-GCLeKuEASZ1k-egDup1waeBCBVdjNk",
-        "https://www.youtube.com/watch?v=p-ix01_upJw&list=PL6-GCLeKuEASZ1k-egDup1waeBCBVdjNk"
+        "https://www.youtube.com/watch?v=ivwNWE9BgEg"
     ]
 
     # Caminho onde os arquivos serão salvos
