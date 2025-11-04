@@ -1,7 +1,9 @@
 import os
 import threading
 import tkinter as tk
-from tkinter import ttk, filedialog, messagebox
+from tkinter import ttk, messagebox
+from pathlib import Path
+from .videos_transcriber import Transcriber
 
 import yt_dlp
 
@@ -70,7 +72,7 @@ class App:
         self.root.geometry("800x550")
         self.root.minsize(700, 500)
 
-        self.destino = tk.StringVar(value=os.path.abspath("./audios"))
+        self.destino = str(Path('./audios').absolute())
 
         self._build_ui()
         self._set_idle_state()
@@ -86,21 +88,8 @@ class App:
         lbl_url = tk.Label(frame_url, text="URLs (uma por linha):", font=("Arial", 12, "bold"))
         lbl_url.pack(anchor="w")
 
-        self.txt_urls = tk.Text(frame_url, height=8, font=("Consolas", 11))
+        self.txt_urls = tk.Text(frame_url, height=1, font=("Consolas", 11))
         self.txt_urls.pack(fill="both", expand=True, pady=8)
-
-        frame_destino = tk.Frame(self.root)
-        frame_destino.pack(fill="x", padx=20, pady=10)
-
-        lbl_dest = tk.Label(frame_destino, text="Pasta de destino:", font=("Arial", 12, "bold"))
-        lbl_dest.grid(row=0, column=0, sticky="w")
-
-        self.ent_dest = tk.Entry(frame_destino, textvariable=self.destino, font=("Arial", 11), width=60)
-        self.ent_dest.grid(row=1, column=0, sticky="we", padx=(0, 8))
-        frame_destino.columnconfigure(0, weight=1)
-
-        self.btn_escolher = tk.Button(frame_destino, text="Escolher...", command=self._escolher_pasta, font=("Arial", 11))
-        self.btn_escolher.grid(row=1, column=1, sticky="e")
 
         frame_prog = tk.Frame(self.root)
         frame_prog.pack(fill="x", padx=20, pady=(10, 0))
@@ -114,41 +103,23 @@ class App:
         frame_acoes = tk.Frame(self.root)
         frame_acoes.pack(pady=10)
 
-        self.btn_baixar = tk.Button(frame_acoes, text="Baixar", command=self._iniciar_download, font=("Arial", 12), width=12)
+        self.btn_baixar = tk.Button(frame_acoes, text="Inciar", command=self._iniciar_download, font=("Arial", 12), width=12)
         self.btn_baixar.grid(row=0, column=0, padx=5)
 
         self.btn_cancelar = tk.Button(frame_acoes, text="Cancelar", command=self._cancelar, font=("Arial", 12), width=12, state="disabled")
         self.btn_cancelar.grid(row=0, column=1, padx=5)
 
-        # Log opcional
-        frame_log = tk.Frame(self.root)
-        frame_log.pack(fill="both", expand=True, padx=20, pady=(5, 15))
-
-        lbl_log = tk.Label(frame_log, text="Log:", font=("Arial", 12, "bold"))
-        lbl_log.pack(anchor="w")
-
-        self.txt_log = tk.Text(frame_log, height=8, font=("Consolas", 10), state="disabled")
-        self.txt_log.pack(fill="both", expand=True)
-
         # Controle de cancelamento
         self._cancel_flag = False
-
-    # ----------- Seleção de pasta -----------
-    def _escolher_pasta(self):
-        pasta = filedialog.askdirectory(title="Selecione a pasta de destino", initialdir=self.destino.get())
-        if pasta:
-            self.destino.set(pasta)
 
     # ----------- Estado de UI -----------
     def _set_busy_state(self):
         self.btn_baixar.config(state="disabled")
         self.btn_cancelar.config(state="normal")
-        self.btn_escolher.config(state="disabled")
 
     def _set_idle_state(self):
         self.btn_baixar.config(state="normal")
         self.btn_cancelar.config(state="disabled")
-        self.btn_escolher.config(state="normal")
         self._set_progress(0)
         self._set_status("Aguardando...")
 
@@ -173,12 +144,6 @@ class App:
             self.barra.config(mode="determinate")
             self.barra['value'] = 0
 
-    def _append_log(self, texto):
-        self.txt_log.config(state="normal")
-        self.txt_log.insert("end", texto.rstrip() + "\n")
-        self.txt_log.see("end")
-        self.txt_log.config(state="disabled")
-
     # ----------- Botões -----------
     def _iniciar_download(self):
         urls_raw = self.txt_urls.get("1.0", "end").strip()
@@ -187,26 +152,20 @@ class App:
             return
 
         urls = [u.strip() for u in urls_raw.splitlines() if u.strip()]
-        pasta_destino = self.destino.get().strip()
-        if not pasta_destino:
-            messagebox.showwarning("Atenção", "Selecione ou informe a pasta de destino.")
-            return
 
         self._cancel_flag = False
         self._set_busy_state()
         self._set_status("Preparando downloads...")
         self._set_progress(0)
-        self._append_log(f"Iniciando: {len(urls)} URL(s)")
 
         # Inicia thread de trabalho
-        th = threading.Thread(target=self._worker_download, args=(urls, pasta_destino), daemon=True)
+        th = threading.Thread(target=self._worker_download, args=(urls, self.destino), daemon=True)
         th.start()
 
     def _cancelar(self):
         # Não há cancelamento nativo em yt_dlp por hook; sinalizamos e paramos UI.
         # Em uso real, você poderia baixar um arquivo por vez e verificar essa flag entre itens.
         self._cancel_flag = True
-        self._append_log("Cancelamento solicitado. Aguardando concluir o item atual...")
 
     # ----------- Worker em thread separada -----------
     def _worker_download(self, urls, pasta_destino):
@@ -247,19 +206,16 @@ class App:
         # Callbacks de término/erro
         def on_finished():
             self.root.after(0, self._set_status, "Tudo pronto! Arquivos salvos.")
-            self.root.after(0, self._append_log, "Concluído sem erros.")
             self.root.after(0, self._set_idle_state)
 
         def on_error(e):
             self.root.after(0, self._stop_indeterminate)
             self.root.after(0, self._set_status, "Erro durante o processo.")
-            self.root.after(0, self._append_log, f"Erro: {e}")
             self.root.after(0, self._set_idle_state)
             self.root.after(0, lambda: messagebox.showerror("Erro", f"Ocorreu um erro:\n{e}"))
 
         # Execução do download
         try:
-            self.root.after(0, self._append_log, f"Destino: {pasta_destino}")
             baixar_videos_para_audio(
                 video_urls=urls,
                 pasta_destino=pasta_destino,
