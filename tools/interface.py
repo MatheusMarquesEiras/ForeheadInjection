@@ -3,7 +3,7 @@ import threading
 import tkinter as tk
 from tkinter import ttk, messagebox
 from pathlib import Path
-from .videos_transcriber import Transcriber
+from videos_transcriber import Transcriber
 
 import yt_dlp
 
@@ -51,9 +51,12 @@ def baixar_videos_para_audio(video_urls, pasta_destino, progress_callback=None, 
     }
 
     try:
-        with yt_dlp.YoutubeDL(opcoes) as ydl:
-            for url in video_urls:
-                ydl.download([url])
+        ydl_instance = yt_dlp.YoutubeDL(opcoes)
+        # Execute download for each URL separately to allow better cancellation checks
+        for url in video_urls:
+            # yt_dlp does not have a direct way to cancel an ongoing download via hooks
+            # The _cancel_flag in main.py will be checked *between* downloads/transcriptions
+            ydl_instance.download([url])
 
         if finished_callback:
             finished_callback()
@@ -68,18 +71,23 @@ def baixar_videos_para_audio(video_urls, pasta_destino, progress_callback=None, 
 class App:
     def __init__(self, root):
         self.root = root
-        self.root.title("Baixar áudio do YouTube (MP3)")
+        self.root.title("Baixar áudio do YouTube (MP3) e Transcrever")
         self.root.geometry("800x550")
         self.root.minsize(700, 500)
 
         self.destino = str(Path('./audios').absolute())
 
+        self.trancriber = Transcriber()
+
         self._build_ui()
         self._set_idle_state()
 
+        # Controle de cancelamento
+        self._cancel_flag = False
+
     # ----------- Construção da UI -----------
     def _build_ui(self):
-        titulo = tk.Label(self.root, text="Baixar áudio do YouTube (MP3)", font=("Arial", 20, "bold"))
+        titulo = tk.Label(self.root, text="Baixar áudio do YouTube (MP3) e Transcrever", font=("Arial", 20, "bold"))
         titulo.pack(pady=15)
 
         frame_url = tk.Frame(self.root)
@@ -94,8 +102,15 @@ class App:
         frame_prog = tk.Frame(self.root)
         frame_prog.pack(fill="x", padx=20, pady=(10, 0))
 
-        self.barra = ttk.Progressbar(frame_prog, orient="horizontal", length=400, mode="determinate", maximum=100)
-        self.barra.pack(fill="x")
+        lbl_download_bar = tk.Label(frame_prog, text="Progresso do Download:", font=("Arial", 10))
+        lbl_download_bar.pack(anchor="w")
+        self.download_bar = ttk.Progressbar(frame_prog, orient="horizontal", length=400, mode="determinate", maximum=100)
+        self.download_bar.pack(fill="x")
+
+        lbl_transcriber_bar = tk.Label(frame_prog, text="Progresso da Transcrição:", font=("Arial", 10))
+        lbl_transcriber_bar.pack(anchor="w", pady=(8,0))
+        self.transcriber_bar = ttk.Progressbar(frame_prog, orient="horizontal", length=400, mode="determinate", maximum=100)
+        self.transcriber_bar.pack(fill="x", pady=(0, 8))
 
         self.lbl_status = tk.Label(self.root, text="Aguardando...", font=("Arial", 12))
         self.lbl_status.pack(pady=8)
@@ -103,49 +118,63 @@ class App:
         frame_acoes = tk.Frame(self.root)
         frame_acoes.pack(pady=10)
 
-        self.btn_baixar = tk.Button(frame_acoes, text="Inciar", command=self._iniciar_download, font=("Arial", 12), width=12)
+        self.btn_baixar = tk.Button(frame_acoes, text="Iniciar", command=self._iniciar_processo, font=("Arial", 12), width=12)
         self.btn_baixar.grid(row=0, column=0, padx=5)
 
         self.btn_cancelar = tk.Button(frame_acoes, text="Cancelar", command=self._cancelar, font=("Arial", 12), width=12, state="disabled")
         self.btn_cancelar.grid(row=0, column=1, padx=5)
 
-        # Controle de cancelamento
-        self._cancel_flag = False
-
     # ----------- Estado de UI -----------
     def _set_busy_state(self):
         self.btn_baixar.config(state="disabled")
         self.btn_cancelar.config(state="normal")
+        self.txt_urls.config(state="disabled")
 
     def _set_idle_state(self):
         self.btn_baixar.config(state="normal")
         self.btn_cancelar.config(state="disabled")
-        self._set_progress(0)
+        self.txt_urls.config(state="normal")
+        self._set_progress(0, "download")
+        self._set_progress(0, "transcriber")
         self._set_status("Aguardando...")
+        self._cancel_flag = False # Reset cancel flag when idle
 
     # ----------- Helpers de UI (sempre thread principal) -----------
     def _set_status(self, texto):
         self.lbl_status.config(text=texto)
 
-    def _set_progress(self, percent):
+    def _set_progress(self, percent, bar_type="download"):
         p = max(0.0, min(100.0, float(percent)))
-        if str(self.barra.cget("mode")) == "indeterminate":
-            self.barra.stop()
-            self.barra.config(mode="determinate")
-        self.barra['value'] = p
+        if bar_type == "download":
+            if str(self.download_bar.cget("mode")) == "indeterminate":
+                self.download_bar.stop()
+                self.download_bar.config(mode="determinate")
+            self.download_bar['value'] = p
+        elif bar_type == "transcriber":
+            self.transcriber_bar['value'] = p
 
     def _start_indeterminate(self):
-        self.barra.config(mode="indeterminate")
-        self.barra.start(15)
+        self.download_bar.config(mode="indeterminate")
+        self.download_bar.start(15)
 
     def _stop_indeterminate(self):
-        if str(self.barra.cget("mode")) == "indeterminate":
-            self.barra.stop()
-            self.barra.config(mode="determinate")
-            self.barra['value'] = 0
+        if str(self.download_bar.cget("mode")) == "indeterminate":
+            self.download_bar.stop()
+            self.download_bar.config(mode="determinate")
+            self.download_bar['value'] = 0
+
+    # New callback for transcriber progress
+    def _transcriber_progress_callback(self, current, total, percentage, filename):
+        if self._cancel_flag:
+            # If cancellation is requested, stop updating UI but the transcription for current file will complete.
+            # The loop in Transcriber.transcribe should break if it receives True from a cancel_check_callback.
+            return
+        p = max(0.0, min(100.0, float(percentage)))
+        self.root.after(0, self._set_progress, p, "transcriber")
+        self.root.after(0, self._set_status, f"Transcrevendo... {current} de {total} ({p:.1f}%) - {filename}")
 
     # ----------- Botões -----------
-    def _iniciar_download(self):
+    def _iniciar_processo(self):
         urls_raw = self.txt_urls.get("1.0", "end").strip()
         if not urls_raw:
             messagebox.showwarning("Atenção", "Informe ao menos uma URL (uma por linha).")
@@ -156,25 +185,26 @@ class App:
         self._cancel_flag = False
         self._set_busy_state()
         self._set_status("Preparando downloads...")
-        self._set_progress(0)
+        self._set_progress(0, "download")
+        self._set_progress(0, "transcriber")
 
         # Inicia thread de trabalho
-        th = threading.Thread(target=self._worker_download, args=(urls, self.destino), daemon=True)
+        th = threading.Thread(target=self._worker_process, args=(urls, self.destino), daemon=True)
         th.start()
 
     def _cancelar(self):
-        # Não há cancelamento nativo em yt_dlp por hook; sinalizamos e paramos UI.
-        # Em uso real, você poderia baixar um arquivo por vez e verificar essa flag entre itens.
         self._cancel_flag = True
+        self.root.after(0, self._set_status, "Cancelando processo...")
+        self.btn_cancelar.config(state="disabled") # Disable cancel button after it's pressed
 
     # ----------- Worker em thread separada -----------
-    def _worker_download(self, urls, pasta_destino):
-        # Hook de progresso (chamado pela thread de download)
-        def progress_hook(d):
+    def _worker_process(self, urls, pasta_destino):
+        # Hook de progresso para download
+        def download_progress_hook(d):
+            # Check cancellation flag, though yt_dlp doesn't have an interruptible hook.
+            # This check primarily stops further files from being downloaded if multiple URLs are provided.
             if self._cancel_flag:
-                # Não há API direta para interromper o download atual;
-                # a estratégia prática é deixar concluir o arquivo em andamento
-                # e não iniciar novos (controle externo ao loop, se necessário).
+                # Signify that a cancellation was requested, but current download might finish.
                 return
 
             status = d.get('status')
@@ -186,7 +216,7 @@ class App:
             if status == 'downloading':
                 if total and baixado:
                     percent = (baixado / total) * 100.0
-                    self.root.after(0, self._set_progress, percent)
+                    self.root.after(0, self._set_progress, percent, "download")
                     msg = f"Baixando... {percent:.1f}%"
                     if speed:
                         msg += f" | Vel: {speed/1024/1024:.2f} MB/s"
@@ -194,37 +224,57 @@ class App:
                         msg += f" | ETA: {eta}s"
                     self.root.after(0, self._set_status, msg)
                 else:
-                    # Sem total conhecido => indeterminado
                     self.root.after(0, self._set_status, "Baixando... (tamanho total desconhecido)")
                     self.root.after(0, self._start_indeterminate)
 
             elif status == 'finished':
                 self.root.after(0, self._stop_indeterminate)
-                self.root.after(0, self._set_progress, 100)
+                self.root.after(0, self._set_progress, 100, "download")
                 self.root.after(0, self._set_status, "Download concluído! Convertendo/Finalizando...")
 
-        # Callbacks de término/erro
-        def on_finished():
-            self.root.after(0, self._set_status, "Tudo pronto! Arquivos salvos.")
-            self.root.after(0, self._set_idle_state)
+        # Função de callback para quando o download terminar com sucesso
+        def on_download_finished_successfully():
+            if self._cancel_flag:
+                self.root.after(0, self._set_status, "Processo cancelado após downloads.")
+                self.root.after(0, self._set_idle_state)
+                return
 
-        def on_error(e):
+            self.root.after(0, self._set_status, "Download concluído! Iniciando transcrição...")
+            self.root.after(0, lambda: self.transcriber_bar.config(value=0)) # Reset transcriber bar
+
+            try:
+                # Start transcription phase
+                self.trancriber.transribe(progress_callback=self._transcriber_progress_callback, cancel_check_callback=lambda: self._cancel_flag)
+                self.root.after(0, self._set_status, "Transcrições concluídas!")
+                self.root.after(0, self._set_progress, 100, "transcriber")
+                self.root.after(0, self._set_idle_state)
+            except Exception as e:
+                self.root.after(0, self._set_status, "Erro durante a transcrição.")
+                self.root.after(0, self._set_progress, 0, "transcriber") # Reset on error
+                self.root.after(0, self._set_idle_state)
+                self.root.after(0, lambda: messagebox.showerror("Erro na Transcrição", f"Ocorreu um erro durante a transcrição:\n{e}"))
+
+        # Função de callback para erros gerais
+        def on_process_error(e, phase="Geral"):
             self.root.after(0, self._stop_indeterminate)
-            self.root.after(0, self._set_status, "Erro durante o processo.")
+            self.root.after(0, self._set_status, f"Erro durante o processo ({phase}).")
             self.root.after(0, self._set_idle_state)
-            self.root.after(0, lambda: messagebox.showerror("Erro", f"Ocorreu um erro:\n{e}"))
+            self.root.after(0, lambda: self.download_bar.config(value=0))
+            self.root.after(0, lambda: self.transcriber_bar.config(value=0))
+            self.root.after(0, lambda: messagebox.showerror("Erro", f"Ocorreu um erro na fase de {phase}:\n{e}"))
 
-        # Execução do download
         try:
+            # Execute download phase
+            self.root.after(0, self._set_status, "Iniciando downloads...")
             baixar_videos_para_audio(
                 video_urls=urls,
                 pasta_destino=pasta_destino,
-                progress_callback=progress_hook,
-                finished_callback=on_finished,
-                error_callback=on_error
+                progress_callback=download_progress_hook,
+                finished_callback=on_download_finished_successfully, # This callback will transition to transcription
+                error_callback=lambda e: on_process_error(e, "Download")
             )
         except Exception as e:
-            on_error(e)
+            on_process_error(e)
 
 
 if __name__ == "__main__":

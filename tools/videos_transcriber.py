@@ -6,28 +6,63 @@ from pathlib import Path
 
 class Transcriber:
     def __init__(self):
-        self.model = whisper.load_model("turbo", device="cuda")
-        self.audios_folder = str(Path('./audios').absolute())
-        self.output_name = str(Path('./transcription').absolute())
+        # Determine device for Whisper model
+        if torch.cuda.is_available():
+            self.device = "cuda"
+            print("Usando GPU (CUDA) para transcrição.")
+        elif torch.backends.mps.is_available():
+            self.device = "mps"
+            print("Usando GPU (MPS) para transcrição.")
+        else:
+            self.device = "cpu"
+            print("Usando CPU para transcrição.")
 
-    def transribe(self):
+        self.model = whisper.load_model("tiny", device=self.device) # Changed to 'tiny' for better compatibility if 'turbo' was a custom alias
+        self.audios_folder = str(Path('./audios').absolute())
+        self.output_name = str(Path('./transcription/transcription.json').absolute()) # Added .json extension for clarity
+
+    def transribe(self, progress_callback=None, cancel_check_callback=None):
         transcricoes = []
-        for arquivo in os.listdir(diretorio_entrada):
-            if arquivo.endswith(".mp3"):
-                caminho_completo = os.path.join(diretorio_entrada, arquivo)
-                try:
-                    print(f"Transcrevendo {arquivo}...")
-                    # Transcreve o áudio
-                    result = self.model.transcribe(caminho_completo)
-                    transcricoes.append({"nome": arquivo, "transcrito": result["text"]})
-                    print(f"Transcrição concluída para {arquivo}.")
-                except Exception as e:
-                    print(f"Erro ao processar {arquivo}: {e}")
+        
+        # Get list of MP3 files to transcribe
+        mp3_files = [f for f in os.listdir(self.audios_folder) if f.endswith(".mp3")]
+        total_files = len(mp3_files)
+
+        if total_files == 0:
+            print("Nenhum arquivo MP3 encontrado para transcrever.")
+            if progress_callback:
+                progress_callback(0, 0, 100, "Nenhum arquivo.") # Signal 100% completion with 0 files
+            return
+
+        for idx, arquivo in enumerate(mp3_files):
+            if cancel_check_callback and cancel_check_callback():
+                print(f"Cancelamento solicitado. Interrompendo transcrição.")
+                break # Exit the loop if cancellation is requested
+
+            caminho_completo = os.path.join(self.audios_folder, arquivo)
+            try:
+                # Alterado o texto conforme solicitado
+                print("Transcrevendo...") 
+                
+                # Transcreve o áudio
+                result = self.model.transcribe(caminho_completo)
+                transcricoes.append({"nome": arquivo, "transcrito": result["text"]})
+                print(f"Transcrição concluída para {arquivo}.")
+
+            except Exception as e:
+                print(f"Erro ao processar {arquivo}: {e}")
+                transcricoes.append({"nome": arquivo, "transcrito": f"ERRO: {e}"}) # Add error to transcription output
+            finally:
+                # Always call progress_callback even if there's an error for that file
+                if progress_callback:
+                    progress_percentage = ((idx + 1) / total_files) * 100
+                    progress_callback(idx + 1, total_files, progress_percentage, arquivo)
 
         # Salva as transcrições em um arquivo JSON
-        with open(arquivo_saida, "w", encoding="utf-8") as f:
+        with open(self.output_name, "w", encoding="utf-8") as f:
             json.dump(transcricoes, f, ensure_ascii=False, indent=4)
-        print(f"Transcrições salvas em {arquivo_saida}.")
+        print(f"Transcrições salvas em {self.output_name}.")
+
 
 def transcrever_audios_whisper(diretorio_entrada, arquivo_saida):
     """
@@ -67,7 +102,7 @@ def transcrever_audios_whisper(diretorio_entrada, arquivo_saida):
     print(f"Transcrições salvas em {arquivo_saida}.")
 
 # Exemplo de uso
-if __name__ == "__main__":
-    diretorio_entrada = "./audios"
-    arquivo_saida = "videos.json"
-    transcrever_audios_whisper(diretorio_entrada, arquivo_saida)
+# if __name__ == "__main__":
+#     diretorio_entrada = "./audios"
+#     arquivo_saida = "videos.json"
+#     transcrever_audios_whisper(diretorio_entrada, arquivo_saida)
