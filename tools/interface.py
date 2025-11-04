@@ -77,6 +77,15 @@ class App:
         titulo = tk.Label(self.root, text="Baixar áudio do YouTube (MP3) e Transcrever", font=("Arial", 20, "bold"))
         titulo.pack(pady=15)
 
+        frame_cource = tk.Frame(self.root)
+        frame_cource.pack(fill="x", padx=20)
+
+        lbl_cource = tk.Label(frame_cource, text="Curso:", font=("Arial", 12, "bold"))
+        lbl_cource.pack(anchor="w")
+
+        self.txt_cource = tk.Text(frame_cource, height=1, font=("Consolas", 11))
+        self.txt_cource.pack(fill="both", expand=True, pady=8)
+
         frame_url = tk.Frame(self.root)
         frame_url.pack(fill="x", padx=20)
 

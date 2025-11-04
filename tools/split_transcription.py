@@ -1,4 +1,15 @@
 import json
+from pathlib import Path
+
+class TranscriptionProcessor:
+    def __init__(self):
+        self.transcriptio_file = str(Path('./transcription/transcription.json').absolute())
+
+    def process(self):
+        with open(self.transcriptio_file, 'r', encoding='utf-8') as file:
+            data = json.load(file)
+        
+        
 
 def split_transcription(transcription):
     buffer = ""

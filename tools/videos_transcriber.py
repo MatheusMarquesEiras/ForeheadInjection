@@ -21,7 +21,7 @@ class Transcriber:
         self.audios_folder = str(Path('./audios').absolute())
         self.output_name = str(Path('./transcription/transcription.json').absolute()) # Added .json extension for clarity
 
-    def transribe(self, progress_callback=None, cancel_check_callback=None):
+    def transribe(self, progress_callback=None, cancel_check_callback=None, cource_name=None):
         transcricoes = []
         
         # Get list of MP3 files to transcribe
@@ -40,18 +40,20 @@ class Transcriber:
                 break # Exit the loop if cancellation is requested
 
             caminho_completo = os.path.join(self.audios_folder, arquivo)
+            tmp_name = arquivo.split('.')
+            name = tmp_name[0]
             try:
                 # Alterado o texto conforme solicitado
                 print("Transcrevendo...") 
                 
                 # Transcreve o áudio
                 result = self.model.transcribe(caminho_completo)
-                transcricoes.append({"nome": arquivo, "transcrito": result["text"]})
-                print(f"Transcrição concluída para {arquivo}.")
+                transcricoes.append({"topic": name, "transcription": result["text"]})
+                print(f"Transcrição concluída para {name}.")
 
             except Exception as e:
-                print(f"Erro ao processar {arquivo}: {e}")
-                transcricoes.append({"nome": arquivo, "transcrito": f"ERRO: {e}"}) # Add error to transcription output
+                print(f"Erro ao processar {name}: {e}")
+                transcricoes.append({"topic": name, "transcription": f"ERRO: {e}"}) # Add error to transcription output
             finally:
                 # Always call progress_callback even if there's an error for that file
                 if progress_callback:
