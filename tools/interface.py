@@ -7,7 +7,7 @@ from videos_transcriber import Transcriber
 
 import yt_dlp
 
-# ========================== Função de download (baseada no seu exemplo) ==========================
+# ========================== Função de download ==========================
 
 def baixar_videos_para_audio(video_urls, pasta_destino, progress_callback=None, finished_callback=None, error_callback=None):
     """
@@ -30,32 +30,22 @@ def baixar_videos_para_audio(video_urls, pasta_destino, progress_callback=None, 
             'preferredcodec': 'mp3',
             'preferredquality': '192',
         }],
-
-        # Workaround para o problema de "Only images are available" / SABR:
         'extractor_args': {
             'youtube': {
-                # Você pode tentar ['android', 'tv'] se necessário
                 'player_client': ['android']
             }
         },
-
-        # Robustez
         'retries': 10,
         'fragment_retries': 10,
         'ignoreerrors': True,
         'noplaylist': True,
         'concurrent_fragment_downloads': 1,
-
-        # Progresso
         'progress_hooks': [progress_callback] if progress_callback else []
     }
 
     try:
         ydl_instance = yt_dlp.YoutubeDL(opcoes)
-        # Execute download for each URL separately to allow better cancellation checks
         for url in video_urls:
-            # yt_dlp does not have a direct way to cancel an ongoing download via hooks
-            # The _cancel_flag in main.py will be checked *between* downloads/transcriptions
             ydl_instance.download([url])
 
         if finished_callback:
@@ -76,14 +66,11 @@ class App:
         self.root.minsize(700, 500)
 
         self.destino = str(Path('./audios').absolute())
-
         self.trancriber = Transcriber()
+        self._cancel_flag = False
 
         self._build_ui()
         self._set_idle_state()
-
-        # Controle de cancelamento
-        self._cancel_flag = False
 
     # ----------- Construção da UI -----------
     def _build_ui(self):
@@ -108,7 +95,7 @@ class App:
         self.download_bar.pack(fill="x")
 
         lbl_transcriber_bar = tk.Label(frame_prog, text="Progresso da Transcrição:", font=("Arial", 10))
-        lbl_transcriber_bar.pack(anchor="w", pady=(8,0))
+        lbl_transcriber_bar.pack(anchor="w", pady=(8, 0))
         self.transcriber_bar = ttk.Progressbar(frame_prog, orient="horizontal", length=400, mode="determinate", maximum=100)
         self.transcriber_bar.pack(fill="x", pady=(0, 8))
 
@@ -137,7 +124,7 @@ class App:
         self._set_progress(0, "download")
         self._set_progress(0, "transcriber")
         self._set_status("Aguardando...")
-        self._cancel_flag = False # Reset cancel flag when idle
+        self._cancel_flag = False
 
     # ----------- Helpers de UI (sempre thread principal) -----------
     def _set_status(self, texto):
@@ -163,11 +150,8 @@ class App:
             self.download_bar.config(mode="determinate")
             self.download_bar['value'] = 0
 
-    # New callback for transcriber progress
     def _transcriber_progress_callback(self, current, total, percentage, filename):
         if self._cancel_flag:
-            # If cancellation is requested, stop updating UI but the transcription for current file will complete.
-            # The loop in Transcriber.transcribe should break if it receives True from a cancel_check_callback.
             return
         p = max(0.0, min(100.0, float(percentage)))
         self.root.after(0, self._set_progress, p, "transcriber")
@@ -188,23 +172,19 @@ class App:
         self._set_progress(0, "download")
         self._set_progress(0, "transcriber")
 
-        # Inicia thread de trabalho
         th = threading.Thread(target=self._worker_process, args=(urls, self.destino), daemon=True)
         th.start()
 
     def _cancelar(self):
         self._cancel_flag = True
         self.root.after(0, self._set_status, "Cancelando processo...")
-        self.btn_cancelar.config(state="disabled") # Disable cancel button after it's pressed
+        self.btn_cancelar.config(state="disabled")
 
     # ----------- Worker em thread separada -----------
     def _worker_process(self, urls, pasta_destino):
         # Hook de progresso para download
         def download_progress_hook(d):
-            # Check cancellation flag, though yt_dlp doesn't have an interruptible hook.
-            # This check primarily stops further files from being downloaded if multiple URLs are provided.
             if self._cancel_flag:
-                # Signify that a cancellation was requested, but current download might finish.
                 return
 
             status = d.get('status')
@@ -232,7 +212,19 @@ class App:
                 self.root.after(0, self._set_progress, 100, "download")
                 self.root.after(0, self._set_status, "Download concluído! Convertendo/Finalizando...")
 
-        # Função de callback para quando o download terminar com sucesso
+        # ✅ FIX: Captura 'phase' como argumento padrão
+        def on_process_error(error_msg, phase="Geral"):
+            self.root.after(0, self._stop_indeterminate)
+            self.root.after(0, self._set_status, f"Erro durante o processo ({phase}).")
+            self.root.after(0, self._set_idle_state)
+            self.root.after(0, lambda: self.download_bar.config(value=0))
+            self.root.after(0, lambda: self.transcriber_bar.config(value=0))
+            # ✅ CORREÇÃO: Passa a mensagem como argumento padrão
+            self.root.after(0, lambda msg=error_msg, ph=phase: messagebox.showerror(
+                "Erro",
+                f"Ocorreu um erro na fase de {ph}:\n{msg}"
+            ))
+
         def on_download_finished_successfully():
             if self._cancel_flag:
                 self.root.after(0, self._set_status, "Processo cancelado após downloads.")
@@ -240,41 +232,37 @@ class App:
                 return
 
             self.root.after(0, self._set_status, "Download concluído! Iniciando transcrição...")
-            self.root.after(0, lambda: self.transcriber_bar.config(value=0)) # Reset transcriber bar
+            self.root.after(0, lambda: self.transcriber_bar.config(value=0))
 
             try:
-                # Start transcription phase
-                self.trancriber.transribe(progress_callback=self._transcriber_progress_callback, cancel_check_callback=lambda: self._cancel_flag)
+                self.trancriber.transribe(
+                    progress_callback=self._transcriber_progress_callback,
+                    cancel_check_callback=lambda: self._cancel_flag
+                )
                 self.root.after(0, self._set_status, "Transcrições concluídas!")
                 self.root.after(0, self._set_progress, 100, "transcriber")
                 self.root.after(0, self._set_idle_state)
             except Exception as e:
                 self.root.after(0, self._set_status, "Erro durante a transcrição.")
-                self.root.after(0, self._set_progress, 0, "transcriber") # Reset on error
+                self.root.after(0, self._set_progress, 0, "transcriber")
                 self.root.after(0, self._set_idle_state)
-                self.root.after(0, lambda: messagebox.showerror("Erro na Transcrição", f"Ocorreu um erro durante a transcrição:\n{e}"))
-
-        # Função de callback para erros gerais
-        def on_process_error(e, phase="Geral"):
-            self.root.after(0, self._stop_indeterminate)
-            self.root.after(0, self._set_status, f"Erro durante o processo ({phase}).")
-            self.root.after(0, self._set_idle_state)
-            self.root.after(0, lambda: self.download_bar.config(value=0))
-            self.root.after(0, lambda: self.transcriber_bar.config(value=0))
-            self.root.after(0, lambda: messagebox.showerror("Erro", f"Ocorreu um erro na fase de {phase}:\n{e}"))
+                # ✅ CORREÇÃO: Passa a exceção como argumento padrão
+                self.root.after(0, lambda err=str(e): messagebox.showerror(
+                    "Erro na Transcrição",
+                    f"Ocorreu um erro durante a transcrição:\n{err}"
+                ))
 
         try:
-            # Execute download phase
             self.root.after(0, self._set_status, "Iniciando downloads...")
             baixar_videos_para_audio(
                 video_urls=urls,
                 pasta_destino=pasta_destino,
                 progress_callback=download_progress_hook,
-                finished_callback=on_download_finished_successfully, # This callback will transition to transcription
-                error_callback=lambda e: on_process_error(e, "Download")
+                finished_callback=on_download_finished_successfully,
+                error_callback=lambda e: on_process_error(str(e), "Download")  # ✅ Converte para string
             )
         except Exception as e:
-            on_process_error(e)
+            on_process_error(str(e))  # ✅ Converte para string
 
 
 if __name__ == "__main__":
