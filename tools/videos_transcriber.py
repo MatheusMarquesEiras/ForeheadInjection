@@ -17,11 +17,11 @@ class Transcriber:
             self.device = "cpu"
             print("Usando CPU para transcrição.")
 
-        self.model = whisper.load_model("tiny", device=self.device) # Changed to 'tiny' for better compatibility if 'turbo' was a custom alias
+        self.model = whisper.load_model("tiny", device=self.device)
         self.audios_folder = str(Path('./audios').absolute())
-        self.output_name = str(Path('./transcription/transcription.json').absolute()) # Added .json extension for clarity
+        self.output_name = str(Path('./transcription/transcription.json').absolute())
 
-    def transribe(self, progress_callback=None, cancel_check_callback=None, cource_name=None):
+    def transribe(self, progress_callback=None, cancel_check_callback=None, course_name=None):
         transcricoes = []
         
         # Get list of MP3 files to transcribe
@@ -31,29 +31,38 @@ class Transcriber:
         if total_files == 0:
             print("Nenhum arquivo MP3 encontrado para transcrever.")
             if progress_callback:
-                progress_callback(0, 0, 100, "Nenhum arquivo.") # Signal 100% completion with 0 files
+                progress_callback(0, 0, 100, "Nenhum arquivo.")
             return
 
         for idx, arquivo in enumerate(mp3_files):
             if cancel_check_callback and cancel_check_callback():
                 print(f"Cancelamento solicitado. Interrompendo transcrição.")
-                break # Exit the loop if cancellation is requested
+                break
 
             caminho_completo = os.path.join(self.audios_folder, arquivo)
             tmp_name = arquivo.split('.')
             name = tmp_name[0]
+            
             try:
-                # Alterado o texto conforme solicitado
-                print("Transcrevendo...") 
+                print("Transcrevendo...")
                 
                 # Transcreve o áudio
                 result = self.model.transcribe(caminho_completo)
-                transcricoes.append({"topic": name, "transcription": result["text"]})
+                transcricoes.append({
+                    "course": course_name,
+                    "topic": name,
+                    "transcription": result["text"]
+                })
                 print(f"Transcrição concluída para {name}.")
 
             except Exception as e:
                 print(f"Erro ao processar {name}: {e}")
-                transcricoes.append({"topic": name, "transcription": f"ERRO: {e}"}) # Add error to transcription output
+                transcricoes.append({
+                    "course": course_name,
+                    "topic": name,
+                    "transcription": f"ERRO: {e}"
+                })
+            
             finally:
                 # Always call progress_callback even if there's an error for that file
                 if progress_callback:
@@ -61,6 +70,7 @@ class Transcriber:
                     progress_callback(idx + 1, total_files, progress_percentage, arquivo)
 
         # Salva as transcrições em um arquivo JSON
+        os.makedirs(os.path.dirname(self.output_name), exist_ok=True)
         with open(self.output_name, "w", encoding="utf-8") as f:
             json.dump(transcricoes, f, ensure_ascii=False, indent=4)
         print(f"Transcrições salvas em {self.output_name}.")

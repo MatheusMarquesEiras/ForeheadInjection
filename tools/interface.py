@@ -62,8 +62,8 @@ class App:
     def __init__(self, root):
         self.root = root
         self.root.title("Baixar áudio do YouTube (MP3) e Transcrever")
-        self.root.geometry("800x550")
-        self.root.minsize(700, 500)
+        self.root.geometry("800x600")
+        self.root.minsize(700, 550)
 
         self.destino = str(Path('./audios').absolute())
         self.trancriber = Transcriber()
@@ -77,24 +77,27 @@ class App:
         titulo = tk.Label(self.root, text="Baixar áudio do YouTube (MP3) e Transcrever", font=("Arial", 20, "bold"))
         titulo.pack(pady=15)
 
-        frame_cource = tk.Frame(self.root)
-        frame_cource.pack(fill="x", padx=20)
+        # ✅ Frame para entrada do curso
+        frame_course = tk.Frame(self.root)
+        frame_course.pack(fill="x", padx=20, pady=(0, 10))
 
-        lbl_cource = tk.Label(frame_cource, text="Curso:", font=("Arial", 12, "bold"))
-        lbl_cource.pack(anchor="w")
+        lbl_course = tk.Label(frame_course, text="Curso:", font=("Arial", 12, "bold"))
+        lbl_course.pack(anchor="w")
 
-        self.txt_cource = tk.Text(frame_cource, height=1, font=("Consolas", 11))
-        self.txt_cource.pack(fill="both", expand=True, pady=8)
+        self.txt_course = tk.Entry(frame_course, font=("Consolas", 11))
+        self.txt_course.pack(fill="x", pady=5)
 
+        # Frame para URLs
         frame_url = tk.Frame(self.root)
-        frame_url.pack(fill="x", padx=20)
+        frame_url.pack(fill="x", padx=20, pady=(0, 10))
 
         lbl_url = tk.Label(frame_url, text="URLs (uma por linha):", font=("Arial", 12, "bold"))
         lbl_url.pack(anchor="w")
 
-        self.txt_urls = tk.Text(frame_url, height=1, font=("Consolas", 11))
-        self.txt_urls.pack(fill="both", expand=True, pady=8)
+        self.txt_urls = tk.Text(frame_url, height=4, font=("Consolas", 11))
+        self.txt_urls.pack(fill="both", expand=True, pady=5)
 
+        # Frame de progresso
         frame_prog = tk.Frame(self.root)
         frame_prog.pack(fill="x", padx=20, pady=(10, 0))
 
@@ -111,6 +114,7 @@ class App:
         self.lbl_status = tk.Label(self.root, text="Aguardando...", font=("Arial", 12))
         self.lbl_status.pack(pady=8)
 
+        # Frame de ações
         frame_acoes = tk.Frame(self.root)
         frame_acoes.pack(pady=10)
 
@@ -125,11 +129,13 @@ class App:
         self.btn_baixar.config(state="disabled")
         self.btn_cancelar.config(state="normal")
         self.txt_urls.config(state="disabled")
+        self.txt_course.config(state="disabled")
 
     def _set_idle_state(self):
         self.btn_baixar.config(state="normal")
         self.btn_cancelar.config(state="disabled")
         self.txt_urls.config(state="normal")
+        self.txt_course.config(state="normal")
         self._set_progress(0, "download")
         self._set_progress(0, "transcriber")
         self._set_status("Aguardando...")
@@ -168,6 +174,12 @@ class App:
 
     # ----------- Botões -----------
     def _iniciar_processo(self):
+        # ✅ Valida campo de curso
+        course_name = self.txt_course.get().strip()
+        if not course_name:
+            messagebox.showwarning("Atenção", "Informe o nome do curso.")
+            return
+
         urls_raw = self.txt_urls.get("1.0", "end").strip()
         if not urls_raw:
             messagebox.showwarning("Atenção", "Informe ao menos uma URL (uma por linha).")
@@ -181,7 +193,8 @@ class App:
         self._set_progress(0, "download")
         self._set_progress(0, "transcriber")
 
-        th = threading.Thread(target=self._worker_process, args=(urls, self.destino), daemon=True)
+        # ✅ Passa o nome do curso para o worker
+        th = threading.Thread(target=self._worker_process, args=(urls, self.destino, course_name), daemon=True)
         th.start()
 
     def _cancelar(self):
@@ -190,7 +203,7 @@ class App:
         self.btn_cancelar.config(state="disabled")
 
     # ----------- Worker em thread separada -----------
-    def _worker_process(self, urls, pasta_destino):
+    def _worker_process(self, urls, pasta_destino, course_name):
         # Hook de progresso para download
         def download_progress_hook(d):
             if self._cancel_flag:
@@ -221,14 +234,12 @@ class App:
                 self.root.after(0, self._set_progress, 100, "download")
                 self.root.after(0, self._set_status, "Download concluído! Convertendo/Finalizando...")
 
-        # ✅ FIX: Captura 'phase' como argumento padrão
         def on_process_error(error_msg, phase="Geral"):
             self.root.after(0, self._stop_indeterminate)
             self.root.after(0, self._set_status, f"Erro durante o processo ({phase}).")
             self.root.after(0, self._set_idle_state)
             self.root.after(0, lambda: self.download_bar.config(value=0))
             self.root.after(0, lambda: self.transcriber_bar.config(value=0))
-            # ✅ CORREÇÃO: Passa a mensagem como argumento padrão
             self.root.after(0, lambda msg=error_msg, ph=phase: messagebox.showerror(
                 "Erro",
                 f"Ocorreu um erro na fase de {ph}:\n{msg}"
@@ -244,9 +255,11 @@ class App:
             self.root.after(0, lambda: self.transcriber_bar.config(value=0))
 
             try:
+                # ✅ Passa o nome do curso para o transcriber
                 self.trancriber.transribe(
                     progress_callback=self._transcriber_progress_callback,
-                    cancel_check_callback=lambda: self._cancel_flag
+                    cancel_check_callback=lambda: self._cancel_flag,
+                    course_name=course_name
                 )
                 self.root.after(0, self._set_status, "Transcrições concluídas!")
                 self.root.after(0, self._set_progress, 100, "transcriber")
@@ -255,7 +268,6 @@ class App:
                 self.root.after(0, self._set_status, "Erro durante a transcrição.")
                 self.root.after(0, self._set_progress, 0, "transcriber")
                 self.root.after(0, self._set_idle_state)
-                # ✅ CORREÇÃO: Passa a exceção como argumento padrão
                 self.root.after(0, lambda err=str(e): messagebox.showerror(
                     "Erro na Transcrição",
                     f"Ocorreu um erro durante a transcrição:\n{err}"
@@ -268,10 +280,10 @@ class App:
                 pasta_destino=pasta_destino,
                 progress_callback=download_progress_hook,
                 finished_callback=on_download_finished_successfully,
-                error_callback=lambda e: on_process_error(str(e), "Download")  # ✅ Converte para string
+                error_callback=lambda e: on_process_error(str(e), "Download")
             )
         except Exception as e:
-            on_process_error(str(e))  # ✅ Converte para string
+            on_process_error(str(e))
 
 
 if __name__ == "__main__":
