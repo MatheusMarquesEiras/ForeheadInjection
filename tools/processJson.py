@@ -50,7 +50,7 @@ class JsonProcessor:
 
         return new_contents
 
-    def process(self, output_path: Path = None) -> list:
+    def process(self) -> list:
         """
         Carrega o arquivo JSON, processa o conteúdo
         e salva em um novo arquivo.
@@ -60,13 +60,10 @@ class JsonProcessor:
 
         processed_data = self.process_contents(data)
 
-        if output_path is None:
-            output_path = Path('tmp.json')
-
-        with open(str(output_path.absolute()), 'w', encoding='utf-8') as file:
+        with open(str(self.file_to_process), 'w', encoding='utf-8') as file:
             json.dump(processed_data, file, ensure_ascii=False, indent=4)
 
-        print(f"Data processed and saved to {output_path}")
+        print(f"Data processed and saved to {self.file_to_process}")
         print(f"Total items: {len(processed_data)}")
         print(f"Total chunks in first item: {processed_data[0]['sequence']}")
 
