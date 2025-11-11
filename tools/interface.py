@@ -1,76 +1,36 @@
-import os
 import threading
 import tkinter as tk
-from tkinter import ttk, messagebox
+from tkinter import ttk, messagebox, filedialog
 from pathlib import Path
+import shutil
 from videos_transcriber import Transcriber
-
-import yt_dlp
-
-# ========================== Função de download ==========================
-
-def baixar_videos_para_audio(video_urls, pasta_destino, progress_callback=None, finished_callback=None, error_callback=None):
-    """
-    Baixa vídeos do YouTube e converte para áudio em formato MP3.
-
-    Args:
-        video_urls (list): Lista de URLs dos vídeos do YouTube.
-        pasta_destino (str): Caminho da pasta onde os arquivos serão salvos.
-        progress_callback (callable): Hook de progresso do yt_dlp (opcional).
-        finished_callback (callable): Chamado quando tudo terminar sem exceções (opcional).
-        error_callback (callable): Chamado em caso de exceção (opcional).
-    """
-    os.makedirs(pasta_destino, exist_ok=True)
-
-    opcoes = {
-        'format': 'bestaudio/best',
-        'outtmpl': os.path.join(pasta_destino, '%(title)s.%(ext)s'),
-        'postprocessors': [{
-            'key': 'FFmpegExtractAudio',
-            'preferredcodec': 'mp3',
-            'preferredquality': '192',
-        }],
-        'extractor_args': {
-            'youtube': {
-                'player_client': ['android']
-            }
-        },
-        'retries': 10,
-        'fragment_retries': 10,
-        'ignoreerrors': True,
-        'noplaylist': True,
-        'concurrent_fragment_downloads': 1,
-        'progress_hooks': [progress_callback] if progress_callback else []
-    }
-
-    try:
-        ydl_instance = yt_dlp.YoutubeDL(opcoes)
-        for url in video_urls:
-            ydl_instance.download([url])
-
-        if finished_callback:
-            finished_callback()
-
-    except Exception as e:
-        if error_callback:
-            error_callback(e)
-
-
-# ========================== Interface Tkinter ==========================
+from checker import file_exist
+from download_audio import video_downloader
+from processJson import JsonProcessor
 
 class App:
     def __init__(self, root):
         self.root = root
         self.root.title("Baixar áudio do YouTube (MP3) e Transcrever")
-        self.root.geometry("800x600")
-        self.root.minsize(700, 550)
+        self.root.geometry("800x650")
+        self.root.minsize(700, 600)
 
         self.destino = str(Path('./audios').absolute())
         self.trancriber = Transcriber()
         self._cancel_flag = False
 
+        self.selected_image_full_path = ""
+        self.image_url = ""
+
+        # ✅ CORREÇÃO: Inicializar json_handler ANTES de _build_ui()
+        self.json_handler = JsonProcessor(Path('./transcription/transcription.json'))
+
         self._build_ui()
         self._set_idle_state()
+        self._check_form_validity()
+
+        # ✅ Monitorar o arquivo JSON
+        self._monitor_json_file()
 
     # ----------- Construção da UI -----------
     def _build_ui(self):
@@ -86,6 +46,24 @@ class App:
 
         self.txt_course = tk.Entry(frame_course, font=("Consolas", 11))
         self.txt_course.pack(fill="x", pady=5)
+        self.txt_course.bind("<KeyRelease>", lambda event: self._check_form_validity())
+
+        # ✅ Frame para seleção de imagem (novo)
+        frame_image = tk.Frame(self.root)
+        frame_image.pack(fill="x", padx=20, pady=(0, 10))
+
+        lbl_image = tk.Label(frame_image, text="Imagem do Curso:", font=("Arial", 12, "bold"))
+        lbl_image.pack(anchor="w")
+
+        frame_image_input = tk.Frame(frame_image)
+        frame_image_input.pack(fill="x", pady=5)
+
+        self.txt_image_path = tk.Entry(frame_image_input, font=("Consolas", 11), state="readonly", 
+                                        readonlybackground="lightyellow", fg="black")
+        self.txt_image_path.pack(side="left", fill="x", expand=True, padx=(0, 5))
+
+        self.btn_select_image = tk.Button(frame_image_input, text="Selecionar Imagem", command=self._select_image, font=("Arial", 10))
+        self.btn_select_image.pack(side="right")
 
         # Frame para URLs
         frame_url = tk.Frame(self.root)
@@ -96,6 +74,7 @@ class App:
 
         self.txt_urls = tk.Text(frame_url, height=4, font=("Consolas", 11))
         self.txt_urls.pack(fill="both", expand=True, pady=5)
+        self.txt_urls.bind("<KeyRelease>", lambda event: self._check_form_validity())
 
         # Frame de progresso
         frame_prog = tk.Frame(self.root)
@@ -124,22 +103,41 @@ class App:
         self.btn_cancelar = tk.Button(frame_acoes, text="Cancelar", command=self._cancelar, font=("Arial", 12), width=12, state="disabled")
         self.btn_cancelar.grid(row=0, column=1, padx=5)
 
+        # ✅ CORREÇÃO: Inicializa desabilitado, será ativado quando o arquivo existir
+        self.bnt_process_transcipt = tk.Button(frame_acoes, text="Processar transcrição", command=self.json_handler.process, font=("Arial", 12), width=24, state="disabled")
+        self.bnt_process_transcipt.grid(row=1, column=0, columnspan=2, padx=5, pady=10)
+
+    # ----------- Monitoramento do arquivo JSON -----------
+    # ✅ NOVA FUNÇÃO: Verifica periodicamente se o arquivo JSON foi criado
+    def _monitor_json_file(self):
+        json_path = Path('./transcription/transcription.json')
+        if file_exist(json_path) == 'active':
+            self.bnt_process_transcipt.config(state="normal")
+        else:
+            self.bnt_process_transcipt.config(state="disabled")
+        
+        # Verificar novamente a cada 1 segundo (1000 ms)
+        self.root.after(1000, self._monitor_json_file)
+
     # ----------- Estado de UI -----------
     def _set_busy_state(self):
         self.btn_baixar.config(state="disabled")
         self.btn_cancelar.config(state="normal")
         self.txt_urls.config(state="disabled")
         self.txt_course.config(state="disabled")
+        self.btn_select_image.config(state="disabled")
 
     def _set_idle_state(self):
         self.btn_baixar.config(state="normal")
         self.btn_cancelar.config(state="disabled")
         self.txt_urls.config(state="normal")
         self.txt_course.config(state="normal")
+        self.btn_select_image.config(state="normal")
         self._set_progress(0, "download")
         self._set_progress(0, "transcriber")
         self._set_status("Aguardando...")
         self._cancel_flag = False
+        self._check_form_validity()
 
     # ----------- Helpers de UI (sempre thread principal) -----------
     def _set_status(self, texto):
@@ -164,6 +162,16 @@ class App:
             self.download_bar.stop()
             self.download_bar.config(mode="determinate")
             self.download_bar['value'] = 0
+    
+    def _check_form_validity(self):
+        course_name_filled = bool(self.txt_course.get().strip())
+        urls_filled = bool(self.txt_urls.get("1.0", "end").strip())
+        image_selected = bool(self.selected_image_full_path)
+
+        if course_name_filled and urls_filled and image_selected:
+            self.btn_baixar.config(state="normal")
+        else:
+            self.btn_baixar.config(state="disabled")
 
     def _transcriber_progress_callback(self, current, total, percentage, filename):
         if self._cancel_flag:
@@ -173,11 +181,58 @@ class App:
         self.root.after(0, self._set_status, f"Transcrevendo... {current} de {total} ({p:.1f}%) - {filename}")
 
     # ----------- Botões -----------
+    def _select_image(self):
+        file_path = filedialog.askopenfilename(
+            title="Selecionar Imagem do Curso",
+            filetypes=[
+                ("Arquivos de Imagem", "*.png *.jpg *.jpeg *.gif *.webp"),
+                ("Todos os Arquivos", "*.*")
+            ]
+        )
+        if file_path:
+            try:
+                static_dir = Path('./backend/static')
+                static_dir.mkdir(parents=True, exist_ok=True)
+
+                image_filename = Path(file_path).name
+                destination_path = static_dir / image_filename
+
+                shutil.copy(file_path, destination_path)
+                
+                self.txt_image_path.config(state="normal")
+                self.txt_image_path.delete(0, tk.END)
+                self.txt_image_path.insert(0, image_filename)
+                self.txt_image_path.config(state="readonly")
+                
+                self.selected_image_full_path = file_path
+                self.image_url = f"http://localhost:5000/static/{image_filename}"
+                
+                self._set_status(f"Imagem selecionada: {image_filename}")
+            except Exception as e:
+                messagebox.showerror("Erro de Imagem", f"Não foi possível copiar a imagem: {e}")
+                self.txt_image_path.config(state="normal")
+                self.txt_image_path.delete(0, tk.END)
+                self.txt_image_path.config(state="readonly")
+                self.selected_image_full_path = ""
+                self.image_url = ""
+        else:
+            self.txt_image_path.config(state="normal")
+            self.txt_image_path.delete(0, tk.END)
+            self.txt_image_path.config(state="readonly")
+            self.selected_image_full_path = ""
+            self.image_url = ""
+            self._set_status("Seleção de imagem cancelada.")
+        
+        self._check_form_validity()
+
     def _iniciar_processo(self):
-        # ✅ Valida campo de curso
         course_name = self.txt_course.get().strip()
         if not course_name:
             messagebox.showwarning("Atenção", "Informe o nome do curso.")
+            return
+
+        if not self.image_url:
+            messagebox.showwarning("Atenção", "Selecione uma imagem do curso antes de iniciar o processo.")
             return
 
         urls_raw = self.txt_urls.get("1.0", "end").strip()
@@ -193,8 +248,7 @@ class App:
         self._set_progress(0, "download")
         self._set_progress(0, "transcriber")
 
-        # ✅ Passa o nome do curso para o worker
-        th = threading.Thread(target=self._worker_process, args=(urls, self.destino, course_name), daemon=True)
+        th = threading.Thread(target=self._worker_process, args=(urls, self.destino, course_name, self.image_url), daemon=True)
         th.start()
 
     def _cancelar(self):
@@ -203,8 +257,7 @@ class App:
         self.btn_cancelar.config(state="disabled")
 
     # ----------- Worker em thread separada -----------
-    def _worker_process(self, urls, pasta_destino, course_name):
-        # Hook de progresso para download
+    def _worker_process(self, urls, pasta_destino, course_name, image_url):
         def download_progress_hook(d):
             if self._cancel_flag:
                 return
@@ -255,11 +308,11 @@ class App:
             self.root.after(0, lambda: self.transcriber_bar.config(value=0))
 
             try:
-                # ✅ Passa o nome do curso para o transcriber
                 self.trancriber.transribe(
                     progress_callback=self._transcriber_progress_callback,
                     cancel_check_callback=lambda: self._cancel_flag,
-                    course_name=course_name
+                    course_name=course_name,
+                    image_url=image_url
                 )
                 self.root.after(0, self._set_status, "Transcrições concluídas!")
                 self.root.after(0, self._set_progress, 100, "transcriber")
@@ -275,7 +328,7 @@ class App:
 
         try:
             self.root.after(0, self._set_status, "Iniciando downloads...")
-            baixar_videos_para_audio(
+            video_downloader(
                 video_urls=urls,
                 pasta_destino=pasta_destino,
                 progress_callback=download_progress_hook,

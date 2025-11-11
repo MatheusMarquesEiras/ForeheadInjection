@@ -21,7 +21,8 @@ class Transcriber:
         self.audios_folder = str(Path('./audios').absolute())
         self.output_name = str(Path('./transcription/transcription.json').absolute())
 
-    def transribe(self, progress_callback=None, cancel_check_callback=None, course_name=None):
+    # ✅ Adicionado image_url como parâmetro com valor padrão None
+    def transribe(self, progress_callback=None, cancel_check_callback=None, course_name=None, image_url=None):
         transcricoes = []
         
         # Get list of MP3 files to transcribe
@@ -48,20 +49,30 @@ class Transcriber:
                 
                 # Transcreve o áudio
                 result = self.model.transcribe(caminho_completo)
-                transcricoes.append({
+                
+                entry = {
                     "course": course_name,
                     "topic": name,
                     "transcription": result["text"]
-                })
+                }
+                # ✅ Adicionar a URL da imagem ao JSON se ela for fornecida
+                if image_url:
+                    entry["image"] = image_url
+                    
+                transcricoes.append(entry)
                 print(f"Transcrição concluída para {name}.")
 
             except Exception as e:
                 print(f"Erro ao processar {name}: {e}")
-                transcricoes.append({
+                
+                error_entry = {
                     "course": course_name,
                     "topic": name,
                     "transcription": f"ERRO: {e}"
-                })
+                }
+                if image_url:
+                    error_entry["image"] = image_url
+                transcricoes.append(error_entry)
             
             finally:
                 # Always call progress_callback even if there's an error for that file
@@ -74,6 +85,7 @@ class Transcriber:
         with open(self.output_name, "w", encoding="utf-8") as f:
             json.dump(transcricoes, f, ensure_ascii=False, indent=4)
         print(f"Transcrições salvas em {self.output_name}.")
+
 
 
 def transcrever_audios_whisper(diretorio_entrada, arquivo_saida):
