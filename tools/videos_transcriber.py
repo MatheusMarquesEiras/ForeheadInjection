@@ -21,7 +21,6 @@ class Transcriber:
         self.audios_folder = str(Path('./audios').absolute())
         self.output_name = str(Path('./transcription/transcription.json').absolute())
 
-    # ✅ Adicionado image_url como parâmetro com valor padrão None
     def transribe(self, progress_callback=None, cancel_check_callback=None, course_name=None, image_url=None):
         transcricoes = []
         
@@ -51,11 +50,12 @@ class Transcriber:
                 result = self.model.transcribe(caminho_completo)
                 
                 entry = {
+                    "file_name": arquivo,
                     "course": course_name,
                     "topic": name,
                     "transcription": result["text"]
                 }
-                # ✅ Adicionar a URL da imagem ao JSON se ela for fornecida
+                # Adicionar a URL da imagem ao JSON se ela for fornecida
                 if image_url:
                     entry["image"] = image_url
                     
@@ -66,6 +66,7 @@ class Transcriber:
                 print(f"Erro ao processar {name}: {e}")
                 
                 error_entry = {
+                    "file_name": arquivo,
                     "course": course_name,
                     "topic": name,
                     "transcription": f"ERRO: {e}"

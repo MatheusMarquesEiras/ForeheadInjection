@@ -34,7 +34,7 @@ class App:
 
     # ----------- Construção da UI -----------
     def _build_ui(self):
-        titulo = tk.Label(self.root, text="Baixar áudio do YouTube (MP3) e Transcrever", font=("Arial", 20, "bold"))
+        titulo = tk.Label(self.root, text="Sistema gerenciamento interno", font=("Arial", 20, "bold"))
         titulo.pack(pady=15)
 
         # ✅ Frame para entrada do curso
@@ -107,14 +107,19 @@ class App:
         self.bnt_process_transcipt = tk.Button(frame_acoes, text="Processar transcrição", command=self.json_handler.process, font=("Arial", 12), width=24, state="disabled")
         self.bnt_process_transcipt.grid(row=1, column=0, columnspan=2, padx=5, pady=10)
 
+        self.bnt_put_in_db = tk.Button(frame_acoes, text="Adicionar a base de dados", command=self.json_handler.put_in_db, font=("Arial", 12), width=24, state="disabled")
+        self.bnt_put_in_db.grid(row=2, column=0, columnspan=2, padx=5, pady=10)
+
     # ----------- Monitoramento do arquivo JSON -----------
     # ✅ NOVA FUNÇÃO: Verifica periodicamente se o arquivo JSON foi criado
     def _monitor_json_file(self):
         json_path = Path('./transcription/transcription.json')
-        if file_exist(json_path) == 'active':
+        if file_exist(json_path):
             self.bnt_process_transcipt.config(state="normal")
+            self.bnt_put_in_db.config(state="normal")
         else:
             self.bnt_process_transcipt.config(state="disabled")
+            self.bnt_put_in_db.config(state="disabled")
         
         # Verificar novamente a cada 1 segundo (1000 ms)
         self.root.after(1000, self._monitor_json_file)

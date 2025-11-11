@@ -33,6 +33,7 @@ class JsonProcessor:
         new_contents = []
 
         for item in data:
+            file_name = item.get("file_name")
             course = item.get("course")
             topic = item.get("topic")
             image = item.get("image")
@@ -45,7 +46,7 @@ class JsonProcessor:
                 "topic": topic,
                 "content": transcription_chunks,
                 "image": image,
-                "sequence": len(transcription_chunks)
+                "file_name": file_name
             })
 
         return new_contents
@@ -65,9 +66,23 @@ class JsonProcessor:
 
         print(f"Data processed and saved to {self.file_to_process}")
         print(f"Total items: {len(processed_data)}")
-        print(f"Total chunks in first item: {processed_data[0]['sequence']}")
 
         return processed_data
+    
+    def put_in_db(self):
+        with open(str(self.file_to_process), 'w', encoding='utf-8') as file:
+            data = json.load(file)
+
+        dict_data_processed = {'courses': [], 'topics': [], 'contents': []}
+        cource = {'name': '', 'img': ''}
+        topic = {"name": '', "sequence": 0, "course_reference": ""}
+        content = {"type_content": "", "content": "", "topic_reference": "", "sequence": 0}
+
+        for item in data:
+            cource["name"] = item['course']
+            cource['img'] = item['image']
+
+            topic
 
 
 # if __name__ == "__main__":
