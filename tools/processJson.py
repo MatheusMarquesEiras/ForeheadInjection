@@ -70,19 +70,20 @@ class JsonProcessor:
         return processed_data
     
     def put_in_db(self):
-        with open(str(self.file_to_process), 'w', encoding='utf-8') as file:
-            data = json.load(file)
+        pass
+        # with open(str(self.file_to_process), 'w', encoding='utf-8') as file:
+        #     data = json.load(file)
 
-        dict_data_processed = {'courses': [], 'topics': [], 'contents': []}
-        cource = {'name': '', 'img': ''}
-        topic = {"name": '', "sequence": 0, "course_reference": ""}
-        content = {"type_content": "", "content": "", "topic_reference": "", "sequence": 0}
+        # dict_data_processed = {'courses': [], 'topics': [], 'contents': []}
+        # cource = {'name': '', 'img': ''}
+        # topic = {"name": '', "sequence": 0, "course_reference": ""}
+        # content = {"type_content": "", "content": "", "topic_reference": "", "sequence": 0}
 
-        for item in data:
-            cource["name"] = item['course']
-            cource['img'] = item['image']
+        # for item in data:
+        #     cource["name"] = item['course']
+        #     cource['img'] = item['image']
 
-            topic
+        #     topic
 
 
 # if __name__ == "__main__":

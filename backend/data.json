@@ -6,7 +6,7 @@
         },
         {
             "name": "python",
-            "img": "http://localhost:5000/static/python.jpg"
+            "img": "http://localhost:5000/static/python.png"
         },
         {
             "name": "Ollama",
@@ -22,11 +22,11 @@
         },
         {
             "name": "react",
-            "img": "http://localhost:5000/static/react.webp"
+            "img": "http://localhost:5000/static/react.png"
         },
         {
             "name": "java",
-            "img": "http://localhost:5000/static/jav.svg"
+            "img": "http://localhost:5000/static/java.png"
         },
         {
             "name": "web",
