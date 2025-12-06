@@ -3,6 +3,8 @@ import tkinter as tk
 from tkinter import ttk, messagebox, filedialog
 from pathlib import Path
 import shutil
+import os # Importado para manipulação de arquivos
+# Certifique-se que esses arquivos existem no seu projeto
 from videos_transcriber import Transcriber
 from checker import file_exist
 from download_audio import video_downloader
@@ -22,14 +24,14 @@ class App:
         self.selected_image_full_path = ""
         self.image_url = ""
 
-        # ✅ CORREÇÃO: Inicializar json_handler ANTES de _build_ui()
-        self.json_handler = JsonProcessor(Path('./transcription/transcription.json'))
+        # Inicializar json_handler
+        self.json_handler = JsonProcessor(Path('./transcription/transcription.json'), Path('./backend/data.json'))
 
         self._build_ui()
         self._set_idle_state()
         self._check_form_validity()
 
-        # ✅ Monitorar o arquivo JSON
+        # Monitorar o arquivo JSON
         self._monitor_json_file()
 
     # ----------- Construção da UI -----------
@@ -37,7 +39,7 @@ class App:
         titulo = tk.Label(self.root, text="Sistema gerenciamento interno", font=("Arial", 20, "bold"))
         titulo.pack(pady=15)
 
-        # ✅ Frame para entrada do curso
+        # Frame para entrada do curso
         frame_course = tk.Frame(self.root)
         frame_course.pack(fill="x", padx=20, pady=(0, 10))
 
@@ -48,7 +50,7 @@ class App:
         self.txt_course.pack(fill="x", pady=5)
         self.txt_course.bind("<KeyRelease>", lambda event: self._check_form_validity())
 
-        # ✅ Frame para seleção de imagem (novo)
+        # Frame para seleção de imagem
         frame_image = tk.Frame(self.root)
         frame_image.pack(fill="x", padx=20, pady=(0, 10))
 
@@ -59,7 +61,7 @@ class App:
         frame_image_input.pack(fill="x", pady=5)
 
         self.txt_image_path = tk.Entry(frame_image_input, font=("Consolas", 11), state="readonly", 
-                                        readonlybackground="lightyellow", fg="black")
+                                       readonlybackground="lightyellow", fg="black")
         self.txt_image_path.pack(side="left", fill="x", expand=True, padx=(0, 5))
 
         self.btn_select_image = tk.Button(frame_image_input, text="Selecionar Imagem", command=self._select_image, font=("Arial", 10))
@@ -103,15 +105,75 @@ class App:
         self.btn_cancelar = tk.Button(frame_acoes, text="Cancelar", command=self._cancelar, font=("Arial", 12), width=12, state="disabled")
         self.btn_cancelar.grid(row=0, column=1, padx=5)
 
-        # ✅ CORREÇÃO: Inicializa desabilitado, será ativado quando o arquivo existir
-        self.bnt_process_transcipt = tk.Button(frame_acoes, text="Processar transcrição", command=self.json_handler.process, font=("Arial", 12), width=24, state="disabled")
+        self.bnt_process_transcipt = tk.Button(frame_acoes, text="Processar transcrição", command=self._executar_processamento_json, font=("Arial", 12), width=24, state="disabled")
         self.bnt_process_transcipt.grid(row=1, column=0, columnspan=2, padx=5, pady=10)
 
-        self.bnt_put_in_db = tk.Button(frame_acoes, text="Adicionar a base de dados", command=self.json_handler.put_in_db, font=("Arial", 12), width=24, state="disabled")
+        # ALTERADO: Chama a nova função de limpeza
+        self.bnt_put_in_db = tk.Button(frame_acoes, text="Adicionar a base de dados", command=self._adicionar_ao_db_e_limpar, font=("Arial", 12), width=24, state="disabled")
         self.bnt_put_in_db.grid(row=2, column=0, columnspan=2, padx=5, pady=10)
 
+    # ----------- Funções de Processamento -----------
+    def _executar_processamento_json(self):
+        urls_raw = self.txt_urls.get("1.0", "end").strip()
+        urls_list = []
+        if urls_raw:
+            urls_list = [u.strip() for u in urls_raw.splitlines() if u.strip()]
+
+        try:
+            self.json_handler.process(video_urls=urls_list)
+            messagebox.showinfo("Sucesso", "Transcrição processada e URLs adicionadas com sucesso!")
+        except Exception as e:
+            messagebox.showerror("Erro", f"Falha ao processar JSON: {e}")
+
+    # ✅ NOVA FUNÇÃO: Adiciona ao DB e limpa tudo
+    def _adicionar_ao_db_e_limpar(self):
+        try:
+            # 1. Adicionar ao banco de dados
+            self.json_handler.put_in_db()
+            messagebox.showinfo("Sucesso", "Dados salvos no banco com sucesso!")
+
+            # 2. Limpar Formulário
+            self.txt_course.delete(0, tk.END)
+            self.txt_urls.delete("1.0", tk.END)
+            
+            self.txt_image_path.config(state="normal")
+            self.txt_image_path.delete(0, tk.END)
+            self.txt_image_path.config(state="readonly")
+            
+            self.selected_image_full_path = ""
+            self.image_url = ""
+
+            # 3. Limpar diretório ./audios
+            audios_path = Path('./audios')
+            if audios_path.exists():
+                for item in audios_path.iterdir():
+                    try:
+                        if item.is_file():
+                            item.unlink()
+                        elif item.is_dir():
+                            shutil.rmtree(item)
+                    except Exception as e:
+                        print(f"Erro ao apagar {item}: {e}")
+
+            # 4. Apagar o arquivo transcription.json
+            transcription_file = Path('./transcription/transcription.json')
+            if transcription_file.exists():
+                try:
+                    transcription_file.unlink()
+                except Exception as e:
+                    print(f"Erro ao apagar transcription.json: {e}")
+
+            # 5. Resetar Estado da Interface
+            self._set_idle_state()
+            self._set_status("Processo finalizado. Ambiente limpo.")
+            
+            # Força verificação dos botões (que vão desabilitar porque o arquivo sumiu)
+            self._monitor_json_file()
+
+        except Exception as e:
+            messagebox.showerror("Erro", f"Erro ao finalizar processo: {e}")
+
     # ----------- Monitoramento do arquivo JSON -----------
-    # ✅ NOVA FUNÇÃO: Verifica periodicamente se o arquivo JSON foi criado
     def _monitor_json_file(self):
         json_path = Path('./transcription/transcription.json')
         if file_exist(json_path):
@@ -121,7 +183,6 @@ class App:
             self.bnt_process_transcipt.config(state="disabled")
             self.bnt_put_in_db.config(state="disabled")
         
-        # Verificar novamente a cada 1 segundo (1000 ms)
         self.root.after(1000, self._monitor_json_file)
 
     # ----------- Estado de UI -----------
@@ -144,7 +205,7 @@ class App:
         self._cancel_flag = False
         self._check_form_validity()
 
-    # ----------- Helpers de UI (sempre thread principal) -----------
+    # ----------- Helpers de UI -----------
     def _set_status(self, texto):
         self.lbl_status.config(text=texto)
 
@@ -342,7 +403,6 @@ class App:
             )
         except Exception as e:
             on_process_error(str(e))
-
 
 if __name__ == "__main__":
     root = tk.Tk()
