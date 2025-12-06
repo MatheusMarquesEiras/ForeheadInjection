@@ -5,6 +5,7 @@ from pathlib import Path
 import shutil
 import os
 import json
+import re  # Importação de Regex
 import pandas as pd
 
 # Importações do projeto
@@ -18,7 +19,7 @@ class App:
     def __init__(self, root):
         self.root = root
         self.root.title("Sistema de Gerenciamento & IA")
-        self.root.geometry("950x750")
+        self.root.geometry("950x800") 
         self.root.minsize(800, 600)
 
         # --- Configurações Iniciais ---
@@ -28,6 +29,9 @@ class App:
         self.selected_image_full_path = ""
         self.image_url = ""
         self.db_path = Path('./backend/data.json')
+        
+        # Variável para armazenar o tópico atual da atividade sendo gerada
+        self.current_activity_topic = None 
 
         # Inicializar processadores
         self.json_handler = JsonProcessor(Path('./transcription/transcription.json'), self.db_path)
@@ -35,8 +39,8 @@ class App:
         # Inicializar Servidor Ollama
         self.ollama_server = OllamaServer()
         
-        # PULL automático ao iniciar (mantido)
-        threading.Thread(target=self.ollama_server.pull, daemon=True).start()
+        # PULL automático ao iniciar (background)
+        threading.Thread(target=self._worker_pull_silent, daemon=True).start()
 
         # --- Configuração das Abas (Notebook) ---
         self.notebook = ttk.Notebook(self.root)
@@ -160,48 +164,62 @@ class App:
         self.btn_refresh_list = tk.Button(frame_actions, text="🔄 Atualizar Lista", command=self._carregar_lista_videos_pandas)
         self.btn_refresh_list.pack(fill="x", pady=2)
 
-        # ✅ NOVO BOTÃO: Baixar Modelo Manualmente
-        self.btn_pull_model = tk.Button(frame_actions, text="📥 Baixar Modelo", command=self._pull_model_thread)
+        self.btn_pull_model = tk.Button(frame_actions, text="📥 Baixar Modelo", command=self._pull_model_manual)
         self.btn_pull_model.pack(fill="x", pady=2)
 
         self.btn_generate_activity = tk.Button(frame_actions, text="✨ Gerar Atividade", command=self._gerar_atividade_ia, state="disabled", bg="#d9ffcc")
         self.btn_generate_activity.pack(fill="x", pady=(20, 2))
 
-        # -- Área Inferior: Saída da IA --
+        # -- Área Central: Saída da IA --
         frame_bottom = tk.Frame(container)
-        frame_bottom.pack(fill="both", expand=True)
+        frame_bottom.pack(fill="both", expand=True, pady=(0, 10))
 
         tk.Label(frame_bottom, text="Resposta da IA:", font=("Arial", 10, "bold")).pack(anchor="w")
         
         self.txt_ai_output = scrolledtext.ScrolledText(frame_bottom, font=("Consolas", 10), state="disabled", height=15)
         self.txt_ai_output.pack(fill="both", expand=True)
 
+        # -- Área Inferior: Botões de Decisão (Aceitar/Negar) --
+        frame_decision = tk.Frame(container)
+        frame_decision.pack(fill="x")
+
+        # Botão Negar (Vermelho Claro)
+        self.btn_deny = tk.Button(frame_decision, text="❌ Negar (Gerar Outra)", command=self._negar_atividade, 
+                                  font=("Arial", 11, "bold"), bg="#ffcccc", state="disabled", height=2)
+        self.btn_deny.pack(side="left", expand=True, fill="x", padx=(0, 5))
+
+        # Botão Aceitar (Verde Claro)
+        self.btn_accept = tk.Button(frame_decision, text="✅ Aceitar", command=self._aceitar_atividade, 
+                                    font=("Arial", 11, "bold"), bg="#ccffcc", state="disabled", height=2)
+        self.btn_accept.pack(side="right", expand=True, fill="x", padx=(5, 0))
+
     # =========================================================================
     #                  LÓGICA DA ABA 2 (PANDAS + OLLAMA)
     # =========================================================================
 
-    # ✅ Lógica do botão de Baixar Modelo
-    def _pull_model_thread(self):
-        """Inicia o download do modelo em thread separada"""
+    def _pull_model_manual(self):
         self.btn_pull_model.config(state="disabled", text="Baixando...")
-        print("Iniciando download/atualização do modelo via interface...")
-        threading.Thread(target=self._worker_pull, daemon=True).start()
+        threading.Thread(target=self._worker_pull_manual, daemon=True).start()
 
-    def _worker_pull(self):
+    def _worker_pull_manual(self):
         try:
+            print(">>> Iniciando download do modelo via Interface...")
             self.ollama_server.pull()
-            # ✅ Mensagem no terminal conforme solicitado
-            print("TERMINOU DE BAIXAR O MODELO (PULL FINALIZADO).")
+            print(">>> TERMINOU DE BAIXAR O MODELO.")
             messagebox.showinfo("Ollama", "Modelo atualizado com sucesso!")
         except Exception as e:
             print(f"Erro no pull: {e}")
             messagebox.showerror("Erro", f"Falha ao baixar modelo: {e}")
         finally:
-            # Reabilita o botão
             self.root.after(0, lambda: self.btn_pull_model.config(state="normal", text="📥 Baixar Modelo"))
 
+    def _worker_pull_silent(self):
+        try:
+            self.ollama_server.pull()
+            print(">>> (Background) Modelo verificado/atualizado.")
+        except: pass
+
     def _carregar_lista_videos_pandas(self):
-        """Lê o data.json e preenche a Listbox com Pandas"""
         if not self.db_path.exists():
             messagebox.showwarning("Aviso", "Banco de dados vazio.")
             return
@@ -215,13 +233,10 @@ class App:
                 self.listbox_videos.insert(tk.END, "Sem dados.")
                 return
 
-            # Criar DataFrame
             df = pd.DataFrame(data['contents'])
 
-            # Filtrar onde type_content == 'video' para pegar os tópicos disponíveis
             if 'type_content' in df.columns and 'topic_reference' in df.columns:
                 topics = df[df['type_content'] == 'video']['topic_reference'].unique()
-                
                 self.listbox_videos.delete(0, tk.END)
                 for topic in topics:
                     self.listbox_videos.insert(tk.END, topic)
@@ -232,26 +247,30 @@ class App:
             messagebox.showerror("Erro Pandas", f"Erro ao ler dados: {e}")
 
     def _on_video_select(self, event):
-        """Habilita o botão de gerar quando seleciona um item"""
         if self.listbox_videos.curselection():
             self.btn_generate_activity.config(state="normal")
         else:
             self.btn_generate_activity.config(state="disabled")
 
+    # --- Geração de Atividade ---
     def _gerar_atividade_ia(self):
-        """Prepara os dados com Pandas e chama a IA em uma Thread"""
         selection = self.listbox_videos.curselection()
         if not selection:
             return
         
+        # Captura o tópico e armazena na variável da classe
         topic_selected = self.listbox_videos.get(selection[0])
+        self.current_activity_topic = topic_selected
+
         self.btn_generate_activity.config(state="disabled", text="Gerando...")
+        self.btn_deny.config(state="disabled")
+        self.btn_accept.config(state="disabled")
+        
         self.txt_ai_output.config(state="normal")
         self.txt_ai_output.delete("1.0", tk.END)
         self.txt_ai_output.insert(tk.END, "⏳ Processando dados e consultando IA (pode demorar)...\n")
         self.txt_ai_output.config(state="disabled")
 
-        # Iniciar thread para não travar a interface
         threading.Thread(target=self._worker_ia, args=(topic_selected,), daemon=True).start()
 
     def _worker_ia(self, topic_selected):
@@ -261,7 +280,6 @@ class App:
             
             df = pd.DataFrame(data['contents'])
 
-            # Filtrar e ordenar transcrições
             mask = (df['topic_reference'] == topic_selected) & (df['type_content'] == 'transcription')
             transcription_df = df[mask].sort_values(by='sequence')
 
@@ -270,12 +288,14 @@ class App:
                 return
 
             full_text = " ".join(transcription_df['content'].astype(str).tolist())
+            prompt_user = f"Conteúdo da aula para gerar atividade:\n\n{full_text}"
             
-            # Prompt simples para o servidor (o sys.txt define o comportamento detalhado)
-            prompt_final = f"Analise o seguinte conteúdo e gere a atividade solicitada: \n\n{full_text}"
+            response_content = self.ollama_server.get_answer(prompt_user)
+            self._update_ai_output(response_content)
             
-            response = self.ollama_server.get_answer(prompt_final)
-            self._update_ai_output(response)
+            # Habilita botões de decisão
+            self.root.after(0, lambda: self.btn_deny.config(state="normal"))
+            self.root.after(0, lambda: self.btn_accept.config(state="normal"))
 
         except Exception as e:
             self._update_ai_output(f"Erro durante o processamento: {e}")
@@ -284,13 +304,149 @@ class App:
             self.root.after(0, lambda: self.btn_generate_activity.config(state="normal", text="✨ Gerar Atividade"))
 
     def _update_ai_output(self, text):
-        """Atualiza a caixa de texto da IA de forma segura"""
         def _update():
             self.txt_ai_output.config(state="normal")
             self.txt_ai_output.delete("1.0", tk.END)
             self.txt_ai_output.insert(tk.END, text)
             self.txt_ai_output.config(state="disabled")
         self.root.after(0, _update)
+
+    # ✅ Função: NEGAR
+    def _negar_atividade(self):
+        """Nega a atividade atual e manda gerar outra imediatamente"""
+        self._gerar_atividade_ia()
+
+    # ✅ Função de Parsing (Transforma Texto -> Objeto JSON Estruturado)
+    def _parse_ai_response_to_json(self, text):
+        """
+        Lê a string retornada pela IA e converte em uma lista de dicionários
+        no formato especificado: {question, opitions: {a,b,c,d}, correcti_answer}
+        """
+        questions_list = []
+        
+        # Regex flexíveis para capturar os padrões (lidando com possíveis problemas de encoding)
+        # Captura: **Questão X:** Enunciado
+        question_pattern = r"\*\*Quest(?:ã|Ã£|a)o\s*\d+:\*\*\s*(.+)"
+        
+        # Captura: a) Texto, b) Texto...
+        option_pattern = r"^\s*([a-dA-D])\)\s*(.+)"
+        
+        # Captura: **Resposta Correta:** a
+        answer_pattern = r"\*\*Resposta Correta:\*\*\s*([a-dA-D])"
+
+        lines = text.split('\n')
+        
+        current_question = None
+        
+        for line in lines:
+            line = line.strip()
+            if not line: continue
+            
+            # Verifica se é uma nova questão
+            q_match = re.search(question_pattern, line, re.IGNORECASE)
+            if q_match:
+                # Se já tinha uma questão sendo montada, salva ela
+                if current_question:
+                    questions_list.append(current_question)
+                
+                # Inicia nova questão
+                current_question = {
+                    "question": q_match.group(1).strip(),
+                    "opitions": {}, # Mantendo o typo solicitado 'opitions'
+                    "correcti_answer": "" # Mantendo o typo solicitado 'correcti_answer'
+                }
+                continue
+            
+            # Verifica se é uma opção (a, b, c, d)
+            opt_match = re.search(option_pattern, line)
+            if opt_match and current_question:
+                letter = opt_match.group(1).lower()
+                content = opt_match.group(2).strip()
+                current_question["opitions"][letter] = content
+                continue
+
+            # Verifica se é a resposta
+            ans_match = re.search(answer_pattern, line, re.IGNORECASE)
+            if ans_match and current_question:
+                # Salva apenas a letra (ex: 'd')
+                current_question["correcti_answer"] = ans_match.group(1).lower()
+                continue
+        
+        # Adiciona a última questão processada
+        if current_question:
+            questions_list.append(current_question)
+            
+        return questions_list
+
+    # ✅ Função: ACEITAR
+    def _aceitar_atividade(self):
+        """Aceita a atividade, parseia, formata e salva no data.json"""
+        
+        # 1. Pegar o texto da tela
+        raw_text = self.txt_ai_output.get("1.0", tk.END).strip()
+        if not raw_text or "Erro" in raw_text or "Processando" in raw_text:
+            messagebox.showwarning("Aviso", "Não há atividade válida para salvar.")
+            return
+
+        try:
+            # 2. Parsear o texto para a estrutura de objetos
+            questions_parsed = self._parse_ai_response_to_json(raw_text)
+            
+            if not questions_parsed:
+                messagebox.showerror("Erro", "Não foi possível converter o texto da IA para o formato JSON. Verifique se o formato está correto.")
+                return
+
+            # 3. Ler o data.json atual
+            with open(self.db_path, 'r', encoding='utf-8') as f:
+                db_data = json.load(f)
+
+            # 4. Encontrar a última sequência do tópico atual
+            if not self.current_activity_topic:
+                messagebox.showerror("Erro", "Tópico de referência perdido. Selecione o vídeo novamente.")
+                return
+            
+            # Filtra conteúdos deste tópico para achar a maior sequência
+            df = pd.DataFrame(db_data['contents'])
+            
+            if not df.empty and 'topic_reference' in df.columns:
+                topic_contents = df[df['topic_reference'] == self.current_activity_topic]
+                if not topic_contents.empty:
+                    last_sequence = topic_contents['sequence'].max()
+                else:
+                    last_sequence = 0
+            else:
+                last_sequence = 0
+            
+            new_sequence = int(last_sequence) + 1
+
+            # 5. Criar o objeto final da atividade
+            new_activity_entry = {
+                "type_content": "activity",
+                "content": questions_parsed, # Lista de questões
+                "topic_reference": self.current_activity_topic,
+                "sequence": new_sequence
+            }
+
+            # 6. Adicionar ao banco e salvar
+            db_data['contents'].append(new_activity_entry)
+
+            with open(self.db_path, 'w', encoding='utf-8') as f:
+                json.dump(db_data, f, ensure_ascii=False, indent=4)
+
+            # 7. Feedback e Limpeza
+            messagebox.showinfo("Sucesso", f"Atividade salva com sucesso!\nSequência: {new_sequence}")
+            
+            self.txt_ai_output.config(state="normal")
+            self.txt_ai_output.delete("1.0", tk.END)
+            self.txt_ai_output.config(state="disabled")
+            
+            self.btn_deny.config(state="disabled")
+            self.btn_accept.config(state="disabled")
+            self.btn_generate_activity.config(state="normal")
+
+        except Exception as e:
+            messagebox.showerror("Erro ao Salvar", f"Ocorreu um erro ao salvar no banco:\n{e}")
+            print(e)
 
     # =========================================================================
     #                  LÓGICA DA ABA 1 (DOWNLOADER)
@@ -336,9 +492,7 @@ class App:
             self._set_idle_state()
             self._set_status("Limpo.")
             self._monitor_json_file()
-            
-            # Atualiza a lista da outra aba se necessário
-            # self._carregar_lista_videos_pandas()
+            self._carregar_lista_videos_pandas()
 
         except Exception as e:
             messagebox.showerror("Erro", str(e))

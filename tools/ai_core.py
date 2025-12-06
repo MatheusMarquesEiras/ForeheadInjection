@@ -39,4 +39,5 @@ class OllamaServer:
     
     def get_answer(self, message: str):
         activity_request = ActivityRequest(message=message)
-        return self.client.chat(model=self._model, messages=[self.sys.format(), activity_request.format()])
+        response = self.client.chat(model=self._model, messages=[self.sys.format(), activity_request.format()])
+        return response.message.content
