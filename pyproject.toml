@@ -1,0 +1,16 @@
+[project]
+name = "foreheadinjection"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "flask==3.1.0",
+    "flask-cors>=6.0.2",
+    "flask-sqlalchemy==3.1.1",
+    "pandas>=3.0.2",
+    "psycopg2==2.9.10",
+    "pyarrow>=24.0.0",
+    "sqlalchemy==2.0.35",
+    "yt-dlp>=2026.3.17",
+]
