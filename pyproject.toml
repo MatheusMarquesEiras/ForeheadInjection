@@ -8,9 +8,24 @@ dependencies = [
     "flask==3.1.0",
     "flask-cors>=6.0.2",
     "flask-sqlalchemy==3.1.1",
+    "openai-whisper>=20250625",
     "pandas>=3.0.2",
     "psycopg2==2.9.10",
     "pyarrow>=24.0.0",
     "sqlalchemy==2.0.35",
     "yt-dlp>=2026.3.17",
+    "torch",
+    "torchvision",
+    "torchaudio",
+    "ollama>=0.6.2",
 ]
+
+[[tool.uv.index]]
+name = "pytorch"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true
+
+[tool.uv.sources]
+torch = { index = "pytorch" }
+torchvision = { index = "pytorch" }
+torchaudio = { index = "pytorch" }
