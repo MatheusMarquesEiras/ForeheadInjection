@@ -30,6 +30,7 @@ import argparse
 import json
 import os
 import random
+import re
 import shutil
 import sys
 import time
@@ -96,9 +97,8 @@ def download_audios(urls: list[str], rate_limit: bool):
 
     AUDIOS_DIR.mkdir(parents=True, exist_ok=True)
 
-    options = {
+    base_options = {
         'format': 'bestaudio/best',
-        'outtmpl': str(AUDIOS_DIR / '%(title)s.%(ext)s'),
         'postprocessors': [{
             'key': 'FFmpegExtractAudio',
             'preferredcodec': 'mp3',
@@ -122,6 +122,8 @@ def download_audios(urls: list[str], rate_limit: bool):
 
     for i, url in enumerate(urls, 1):
         _info(f'[{i}/{len(urls)}] {url}')
+        # Prefixo numérico garante que sorted() preserve a ordem das URLs
+        options = {**base_options, 'outtmpl': str(AUDIOS_DIR / f'{i:03d}_%(title)s.%(ext)s')}
         with yt_dlp.YoutubeDL(options) as ydl:
             ydl.download([url])
 
@@ -156,10 +158,12 @@ def transcribe_faster_whisper(model_name: str, course_name: str, image_url: str)
         _info(f'[{idx}/{len(mp3_files)}] Transcrevendo {mp3.name}...')
         segments, _ = model.transcribe(str(mp3), beam_size=5, language='pt')
         text = ''.join(seg.text for seg in segments).strip()
+        # Remove o prefixo numérico (ex: "001_") do stem para obter o nome limpo do tópico
+        clean_stem = re.sub(r'^\d{3}_', '', mp3.stem)
         results.append({
             'file_name': mp3.name,
             'course':    course_name,
-            'topic':     mp3.stem,
+            'topic':     clean_stem,
             'transcription': text,
             'image':     image_url,
         })

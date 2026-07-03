@@ -14,6 +14,7 @@ const Content = () => {
   const [answerSubmitted, setAnswerSubmitted] = useState(false);
 
   const handleTopicClick = (topic) => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     setLoading(true);
     setSelectedTopicId(topic.id);
     setSelectedTopicName(topic.name);

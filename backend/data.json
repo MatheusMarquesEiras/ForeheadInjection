@@ -164,22 +164,22 @@
         },
         {
             "name": "CLASSES E SPRITES - Introdução ao Pygame - Parte 4",
-            "sequence": 25,
+            "sequence": 28,
             "course_reference": "Pygame"
         },
         {
             "name": "COLISÕES - Introdução ao Pygame - Parte 7",
-            "sequence": 26,
+            "sequence": 31,
             "course_reference": "Pygame"
         },
         {
             "name": "COORDENADAS E RECTS - Introdução ao Pygame - Parte 2",
-            "sequence": 27,
+            "sequence": 26,
             "course_reference": "Pygame"
         },
         {
             "name": "CRIANDO JOGOS COM PYTHON - Introdução ao Pygame - Parte 1",
-            "sequence": 28,
+            "sequence": 25,
             "course_reference": "Pygame"
         },
         {
@@ -194,7 +194,7 @@
         },
         {
             "name": "MOVIMENTAÇÃO E FPS - Introdução ao Pygame - Parte 3",
-            "sequence": 31,
+            "sequence": 27,
             "course_reference": "Pygame"
         },
         {
@@ -204,47 +204,47 @@
         },
         {
             "name": "AGRUPANDO DADOS E RELATÓRIOS - Fundamentos de Banco de Dados - Parte 8",
-            "sequence": 33,
-            "course_reference": "PostgreSQL"
-        },
-        {
-            "name": "ATUALIZANDO E APAGANDO DADOS - Fundamento de Bancos de Dados - Parte 6",
-            "sequence": 34,
-            "course_reference": "PostgreSQL"
-        },
-        {
-            "name": "CONSULTAS AVANÇADAS - Fundamentos de Banco de Dados - Parte 9",
-            "sequence": 35,
-            "course_reference": "PostgreSQL"
-        },
-        {
-            "name": "CRIANDO AS PRIMEIRAS TABELAS - Fundamentos de Banco de Dados - Parte 3",
-            "sequence": 36,
-            "course_reference": "PostgreSQL"
-        },
-        {
-            "name": "ENTENDENDO OS JOINS - Fundamentos de Bancos de Dados - Parte 7",
-            "sequence": 37,
-            "course_reference": "PostgreSQL"
-        },
-        {
-            "name": "FILTRANDO E ORDENANDO - Fundamentos de Banco de Dados - Parte 5",
-            "sequence": 38,
-            "course_reference": "PostgreSQL"
-        },
-        {
-            "name": "INSERIDO E LENDO DADOS - Fundamentos de Banco de Dados - Parte 4",
-            "sequence": 39,
-            "course_reference": "PostgreSQL"
-        },
-        {
-            "name": "MODELAGEM BÁSICA - Fundamentos de Banco de Dados - Parte 2",
             "sequence": 40,
             "course_reference": "PostgreSQL"
         },
         {
-            "name": "O QUE E UM BANCO DE DADOS - Fundamentos de Banco de Dados - Parte 1",
+            "name": "ATUALIZANDO E APAGANDO DADOS - Fundamento de Bancos de Dados - Parte 6",
+            "sequence": 38,
+            "course_reference": "PostgreSQL"
+        },
+        {
+            "name": "CONSULTAS AVANÇADAS - Fundamentos de Banco de Dados - Parte 9",
             "sequence": 41,
+            "course_reference": "PostgreSQL"
+        },
+        {
+            "name": "CRIANDO AS PRIMEIRAS TABELAS - Fundamentos de Banco de Dados - Parte 3",
+            "sequence": 35,
+            "course_reference": "PostgreSQL"
+        },
+        {
+            "name": "ENTENDENDO OS JOINS - Fundamentos de Bancos de Dados - Parte 7",
+            "sequence": 39,
+            "course_reference": "PostgreSQL"
+        },
+        {
+            "name": "FILTRANDO E ORDENANDO - Fundamentos de Banco de Dados - Parte 5",
+            "sequence": 37,
+            "course_reference": "PostgreSQL"
+        },
+        {
+            "name": "INSERIDO E LENDO DADOS - Fundamentos de Banco de Dados - Parte 4",
+            "sequence": 36,
+            "course_reference": "PostgreSQL"
+        },
+        {
+            "name": "MODELAGEM BÁSICA - Fundamentos de Banco de Dados - Parte 2",
+            "sequence": 34,
+            "course_reference": "PostgreSQL"
+        },
+        {
+            "name": "O QUE E UM BANCO DE DADOS - Fundamentos de Banco de Dados - Parte 1",
+            "sequence": 33,
             "course_reference": "PostgreSQL"
         },
         {
