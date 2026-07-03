@@ -6,8 +6,8 @@ import json
 
 app = Flask(__name__)
 
-# Configurações do Banco de Dados
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///cursos.db'
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+app.config['SQLALCHEMY_DATABASE_URI'] = f"sqlite:///{os.path.join(BASE_DIR, 'cursos.db')}"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 CORS(app)
@@ -24,7 +24,7 @@ class Courses(db.Model):
             "name": self.name,
             "img": self.img
         }
-    
+
 class Topic(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
@@ -39,7 +39,7 @@ class Topic(db.Model):
             "course_reference": self.course_reference
         }
 
-    
+
 class Content(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     type_content = db.Column(db.String, nullable=False)
