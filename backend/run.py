@@ -57,6 +57,21 @@ class Content(db.Model):
         }
 
 
+class Activity(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    question = db.Column(db.String, nullable=False)
+    options = db.Column(db.JSON, nullable=False)
+    topic_reference = db.Column(db.Integer, db.ForeignKey('topic.id'), nullable=False, unique=True)
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "question": self.question,
+            "options": self.options,
+            "topic_reference": self.topic_reference,
+        }
+
+
 @app.route('/get-courses', methods=['GET'])
 def get_cursos():
     cursos = Courses.query.order_by(Courses.id).all()
@@ -74,6 +89,13 @@ def get_content(topic_id):
     contents = Content.query.filter_by(topic_reference=topic_id).order_by(Content.sequence).all()
     contents_json = [content.to_dict() for content in contents]
     return jsonify(contents_json)
+
+@app.route('/get-activity/<int:topic_id>', methods=['GET'])
+def get_activity(topic_id):
+    activity = Activity.query.filter_by(topic_reference=topic_id).first()
+    if activity:
+        return jsonify(activity.to_dict())
+    return jsonify({})
 
 if __name__ == "__main__":
     with app.app_context():
