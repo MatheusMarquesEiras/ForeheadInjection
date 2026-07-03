@@ -35,6 +35,11 @@ import sys
 import time
 from pathlib import Path
 
+# Força UTF-8 no stdout/stderr para não quebrar com nomes de arquivo especiais
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+    sys.stderr.reconfigure(encoding='utf-8', errors='replace')
+
 TOOLS_DIR = Path(__file__).parent.resolve()
 ROOT      = TOOLS_DIR.parent.resolve()
 

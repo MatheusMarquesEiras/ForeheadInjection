@@ -31,6 +31,14 @@
         {
             "name": "web",
             "img": "http://localhost:5000/static/web.png"
+        },
+        {
+            "name": "Pygame",
+            "img": "http://localhost:5000/static/pygame.jpg"
+        },
+        {
+            "name": "PostgreSQL",
+            "img": "http://localhost:5000/static/postgresql.png"
         }
     ],
     "topics": [
@@ -153,6 +161,96 @@
             "name": "Video: Construindo um projeto",
             "sequence": 24,
             "course_reference": "web"
+        },
+        {
+            "name": "CLASSES E SPRITES - Introdução ao Pygame - Parte 4",
+            "sequence": 25,
+            "course_reference": "Pygame"
+        },
+        {
+            "name": "COLISÕES - Introdução ao Pygame - Parte 7",
+            "sequence": 26,
+            "course_reference": "Pygame"
+        },
+        {
+            "name": "COORDENADAS E RECTS - Introdução ao Pygame - Parte 2",
+            "sequence": 27,
+            "course_reference": "Pygame"
+        },
+        {
+            "name": "CRIANDO JOGOS COM PYTHON - Introdução ao Pygame - Parte 1",
+            "sequence": 28,
+            "course_reference": "Pygame"
+        },
+        {
+            "name": "GRUPO DE SPRITES - Introdução ao Pygame - Parte 5",
+            "sequence": 29,
+            "course_reference": "Pygame"
+        },
+        {
+            "name": "MECÂNICA DE DISPARO - Introdução ao Pygame - Parte 6",
+            "sequence": 30,
+            "course_reference": "Pygame"
+        },
+        {
+            "name": "MOVIMENTAÇÃO E FPS - Introdução ao Pygame - Parte 3",
+            "sequence": 31,
+            "course_reference": "Pygame"
+        },
+        {
+            "name": "POLIMENTO FINAL - Introdução ao Pygame - Parte 8",
+            "sequence": 32,
+            "course_reference": "Pygame"
+        },
+        {
+            "name": "AGRUPANDO DADOS E RELATÓRIOS - Fundamentos de Banco de Dados - Parte 8",
+            "sequence": 33,
+            "course_reference": "PostgreSQL"
+        },
+        {
+            "name": "ATUALIZANDO E APAGANDO DADOS - Fundamento de Bancos de Dados - Parte 6",
+            "sequence": 34,
+            "course_reference": "PostgreSQL"
+        },
+        {
+            "name": "CONSULTAS AVANÇADAS - Fundamentos de Banco de Dados - Parte 9",
+            "sequence": 35,
+            "course_reference": "PostgreSQL"
+        },
+        {
+            "name": "CRIANDO AS PRIMEIRAS TABELAS - Fundamentos de Banco de Dados - Parte 3",
+            "sequence": 36,
+            "course_reference": "PostgreSQL"
+        },
+        {
+            "name": "ENTENDENDO OS JOINS - Fundamentos de Bancos de Dados - Parte 7",
+            "sequence": 37,
+            "course_reference": "PostgreSQL"
+        },
+        {
+            "name": "FILTRANDO E ORDENANDO - Fundamentos de Banco de Dados - Parte 5",
+            "sequence": 38,
+            "course_reference": "PostgreSQL"
+        },
+        {
+            "name": "INSERIDO E LENDO DADOS - Fundamentos de Banco de Dados - Parte 4",
+            "sequence": 39,
+            "course_reference": "PostgreSQL"
+        },
+        {
+            "name": "MODELAGEM BÁSICA - Fundamentos de Banco de Dados - Parte 2",
+            "sequence": 40,
+            "course_reference": "PostgreSQL"
+        },
+        {
+            "name": "O QUE E UM BANCO DE DADOS - Fundamentos de Banco de Dados - Parte 1",
+            "sequence": 41,
+            "course_reference": "PostgreSQL"
+        },
+        {
+            "name": "PROJETO FINAL - Fundamentos de Banco de Dados - Parte 10",
+            "sequence": 42,
+            "course_reference": "PostgreSQL"
         }
     ],
     "contents": [
@@ -4115,6 +4213,1752 @@
             "content": "Usem. Ele. Para mostrar. Ao mundo. O seu talento. Muito obrigado. Por me acompanharem. Nessa jornada. Foi uma honra. Ser seu guia. Agora vão construir. Coisas incríveis. Um grande abraço. E até a próxima. Hoje. Boa noite. Boa noite. Boa noite.",
             "topic_reference": "Video: Funções",
             "sequence": 21
+        },
+        {
+            "type_content": "video",
+            "content": "HRJHdq7I25k",
+            "topic_reference": "CLASSES E SPRITES - Introdução ao Pygame - Parte 4",
+            "sequence": 1
+        },
+        {
+            "type_content": "transcription",
+            "content": "E aí galera, beleza? Bem-vindos ao quarto vídeo da nossa série Aprendendo a fazer jogos usando o Pygame Então nesse vídeo aqui, a gente vai dar uma bela organizada aqui Nosso código, né? Criando algumas classes E também tentar utilizar sprites Então olha esse código aqui, ele funciona só que ele tá cheio de variável solta, né? Player I, Player Wrecked, Player C Imagina se a gente pudesse criar 50 inimigos, por exemplo A gente teria que ficar criando enemy 2 até enemy 50 Seria perto do inviável, né?",
+            "topic_reference": "CLASSES E SPRITES - Introdução ao Pygame - Parte 4",
+            "sequence": 2
+        },
+        {
+            "type_content": "transcription",
+            "content": "Pra resolver isso, a gente pode usar classes Pense na classe como uma fábrica com um molde, né? Cria o molde do inimigo uma vez, né? A fábrica cosp, né? A fábrica vai fabricando quantos inimigos a gente quiser A gente não vai usar qualquer classe, né? A gente vai usar uma função do Pygame Pra isso, é a Pygame.prite.prite, né? Ela é uma classe especial do Pygame Pra vir com um superpoderes aí Umas funcionalidades bem bacanas, né?",
+            "topic_reference": "CLASSES E SPRITES - Introdução ao Pygame - Parte 4",
+            "sequence": 3
+        },
+        {
+            "type_content": "transcription",
+            "content": "Pra gerenciar imagens, tá? Colisões também Então, pra começar aqui A gente pode começar limpando o código, né? Apagando essas variáveis globais aqui Dos players, né? Que eu disse anteriormente Vamos reescrever algo dentro da nossa classe Então, começando aqui A gente vai usar uma classe chamada Player E essa classe vai receber como atributo A... Como eu falei, que eu comentei antes Que é.",
+            "topic_reference": "CLASSES E SPRITES - Introdução ao Pygame - Parte 4",
+            "sequence": 4
+        },
+        {
+            "type_content": "transcription",
+            "content": ".. Sprite.prite Beleza A gente precisa colocar a nossa... Vamos aqui A classe prata Tá? Finish Self Eu... Olha, ele já fez sozinho Então, só que eu não vou usar Esse... Esse super aqui Ele vai ser usado Esse comando super aqui Ele vai garantir Que a classe sprite Como ela deveria, tá? Beleza Agora dentro da nossa classe A gente precisa garantir Tem que ter A gente tem Direct Toda.",
+            "topic_reference": "CLASSES E SPRITES - Introdução ao Pygame - Parte 4",
+            "sequence": 5
+        },
+        {
+            "type_content": "transcription",
+            "content": ".. Todo sprite Ele tem que ter A gente pode Colocando Self Pair Gim Code Usar lá A nossa nave Beleza Aí Novamente Precisa Despediment solar O nosso... O tamanho do nosso... Pair Pair Pair Pair Pair Pair Pair Pair Pair Pair Pair Pair Pair Pair Pair Pair Pair Pair A gente colocou self.mgc, self.reqt self.getreqt basicamente a minha lógica fez um exemplo das variáveis player, só que agora dentro de uma classe bem mais organizada a gente pode colocar dentro dessa classe também o posicionamento acho que vou colocar aqui igual a 400 vai ficar um pouquinho baixo também a gente pode definir a velocidade igual a 5 a gente pode em vez de definir aqui essa tamanho de largura e altura os valores direto aqui dentro da função pode definir constante é para ficar melhor de usar depois lá no vídeo aí elas eu posso usar 800 beleza aí as nossas então a gente tem aqui a nossa classe player ele é um sprite ele vai herdar todos esses poderes que a classe ela fornece ela fornece o init sempre vai ser da nossa classe o que acontece quando o nosso objeto nasce e o self significa eu mesmo agora a gente a gente precisa mover a lógica das teclas que estava lá solta no loop para dentro de uma classe também cada objeto deve saber como se mover sozinho aqui a gente pode criar um método uma função update então eu vou clicar aqui def mal falta uma coisa que eu não beleza o que a gente precisa é def update que vai receber selfie aqui dentro a gente pode mover a nossa lógica de movimentação então toda essa lógica aqui movimentação e diminuição dá uma recortada aqui vou lá dentro desse método só que em vez do player a gente precisa usar selfie então eu defini aqui tudo como self né player né dentro desse método update que ele vai ser chamado a cada frame do jogo né então basicamente ele vai ser o cérebro do personagem na hora que a gente criou uma classe inteiramente é pro nosso jogador né a gente molde aqui a gente pode criar um molde amigo né ele é parecido com o player só que ele pode pode fazer ele se mover sozinho pra fazer ele se mover sozinho a gente precisa importar uma outra biblioteca do python que é biblioteca random e usando essa biblioteca random a gente pode definir é pra eles se mover aleatoriamente pela tela então eu vou construir uma classe aqui clicando lá sprite definindo aqui posição cor e etc beleza criei uma classe inteiramente aqui pro inimigo então basicamente aqui no começo da nossa classe você vai criar um quadrado vermelho né a gente definiu aqui pra ele ser puramente vermelho ou você pode por exemplo fazer que nem a gente no computador e definir uma imagem aí pegar uma imagem de ouro ou coisa do tipo nessa segunda parte aqui da classe eu defini é ele vai basicamente sortear uma posição que eu fiz aleatória ele vai fazer esse sorteio né de uma posição que eu fiz aleatória nascendo na tela e com uma velocidade aleatória aí que eu defini 2 e 6 e por último aqui nesse método update é eu basicamente defini ele cair pra fora da tela e ele volta pro topo né voltar ali ele sai da tela né e vai criar uma ilusão aí de chuva infinita aí de apenas usando um objeto agora voltando pro local ele fica muito mais limpo né porque ele tá muito mais fácil só que a gente precisa é atualizar aqui os objetos anteriormente então depois das classes a gente vai criar os objetos das classes e antes do o o o o o o o o o o o o o o o o o o o o o o o o o o o o o o vekle eu apaguei o blitz anterior, não tava mais usando player image, player act, agora a gente usa as instâncias, né?",
+            "topic_reference": "CLASSES E SPRITES - Introdução ao Pygame - Parte 4",
+            "sequence": 6
+        },
+        {
+            "type_content": "transcription",
+            "content": "player player.act vou fazer a mesma coisa pro beleza, então botando pra rodar o nosso código você vai ver que ele tem, que ele cria aqui um inimigo caindo pra baixo, sempre que ele sai pra fora da tela, ele spawna outro e a gente também conseguiu, né? definir aqui as variáveis, né? justamente tipo, as paredes lá dentro da classe, igual a gente tinha feito aqui anteriormente com as variáveis você vê que a velocidade aqui que o inimigo, né?",
+            "topic_reference": "CLASSES E SPRITES - Introdução ao Pygame - Parte 4",
+            "sequence": 7
+        },
+        {
+            "type_content": "transcription",
+            "content": "que esse quadradinho, ele pega ela é aleatória, né? porque eu defini uma velocidade entre 2 e 6 então você viu que o loop, ele não precisa exatamente saber como que o player se move, né? ele só manda player e atualiza, e daí lá na classes ele se vira, e o nosso loop, ele fica muito fácil de organizar, muito fácil de dar manutenção, de implementar uma coisa nova isso aqui é uma organização, então a gente tem inimigo aqui, mas e se a gente tivesse 100 inimigos?",
+            "topic_reference": "CLASSES E SPRITES - Introdução ao Pygame - Parte 4",
+            "sequence": 8
+        },
+        {
+            "type_content": "transcription",
+            "content": "a gente vai criar 100 variáveis? claro que não, no próximo a gente vai usar um grupo de praias pra gerenciar aí, um exército inteiro com apenas duas linhas de código que visualmente vai ser bem impactante e divertido então vou ficando por aqui, até a próxima, falou e aí",
+            "topic_reference": "CLASSES E SPRITES - Introdução ao Pygame - Parte 4",
+            "sequence": 9
+        },
+        {
+            "type_content": "video",
+            "content": "wuU0lzTUvg8",
+            "topic_reference": "COLISÕES - Introdução ao Pygame - Parte 7",
+            "sequence": 1
+        },
+        {
+            "type_content": "transcription",
+            "content": "E aí galera, beleza? Bem-vindos ao nosso sétimo e penúltimo vídeo da série aqui, fazendo os jogos O Pai Game, beleza? Nesse vídeo a gente vai programar aí as colisões, né? Com o Pai Game. Sem colisões o jogo é apenas um protetor de tela interativo, né? Agora a gente vai dar consequências as nossas ações. Se eu pegar um inimigo, sobe, sobe, pegar a nave, o jogo acaba, beleza?",
+            "topic_reference": "COLISÕES - Introdução ao Pygame - Parte 7",
+            "sequence": 2
+        },
+        {
+            "type_content": "transcription",
+            "content": "Até agora nossos objetos, eles são fantasmas. Eles ocupam o mesmo espaço, mas não interagem. Hoje a gente vai apresentar a física ao nosso. Pra isso, pra você pegar bem o conceito, você tem que lembrar do Rect, né? Que a gente tem que lembrar bastante. O Rect nada mais nada menos Então, os retângulos invisíveis, né? Da imagem. O Pai Game tem opções muito interessantes, prontas, né?",
+            "topic_reference": "COLISÕES - Introdução ao Pygame - Parte 7",
+            "sequence": 3
+        },
+        {
+            "type_content": "transcription",
+            "content": "Que verificam se o retângulo A encostou no retângulo B. E com essas funcionalidades, a gente pode ali fazer uma pequena condição aí, pra caso ou o jogo acaba, ou o inimigo sobe, e vice-versa. Então, voltando aqui pro nosso código, né? A gente tem um grupo de tiros, né? Os bullets, um grupo inimigos, que é o mobs. A gente quer chegar... A gente... O que a gente quer fazer aqui é checar se qualquer tiro encostou em qualquer inimigo.",
+            "topic_reference": "COLISÕES - Introdução ao Pygame - Parte 7",
+            "sequence": 4
+        },
+        {
+            "type_content": "transcription",
+            "content": "A função mágica que eu fiz aqui é a pygame.sprite.groupcollide. Então, logo após os nossos updates, a gente pode colocar uma variável pra guardar essa função. Então, vai ser pygame.sprite.groupcollide, né? Aqui. Dentro... Como atribuição dessa função, a gente passa aqui, né? Parâmetros mobs. Bullets. E a gente coloca aqui dois valores booleanos, que vai ser true.",
+            "topic_reference": "COLISÕES - Introdução ao Pygame - Parte 7",
+            "sequence": 5
+        },
+        {
+            "type_content": "transcription",
+            "content": "Basicamente, a gente coloca esses valores booleanos, porque esse primeiro true, ele diz... Se bater, destrua o inimigo. Isso tá correlacionado ao grupo mobs. O segundo true, ele diz... Se bater, destrua o tiro, né? Do grupo bullets. Pra conceituar melhor aqui, se a gente trocasse esse segundo true aqui por false, o tiro simplesmente atravessaria o inimigo, destruando tudo atrás.",
+            "topic_reference": "COLISÕES - Introdução ao Pygame - Parte 7",
+            "sequence": 6
+        },
+        {
+            "type_content": "transcription",
+            "content": "Isso seria bem bacana se a gente tivesse adicionar, por exemplo, uma segunda classe de tiros. Se fossem os perfurantes, por exemplo. Aqui o tiro, ele atravessa o inimigo e vai dando dano até sair da tela. Então, com essa variável aqui, a gente pode botar pra rodar nosso jogo, você percebe que tiros eles colidem com o inimigo e os inimigos que somem.",
+            "topic_reference": "COLISÕES - Introdução ao Pygame - Parte 7",
+            "sequence": 7
+        },
+        {
+            "type_content": "transcription",
+            "content": "Muito interessante. Como eu destruí a maioria dos inimigos aqui, ele acabou com os inimigos que não tinha, né? Eu defini oito, assim. A gente matou todos esses inimigos e eles não voltaram, né? O jogo ficou um pouco chato. Sempre que uma colisão destruiu, precisamos criar outro inimigo pra substituir. Então, aqui abaixo, né? Dentro do nosso loop mesmo, a gente pode incluir um código que vai adicionando novos inimigos assim que a gente vai destruir.",
+            "topic_reference": "COLISÕES - Introdução ao Pygame - Parte 7",
+            "sequence": 8
+        },
+        {
+            "type_content": "transcription",
+            "content": "Então, for ter uma variável forar aqui, pode ser vai receber enemy, vai criar um tal vim. Vai fazer aquela coisa aqui, adicionar o tal vim. Vou fazer uma analogia aqui pra esse bloquinho de código, né? Para cada soldado caído, a gente vai ter um reforço aí, né? Imediatamente. Então, basicamente, essa variável ela vai ser um dicionário, né? Com todos os inimigos mortos.",
+            "topic_reference": "COLISÕES - Introdução ao Pygame - Parte 7",
+            "sequence": 9
+        },
+        {
+            "type_content": "transcription",
+            "content": "Então, rodando o nosso código aqui, a gente vai destruindo os nossos inimigos e eles não acabam, né? Sempre vai criando outros inimigos à medida que a gente elimina aqui, beleza? Agora vai ser um pouco diferente. Antes, né? Com os mobs, a gente fez grupo contra grupo. Agora a gente vai fazer player contra os inimigos. no caso, o player vai ser um sprite único, quantos inimigos estão dentro de um grupo.",
+            "topic_reference": "COLISÕES - Introdução ao Pygame - Parte 7",
+            "sequence": 10
+        },
+        {
+            "type_content": "transcription",
+            "content": "Então, para isso, a gente usa o grupo collide. A gente usa outra função que é bem parecida. Ao invés de grupo collide, vai ser o sprite collide. Então, logo abaixo aqui do nosso for do hit, a gente pode definir hit player vai receber os parâmetros player ops parâmetro polionium que vai ser false esse último false aqui é o tipo de colisão ele vai ser círculo se ele vai ser retângulo depois a gente é isso mesmo vamos criar o nosso nossa compreensão, né?",
+            "topic_reference": "COLISÕES - Introdução ao Pygame - Parte 7",
+            "sequence": 11
+        },
+        {
+            "type_content": "transcription",
+            "content": "e hit player então o jogo pode acabar vai dar um quebrar o nosso while aqui, a sprite collide ela tá retornando uma lista de inimigos estão tocando o player se tocar o player a... ele vai interromper o... o loop, né? do while e vai encerrar o jogo então vamos ver se o código deu certo vamos ver tá? toma cuidado para não nenhum inimigo bater na gente ó, vamos atirar aqui ó acabei encostando para o inimigo querer ele ir direto para o feio interrompeu interrompeu o laço do jogo imediatamente então estou destruindo vou deixar o inimigo bater ele interrompe direto é importante dizer aqui pro rect, né?",
+            "topic_reference": "COLISÕES - Introdução ao Pygame - Parte 7",
+            "sequence": 12
+        },
+        {
+            "type_content": "transcription",
+            "content": "principalmente que se você for alterar a imagem daquele retângulo vermelho sprite de um meteoro por exemplo seja um meteoro redondo é você tem que lembrar que a colisão acontece não na imagem transparente que vai ser redonda mas sim no retângulo que ele vai ser quadrado então mesmo que a imagem do meteoro seja redonda e ele não chega a encostar no retângulo do jogador ele vai contabilizar que você perdeu porque o que vale ali é a interação entre os rect, né?",
+            "topic_reference": "COLISÕES - Introdução ao Pygame - Parte 7",
+            "sequence": 13
+        },
+        {
+            "type_content": "transcription",
+            "content": "entre os retângulos e não entre as imagens para você redimitar isso se quiser utilizar círculos ao invés de retângulos você pode é achar outras funções do pygame ao invés do rect você pode usar o collide circle mas por enquanto a gente vai manter o padrão é do rect, né? pela simplicidade se tiver alguma dúvida como implementar isso no código você pode novamente começar a documentação do pygame que vai lá ser completinho e aí explicando bonito você faz a implementação disso então agora a gente tem né?",
+            "topic_reference": "COLISÕES - Introdução ao Pygame - Parte 7",
+            "sequence": 14
+        },
+        {
+            "type_content": "transcription",
+            "content": "um jogo completo, né? um início a gente um início de jogo a gente tem ali um certo desafio e a gente tem o fim é tecnicamente um jogo completo só que o jogo fecha na cara do jogador e não tem dom nenhum é um jogo mudo nosso último vídeo da nossa série a gente vai dar uma pulida no final e vai implementar algumas coisas legais como pontuação tons de explosão e uma tela de game cover decente né?",
+            "topic_reference": "COLISÕES - Introdução ao Pygame - Parte 7",
+            "sequence": 15
+        },
+        {
+            "type_content": "transcription",
+            "content": "então esse vai ser mais pra dar uma bela de uma pulida nesse jogo ele é muito completo e com todos esses que você teve aqui na série você vai ser possível recriar diversos jogos né? não só jogos no estilo space shooter jogos de plataforma onde você tem desafios mais avançados mas eu vou ficando por aqui por hoje é só vejo você no próximo vídeo falou falou tchau tchau tchau",
+            "topic_reference": "COLISÕES - Introdução ao Pygame - Parte 7",
+            "sequence": 16
+        },
+        {
+            "type_content": "video",
+            "content": "ukfxjBEsEVY",
+            "topic_reference": "COORDENADAS E RECTS - Introdução ao Pygame - Parte 2",
+            "sequence": 1
+        },
+        {
+            "type_content": "transcription",
+            "content": "E aí galera, beleza? Estamos aqui no episódio da nossa série de como criar jogos by game. No vídeo passado a gente criou uma janela, um look infinito no jogo, mas é uma tela azul vazia. O jogo precisa de personagens, então hoje a gente vai aprender dois conceitos fundamentais. Como é que o computador entende posições, que é o sistema de coordenadas dentro da biblioteca do by game.",
+            "topic_reference": "COORDENADAS E RECTS - Introdução ao Pygame - Parte 2",
+            "sequence": 2
+        },
+        {
+            "type_content": "transcription",
+            "content": "E como carregar e desenhar a imagem da nossa nave na tela. Então lá nas aulas de matemática a gente conhece o plano cartesiano, que seria mais ou menos um sistema de coordenadas. A gente precisa esquecer esse plano cartesiano da aula de matemática, um cresce para cima. Na computação gráfica a origem, que é o 0,0, é no canto superior esquerdo da tela.",
+            "topic_reference": "COORDENADAS E RECTS - Introdução ao Pygame - Parte 2",
+            "sequence": 3
+        },
+        {
+            "type_content": "transcription",
+            "content": "Então o eixo ele aumenta para a direita, igual a gente no cartesiano da matemática. Só que o eixo x ele aumenta para baixo. Se a nossa tela tem 800 de largura e 600 de altura, o canto superior esquerdo é 0,0. Como o canto superior direito seria 800,0. O canto inferior direito é 800,0. O meio da tela então seria o valor da largura da altura de 2,0.",
+            "topic_reference": "COORDENADAS E RECTS - Introdução ao Pygame - Parte 2",
+            "sequence": 4
+        },
+        {
+            "type_content": "transcription",
+            "content": "Então 400,300. Pense como se estivesse lendo a página de um livro. Pensa lá em cima e vai descendo. O y cresce conforme você desce a página. Então aqui a gente vai preparar os assets, que são os arquivos do nosso projeto. Para o Python encontrar a imagem da nave, ela precisa estar na mesma pasta do seu arquivo .py. Então eu tenho aqui a pasta do Pygame.",
+            "topic_reference": "COORDENADAS E RECTS - Introdução ao Pygame - Parte 2",
+            "sequence": 5
+        },
+        {
+            "type_content": "transcription",
+            "content": "Dentro dela tem o meu código e a pasta assets. Então eu tenho aqui dois PNGs. O PNG é de uma nave, que a gente vai usar bem mais pra frente. Mas o essencial aqui é o PNG da nave. Esses PNGs eles são como sprites aqui dentro da programação de jogos. Mais pra frente eu vou explicar sobre como, vou explicar melhor sobre como esses sites funcionam. Mas aqui embaixo adiciona um site com diversas imagens que você pode usar.",
+            "topic_reference": "COORDENADAS E RECTS - Introdução ao Pygame - Parte 2",
+            "sequence": 6
+        },
+        {
+            "type_content": "transcription",
+            "content": "O código, beleza? Totalmente de graça. Você pode usar qualquer outra imagem, só que você tem que se garantir que ela tenha um transparente, que ela seja um .png. Então aqui, né, a gente tem duas partes principais do nosso código, que é o setup, né, onde a gente define coisas iniciais do nosso Loo. A gente não pode carregar a imagem dentro do Loo. A gente não tem isso, o computador vai ler o arquivo do HD, do SSD, 60 vezes por um tempo que o jogo vai acabar travando.",
+            "topic_reference": "COORDENADAS E RECTS - Introdução ao Pygame - Parte 2",
+            "sequence": 7
+        },
+        {
+            "type_content": "transcription",
+            "content": "A gente carrega uma vez só aqui no setup, antes do Loo. Então pra deixar mais fácil, eu vou usar os editários, só pra ficar visualizado melhor onde cada coisa no seu. Abaixo a gente vai carregar as meia-regas, pra tirar as meia-regas. E aí, né, dentro dessa variável a gente vai jogar aqui uma função iGame. Vai carregar, né, ou seja, aqui no code. E aqui a gente quer que carregue a nave.",
+            "topic_reference": "COORDENADAS E RECTS - Introdução ao Pygame - Parte 2",
+            "sequence": 8
+        },
+        {
+            "type_content": "transcription",
+            "content": "Como essa figura, ela tá dentro de essa chamada Assets, eu preciso colocar o diretório, né. Beleza. A gente consegue carregar a nossa imagem agora. O tamanho do nosso PlayerImage. Então a gente volta aqui pra variável. Declara ela novamente. Só que a gente vai usar outra função iGame. Que é o Transform Scale. Vai mudar a escala de tamanho do personagem.",
+            "topic_reference": "COORDENADAS E RECTS - Introdução ao Pygame - Parte 2",
+            "sequence": 9
+        },
+        {
+            "type_content": "transcription",
+            "content": "Dentro dessa função, a gente vai colocar a nossa imagem de gestão. E o tamanho dela. Que eu vou colocar em 70%. Beleza. Agora a variável, né, PlayerImage. Ela é uma surface. É uma superficie. Só que o iGame ainda não sabe aonde desenhar. No PiGame, toda imagem, ela tem como se possui uma alma, né. Que é o tal do Rect. E traduzindo aqui como um Tertângulo.",
+            "topic_reference": "COORDENADAS E RECTS - Introdução ao Pygame - Parte 2",
+            "sequence": 10
+        },
+        {
+            "type_content": "transcription",
+            "content": "Esse Rect, ele controla a posição e a escuta da nossa imagem. Então aqui, pra fazer esse Rect, a gente vai colocar a variável, eu defino o PlayerRect. E vai colocar aqui, é, PlayerImage, né. Nossa variável, GetRect. Beleza. Ou seja, ele tá pegando o retângulo, essa linha aqui tá basicamente pegando o retângulo da imagem. Agora a gente precisa, é, posicionar esse retângulo, né.",
+            "topic_reference": "COORDENADAS E RECTS - Introdução ao Pygame - Parte 2",
+            "sequence": 11
+        },
+        {
+            "type_content": "transcription",
+            "content": "Então a gente pode colocar aí, ele no centro da tela, por exemplo. Player.Met.Center. Vai ser aí igual a 400. Que é a metade aqui da nossa, da nossa escala de resultado. Beleza, né. Então, dá pra ver que o PiGame, ele vai calcular tudo pra gente. Se eu dissesse, né, por exemplo. Ao invés de .x, isso igual a zero. A nave iria pro que a tela, né. Então a gente tá usando o Center aqui, pra ele centralizar a imagem pra nós.",
+            "topic_reference": "COORDENADAS E RECTS - Introdução ao Pygame - Parte 2",
+            "sequence": 12
+        },
+        {
+            "type_content": "transcription",
+            "content": "Agora a gente vai voltar aqui pra nossa sessão de loop, né. Porque a gente tem a nossa imagem na memória, só que a gente não colocou ela ainda, na tela ainda, né. Então, pra fazer isso, pra botar ela dentro, a gente vai usar o comando Blit. Mas é importante, né, que ele esteja depois aqui, nosso ponto. Então, pra fazer tudo funcionar, a gente faz com tudo.",
+            "topic_reference": "COORDENADAS E RECTS - Introdução ao Pygame - Parte 2",
+            "sequence": 13
+        },
+        {
+            "type_content": "transcription",
+            "content": "Dentro aqui, a gente atribui a PlayerImage e a PlayerRet. Basicamente, o que essa linha vai fazer. Literally, agora tá certo. Basicamente, o que essa linha vai fazer. Ela vai pegar o PlayerImage, né. Que é o que eu vou desenhar. E vai pegar o PlayerRet, né. Que é aonde eu vou desenhar. Então, rodando aqui o nosso código. Você vê que a nossa nave ali, o que eu coloquei.",
+            "topic_reference": "COORDENADAS E RECTS - Introdução ao Pygame - Parte 2",
+            "sequence": 14
+        },
+        {
+            "type_content": "transcription",
+            "content": "Tá exatamente centralizado na tela. Então, antes de encerrar esse código, vamos tentar mudar aqui esses valores que eu atribuí para o PlayerRet. Se tem interlato, vamos tentar colocar outras posições. Por exemplo, vamos tentar colocar ela no canto inferior direito, né. Por exemplo, eu posso atribuir aqui, 760, 560. Vamos ver como é que pode conversar.",
+            "topic_reference": "COORDENADAS E RECTS - Introdução ao Pygame - Parte 2",
+            "sequence": 15
+        },
+        {
+            "type_content": "transcription",
+            "content": "Tá, olha só. Portanto inferior direito. Então, alterando esses valores, a gente vê que a gente pode alterar a posição dos elementos na nossa tela. Tudo isso foi muito bacana, foi muito legal de trabalhar. Só que ela tá congelada, né. Ela não se mexe. Então, no próximo vídeo, a gente vai dar vida a ela. A gente vai fazer essa nave, né. Obedecer nossos comandos de teclado.",
+            "topic_reference": "COORDENADAS E RECTS - Introdução ao Pygame - Parte 2",
+            "sequence": 16
+        },
+        {
+            "type_content": "transcription",
+            "content": "Novamente, né. Se você tiver alguma dúvida sobre como usar essas ferramentas aí. Do Pygame, que ela é enorme, eu vou deixar o link da documentação dela aqui nos comentários. Então, se você tiver dúvida sobre qualquer funcionalidade, né. Qualquer função aqui. Por exemplo, funciona exatamente no D7Mode. O que eu tenho que colocar dentro dela. Eu posso colocar parâmetros a mais, né.",
+            "topic_reference": "COORDENADAS E RECTS - Introdução ao Pygame - Parte 2",
+            "sequence": 17
+        },
+        {
+            "type_content": "transcription",
+            "content": "O que eu obrigatoriamente tenho que colocar como parâmetro. Tudo está na documentação dela. Então, pra você sanar essas dúvidas, é essencial você vá lendo as documentações. Pra quando você for programar de verdade, você tenha uma ideia do que exatamente essa função pede. Então, eu vou ficando por aqui. Até o próximo vídeo. Falou.",
+            "topic_reference": "COORDENADAS E RECTS - Introdução ao Pygame - Parte 2",
+            "sequence": 18
+        },
+        {
+            "type_content": "video",
+            "content": "ssxXqucoGIE",
+            "topic_reference": "CRIANDO JOGOS COM PYTHON - Introdução ao Pygame - Parte 1",
+            "sequence": 1
+        },
+        {
+            "type_content": "transcription",
+            "content": "E aí galera, beleza? Sejam bem-vindos a uma nova série aqui no canal, onde eu vou estar ensinando vocês a utilizar a biblioteca Pygame dentro da linguagem Python. Nessa série nós não vamos apenas copiar código, a gente vai entender como criar um jogo do zero, utilizando a biblioteca do Pygame. Então como um projeto para essa série, a gente vai construir um pequeno space shooter de nave espacial.",
+            "topic_reference": "CRIANDO JOGOS COM PYTHON - Introdução ao Pygame - Parte 1",
+            "sequence": 2
+        },
+        {
+            "type_content": "transcription",
+            "content": "Hoje o nosso objetivo é preparar o terreno e instalar a biblioteca do Pygame, podemos abrir a nossa janela de jogo e entender o conceito mais importante de todos dentro dos jogos. Todo jogo que você pretende fazer, você tem que aplicar esse conceito inicial, que vai ser o game. Então primeiramente, precisa estar com o Pygame instalado. Você pode fazer isso abrindo um CMD, escrevendo o portal Pygame.",
+            "topic_reference": "CRIANDO JOGOS COM PYTHON - Introdução ao Pygame - Parte 1",
+            "sequence": 3
+        },
+        {
+            "type_content": "transcription",
+            "content": "Eu não vou fazer isso, porque eu já tenho pacotes baixados, mas se você não tem certeza, instala eles usando o pip, beleza? O Python sozinho, ele não sabe desenhar ou tocar sons facilmente, por isso que a gente usa o Pygame, que é como se fosse uma caixa de ferramentas pronta para jogos. Aqui nessa série não é um intuito a gente aprender a linguagem Python do zero, é mais eu demonstrar as funcionalidades do Pygame.",
+            "topic_reference": "CRIANDO JOGOS COM PYTHON - Introdução ao Pygame - Parte 1",
+            "sequence": 4
+        },
+        {
+            "type_content": "transcription",
+            "content": "Então é importante para essa série que você já tenha uma requisição, por exemplo, conhecer bem a sintaxe do Python e como funciona as suas funções, laço de reprodução, etc. E ter uma noção de programação orientada a objetos. Em grande maioria, os jogos são construídos orientados a objetos. Então eu estou aqui na minha IDE, eu estou usando o VS Code para eu poder organizar aqui o meu código.",
+            "topic_reference": "CRIANDO JOGOS COM PYTHON - Introdução ao Pygame - Parte 1",
+            "sequence": 5
+        },
+        {
+            "type_content": "transcription",
+            "content": "Eu criei uma pasta chamada Pygame e vou colocar meus códigos aqui dentro. Tem uma pasta aqui chamada Assets, mas a gente só vai usar ela um pouco mais para frente. A primeira coisa que a gente precisa fazer aqui no VS Code, aqui no nosso código Python, é importar as funcionalidades do Pygame. Então, no topo do nosso código Python, a gente precisa sempre importar as bibliotecas.",
+            "topic_reference": "CRIANDO JOGOS COM PYTHON - Introdução ao Pygame - Parte 1",
+            "sequence": 6
+        },
+        {
+            "type_content": "transcription",
+            "content": "Depois disso, a gente precisa iniciar essas bibliotecas. Então, o Pygame, ele tem diversas funções. Caso você tenha dúvidas sobre essas funções, você sempre pode consultar a documentação do código no site oficial que o Pygame tem. Uma função que você sempre vai usar no começo é justamente a função que vai iniciar. É como se fosse girar a chave de um carro.",
+            "topic_reference": "CRIANDO JOGOS COM PYTHON - Introdução ao Pygame - Parte 1",
+            "sequence": 7
+        },
+        {
+            "type_content": "transcription",
+            "content": "Isso inicia módulos de som, módulos de... etc. Então, todas as funções do Pygame, elas vão ter uma certa estrutura, que é Pygame. O nome da função. No nosso caso, é Pygame.init. Beleza, feito isso, né? Tendo importado a nossa biblioteca e iniciado a biblioteca, a gente precisa definir a nossa tela. A tela que a gente vai mostrar o jogo. Então, a gente precisa definir qual que vai ser o tamanho dela, por exemplo.",
+            "topic_reference": "CRIANDO JOGOS COM PYTHON - Introdução ao Pygame - Parte 1",
+            "sequence": 8
+        },
+        {
+            "type_content": "transcription",
+            "content": "Isso a gente faz dentro de uma variável. Eu vou criar uma variável aqui chamada escape. E dentro dela eu vou usar uma função do Pygame. Que é o Pygame play set mode. Aqui dentro, atribuindo a essa função, eu vou colocar 800x600, que é o tamanho em pixels da minha tela. Então, relembrando, aqui a gente tem a nossa tela de pintura. O computador precisa saber do tamanho dessa tela.",
+            "topic_reference": "CRIANDO JOGOS COM PYTHON - Introdução ao Pygame - Parte 1",
+            "sequence": 9
+        },
+        {
+            "type_content": "transcription",
+            "content": "Então, a gente passou aqui uma dupla, mais tecnicamente dizendo. Isso aqui é uma dupla com a largura, né? 800x600 e a altura de 600 pixels. Pra gente começar aqui, fazer uma demonstração 800x600, tá mais do que ótimo. Uma outra função muito interessante é que a gente pode mudar o nome da nessa tela. Então, quando a gente iniciar a tela, ela tem, na parte superior, uma pequena descrição.",
+            "topic_reference": "CRIANDO JOGOS COM PYTHON - Introdução ao Pygame - Parte 1",
+            "sequence": 10
+        },
+        {
+            "type_content": "transcription",
+            "content": "E a gente pode alterar essa descrição. Pra isso, a gente muda outra função do Pygame. Então, pygame.dplay, a gente vai dar o setCaption. Ou seja, a gente vai setar pra ela um nome personalizado. Por exemplo, eu vou colocar aqui jogoPython pra demonstrar. Se eu rodar o código agora, a janela, ela vai abrir e fechar em milissegundos. Vou mostrar pra você.",
+            "topic_reference": "CRIANDO JOGOS COM PYTHON - Introdução ao Pygame - Parte 1",
+            "sequence": 11
+        },
+        {
+            "type_content": "transcription",
+            "content": "Então, eu rodei. Ó, piscou uma tela. Ela abriu e fechou. Por que que isso aconteceu? Porque o Python, ele leu o código e termina. O jogo, ele precisa ficar rodando constantemente pra sempre, até alguém fechar, né? Então, a gente precisa aí, nesse processo de um loop infinito pra tela funcionar. Então, pra fazer um loop aqui, infinito, primeiro eu preciso definir uma variável.",
+            "topic_reference": "CRIANDO JOGOS COM PYTHON - Introdução ao Pygame - Parte 1",
+            "sequence": 12
+        },
+        {
+            "type_content": "transcription",
+            "content": "Então, eu vou definir running como true, né? Ela vai receber aí um valor booleano. E eu vou atribuir essa variável aqui dentro de um while. Então, aqui dentro desse while aqui, vai estar tudo que acontece dentro do jogo. Beleza, então, agora atenção total. Se você rodar aqui, esse loop vazio, o computador simplesmente vai travar e a janela vai dizer não respondendo, né?",
+            "topic_reference": "CRIANDO JOGOS COM PYTHON - Introdução ao Pygame - Parte 1",
+            "sequence": 13
+        },
+        {
+            "type_content": "transcription",
+            "content": "Por que que isso acontece? O Windows ou qualquer outro sistema operacional está o tempo todo mandando mensagens pra essa janela. Então, por exemplo, o mouse moveu ou uma tecla foi apertada, o botão de fechar foi clicado. Se o nosso loop, ele está ocupado e apenas girando, ignora essas mensagens, o sistema operacional acha que o programa travou. Então, a gente precisa criar uma espécie de carteiro que lê essas mensagens a cada volta do loop.",
+            "topic_reference": "CRIANDO JOGOS COM PYTHON - Introdução ao Pygame - Parte 1",
+            "sequence": 14
+        },
+        {
+            "type_content": "transcription",
+            "content": "Então, é por isso que a gente precisa criar um loop de eventos dentro desse while running. Então, aqui dentro, a gente faz for event.bygame.eventget. Event.get. Bora aqui. Essa função, o pygame.event.get, ele vai retornar uma lista de tudo o que aconteceu. Pra complementar, a gente precisa ter o evento mais importante, que é de fechar a janela. Então, por isso a gente precisa criar um loop.",
+            "topic_reference": "CRIANDO JOGOS COM PYTHON - Introdução ao Pygame - Parte 1",
+            "sequence": 15
+        },
+        {
+            "type_content": "transcription",
+            "content": "Type.bygame.event.bygame.event. Он só pra fechar a janela. Chenin vai ser igual a recess. Se você quebrar o loop. Então recapitulando aqui, esse for event pygame.event.com, imagina que você pega como se fosse uma pilha de cartas, uma pilha de eventos que vão chegar e eles vão ler uma por uma. Dentro desse if aqui eles vão verificar se a carta é um tipo de pygame.",
+            "topic_reference": "CRIANDO JOGOS COM PYTHON - Introdução ao Pygame - Parte 1",
+            "sequence": 16
+        },
+        {
+            "type_content": "transcription",
+            "content": "event, essa carta ela quer fechar a janela, isso acontece quando você clica no x vermelho da janela. Se o jogador quer sair, mudamos a chave do loop para false, então na próxima volta do loop o while ele vai quebrar porque tem um false. Beleza, se a gente rodar, a gente tem aqui a nossa tela preta, você percebe que a gente definiu uma largura, a gente definiu uma altura, a gente conseguiu aqui mudar a legenda, o caption da nossa janela, só que é uma janela preta.",
+            "topic_reference": "CRIANDO JOGOS COM PYTHON - Introdução ao Pygame - Parte 1",
+            "sequence": 17
+        },
+        {
+            "type_content": "transcription",
+            "content": "E como opção aqui a gente pode pintar o fundo dessa janela, no computador as cores elas são misturadas entre o RGB, red e green, os valores eles vão de 0 a 200. Então dentro do nosso loop, a gente pode usar uma função chamada Q, que vai receber uma tupla e dentro dessa tupla você coloca os valores de RGB, primeiro é o red, então eu vou definir aqui o valor 20, depois o green, mais o valor 20, depois o blue que eu vou definir o valor 50.",
+            "topic_reference": "CRIANDO JOGOS COM PYTHON - Introdução ao Pygame - Parte 1",
+            "sequence": 18
+        },
+        {
+            "type_content": "transcription",
+            "content": "Esses valores aqui de RGB ele vai dar um azul bem bacana né, se você definir o preto né, se você quiser definir tudo como preto é só você deixar tudo 0 0 0, ou se você quiser definir o branco é só deixar tudo 25. Claro, e se você quiser uma cor personalizada, você vai ter que saber os valores de RGB dessa cor personalizada. Antes de abrir a nossa janela, a gente precisa fazer outra coisa que é atualizar o display, pra isso a gente precisa fazer outra função do Pygame, que é o play.",
+            "topic_reference": "CRIANDO JOGOS COM PYTHON - Introdução ao Pygame - Parte 1",
+            "sequence": 19
+        },
+        {
+            "type_content": "transcription",
+            "content": "flip. Basicamente, ele vai pintar o rascunho, e o Pygame é o momento que ele vira o rascunho e mostra pra gente né, sem o flip, essa tela não vai mudar nunca né, então se você tirar aqui, a tela vai continuar preta, então é por isso que a gente precisa atualizar o display sempre. Então, mudando a nossa tela, a gente definiu um disco bem bacana pra nossa tela.",
+            "topic_reference": "CRIANDO JOGOS COM PYTHON - Introdução ao Pygame - Parte 1",
+            "sequence": 20
+        },
+        {
+            "type_content": "transcription",
+            "content": "E aqui eu posso apagar esse pass, por exemplo, colocar Pygame, sempre de prática a gente coloca isso, o Pygame ele vai encerrar aí o funcionamento. Quando o iel terminar, o código ele vai cair nessa linha, e vai fechar o Pygame corretamente, e devolve toda a memória que ele tava usando no computador. Então, a gente precisa garantir que o Pygame fechou né, e vai devolver todos os recursos que ele usou.",
+            "topic_reference": "CRIANDO JOGOS COM PYTHON - Introdução ao Pygame - Parte 1",
+            "sequence": 21
+        },
+        {
+            "type_content": "transcription",
+            "content": "Então hoje né, a gente criou uma base bem simples né, a gente tem uma janela que abre e aberta. E claro, a gente pegou um fundo, e a gente conseguiu fechar a janela quando quiser. No próximo vídeo, a gente vai implementar novas funcionalidades, né, que coloca uma nave na tela, e vamos entender melhor como é que temos de coordenada no Pygame. Então, ficando por aqui, espero você no próximo vídeo, valeu.",
+            "topic_reference": "CRIANDO JOGOS COM PYTHON - Introdução ao Pygame - Parte 1",
+            "sequence": 22
+        },
+        {
+            "type_content": "transcription",
+            "content": "Tchau.",
+            "topic_reference": "CRIANDO JOGOS COM PYTHON - Introdução ao Pygame - Parte 1",
+            "sequence": 23
+        },
+        {
+            "type_content": "video",
+            "content": "8a83Kx13c_U",
+            "topic_reference": "GRUPO DE SPRITES - Introdução ao Pygame - Parte 5",
+            "sequence": 1
+        },
+        {
+            "type_content": "transcription",
+            "content": "E aí galera, beleza? Bem-vindo ao quinto vídeo aí da nossa série de jogos usando a biblioteca do Pygame. No vídeo passado a gente criou um inimigo imprimente aí, né? Que simplesmente cai e reaparece. Mas convenhamos, só um inimigo não assusta ninguém. A gente quer aí uma chuva de inimigos. Se a gente quiser 10 inimigos, a gente teria que criar 10 variáveis, né?",
+            "topic_reference": "GRUPO DE SPRITES - Introdução ao Pygame - Parte 5",
+            "sequence": 2
+        },
+        {
+            "type_content": "transcription",
+            "content": "É, inimigo 1, inimigo 2 e etc. E chamar de update draw pra cada um. Deixaria um código enorme. Se fosse 100 inimigos, nosso código interpassaria das 1.000 linhas. O Pygame tem umas funções aí muito interessantes. Tem uma ferramenta muito poderosa chamada pygame.sprite.gup. Imaginem o grupo, né? Como uma sacola mágica que colocou seu celular lá dentro.",
+            "topic_reference": "GRUPO DE SPRITES - Introdução ao Pygame - Parte 5",
+            "sequence": 3
+        },
+        {
+            "type_content": "transcription",
+            "content": "E quando manda essa sacola atualizar, ela manda a ordem pra todo mundo lá dentro de uma vez só. Então esse vídeo vai ser aí um teste bem técnico, né? É algo que parece... Vai começar a parecer uma verdade, né? Ter a sensação aí de ver múltiplos objetos na tela se movendo de forma independente. Antes de começar a programar, você pode ver que eu tô utilizando muito o texto do Python que eu não apresentei anteriormente além desse canal.",
+            "topic_reference": "GRUPO DE SPRITES - Introdução ao Pygame - Parte 5",
+            "sequence": 4
+        },
+        {
+            "type_content": "transcription",
+            "content": "Então, por exemplo, essas classes, essas definições de função, do selfie, etc. Porque não é o múltiplo que essa série de vídeos produz a linguagem Python. Eu espero que o espectador, espero que o programador aí tenha um conhecimento breve de como a linguagem Python funciona. Ela não é difícil de compreender. Porque o objetivo da série é mostrar como que Pygame funciona e cada funcionalidade dela.",
+            "topic_reference": "GRUPO DE SPRITES - Introdução ao Pygame - Parte 5",
+            "sequence": 5
+        },
+        {
+            "type_content": "transcription",
+            "content": "Cada funcionalidade tem interessante pra apresentar, né? E como a gente pode usar tudo isso pra fazer um jogo bem bacana. E claro, pra fazer funcionar aqui dentro do Python, você precisa ter um conhecimento breve aí de... Essas classes e programação orientada a objetos, beleza? Então, partindo pra programação, antes do nosso loop começar, a gente pode criar grupos.",
+            "topic_reference": "GRUPO DE SPRITES - Introdução ao Pygame - Parte 5",
+            "sequence": 6
+        },
+        {
+            "type_content": "transcription",
+            "content": "A gente pode fazer a criação desses grupos. Então, eu vou... Agora, também, eu acho que tá essa sessão aqui, dessa criação dessa instância da classe. Então, aqui, a gente vai criar dois grupos. O primeiro dele vai ser todos os sprites, né? Aqui vai ser... Vai tudo que a gente precisa pra ser desenhado, pra ter e-mails. E um grupo que vai ser os...",
+            "topic_reference": "GRUPO DE SPRITES - Introdução ao Pygame - Parte 5",
+            "sequence": 7
+        },
+        {
+            "type_content": "transcription",
+            "content": "Grupos em... Soirão. E a gente vai usar esse grupo pra poder definir colisão futuramente. Eu posso colocar aqui, é... Aos sprites. Aqui vai ser o nosso... Agora, o que pra fazer isso? Usa uma função do... Bygine. Bygine.bride.ru E a gente vai ter um outro loop. E aí pode ser remops. Isso mesmo. Vai receber... Aqui a mesma. um jogador aqui criado né esse a gente pode adicionar o grupo então a um é o país o ponto é de ler beleza agora a gente pode se damos o nosso jogador ao o país agora como que a gente faz para criar oito inimigos TV oito linhas de código para isso a gente dá laços de repetição como por exemplo or onde pode criar esse fora aqui embaixo dos grupos o or e oito né pode criar e a gente vai criar aqui uma variável temporária por exemplo M vai receber o inimigo é um novo e aos pratos ponto é de essa variável tá isso e a gente vai adicionar o SM ao grupo eu perceba que eu usei uma variável temporário M esse M ele vai morrer no fim do loop mas o objeto inimigo ele continua vivo porque é foi guardado foi guardado dentro do e ali é como colocar peixes no aquário por exemplo agora a gente pode voltar aqui para o nosso loop vamos apagar é esse esse player update player enemy para uma única linha vai ser justamente o grupo que a gente virou como todas as nossas instâncias estão dentro desse grupo a gente só usa o grupo ele vai atualizar todos os sprites do grupo uma vez só uma outra coisa interessante que a gente pode fazer é apagar o blitz também a gente usar um grupo um grupo de sprites e a gente usar o ó e vai desenhar na nossa tela botando nosso para rodar aqui pode perceber que vários inimigos caem de uma vez só eles estão caindo velocidades de uma posição totalmente diferente e aleatórias né como a gente já programou aquela lógica do respawn botar por dentro daquela classe enemy no passado eles vão praticamente criar aí uma chupa limita você quiser fazer aí mais um ajuste né se você perceber que eles estão caindo é muito o lado um outro é você pode alterar ali é por exemplo o rende reis nessa classe e por exemplo para poder ficar mais espalhado eles passei é um do lado do outro então basicamente o vídeo de hoje foi isso hoje a gente aprendeu que a gente não precisa gerenciar objetos por um agente o grupo é você viu muito mais lindo mais fácil de ver se eu quiser adicionar sem inimigos tá vendo oito mas é adicionar sem por exemplo vou mudar ali um valorzinho criar nenhuma variável a mais em uma menos beleza e a gente tem aqui a nossa nave só que a nossa gente tá em defesa né é no próximo a gente vai criar uma classe para fazer essa nave atirar laser e fazer a nossa nave atirar laser mas isso é o próximo vídeo beleza então vou ficando por aqui e até a próxima",
+            "topic_reference": "GRUPO DE SPRITES - Introdução ao Pygame - Parte 5",
+            "sequence": 8
+        },
+        {
+            "type_content": "video",
+            "content": "WnwyGhErX8I",
+            "topic_reference": "MECÂNICA DE DISPARO - Introdução ao Pygame - Parte 6",
+            "sequence": 1
+        },
+        {
+            "type_content": "transcription",
+            "content": "E aí galera, beleza? Bem-vindos ao nosso acesso, a nossa série de criando jogos, criando a biblioteca PyGaming, beleza? A nossa nave se mexe, ela desvia dos meteoros, mas ela ainda finca. No jogo de nave, a gente precisa atirar. O tiro, ele vai ser como um objeto, né? Ou qualquer outro. Onde tem a imagem, né? Que vai ser a surface, tem o botão, vai ter a velocidade.",
+            "topic_reference": "MECÂNICA DE DISPARO - Introdução ao Pygame - Parte 6",
+            "sequence": 2
+        },
+        {
+            "type_content": "transcription",
+            "content": "A diferença é que ele não nasce no começo do jogo. Ele nasce apenas quando a gente aperta uma tecla específica, quando a gente quiser atirar. Imagine a nave como se fosse uma impressora e quando a gente aperta o botão, ela imprime um laser na tela e sai voando. O desafio didático aqui é ensinar o conceito de instanciação dinâmica, né? Até agora a gente criou objetos no início do jogo.",
+            "topic_reference": "MECÂNICA DE DISPARO - Introdução ao Pygame - Parte 6",
+            "sequence": 3
+        },
+        {
+            "type_content": "transcription",
+            "content": "Agora a gente vai criar objetos durante a execução do jogo. Também vai ser um momento ideal de aprender sobre gerenciamento de memória e deletar aí o que não serve mais pra gente. Pra não perder poder computacional, beleza? Então pra começar aqui, vamos começar criando a nossa classe do tiro, né? A classe do nosso laser aí. Então depois a nossa classe de inimigo aqui é.",
+            "topic_reference": "MECÂNICA DE DISPARO - Introdução ao Pygame - Parte 6",
+            "sequence": 4
+        },
+        {
+            "type_content": "transcription",
+            "content": ".. Na verdade, depois da classe de player e da classe de inimigo, a gente pode criar uma outra classe que vai ser a classe bandit. E ela novamente tem que ter, como toda a classe aqui que a gente vai usar, o Sprite. Beleza, aqui no Death, a gente vai ter umas coisinhas um pouco diferentes. Então, junto com o Selfie, a gente precisa saber onde o que vai nascer.",
+            "topic_reference": "MECÂNICA DE DISPARO - Introdução ao Pygame - Parte 6",
+            "sequence": 5
+        },
+        {
+            "type_content": "transcription",
+            "content": "Então aqui, o Selfie, a gente precisa colocar esse Super aqui. Eu vou usar o Super, mas não vou usar aqui. Ele é deficiado, acho que não. Vamos criar aqui já, é... Nosso Selfie com outro image, né? E etc. Então, Pygame... Perfez. Perfez vai receber uma dupla que vai ter 10 vinteis de tamanho, né? Pelo nosso tiro. Vamos usar aqui, então... A primeira de.",
+            "topic_reference": "MECÂNICA DE DISPARO - Introdução ao Pygame - Parte 6",
+            "sequence": 6
+        },
+        {
+            "type_content": "transcription",
+            "content": ".. Ponto fio, né? Beleza. Beleza. Então... Vamos fazer o nosso tiro. Ele ser... Amarelo. Então a gente precisa de R, G... E o B precisa de César. Beleza. Aí fizemos o Image e... Também precisamos fazer o Rect. Dando que é obrigatório ter esses dois... Pra você criar uma classe nova aí. E o FI. E o FI. CUT. E o FI. Tá fazendo o que a gente já fez...",
+            "topic_reference": "MECÂNICA DE DISPARO - Introdução ao Pygame - Parte 6",
+            "sequence": 7
+        },
+        {
+            "type_content": "transcription",
+            "content": "Várias vezes anteriormente. A série. Agora vai uma coisa diferente, né? A gente precisa definir, né? A gente precisa... Falar pro código de tiro tem que ir no lugar que a gente quer. E o FI. E o FI. ser igual a y vou fazer a mesma coisa vou fazer ele com uma velocidade de menos 10 a velocidade negativa vai fazer o tiro subir precisamos ter o nosso update dentro dessa classe coloco uma outra coisa automática vou usar o self self.",
+            "topic_reference": "MECÂNICA DE DISPARO - Introdução ao Pygame - Parte 6",
+            "sequence": 8
+        },
+        {
+            "type_content": "transcription",
+            "content": "ret agora vem uma parte importante aqui dentro do nosso update que vai ser um if self.ret.bottom por menor que zero ele vai dar um selfie se você atirar mil vezes seu computador ele vai ficar controlando mil tiros ele já tenha saído da tela vai deixar o jumento vai construir a memória comando kill diz spygame pode apagar esse objeto de memória comando kill ele vai dizer apagar esse objeto de memória porque a gente não precisa mais ter um jogo bem mais leve agora aqui a gente fez a classe pra depois se a gente poder aí calcular né a cor do mesmo bateu no o o o o o o o o o o Então a gente poderia criar o título no loop principal, mas é mais organizado se a nave souber atirar.",
+            "topic_reference": "MECÂNICA DE DISPARO - Introdução ao Pygame - Parte 6",
+            "sequence": 9
+        },
+        {
+            "type_content": "transcription",
+            "content": "Então a gente vai criar um método dentro da CID divulgador, mais um def, que vai ser criado, e vai nascer na posição atual da nave. Aqui é o nosso grupo né, pra poder descer a nave, aqui é o nosso grupo né, pra poder descer. Beleza, então a gente colocou aqui o stafete.top e a gente quer que saia com o topo né, do nariz da nave. Bom, agora a gente vai fazer o botão para o nosso criador aqui, a gente tá usando o WordPress que é pra segurar o botão, pra atirar a gente quer que saia um, então a gente vai usar o evento down, só que a gente pode fazer isso dentro do event.",
+            "topic_reference": "MECÂNICA DE DISPARO - Introdução ao Pygame - Parte 6",
+            "sequence": 10
+        },
+        {
+            "type_content": "transcription",
+            "content": "vai verificar se você apertou uma tecla. Se a tecla for espaço né, vai verificar se você apertou uma tecla. se a tecla for espaço né, vai verificar se você apertou uma tecla. Se a tecla for espaço né. for espaço né, vai verificar se você apertou uma tecla. se a tecla for espaço né, vai verificar se você apertou uma tecla. se a tecla for espaço né, vai verificar se você apertou uma tecla.",
+            "topic_reference": "MECÂNICA DE DISPARO - Introdução ao Pygame - Parte 6",
+            "sequence": 11
+        },
+        {
+            "type_content": "transcription",
+            "content": "se a tecla for espaço né, vai verificar se você apertou uma tecla. se a tecla for espaço né, vai verificar se você apertou uma tecla. se a tecla for espaço né, vai verificar se você apertou uma tecla. Então o player vai... Beleza, então eu vou ter o nosso código para rodar aqui Temos o nosso zinho caindo, a nossa nave se movimentando Então apertar a tecla espaço Você pode ver os amarelos que a gente definiu lá, com a classe, com os clubes e tudo mais Subindo a tela aqui e saindo da nossa nave, beleza?",
+            "topic_reference": "MECÂNICA DE DISPARO - Introdução ao Pygame - Parte 6",
+            "sequence": 12
+        },
+        {
+            "type_content": "transcription",
+            "content": "Em qualquer posição Dá para perceber que os nossos tiros estão atravessando nós No próximo vídeo você vai aprender mais uma coisa muito bacana Serão as colisões, beleza? Onde explode o meteoro e o meteoro explode a nave Onde o tiro pode esquivar o nosso inimigo Fazer um meteoro aqui E o meteoro pode esquivar a nossa nave A gente vai programar um pouco no próximo vídeo, beleza?",
+            "topic_reference": "MECÂNICA DE DISPARO - Introdução ao Pygame - Parte 6",
+            "sequence": 13
+        },
+        {
+            "type_content": "transcription",
+            "content": "Bom, vou ficando por aqui E até a próxima Falou!",
+            "topic_reference": "MECÂNICA DE DISPARO - Introdução ao Pygame - Parte 6",
+            "sequence": 14
+        },
+        {
+            "type_content": "video",
+            "content": "JlN2vKfcdMo",
+            "topic_reference": "MOVIMENTAÇÃO E FPS - Introdução ao Pygame - Parte 3",
+            "sequence": 1
+        },
+        {
+            "type_content": "transcription",
+            "content": "E aí galera, beleza? Bem-vindos ao terceiro vídeo da nossa série de fazendo jogos utilizando o Pygame. Então, no último dos episódios, a gente conseguiu aí colocar um objeto na nossa tela, uma nave. Só que ela tá parada, né? Ela não tem vida. E hoje a gente vai fazer exatamente... A gente vai fazer ela obedecer os nossos comandos. Antes de fazer ela sim, a gente precisa falar sobre o tempo.",
+            "topic_reference": "MOVIMENTAÇÃO E FPS - Introdução ao Pygame - Parte 3",
+            "sequence": 2
+        },
+        {
+            "type_content": "transcription",
+            "content": "Se eu disser para o computador, mova a nave para a direita o mais rápido que quiser, um computador de alta performance vai jogar a nave para fora da tela em milissegundos. E um computador que não tem uma configuração tão boa vai demorar mais. Para o jogo aqui que a gente tá fazendo rodar igual para todo mundo, a gente precisa travar a velocidade do jogo.",
+            "topic_reference": "MOVIMENTAÇÃO E FPS - Introdução ao Pygame - Parte 3",
+            "sequence": 3
+        },
+        {
+            "type_content": "transcription",
+            "content": "A gente chama isso de FPS, que são os frames por segundo. Então, aqui no nosso setup, né? Antes do loop, a gente precisa criar uma espécie de um relógio para controlar o tempo do nosso código. Então, aqui, por exemplo, eu vou colocar aqui, clock. Dentro dessa seção aqui, eu vou definir uma variável clock que vai receber uma função do Pygame. O Pygame.",
+            "topic_reference": "MOVIMENTAÇÃO E FPS - Introdução ao Pygame - Parte 3",
+            "sequence": 4
+        },
+        {
+            "type_content": "transcription",
+            "content": "time.clock. Beleza? E abaixo de, coloca o clock.tick.60, que é o frame rate, né? Fiz o Pygame. Se você desenha muito rápido, espera um pouquinho até dar esse tempo, né? Vai garantir uma fluidez. Feito isso, a gente pode começar a dar movimento às coisas. Existem dois tipos de ler o nosso teclado. Primeiro, nós temos a digitação, né? Que é o evento, né?",
+            "topic_reference": "MOVIMENTAÇÃO E FPS - Introdução ao Pygame - Parte 3",
+            "sequence": 5
+        },
+        {
+            "type_content": "transcription",
+            "content": "Você aperta A, com a tecla A, solta e aparece uma letra. É bom para você, sei lá, no software de chat. Agora, tem a ação que é o Pulling, né? Você segura a seta para a direita e o personagem corre. É isso que a gente quer, é isso que a gente quer. Então, antes do nosso loop, a gente pode tirar aqui no setup a velocidade que o nosso personagem vai ter.",
+            "topic_reference": "MOVIMENTAÇÃO E FPS - Introdução ao Pygame - Parte 3",
+            "sequence": 6
+        },
+        {
+            "type_content": "transcription",
+            "content": "Então, eu posso descrever uma variável assim. Então, isso significa que a nave, ela vai mover-se por frame. Agora, a gente vai codar a leitura dentro do loop. O comando margin que a gente usa é uma função do Pygame chamada key.getPressed. Ela vai tirar basicamente como se fosse uma foto, né? De um teclado naquele momento, um dado momento. Então, aí são as técnicas que estão sendo afundadas.",
+            "topic_reference": "MOVIMENTAÇÃO E FPS - Introdução ao Pygame - Parte 3",
+            "sequence": 7
+        },
+        {
+            "type_content": "transcription",
+            "content": "Então, aqui depois, só aqui dentro do nosso loop, pode dizer que é uma variável chegando aqui. E essa variável vai receber a nossa função do Pygame.getPressed. Beleza. Agora, aqui, para cada tecla que a gente usar, a gente precisa de um loop, né? Se a tecla tal, por apertada, então, a tecla que a gente pode usar aqui, a gente sempre define Pygame.",
+            "topic_reference": "MOVIMENTAÇÃO E FPS - Introdução ao Pygame - Parte 3",
+            "sequence": 8
+        },
+        {
+            "type_content": "transcription",
+            "content": "Se eu quero, por exemplo, usar as setinhas, né? Por exemplo, eu quero usar as setinhas esquerda, eu vou usar K. Left. O que vai fazer eu usar a setinha esquerda? O que essa setinha esquerda vai fazer? Ele vai pegar o retângulo do jogador no eixo G. Vai aumentar, né? Para a direita, né? O eixo G. Com a nossa velocidade que a gente definiu. Então, essa linha aqui, ela vai.",
+            "topic_reference": "MOVIMENTAÇÃO E FPS - Introdução ao Pygame - Parte 3",
+            "sequence": 9
+        },
+        {
+            "type_content": "transcription",
+            "content": ".. Ela vai pegar o PlayerRect, né? O retângulo do jogador no eixo G. Vai diminuir em X, né? Em relação à velocidade que a gente definiu antes. Ou seja, basicamente, ele vai pegar e vai fazer a nossa nave ir para a esquerda. E é o que a gente definiu aqui em cima. É a setinha. Agora a gente pode fazer isso. Para a setinha direita, né? Em vez de Left, Right.",
+            "topic_reference": "MOVIMENTAÇÃO E FPS - Introdução ao Pygame - Parte 3",
+            "sequence": 10
+        },
+        {
+            "type_content": "transcription",
+            "content": "Pygame. E aqui, a gente pega novamente o nosso PlayerRect no eixo G. E a gente aumenta, né? A gente aumenta X. Beleza, feito isso. A gente pode aqui rodar o nosso jogo. E eu vou apertar as setinhas. Vamos ver para a esquerda. Então, apertando a setinha esquerda. Vamos ver para a direita, apertando a setinha direita. Você pode perceber aqui, se eu for continuando até os limites fora da tela.",
+            "topic_reference": "MOVIMENTAÇÃO E FPS - Introdução ao Pygame - Parte 3",
+            "sequence": 11
+        },
+        {
+            "type_content": "transcription",
+            "content": "A nave se come, né? Daqui a pouco a gente pode curar aí uma colisão. Se você quiser se desafiar, pausa o vídeo rapidinho e tenta fazer isso. Só que, em vez de dar direita para a esquerda, para cima e para baixo. O que eu não defini. Beleza, a gente definiu para a esquerda e para a direita. Agora a gente pode aqui fazer para cima e para baixo, né? Vai ser basicamente o mesmo conceito, né?",
+            "topic_reference": "MOVIMENTAÇÃO E FPS - Introdução ao Pygame - Parte 3",
+            "sequence": 12
+        },
+        {
+            "type_content": "transcription",
+            "content": "A mesma lógica, só usando as teclas diferentes. E, é claro, em vez de diminuir ou aumentar o X, a gente vai fazer isso com o eixo I. Então, vamos fazer, para ele rodar para cima. Então, Key Up. Vai pegar o Layer Revect. O eixo I. E vai... Nossa Velocidade. Fazer basicamente a mesma. Dando o Down. Beleza. Em vez de aumentar. Pode botar nosso código para rodar de novo.",
+            "topic_reference": "MOVIMENTAÇÃO E FPS - Introdução ao Pygame - Parte 3",
+            "sequence": 13
+        },
+        {
+            "type_content": "transcription",
+            "content": "Ele vai para cima e para baixo. Só que, como eu falei antes, a nave tem que sair da tela porque a gente não definiu. Uma colisão. A gente não criou, né? Um parâmetro, uma variável. Fazer com que a nave, ela pare na borda da tela. E continuar indo infinitamente aqui. Para a direita, para a esquerda, para a cima e para baixo. O computador vai continuar calculando, né?",
+            "topic_reference": "MOVIMENTAÇÃO E FPS - Introdução ao Pygame - Parte 3",
+            "sequence": 14
+        },
+        {
+            "type_content": "transcription",
+            "content": "Vai continuar processando o movimento da nave. Só que, na tela, ela tem um limite. Então, ela não vai mostrar a nave na tela. Então, qual que é a lógica aqui? Se a posição da nave for menor que zero, a gente está a ser zero. A gente pode fazer isso dentro do... ...de menu. Então, a gente pode... ...comitando... A gente precisa ter mais uma colisão aqui.",
+            "topic_reference": "MOVIMENTAÇÃO E FPS - Introdução ao Pygame - Parte 3",
+            "sequence": 15
+        },
+        {
+            "type_content": "transcription",
+            "content": "...comitando... ...comitando... ...comitando... ...comitando... ...comitando... ...comitando... ...comitando... ...comitando... ...comitando... ...comitando... ...comitando... ...comitando... ...comitando... ...comitando... ...comitando... ...comitando... ...comitando... ...comitando... ...comitando... ...comitando... ...comitando... ...comitando.",
+            "topic_reference": "MOVIMENTAÇÃO E FPS - Introdução ao Pygame - Parte 3",
+            "sequence": 16
+        },
+        {
+            "type_content": "transcription",
+            "content": ".. ...comitando... ...comitando... ...comitando... ...comitando... ...comitando... ...comitando... vai ser básica, a mesma lógica aqui só que ao invés de left, right, colocar top, né, e bottom e a parte de baixo, só que ao invés de 800, né, a gente precisa definir a altura colocar aqui a nossa altura, que é 600, beleza então é bacana você usar essas denominações, left, right, top, bottom, player game, rect porque o pai game vai calcular a largura da imagem sozinho, né, pra saber onde é que é a borda da direita ou a borda da esquerda então executando o nosso jogo, pra ver que agora ele tem paredes não consegue mais sair da tela, mesmo que o force bom, então, nesse, a gente aprendeu a controlar o tempo do jogo, né que é o clock, definir ali os frames pra mim, dê-nos também a como, é como fazer o nosso código ler as teclas que a gente pressiona e, né, que a nossa, nosso jogador aqui, puja dos limites da nossa tela você pode perceber que o código, ele tá funcionando, mas você vê que ele tá começando a ficar bem bagunçado imagine quando a gente tiver, quanta inimigos, quanta ti, né se a gente copiar e colar código, vai ficar um caos no próximo, a gente vai aprender sobre classes e brides pra poder organizar toda essa bagunça de um jeito mais, uma bagunça mais profissional então, eu vou ficando por aqui até a próxima, falou Tchau Tchau Tchau",
+            "topic_reference": "MOVIMENTAÇÃO E FPS - Introdução ao Pygame - Parte 3",
+            "sequence": 17
+        },
+        {
+            "type_content": "video",
+            "content": "MOln5aPIUiQ",
+            "topic_reference": "POLIMENTO FINAL - Introdução ao Pygame - Parte 8",
+            "sequence": 1
+        },
+        {
+            "type_content": "transcription",
+            "content": "E aí galera, beleza? Bem-vindos ao nosso oitavo e oito da nossa série A gente chegou aí ao gran finale, o vídeo 8 A gente transforma um código que ficou em um jogo bem divertido também Nesse episódio vamos cobrir aí três elementos essenciais de polimento Vamos adicionar uma pontuação, vamos usar um sound effects bem legal E uma tela de game cover bem bacaninha para o jogador VRTF Então começando aqui, para o computador o texto não existe O que existe são imagens de letras, a gente precisa de uma fonte Um arquivo aí que tem um .",
+            "topic_reference": "POLIMENTO FINAL - Introdução ao Pygame - Parte 8",
+            "sequence": 2
+        },
+        {
+            "type_content": "transcription",
+            "content": "ptf É para carimbar as letras na tela Vamos lá para o início do nosso código Vamos definir aqui Então para carregar aqui as fontes, aí auxiliar a nossa vida Então antes das classes aqui, a gente pode, é... ...adminar... ...fonte game... E dentro do pygame, ele já tem algumas fontes pré-prontas muito interessantes ...met fonte, essa é a função que eu vou usar E dentro desse fonte, a gente tem diversas Qual fonte exatamente você pode usar É só se computar do código, aqui eu vou usar uma fonte básica Que é a Arial .",
+            "topic_reference": "POLIMENTO FINAL - Introdução ao Pygame - Parte 8",
+            "sequence": 3
+        },
+        {
+            "type_content": "transcription",
+            "content": "..definido Pode computar ...a nossa função E os parâmetros que ela vai receber ...tip ...surf ...text ...tamanho ...x Eu acho que ...tudo aqui Tão que colocar uma variável ...variável ...uma ...do pygame ...que é pygame .ptf Certo ... Aqui a gente vai colocar a nossa fonte name ...definido ...carial ...do nosso tamanho ...que a gente pode colocar .",
+            "topic_reference": "POLIMENTO FINAL - Introdução ao Pygame - Parte 8",
+            "sequence": 4
+        },
+        {
+            "type_content": "transcription",
+            "content": ".. ...beleza ... ... ... ... ... deixar a fonte mais bonita ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ... ...",
+            "topic_reference": "POLIMENTO FINAL - Introdução ao Pygame - Parte 8",
+            "sequence": 5
+        },
+        {
+            "type_content": "video",
+            "content": "Dg29bCWuVww",
+            "topic_reference": "AGRUPANDO DADOS E RELATÓRIOS - Fundamentos de Banco de Dados - Parte 8",
+            "sequence": 1
+        },
+        {
+            "type_content": "transcription",
+            "content": "E aí galera, beleza? Sejam bem-vindos a mais um episódio aqui sobre a nossa série de banco de dados. Hoje a gente vai falar um pouco sobre novos comandos que a gente vai usar, principalmente os left joins e os group buys. Mas antes aqui eu tirei um tempo para colocar e inserir mais coisas nas nossas tabelas, para ficar um pouquinho mais visual para vocês, beleza?",
+            "topic_reference": "AGRUPANDO DADOS E RELATÓRIOS - Fundamentos de Banco de Dados - Parte 8",
+            "sequence": 2
+        },
+        {
+            "type_content": "transcription",
+            "content": "Então até agora a gente aprendeu a inserir dados e filtrar e até cruzar tabelas com o join lá. Mas vamos olhar aqui para a nossa tabela de pedidos, que agora tem dezenas de vendas registradas. Se o dono da empresa chegar para você e perguntar qual foi o nosso faturamento total até hoje, você não vai pegar uma calculadora e somar linha por linha, certo?",
+            "topic_reference": "AGRUPANDO DADOS E RELATÓRIOS - Fundamentos de Banco de Dados - Parte 8",
+            "sequence": 3
+        },
+        {
+            "type_content": "transcription",
+            "content": "O banco de dados em milissegundos vai fazer para você. Dados brutos eles não vão tomar decisão. A gente precisa transformar esses dados em relatórios e o banco de dados é excelente em matemática. Hoje a gente vai aprender a usar funções de agregação como o group buy. Então vamos limpar toda essa query aqui e vamos começar respondendo a pergunta do chefe.",
+            "topic_reference": "AGRUPANDO DADOS E RELATÓRIOS - Fundamentos de Banco de Dados - Parte 8",
+            "sequence": 4
+        },
+        {
+            "type_content": "transcription",
+            "content": "Qual que é o faturamento total de hoje, dos pedidos? Para isso a gente usa uma função chamada sum, que significa soma. Então vamos acompanhar comigo. Vamos selecionar sum, soma do que? Eu quero somar os valores da tabela pedidos. Então vamos rodar o script e olha só que legal. O banco de dados pegou todas aquelas dezenas de linhas e espremeu tudo em uma linha só.",
+            "topic_reference": "AGRUPANDO DADOS E RELATÓRIOS - Fundamentos de Banco de Dados - Parte 8",
+            "sequence": 5
+        },
+        {
+            "type_content": "transcription",
+            "content": "E nos deu o valor total faturado na loja. Mas e se a pergunta fosse diferente? Fosse, por exemplo, quantos pedidos nós já tivemos na história? Aí a gente usa outra função além do sum, que é o count. Só que em vez de usar o valor, eu vou usar a chave primária, que é o id. Então aqui ó, ele não vai somar valores. Ele conta quantas linhas tem na tabela.",
+            "topic_reference": "AGRUPANDO DADOS E RELATÓRIOS - Fundamentos de Banco de Dados - Parte 8",
+            "sequence": 6
+        },
+        {
+            "type_content": "transcription",
+            "content": "Temos o total exato de vendas realizadas. Então esse 17 aqui é o nosso total exato de vendas realizadas. Você também poderia usar o AVG para descobrir a média, né? AVG significa average. Ou o max e o min, que é para achar a venda mais cara e a venda mais barata. Então, por exemplo, vamos usar aqui a média de valores. Average valor. Ó, essa aqui, 289, é a média de valores da minha tabela pedido.",
+            "topic_reference": "AGRUPANDO DADOS E RELATÓRIOS - Fundamentos de Banco de Dados - Parte 8",
+            "sequence": 7
+        },
+        {
+            "type_content": "transcription",
+            "content": "Por exemplo, o que era o pedido mais caro até hoje foi de 1.250 centavos. O pedido mais barato foi de 15,99. Isso é muito legal, muito bacana. Só que o mundo real é um pouco mais exigente. O chefe olha para esse total aí, né? E fala, bom, eu quero saber quanto cada cliente gastou. Quem que é o nosso melhor comprador? O nosso melhor cliente aí? O instinto de quem está começando é fazer isso aqui, ó.",
+            "topic_reference": "AGRUPANDO DADOS E RELATÓRIOS - Fundamentos de Banco de Dados - Parte 8",
+            "sequence": 8
+        },
+        {
+            "type_content": "transcription",
+            "content": "Se você for pensar aqui na lógica, ela até parece certa. Me traga o ID do cliente e a soma do valor. Mas e se eu der um play aqui? O SQL vai travar. Por que ele faz isso? Pensa um pouquinho comigo. A coluna cliente ID, ela tem várias linhas espalhadas. Mas essa função de soma, ela vai espremer tudo numa linha só, né? Como a gente tinha visto antes.",
+            "topic_reference": "AGRUPANDO DADOS E RELATÓRIOS - Fundamentos de Banco de Dados - Parte 8",
+            "sequence": 9
+        },
+        {
+            "type_content": "transcription",
+            "content": "O banco não sabe exatamente como exibir uma coluna normal ao lado de uma coluna espremida. Para resolver esse problema, nós temos que dizer ao banco, agrupe as somas de acordo com o cliente. É para isso que serve a função que eu falei anteriormente, que é o group by. Então vamos pegar essa nossa query aqui e consertar ela. Então, select cliente ID, soma dos valores da tabela pedidos, group by, no final.",
+            "topic_reference": "AGRUPANDO DADOS E RELATÓRIOS - Fundamentos de Banco de Dados - Parte 8",
+            "sequence": 10
+        },
+        {
+            "type_content": "transcription",
+            "content": "Group by cliente ID. Vamos executar. Agora sim, ele criou uma linha para cada ID do cliente e colocou a soma exata do lado. Mas você se lembra da aula passada, né? O ID do cliente não significa nada, né? Para o chefe aqui, no relatório. Vamos juntar tudo o que eu aprendi aqui e criar um relatório de mestre aqui, usando o join e o order by. Acompanha comigo a montagem, então.",
+            "topic_reference": "AGRUPANDO DADOS E RELATÓRIOS - Fundamentos de Banco de Dados - Parte 8",
+            "sequence": 11
+        },
+        {
+            "type_content": "transcription",
+            "content": "Então a gente tem o nosso select cliente ID da tabela pedidos. Vamos fazer... Vamos tirar esse group by aqui, por enquanto. Vamos fazer um inner join. Clients on. Pedidos.clients.id. Igual ao cliente ID. Exatamente como a gente fez na aula passada. Agora sim, a gente pode colocar o nosso group by. A group por clientes.nome. E vamos ordenar. A tabela pedidos.",
+            "topic_reference": "AGRUPANDO DADOS E RELATÓRIOS - Fundamentos de Banco de Dados - Parte 8",
+            "sequence": 12
+        },
+        {
+            "type_content": "transcription",
+            "content": "coluna valor. De maneira decrescente. Beleza. Então a gente montou aqui uma mega query. Beleza. Então a gente aqui fez... A gente cruzou as tabelas para pegar o nome. E somamos os valores. Grupamos pelo nome do cliente. E ordenamos do maior para o menor. Então aqui a gente fez o ranqueamento, né? É... Dos melhores clientes da empresa. A gente percebeu aqui no nosso relatório.",
+            "topic_reference": "AGRUPANDO DADOS E RELATÓRIOS - Fundamentos de Banco de Dados - Parte 8",
+            "sequence": 13
+        },
+        {
+            "type_content": "transcription",
+            "content": "A Juliana Alves é o que mais gastou. Então se você entendeu aí a lógica dessa última consulta. Você oficialmente deixou de ser um iniciante em SQL. É exatamente esse tipo de código que roda por trás, né? Daqueles panhais bonitos e dashboards que gerentes usam todos os dias. A sua tarefa hoje é brincar com essas outras funções. Tente usar o count junto com o group by para descobrir quantos pedidos cada cliente fez.",
+            "topic_reference": "AGRUPANDO DADOS E RELATÓRIOS - Fundamentos de Banco de Dados - Parte 8",
+            "sequence": 14
+        },
+        {
+            "type_content": "transcription",
+            "content": "Em vez do valor. No nosso próximo episódio, que vai ser o penúltimo dessa série. Nós vamos resolver um problema prático. E se você tiver que rodar esse código gigante do relatório todos os dias. Dá muito trabalho, né? Ditar tudo isso. Nós vamos aprender a criar uma view. Uma visão. Que salva consultas complexas. Então, espero que eu tenha conseguido acionar todas as suas dúvidas.",
+            "topic_reference": "AGRUPANDO DADOS E RELATÓRIOS - Fundamentos de Banco de Dados - Parte 8",
+            "sequence": 15
+        },
+        {
+            "type_content": "transcription",
+            "content": "Sobre esses comandinhos. Como select, inner, join, group by, order by. E eu vou ficando por aqui. Até a próxima.",
+            "topic_reference": "AGRUPANDO DADOS E RELATÓRIOS - Fundamentos de Banco de Dados - Parte 8",
+            "sequence": 16
+        },
+        {
+            "type_content": "video",
+            "content": "d2zs_MWgLzo",
+            "topic_reference": "ATUALIZANDO E APAGANDO DADOS - Fundamento de Bancos de Dados - Parte 6",
+            "sequence": 1
+        },
+        {
+            "type_content": "transcription",
+            "content": "E aí galera, beleza? Chegamos ao nosso sexto episódio aqui da nossa série de banco de dados e esse é um dos episódios mais importantes e provavelmente o que mais gera frio na barriga de quem tá começando a entrar no mundo de banco de dados. Nesse episódio a gente vai fechar a sigla do CRUDE, né? Vendo as duas últimas letrinhas dessa palavra, que é o UPDATE e o DELETE.",
+            "topic_reference": "ATUALIZANDO E APAGANDO DADOS - Fundamento de Bancos de Dados - Parte 6",
+            "sequence": 2
+        },
+        {
+            "type_content": "transcription",
+            "content": "Mas antes de a gente começar a codar com OPG Admin 4, eu preciso fazer um alerta sério. O que eu vou te ensinar hoje tem o poder de consertar um sistema, só que ele também tem o poder de destruir uma base de dados inteira aí da sua empresa ou do seu sistema em milissegundos. Existe uma regra de ouro na programação que você tem que repetir comigo. Eu nunca farei um UPDATE ou um DELETE sem a cláusula WHERE.",
+            "topic_reference": "ATUALIZANDO E APAGANDO DADOS - Fundamento de Bancos de Dados - Parte 6",
+            "sequence": 3
+        },
+        {
+            "type_content": "transcription",
+            "content": "Na aula passada a gente usou o WHERE para filtrar consultas. Hoje ele vai ser o nosso tipo de cinto de segurança e a gente vai entender o porquê. Vamos imaginar a seguinte situação aqui no nosso e-commerce. O nosso cliente, que é o João Silva, ligou no suporte e avisou que mudou de e-mail. O e-mail antigo dele pode ter sido hackeado e ele quer atualizar o cadastro.",
+            "topic_reference": "ATUALIZANDO E APAGANDO DADOS - Fundamento de Bancos de Dados - Parte 6",
+            "sequence": 4
+        },
+        {
+            "type_content": "transcription",
+            "content": "O comando que a gente usa para isso é o UPDATE de atualizar. Agora acompanha comigo. Então eu quero atualizar a tabela clientes. sete e-mail. Já vou explicar porquê. E aqui a gente coloca o novo e-mail que o cliente pediu para cadastrar. Agora presta atenção. Antes de rodar isso, vamos tentar entender. A palavra sete aqui, ela significa definir. Então essa linha de código aqui está dizendo para o banco, atualiza a tabela de clientes definindo o e-mail para novo__joa.",
+            "topic_reference": "ATUALIZANDO E APAGANDO DADOS - Fundamento de Bancos de Dados - Parte 6",
+            "sequence": 5
+        },
+        {
+            "type_content": "transcription",
+            "content": "com. Mas atenção, se eu selecionar essa linha IDF5, agora mesmo, você sabe o que o banco de dados vai fazer? Ele vai basicamente definir todos os clientes para esse e-mail. O João, a Maria, o Marcos, o Alisson, todos vão ficar com o mesmo e-mail. Esse é o famoso UPDATE de firmware. Vou até rodar aqui para vocês verem o exemplo. Vou rodar e vou dar já um SELECT.",
+            "topic_reference": "ATUALIZANDO E APAGANDO DADOS - Fundamento de Bancos de Dados - Parte 6",
+            "sequence": 6
+        },
+        {
+            "type_content": "transcription",
+            "content": "Vamos selecionar tudo da tabela de clientes. Vemos aqui na parte inferior que a gente tem aqui o Marcos, o Alisson, o João e a Maria, todos com seus e-mails certinhos. Agora vou dar um UPDATE sem WARE. Veja como que ficou. Esse é o famoso UPDATE sem WARE, motivo de muita demissão por aí. Para evitar esse desastre aqui, a gente chama o nosso salva-vidas, que é o WARE.",
+            "topic_reference": "ATUALIZANDO E APAGANDO DADOS - Fundamento de Bancos de Dados - Parte 6",
+            "sequence": 7
+        },
+        {
+            "type_content": "transcription",
+            "content": "Só que antes de rodar aqui, eu vou consertar essa tabela. Sorte minha que a tabela é bem pequena. Beleza, eu consertei aqui a minha tabela, meu banco de dados. Agora a gente vai voltar lá para o nosso UPDATE e agora a gente vai colocar a causal WARE para atualizar somente o e-mail do João. Como que a gente faz isso? A gente vai usar a nossa chave primária, que é o ID.",
+            "topic_reference": "ATUALIZANDO E APAGANDO DADOS - Fundamento de Bancos de Dados - Parte 6",
+            "sequence": 8
+        },
+        {
+            "type_content": "transcription",
+            "content": "Como o ID dele, eu estou vendo ali, é 1. Opa, é 1. Coloca WARE ID igual a 1. Já vamos dar um SELECT aqui. Para direto ver essa mudança. Beleza, agora eu usei o ID dele, usei a chave primária do João para garantir que apenas a linha dele tenha sido modificada. Agora vamos para a última letrinha do CRUDE, que é o DELETE. Vamos imaginar que o pedido de número 2 foi cancelado e a gerência pediu para você expulgar esse registro do banco.",
+            "topic_reference": "ATUALIZANDO E APAGANDO DADOS - Fundamento de Bancos de Dados - Parte 6",
+            "sequence": 9
+        },
+        {
+            "type_content": "transcription",
+            "content": "Embora no mundo real a gente geralmente apenas inative ele, mas para motivos didáticos aqui, vamos apagar ele direto. Vamos apagar essa query e agora o que a gente usa a palavra é DELETE FROM. DELETE FROM da onde? DELETE PEDIDOS. Note aqui que a gente não usa o asterisco, é direto DELETE FROM e o nome da tabela. E o nome da tabela. Novamente, muita atenção, se eu rodar essa query aqui no meu banco de dados, eu vou zerar a tabela de vendas da empresa.",
+            "topic_reference": "ATUALIZANDO E APAGANDO DADOS - Fundamento de Bancos de Dados - Parte 6",
+            "sequence": 10
+        },
+        {
+            "type_content": "transcription",
+            "content": "Beleza. Então, o que a gente faz novamente? Vamos colocar o WHERE. Como eu quero deletar apenas o pedido número 2 novamente, vou usar o ID dele. Vamos já colocar o SELECT da tabela pedidos aqui. Beleza. Então, como a gente tinha visto hoje nas últimas aulas, a gente tinha o pedido 1, 2 e 3, agora fiz um DELETE usando WHERE e apaguei somente o que eu queria.",
+            "topic_reference": "ATUALIZANDO E APAGANDO DADOS - Fundamento de Bancos de Dados - Parte 6",
+            "sequence": 11
+        },
+        {
+            "type_content": "transcription",
+            "content": "Antes da gente encerrar, eu quero te mostrar uma coisa incrível. Lembra que na aula 2 e 3, quando a gente teve todo aquele trabalho para criar a chave estrangeira ligando o pedido ao cliente, vamos testar se aquilo funciona mesmo. O João, de cliente ID 1, tem pedidos registrados no nome dele. Então, vamos tentar apagar o João do banco de dados. DELETE FROM, tabela clientes, onde ID igual a 1.",
+            "topic_reference": "ATUALIZANDO E APAGANDO DADOS - Fundamento de Bancos de Dados - Parte 6",
+            "sequence": 12
+        },
+        {
+            "type_content": "transcription",
+            "content": "Vamos rodar. Olha lá. Então, olha só que interessante. O POSTGRI bloqueou a nossa ação. Então, a nossa chave estrangeira deu certo. O que ele diz aqui? Atualização exclusão de tabela em clientes viola a restrição de chave estrangeira. Pedidos clientes ID, FKEY, em pedidos chave IQ, ainda é referenciada pela tabela pedidos. Basicamente, o que ele disse aqui?",
+            "topic_reference": "ATUALIZANDO E APAGANDO DADOS - Fundamento de Bancos de Dados - Parte 6",
+            "sequence": 13
+        },
+        {
+            "type_content": "transcription",
+            "content": "Você está tentando apagar o cliente João, porque existem pedidos que dependem dele. Se você apagar o João, os pedidos dele vão ficar órfãos, vão ficar perdidos por aí. Isso aqui é integridade relacional. Ele vai salvar o seu sistema de ficar inconsistente. Para apagar o cliente João da tabela clientes, você teria que obrigatoriamente apagar ou transferir os pedidos dele primeiro.",
+            "topic_reference": "ATUALIZANDO E APAGANDO DADOS - Fundamento de Bancos de Dados - Parte 6",
+            "sequence": 14
+        },
+        {
+            "type_content": "transcription",
+            "content": "O banco de dados é maravilhoso para isso. Então, eu acho que o vídeo vai ficando por aqui. Você completou e entendeu o cinto de utilidades básico do SQL. Você já sabe praticamente o CRUD inteiro. Mas você deve ter percebido um problema. Nós olhamos para a tabela de pedidos e vemos apenas o ID. Vamos dar um SELECT aqui. Nós temos apenas o ID 1, o ID 3.",
+            "topic_reference": "ATUALIZANDO E APAGANDO DADOS - Fundamento de Bancos de Dados - Parte 6",
+            "sequence": 15
+        },
+        {
+            "type_content": "transcription",
+            "content": "Para um humano, isso às vezes não pode significar muita coisa. O seu chefe não quer saber que o ID 1 comprou 100 reais de tal pedido, de tal produto. Ele quer ver o nome do cliente no relatório. Então, na nossa próxima aula, a gente vai aprender a juntar as duas, três, quatro tabelas ao mesmo tempo, usando o comando mais famoso e temido das entrevistas de emprego, que é o JOIN.",
+            "topic_reference": "ATUALIZANDO E APAGANDO DADOS - Fundamento de Bancos de Dados - Parte 6",
+            "sequence": 16
+        },
+        {
+            "type_content": "transcription",
+            "content": "Então, antes de você ir para o próximo vídeo, revise os comandos de hoje, teste no seu computador, nunca esquecendo do WHERE ou se for dar um UPDATE ou um DELETE, beleza? Eu te vejo no próximo episódio. Um abraço!",
+            "topic_reference": "ATUALIZANDO E APAGANDO DADOS - Fundamento de Bancos de Dados - Parte 6",
+            "sequence": 17
+        },
+        {
+            "type_content": "video",
+            "content": "kbW8qxDWHLI",
+            "topic_reference": "CONSULTAS AVANÇADAS - Fundamentos de Banco de Dados - Parte 9",
+            "sequence": 1
+        },
+        {
+            "type_content": "transcription",
+            "content": "E aí galera, beleza? Chegamos ao nosso penúltimo episódio, o episódio 9 da nossa série de banco de dados. Esse episódio aqui é focado mais em produtividade e inteligência. É aqui que você vai entender como que os desenvolvedores economizam tempo e como os bancos de dados podem resolver problemas de lógica sozinhos, sem precisar de Python, JavaScript para fazer as contas.",
+            "topic_reference": "CONSULTAS AVANÇADAS - Fundamentos de Banco de Dados - Parte 9",
+            "sequence": 2
+        },
+        {
+            "type_content": "transcription",
+            "content": "Introduzir aí o conceito de preguiça inteligente do programador com as views e a lógica em cada camada com as subqueries. Na aula passada, nós suamos a camisa aqui para construir esse relatório aqui na tela. Nós juntamos tabelas, somamos valores, agrupamos por cliente e ordenamos tudo. Só que bons programadores têm essa certa preguiça inteligente.",
+            "topic_reference": "CONSULTAS AVANÇADAS - Fundamentos de Banco de Dados - Parte 9",
+            "sequence": 3
+        },
+        {
+            "type_content": "transcription",
+            "content": "Imagina seu chefe pedindo para você rodar esse mesmo relatório toda segunda-feira de manhã. Você vai ficar mesmo digitando essas cinco linhas complexas de InnerJoin e GroupBy de toda vez. E isso, considerando que essa pequena query aqui de quatro linhas é extremamente básica. Imagine que você tem um banco de dados mais complexo, mais tabelas. As suas queries vão ficando cada vez maiores.",
+            "topic_reference": "CONSULTAS AVANÇADAS - Fundamentos de Banco de Dados - Parte 9",
+            "sequence": 4
+        },
+        {
+            "type_content": "transcription",
+            "content": "Para isso, a gente precisa pensar em um certo tipo de atalho. Nós precisamos ensinar o banco de dados a memorizar essa consulta. Hoje, a gente vai aprender a criar views, que traduzindo em inglês, são visões. E de quebra, vamos descobrir como fazer essas perguntas em duas etapas. Uma view é como se fosse uma tabela virtual. Ela não guarda dados de verdade, ela guarda apenas a receita de como buscar esses dados.",
+            "topic_reference": "CONSULTAS AVANÇADAS - Fundamentos de Banco de Dados - Parte 9",
+            "sequence": 5
+        },
+        {
+            "type_content": "transcription",
+            "content": "Vamos pegar essa nossa query aqui, que a gente usou na aula passada, para transformá-la em uma view. Eu só preciso ir lá na primeira linha, antes do select aqui, não enter, e vou digitar o seguinte. Então, eu quero criar uma view. Sintaxe create view. Beleza. Aqui, eu vou inventar um nome. Por exemplo, relatório melhores clientes. S. Beleza. Fiz o create view, inventei um nome para ele, relatório melhores clientes.",
+            "topic_reference": "CONSULTAS AVANÇADAS - Fundamentos de Banco de Dados - Parte 9",
+            "sequence": 6
+        },
+        {
+            "type_content": "transcription",
+            "content": "E a palavra S, essa palavra, significa como. Eu estou dizendo para o banco, crie uma visão como essa tabela abaixo. Vou selecionar tudo e dar um play aqui. O pgadmin, ele vai dar query return, return com sucesso, para a nossa create view. Beleza. Só que, aonde a gente vai ver essa view aqui? Vamos voltar aqui para a nossa árvore de navegação. E vamos procurar aqui um esquema.",
+            "topic_reference": "CONSULTAS AVANÇADAS - Fundamentos de Banco de Dados - Parte 9",
+            "sequence": 7
+        },
+        {
+            "type_content": "transcription",
+            "content": "Aqui nós temos esquema. A gente tem o nosso esquema public. Aqui, a gente está usando. Tem as nossas tabelas clientes e pedidos. E lá no finalzinho, a gente tem uma view. Relatório melhores clientes. E agora, que vai vir a mágica. Chegou segunda-feira de manhã. O chefe pediu o relatório. Você não vai digitar mais nenhum join. Você vai tratar essa view como ela se fosse uma tabela comum.",
+            "topic_reference": "CONSULTAS AVANÇADAS - Fundamentos de Banco de Dados - Parte 9",
+            "sequence": 8
+        },
+        {
+            "type_content": "transcription",
+            "content": "Então, vamos apagar essa query aqui. E vamos simplesmente dar um select tudo. Da relatório. Melhores clientes. Dando play. Olha lá. O relatório inteiro aparece instantaneamente. O banco de dados lembrou da nossa receita lá. Gigante de quatro linhas. Foi lá nas tabelas de clientes e pedidos dos bastidores. Cruzou tudo. Somou tudo. Ordenou tudo. E te entregou.",
+            "topic_reference": "CONSULTAS AVANÇADAS - Fundamentos de Banco de Dados - Parte 9",
+            "sequence": 9
+        },
+        {
+            "type_content": "transcription",
+            "content": "Pronto. Na hora. O melhor. Se alguém fizer uma compra hoje. A view atualiza sozinha. Porque ela sempre lê os dados em tempo real. E isso é produtividade de nível top. Agora, vamos pensar num problema aqui. Num problema lógico. Mas, quando o banco... Quando o problema, né? Exige que o banco pense um pouco mais. Imagine que o gerente de marketing te faça a seguinte pergunta.",
+            "topic_reference": "CONSULTAS AVANÇADAS - Fundamentos de Banco de Dados - Parte 9",
+            "sequence": 10
+        },
+        {
+            "type_content": "transcription",
+            "content": "Eu quero uma lista de todos os pedidos que tem um valor acima da média hoje. Pense no problema. Como você vai usar um where se você não sabe qual que é a média? Você teria que rodar um select average valor lá da tabela pedidos. Anotar o resultado num papel. Digamos que deu, sei lá, R$ 150. E depois vou dar outro where com o valor maior que R$ 150.",
+            "topic_reference": "CONSULTAS AVANÇADAS - Fundamentos de Banco de Dados - Parte 9",
+            "sequence": 11
+        },
+        {
+            "type_content": "transcription",
+            "content": "São duas etapas manuais. Só que o SQL permite colocar uma consulta dentro da outra. Isso que eu acabei de falar. Que colocar uma consulta dentro da outra. É chamado de subquery. Em vez de anotar num papel. A gente escreve da seguinte maneira. Então, vamos dar um select aqui. Na tabela pedidos. Where Veja muito bem que eu abri o parênteses depois do sinal.",
+            "topic_reference": "CONSULTAS AVANÇADAS - Fundamentos de Banco de Dados - Parte 9",
+            "sequence": 12
+        },
+        {
+            "type_content": "transcription",
+            "content": "De maior que. E coloquei um select dentro desses parênteses. O banco de dados é inteligente. Ele primeiro vai resolver o que está dentro dos parênteses. Igual da matemática. Vai descobrir a média sozinho. E em seguida vai usar esse número. Para filtrar a consulta principal. Que está fora dos parênteses. Então, vamos dar o nosso play. E aqui. Lá estão os pedidos.",
+            "topic_reference": "CONSULTAS AVANÇADAS - Fundamentos de Banco de Dados - Parte 9",
+            "sequence": 13
+        },
+        {
+            "type_content": "transcription",
+            "content": "Com um valor superior. A média geral da loja. Que aí podemos dizer que seria. Sei lá. 150, por exemplo. Criar views. Para salvar o seu tempo. E usar subqueries. Para deixar o banco de dados. Fazer o trabalho duro. De lógica. Saber dessas coisas. Dessas sintaxes. Resolver esses problemas de lógica. Hoje em dia são muito valorizados no mercado de trabalho.",
+            "topic_reference": "CONSULTAS AVANÇADAS - Fundamentos de Banco de Dados - Parte 9",
+            "sequence": 14
+        },
+        {
+            "type_content": "transcription",
+            "content": "Então, fica como tarefa aí. Você brincar com isso no seu PGE Admin. Tente criar uma view simples. De clientes. Ou use uma subquery. Para descobrir qual que foi o pedido. Com o valor mais barato. Por exemplo. No nosso próximo episódio. Eu vou. Propor. Um desafio. Final. Eu não vou te ensinar comandos novos. Nós vamos pegar um problema de negócios. Realmente complexo.",
+            "topic_reference": "CONSULTAS AVANÇADAS - Fundamentos de Banco de Dados - Parte 9",
+            "sequence": 15
+        },
+        {
+            "type_content": "transcription",
+            "content": "Uma daquelas perguntas. Difíceis de entrevista. E vamos usar tudo que a gente aprendeu. Até agora. Da aula 1. Até a aula 9. Para resolver juntos. Tudo em uma única consulta. E vamos lá.",
+            "topic_reference": "CONSULTAS AVANÇADAS - Fundamentos de Banco de Dados - Parte 9",
+            "sequence": 16
+        },
+        {
+            "type_content": "video",
+            "content": "KBQCDi2bjQw",
+            "topic_reference": "CRIANDO AS PRIMEIRAS TABELAS - Fundamentos de Banco de Dados - Parte 3",
+            "sequence": 1
+        },
+        {
+            "type_content": "transcription",
+            "content": "E aí galera, beleza? Sejam bem-vindos ao nosso terceiro episódio aqui da nossa série de Banco de Dados. Se você acompanha a última aula, nós desenhamos a planta, que foi aquele diagrama entidade-relacionamento do nosso sistema. Decidimos que teríamos uma tabela de clientes e uma de pedidos conectadas por chaves. Hoje a gente vai começar a realmente codar, construir a nossa casa.",
+            "topic_reference": "CRIANDO AS PRIMEIRAS TABELAS - Fundamentos de Banco de Dados - Parte 3",
+            "sequence": 2
+        },
+        {
+            "type_content": "transcription",
+            "content": "Nós vamos abrir o PGAdmin 4 aqui e criar o nosso Banco de Dados do zero e transformar aquele desenho em um código SQL real. Beleza, aqui no PGAdmin, como vocês podem perceber, eu estou em uma database aqui que está com o nome Postgres. É uma database de teste que vem já pré-definida. Só que eu vou criar uma, beleza? Com o nome que eu quero. Então um único servidor Postgres pode guardar dezenas de bancos de dados diferentes.",
+            "topic_reference": "CRIANDO AS PRIMEIRAS TABELAS - Fundamentos de Banco de Dados - Parte 3",
+            "sequence": 3
+        },
+        {
+            "type_content": "transcription",
+            "content": "Nós vamos criar um espaço exclusivo para o nosso projeto. Então aqui na nossa árvore de navegação, a gente tem esse banco de dados Postgres, que ele já vem aqui, né? Já vem pré-instalado, só que eu vou criar um novo. Então, uma das maneiras mais fáceis que tem que fazer aqui, é fazer tudo de maneira visual. Clique o botão direito em cima de Databases e create a database.",
+            "topic_reference": "CRIANDO AS PRIMEIRAS TABELAS - Fundamentos de Banco de Dados - Parte 3",
+            "sequence": 4
+        },
+        {
+            "type_content": "transcription",
+            "content": "Vamos chamar o nosso banco de e-commerce DB. É importante que aqui no nome do banco de dados, ela não tenha espaços e nem assentos. Isso pode dar alguns problemas devido a formatos de texto. Beleza, clique aqui em Save. E ele criou aqui, dá para ver aqui na árvore de navegação, ele criou o e-commerce underline DB. Vamos aqui em esquemas, tabelas, estamos com nenhuma tabela por enquanto.",
+            "topic_reference": "CRIANDO AS PRIMEIRAS TABELAS - Fundamentos de Banco de Dados - Parte 3",
+            "sequence": 5
+        },
+        {
+            "type_content": "transcription",
+            "content": "Quando você cria aqui um banco de dados, o Postgre acaba de reservar um espaço no seu disco gígido ou no seu SSD só para esse banco de dados. Agora o passo mais importante, que é a gente clicar aqui no nosso e-commerce DB e acessar a nossa Query Tool. Como eu disse, essa Query Tool é a nossa ferramenta de consulta, é onde a gente vai poder criar tabelas, manipular dados e etc.",
+            "topic_reference": "CRIANDO AS PRIMEIRAS TABELAS - Fundamentos de Banco de Dados - Parte 3",
+            "sequence": 6
+        },
+        {
+            "type_content": "transcription",
+            "content": "Então, beleza, vamos criar a nossa primeira tabela, que é a tabela de clientes. A linguagem SQL é muito parecida com o inglês. O comando para criar uma tabela é justamente createTable. Então, vamos dar um aqui. Create. É bom que seja tudo maiúsculo. CreateTable. E aqui você dá o nome da sua tabela, vamos colocar clientes. Como qualquer linguagem de programação, ela aqui vai funcionar em blocos.",
+            "topic_reference": "CRIANDO AS PRIMEIRAS TABELAS - Fundamentos de Banco de Dados - Parte 3",
+            "sequence": 7
+        },
+        {
+            "type_content": "transcription",
+            "content": "Então, você abre um parênteses aqui e aqui vai ser o seu bloco de criação de tabela, beleza? Na sintaxe do SQL também, ao final desse bloco, ao final desses parênteses, é sempre bom colocar ponto e vírgula, beleza? Se você tem alguma dúvida em relação à sintaxe, aqui na descrição desse vídeo tem a documentação de SQL. Então, na linguagem SQL tem diversos comandos e nessa documentação explica objetivamente o que cada um faz.",
+            "topic_reference": "CRIANDO AS PRIMEIRAS TABELAS - Fundamentos de Banco de Dados - Parte 3",
+            "sequence": 8
+        },
+        {
+            "type_content": "transcription",
+            "content": "Beleza, aqui dentro do nosso bloco de createTable, a gente precisa listar as colunas, né? E que tipo de dado cada coluna vai guardar. O banco de dados é rigoroso com isso, né? Nossa primeira coluna aqui, ela pode ser justamente a nossa chave primária. Então, vai ser a coluna ID. Depois de você criar o nome aqui, né? Você pode colocar aqui, ó. Serial Primary Key.",
+            "topic_reference": "CRIANDO AS PRIMEIRAS TABELAS - Fundamentos de Banco de Dados - Parte 3",
+            "sequence": 9
+        },
+        {
+            "type_content": "transcription",
+            "content": "Que vem do inglês, né? Chave Primária. Esse tipo dele aqui é o tipo serial. Serial, é só uma palavra que define no postgres, ela vai basicamente criar um número inteiro que se autocompleta, né? O banco vai preencher lá o nosso ID, é um, dois, três, automático pra nós. Então, eu tenho o ID, que ele é serial e que ele vai receber como uma chave primária, né?",
+            "topic_reference": "CRIANDO AS PRIMEIRAS TABELAS - Fundamentos de Banco de Dados - Parte 3",
+            "sequence": 10
+        },
+        {
+            "type_content": "transcription",
+            "content": "Ele vai ser uma chave primária. Depois, né? Vamos criar mais uma coluna. Eu quero uma coluna de nome. O tipo dessa coluna vai ser o VARCHAR 100. O VARCHAR, ele basicamente significa caracteres variáveis, ou seja, basicamente texto, né? E esse 100 aqui, ele é basicamente o limite de letras. Então, eu tenho um campo, né? Uma coluna chamada nome, que ele é de caracteres variáveis e que ele tem um limite de 100 caracteres.",
+            "topic_reference": "CRIANDO AS PRIMEIRAS TABELAS - Fundamentos de Banco de Dados - Parte 3",
+            "sequence": 11
+        },
+        {
+            "type_content": "transcription",
+            "content": "É uma forma... Você definir, né? Um limite é uma maneira bem interessante de economizar memória. Não deixando alguém ditar coisas muito grandes aqui no campo do nome. Muito importante também que a cada coluna que você for adicionando, é interessante que você adicione uma vírgula. Isso é da sintaxe aqui do SQL, né? Então, eu vou criando diferentes colunas e eu preciso separar elas por vírgula.",
+            "topic_reference": "CRIANDO AS PRIMEIRAS TABELAS - Fundamentos de Banco de Dados - Parte 3",
+            "sequence": 12
+        },
+        {
+            "type_content": "transcription",
+            "content": "Então, tem o meu ID, que é a chave primária, a vírgula tem o nome, né? A minha coluna nome, que ela recebe caracteres variáveis, vírgula. Vamos criar outra coluna que vai ser o e-mail, né? De acordo lá com o nosso diagrama. O e-mail também pode receber, vai achar com limite de 100 caracteres. Beleza, com esse bloco aqui feito, né? A gente coloca..",
+            "topic_reference": "CRIANDO AS PRIMEIRAS TABELAS - Fundamentos de Banco de Dados - Parte 3",
+            "sequence": 13
+        },
+        {
+            "type_content": "transcription",
+            "content": ". É importante ter o ponto e virgula, não pode esquecer. E vamos executar o botão de play aqui. Você pode ver aqui, na parte superior, que ela tem vários botões. Você pode abrir um arquivo, salvar esse arquivo, né? Ele vai, provavelmente, ele vai salvar como arquivo de texto. Editar, executar, né? Que é rodar. Executar a query, explicar, explicar análise e etc.",
+            "topic_reference": "CRIANDO AS PRIMEIRAS TABELAS - Fundamentos de Banco de Dados - Parte 3",
+            "sequence": 14
+        },
+        {
+            "type_content": "transcription",
+            "content": "Você pode apertar aqui, né? No execute script ou simplesmente apertar F5. Beleza, apertei F5 aqui. Aqui na parte inferior, ele me deu uma mensagem, create table, né? Que foi o comando que eu dei. E a query retornou com sucesso em 224 milissegundos. E é isso. A gente criou a nossa primeira tabela. Aqui na nossa árvore de navegação aqui, para a gente ver essa tabela, a gente vai aqui em esquemas.",
+            "topic_reference": "CRIANDO AS PRIMEIRAS TABELAS - Fundamentos de Banco de Dados - Parte 3",
+            "sequence": 15
+        },
+        {
+            "type_content": "transcription",
+            "content": "E nós temos aqui um esquema público, que vai ter aqui, ó, tables. Já deu aqui que a gente já tem uma tabela. Então, clica na nossa tabela aqui, ó. Temos a tabela com o nome clientes. Essa tabela tem colunas, constraints, índices, políticas, regras e triggers. Beleza. Com aqui a nossa tabela clientes criada, a gente pode criar a nossa tabela de pedidos.",
+            "topic_reference": "CRIANDO AS PRIMEIRAS TABELAS - Fundamentos de Banco de Dados - Parte 3",
+            "sequence": 16
+        },
+        {
+            "type_content": "transcription",
+            "content": "Então, eu vou aqui deletar, né, essa query. E vou rodar, e vou rodar outra query SQL aqui, para criar a tabela de pedidos. Então, vamos lá, ó. Create table. Nome pedidos. Abro um bloco de código. Com os parênteses. E aqui a gente vai colocar a nossa coluna. Vamos colocar o id. Serial. Final key. Beleza. Então, a gente vai ter o id de pedido, que também será uma chave primária serial.",
+            "topic_reference": "CRIANDO AS PRIMEIRAS TABELAS - Fundamentos de Banco de Dados - Parte 3",
+            "sequence": 17
+        },
+        {
+            "type_content": "transcription",
+            "content": "E agora a gente vai colocar aqui os nossos tipos de dados, né. Que a gente pode inserir a data, né. Essa data de pedido, ela tem uma tipagem especial também. Ela recebe o tipo date. O banco, quando a gente escreve date aqui, isso vai ser, significa que o banco, ele só vai receber datas válidas aqui. Como ele é um valor, né, ele... Como ele é valor, né, dinheiro, ele tem que receber um outro tipo de tipagem.",
+            "topic_reference": "CRIANDO AS PRIMEIRAS TABELAS - Fundamentos de Banco de Dados - Parte 3",
+            "sequence": 18
+        },
+        {
+            "type_content": "transcription",
+            "content": "Ele não pode ser, ele não é um número inteiro, né. Então, você tem casas decimais ali, quando se trata de valor monetário. Então, justamente, a gente usa o tipo decimal. Aqui também seria interessante a gente colocar um limite. Do mesmo jeito, lá para o varchar. Abre parênteses aqui do lado decimal. E aqui, a gente pode colocar para 10 dígitos antes da vírgula.",
+            "topic_reference": "CRIANDO AS PRIMEIRAS TABELAS - Fundamentos de Banco de Dados - Parte 3",
+            "sequence": 19
+        },
+        {
+            "type_content": "transcription",
+            "content": "Aí, dá um vírgula, espaço. E coloca um 2 aqui, para ele aceitar os 2 dígitos depois da vírgula, que vão ser, né, os centavos. Agora, né, a cereja do bolo aqui, que vai ser a chave estrangeira. Agora, como que eu ligo, né, o pedido ao cliente? Eu vou criar uma coluna chamada cliente ID. E ela vai receber o tipo inteiro. Então, int. Muito parecido com, né, diversas embates de programação corriqueiras aí.",
+            "topic_reference": "CRIANDO AS PRIMEIRAS TABELAS - Fundamentos de Banco de Dados - Parte 3",
+            "sequence": 20
+        },
+        {
+            "type_content": "transcription",
+            "content": "Depois da palavra int, eu vou usar uma outra palavra, que é a palavra references. Isso, basicamente, vai apontar para uma certa tabela. Que tabela eu vou apontar? Eu quero apontar para a tabela clientes. Estamos criando aqui as relações. Então, basicamente, o que essa linha 5 aqui diz é, Só aceite um número, se esse número já existir, como um ID válido, lá na tabela de clientes.",
+            "topic_reference": "CRIANDO AS PRIMEIRAS TABELAS - Fundamentos de Banco de Dados - Parte 3",
+            "sequence": 21
+        },
+        {
+            "type_content": "transcription",
+            "content": "Isso vai garantir integridade relacional. Feito isso, a gente pode executar. Quando você executar aqui, né, a query, você percebe que ele não, ele não apareceu direto aqui, né, a minha tabela de pedidos. Então, você pode vir aqui em object, aqui na parte superior, dar um refresh. Beleza, ó. Já apareceu aqui a nossa tabela de pedidos. Uma coisa interessante aí, que eu não tinha mostrado anteriormente, é que se a gente for aqui em colunas, né, ela vai mostrar as colunas que a gente fez.",
+            "topic_reference": "CRIANDO AS PRIMEIRAS TABELAS - Fundamentos de Banco de Dados - Parte 3",
+            "sequence": 22
+        },
+        {
+            "type_content": "transcription",
+            "content": "Opa, eu tenho outra coisa. Aqui, ó, na tabela clientes, eu tenho a coluna ID, nome e e-mail, né. E aqui do lado, vou só esticar um pouquinho, já tem o tipo, ó, ID é o tipo inteiro, nome é um varchar, que tem limite 100, e meio a mesma coisa. Os pedidos aqui, ó, ID inteiro, data pedido, é o tipo date, valor, também numérico, né, recebe tipagem numérica, e cliente ID é um inteiro.",
+            "topic_reference": "CRIANDO AS PRIMEIRAS TABELAS - Fundamentos de Banco de Dados - Parte 3",
+            "sequence": 23
+        },
+        {
+            "type_content": "transcription",
+            "content": "Nós construímos as nossas gavetas aqui, né, mas se você abrir essa gaveta, elas estão completamente vazias, elas não têm dados aqui dentro, né. Não têm linhas, né, lembra quando eu falei da relação lá, do exemplo de colunas e linhas? A gente tem as colunas, mas a gente ainda não tem as linhas, a gente não tem os dados. Na nossa próxima aula, a gente vai dar mais um passo lógico.",
+            "topic_reference": "CRIANDO AS PRIMEIRAS TABELAS - Fundamentos de Banco de Dados - Parte 3",
+            "sequence": 24
+        },
+        {
+            "type_content": "transcription",
+            "content": "Vamos aprender a povoar esse banco de dados e vamos cadastrar nossos primeiros clientes e registrar as primeiras compras usando comandos como um insert, de inserir dados. E claro, né, vamos aprender a ler esses dados, né, deixar ele bem visual usando comandos como o select, né, de selecionar os dados. Tente replicar aqui o que a gente fez hoje aqui, se der algum erro de sintaxe, é bom que você preste bastante atenção em alguns pontos, como não esquecer do ponto e vírgula ao final desses blocos de código aqui, como não esquecer das vírgulas a cada criação de coluna, ou a cada, na tipa, ou na passagem de parâmetros aqui, do lado da tipagem.",
+            "topic_reference": "CRIANDO AS PRIMEIRAS TABELAS - Fundamentos de Banco de Dados - Parte 3",
+            "sequence": 25
+        },
+        {
+            "type_content": "transcription",
+            "content": "E se você tiver alguma dúvida em relação ao sintaxe, como eu falei anteriormente, tem a documentação dsql e lá ele explica direitinho. Por hoje é só, eu vejo vocês no próximo vídeo, beleza? Até a próxima.",
+            "topic_reference": "CRIANDO AS PRIMEIRAS TABELAS - Fundamentos de Banco de Dados - Parte 3",
+            "sequence": 26
+        },
+        {
+            "type_content": "video",
+            "content": "9uWNoojR7l0",
+            "topic_reference": "ENTENDENDO OS JOINS - Fundamentos de Bancos de Dados - Parte 7",
+            "sequence": 1
+        },
+        {
+            "type_content": "transcription",
+            "content": "E aí galera, beleza? Sejam muito bem-vindos ao nosso sétimo episódio da nossa série de Banco de Dados. Hoje a gente vai enfrentar um assunto que mais assusta quem está começando em Banco de Dados, mas que na verdade é o conceito mais fascinante de todos, que são os Joins. Lembra que na aula passada, o nosso imaginário chefe pediu um relatório de vendas?",
+            "topic_reference": "ENTENDENDO OS JOINS - Fundamentos de Bancos de Dados - Parte 7",
+            "sequence": 2
+        },
+        {
+            "type_content": "transcription",
+            "content": "Nós fomos lá e rodamos aqui um select tudo da tabela pedidos. Mas olha o problema, né? A nossa tabela, ela mostra a data, ela mostra o valor e o ID do cliente. O chefe olha para eles e pergunta, tá, quem que é esse cliente 1? Quem que fez essa compra de 150 reais? Eu não conheço as pessoas por números. Nós temos o nome do cliente, salva na tabela clientes, e temos a compra na tabela pedidos.",
+            "topic_reference": "ENTENDENDO OS JOINS - Fundamentos de Bancos de Dados - Parte 7",
+            "sequence": 3
+        },
+        {
+            "type_content": "transcription",
+            "content": "A gente precisa de um comando que construa uma ponte entre essas duas gavetas, né? E traga tudo junto. É para isso que serve o Join. Antes de começar a digitar, vamos começar a entender a lógica aqui. Pense nessas duas nossas tabelas aqui como dois grandes círculos. O círculo da esquerda, que está na imagem, são os clientes, e o círculo da direita são os pedidos.",
+            "topic_reference": "ENTENDENDO OS JOINS - Fundamentos de Bancos de Dados - Parte 7",
+            "sequence": 4
+        },
+        {
+            "type_content": "transcription",
+            "content": "O tipo de junção mais comum no mundo é o Inner Join, que significa junção interna. Ele funciona exatamente como aquela inserção no meio dos dois círculos que estão na imagem. O banco de dados vai olhar para a tabela pedidos, ver o cliente ID, que é igual a 1, vai correr lá na tabela de clientes, procurar quem tem o ID de 1, que é o João, né? E vai construir essas duas linhas, transformando tudo em uma coisa só.",
+            "topic_reference": "ENTENDENDO OS JOINS - Fundamentos de Bancos de Dados - Parte 7",
+            "sequence": 5
+        },
+        {
+            "type_content": "transcription",
+            "content": "Ele traz para a tabela o que tem correspondência perfeita dos dois lados. Vamos ver essa mágica acontecer, então, aqui no PGA de mim. Então vamos começar a construir aqui a nossa ponte. Então vamos dar um SELECT. Agora a gente vai chamar o Inner Join, função interna, de tabela Climates. Só que não basta apenas julgar os nomes, nós temos que dizer que é o banco de dados, aonde fica a ponte, qual coluna que liga uma coisa na outra.",
+            "topic_reference": "ENTENDENDO OS JOINS - Fundamentos de Bancos de Dados - Parte 7",
+            "sequence": 6
+        },
+        {
+            "type_content": "transcription",
+            "content": "Então a gente usa uma outra cláusula, que é a palavra ON, que é ONDE. Então, ON, pedidos.clientes.id, igual clientes.id. Então vamos entender essa linha aqui por completo. Então tem que prestar muita atenção nessa sintaxe. O nome da tabela, a tabela pedidos, ponto, o nome da coluna. Eu estou dizendo, junte as tabelas ON, que é onde o cliente ID da tabela pedidos seja exatamente igual ao ID da tabela clientes.",
+            "topic_reference": "ENTENDENDO OS JOINS - Fundamentos de Bancos de Dados - Parte 7",
+            "sequence": 7
+        },
+        {
+            "type_content": "transcription",
+            "content": "Então olha só que bacana. O que a nossa tabela de resultados aqui trouxe? Trouxe o ID do pedido, trouxe a data do pedido, o valor do pedido, logo colados com o ID do cliente, o nome do cliente e o e-mail do cliente. Então a gente acabou de cruzar dados de duas tabelas diferentes. Funcionou aqui perfeitamente. Só que o nosso chefe não quer ver IDs repetidos.",
+            "topic_reference": "ENTENDENDO OS JOINS - Fundamentos de Bancos de Dados - Parte 7",
+            "sequence": 8
+        },
+        {
+            "type_content": "transcription",
+            "content": "Ele só quer o nome do cliente e a data de compra e o valor, por exemplo. É aqui que a gente para de usar aquele asterisco preguiçoso que a gente usa ali no SELECT. Nós vamos especificar exatamente as colunas que a gente quer. Vamos alterar a primeira linha do nosso código. Então ao invés de usar SELECT todos os pedidos, vamos usar SELECT CLIENTES.",
+            "topic_reference": "ENTENDENDO OS JOINS - Fundamentos de Bancos de Dados - Parte 7",
+            "sequence": 9
+        },
+        {
+            "type_content": "transcription",
+            "content": "CLIENTES, lembrando, é a tabela e eu quero . A coluna, no caso a coluna nome. Sempre usando vírgula para separar. Então eu quero também da coluna pedidos, ponto, ou o nome da coluna, data, data pedido. Vírgula, posso pedir também o valor, né? O valor da tabela pedidos. E tudo isso from tabela pedidos. Feita essa alteração no código. Ó, rodando, deu certo.",
+            "topic_reference": "ENTENDENDO OS JOINS - Fundamentos de Bancos de Dados - Parte 7",
+            "sequence": 10
+        },
+        {
+            "type_content": "transcription",
+            "content": "Perceba que eu coloco em qual tabela vem cada coluna. Tabela clientes, ponto, nome. Tabela pedidos, ponto, dado do pedido. E agora a gente tem um relatório limpo, profissional e pronto para ser entregue aí para o seu chefe. O João Silva comprou, no dia 27 de fevereiro, R$ 150,00 de produto. Só que se o chefe mudasse a pergunta agora, né? Eu quero ver a lista de todos os clientes cadastrados, até mesmo os que nunca compraram nada.",
+            "topic_reference": "ENTENDENDO OS JOINS - Fundamentos de Bancos de Dados - Parte 7",
+            "sequence": 11
+        },
+        {
+            "type_content": "transcription",
+            "content": "O InnerJoin, ele não serve porque ele só traz quem tem a inserção, né? Quem tem pedido. E para isso, a gente usa outro tipo de join, que é o LeftJoin, que significa junção à esquerda. Ele pega todo mundo da primeira tabela que você digitou, que no caso é clientes. E se o cliente não tiver pedido, ele traz a palavra NULL, que significa nulo, no lugar do valor.",
+            "topic_reference": "ENTENDENDO OS JOINS - Fundamentos de Bancos de Dados - Parte 7",
+            "sequence": 12
+        },
+        {
+            "type_content": "transcription",
+            "content": "Mas a lógica de montagem, na linha aqui, é idêntica. Então fica aí, né? De desafio para você brincar com esse código, né? Tente adicionar um R no final desse join, nesse join gigante que a gente fez aqui, para filtrar só as compras acima de R$ 100,00. Um order by, para ordenar os valores mais caros. Todos os comandos se encaixam. Na nossa próxima aula, a gente vai aprender a fazer matemática dentro do banco de dados.",
+            "topic_reference": "ENTENDENDO OS JOINS - Fundamentos de Bancos de Dados - Parte 7",
+            "sequence": 13
+        },
+        {
+            "type_content": "transcription",
+            "content": "O chefe não quer mais ver pedido solto, ele quer saber qual é o valor total que o João gastou na loja. Vamos falar sobre group by e funções de agregação. Se esse vídeo destravou os joins na sua cabeça, deixa aquele like e eu te vejo na próxima aula. Até a próxima. Tchau. Tchau. Tchau. Tchau. Tchau.",
+            "topic_reference": "ENTENDENDO OS JOINS - Fundamentos de Bancos de Dados - Parte 7",
+            "sequence": 14
+        },
+        {
+            "type_content": "video",
+            "content": "edjbYBebrqw",
+            "topic_reference": "FILTRANDO E ORDENANDO - Fundamentos de Banco de Dados - Parte 5",
+            "sequence": 1
+        },
+        {
+            "type_content": "transcription",
+            "content": "E aí galera, beleza? Sejam muito bem-vindos ao quinto episódio da nossa série sobre banco de dados. Na aula passada, a gente populou o nosso e-commerce aqui, o nosso banco de dados, com clientes e com pedidos. E você também aprendeu a usar o comando select asterisco para ver tudo o que estava lá dentro. Só que hoje, eu preciso te dar um aviso, muito importante.",
+            "topic_reference": "FILTRANDO E ORDENANDO - Fundamentos de Banco de Dados - Parte 5",
+            "sequence": 2
+        },
+        {
+            "type_content": "transcription",
+            "content": "No mundo real, o select asterisco, sem nenhum filtro, ele é bem perigoso. Imagine que você está trabalhando, sei lá, na Amazon ou no mercado livre. Se você rodar um select, um comando, pedindo todos os dados do banco de dados de uma vez só, provavelmente vai travar o servidor, porque é muito pedido. A gente precisa aprender a filtrar os nossos dados.",
+            "topic_reference": "FILTRANDO E ORDENANDO - Fundamentos de Banco de Dados - Parte 5",
+            "sequence": 3
+        },
+        {
+            "type_content": "transcription",
+            "content": "Os bancos de dados, eles foram feitos para dar respostas específicas em milissegundos. Hoje, a gente vai aprender a fazer as perguntas certas, utilizando a cláusula WHERE. Com o nosso pg-admin 4 aqui engatilhado, vamos imaginar um cenário. Um cliente ligou para o suporte e você precisa puxar a ficha dele. Você sabe o e-mail dele. Em vez de trazer a tabela inteira de clientes, vamos selecionar apenas o que a gente quer.",
+            "topic_reference": "FILTRANDO E ORDENANDO - Fundamentos de Banco de Dados - Parte 5",
+            "sequence": 4
+        },
+        {
+            "type_content": "transcription",
+            "content": "Então, para o nosso query aqui, eu faço selecione tudo da tabela clientes, onde, where. Aqui eu vou colocar a coluna, onde da tabela clientes, a coluna e-mail. E a coluna e-mail, eu quero trazer a linha que tem exatamente joao.email.com, ponto e virgula no final. Então, a palavra WHERE aqui, ela significa onde. A gente está dizendo para o postgre, traga todas as colunas da tabela clientes, onde o e-mail seja exatamente igual a joao.",
+            "topic_reference": "FILTRANDO E ORDENANDO - Fundamentos de Banco de Dados - Parte 5",
+            "sequence": 5
+        },
+        {
+            "type_content": "transcription",
+            "content": "email.com. Como o e-mail é um texto, é um varchar que a gente definiu lá, a gente precisa colocar entre aspas simples aqui na consulta. Vamos dar um F5 e ver o resultado. Ele trouxe para mim aqui, a tabela clientes, só com o joao.email.com, praticamente a ficha dele. Eu sei agora o nome dele, eu sei agora a sua chave primária. Então, aqui, utilizando a minha clave malware, o banco simplesmente ignorou tudo e trouxe só o que eu queria.",
+            "topic_reference": "FILTRANDO E ORDENANDO - Fundamentos de Banco de Dados - Parte 5",
+            "sequence": 6
+        },
+        {
+            "type_content": "transcription",
+            "content": "Vamos apagar essa creeper aqui e vamos focar agora lá na tabela de pedidos. Vamos agora usar números e datas. O sinal, ele é ótimo para textos. Mas como lidamos com números e datas? Se eu pedir uma consulta aqui e usar igual para um error, para uma coluna que tem valor, ele vai me trazer só aquilo que tem exatamente o valor, aquele valor. Como é que eu defino?",
+            "topic_reference": "FILTRANDO E ORDENANDO - Fundamentos de Banco de Dados - Parte 5",
+            "sequence": 7
+        },
+        {
+            "type_content": "transcription",
+            "content": "Eu quero trazer, por exemplo, pedidos que são acima de R$100,00. Ou pedidos que são após determinado dia. A gente usa outra coisa além do igual. Então, vamos dar um SELECT. Tudo FROM Pedidos Onde Vou fazer para a coluna valor. Aqui a gente não usa o igual. Se a gente quiser filtrar, por exemplo, Eu quero trazer só os pedidos com o valor inferior a R$100,00.",
+            "topic_reference": "FILTRANDO E ORDENANDO - Fundamentos de Banco de Dados - Parte 5",
+            "sequence": 8
+        },
+        {
+            "type_content": "transcription",
+            "content": "Eu utilizo o carácter menor que ou maior que. Vamos rodar aqui o maior que. Ó. Só me trouxe aqui, né? Da tabela de pedidos. Essa... Essa linha que tem o valor menor a R$100,00. Se eu quiser, os maiores que são. Trouxe. Maiores que são. Eu posso usar, por exemplo, também, Para maior ou igual. Ou menor ou igual. Agora, como que a gente faz para a data, né?",
+            "topic_reference": "FILTRANDO E ORDENANDO - Fundamentos de Banco de Dados - Parte 5",
+            "sequence": 9
+        },
+        {
+            "type_content": "transcription",
+            "content": "Como eu falei anteriormente, né? Quero ver os pedidos feitos a partir do dia tal. Então, a gente mantém aqui o nosso select. Só que a gente muda o error. A gente está mudando a coluna. Então, data pedido. Aí, se eu quiser ver os pedidos a partir, Eu posso usar o maior igual. Aí, eu coloco a minha data. Como todos os meus dados lá na tabela pedidos, Elas estão com a mesma data.",
+            "topic_reference": "FILTRANDO E ORDENANDO - Fundamentos de Banco de Dados - Parte 5",
+            "sequence": 10
+        },
+        {
+            "type_content": "transcription",
+            "content": "Ele vai mostrar praticamente a tabela inteira. Então, ó. Sempre se lembra. Entre aspas simples. E no formato. Ano. Mês. Dia. Outro vergonho no final. Vamos rodar a nossa query. Aqui, ó. Todos os meus três pedidos que eu inseri lá. Elas estão. É... Com a data aqui. Porque eu defini que seria a partir. Dessa data. Se eu colocar, por exemplo. Para menor.",
+            "topic_reference": "FILTRANDO E ORDENANDO - Fundamentos de Banco de Dados - Parte 5",
+            "sequence": 11
+        },
+        {
+            "type_content": "transcription",
+            "content": "Aqui. Já não mostra nada. Porque não tem nada que satisfaça aqui. Essa condição. Mas se, por exemplo. O seu chefe pedir uma coisa mais complexa. Como, por exemplo. Eu quero ver pedidos acima de R$100. Mas apenas que foram feitos pelo cliente com a ID TAL. Agora a gente tem duas condições. Ao invés de uma. Para isso. A gente usa operadores lógicos.",
+            "topic_reference": "FILTRANDO E ORDENANDO - Fundamentos de Banco de Dados - Parte 5",
+            "sequence": 12
+        },
+        {
+            "type_content": "transcription",
+            "content": "Existem vários tipos de operadores lógicos. Entre eles. Os mais comuns. O AND. E o OR. Basicamente o AND. Significa E. Por exemplo. Eu quero que você. Faça uma consulta. Usando. É. Usando. Essa condição. E. AND. Essa condição. O OR. Não sei se aplica muito bem. A gente pode. Buscar uma aplicação. Mas seria. Basicamente o mesmo raciocínio. Faça uma consulta.",
+            "topic_reference": "FILTRANDO E ORDENANDO - Fundamentos de Banco de Dados - Parte 5",
+            "sequence": 13
+        },
+        {
+            "type_content": "transcription",
+            "content": "Com. Essa. Condição. Ou. Com essa condição. Então vamos escrever aqui. Um select. Select tudo. Tabela. Pedidos. Onde. Valor. Maior que 100. Terminamos a nossa primeira condição. E. Vamos adicionar nessa outra condição. Cliente ID. É igual. 1. Como é o nome inteiro. Não precisa de aspas simples. Vamos botar para rodar aqui. Ó. Me retornou. Cliente ID 1.",
+            "topic_reference": "FILTRANDO E ORDENANDO - Fundamentos de Banco de Dados - Parte 5",
+            "sequence": 14
+        },
+        {
+            "type_content": "transcription",
+            "content": "E ele fez. Uma compra. Acima de 100 reais. O AND. Aqui. Né. Esse operador. Lógico. AND. Ele obriga. Que as duas regras. Elas sejam verdadeiras. Se o pedido. For de 200 reais. Mas for do cliente 2. Ele não aparece. Se você quisesse. Que o banco trouxesse. Pedidos do cliente 1. Ou do cliente 2. A gente usaria. O outro operador lógico. Que é o OR. O OR.",
+            "topic_reference": "FILTRANDO E ORDENANDO - Fundamentos de Banco de Dados - Parte 5",
+            "sequence": 15
+        },
+        {
+            "type_content": "transcription",
+            "content": "Ele é um pouquinho mais flexível. Se qualquer uma das regras. For verdades. Ele vai trazer a linha. Para fechar com chave de ouro. Esse vídeo. Se você tiver. Uma grande. Base de dados. Aí. E filtrar. Eles podem vir. Um pouco bagunçados. O gerente. Ele quer saber. Qual foi o pedido. Mais caro. De todos. Como se fosse. Uma espécie de ranking. Para isso.",
+            "topic_reference": "FILTRANDO E ORDENANDO - Fundamentos de Banco de Dados - Parte 5",
+            "sequence": 16
+        },
+        {
+            "type_content": "transcription",
+            "content": "A gente usa. Outra cláusula. Que é o. ORDER BY. ORDENAR POR. Então vamos aqui. Selecionar tudo. É. Da tabela pedidos. E ordene. BY. Valor. De maneira. Descendente. Desc. Então. Eu disse para colocar. O valor. E a palavra. Desc. Significa. Decrescente. Ou seja. Do maior para o menor. O maior pedido. Vai aparecer. No topo. É. Mas para garantir. Né. Se seu banco de dados.",
+            "topic_reference": "FILTRANDO E ORDENANDO - Fundamentos de Banco de Dados - Parte 5",
+            "sequence": 17
+        },
+        {
+            "type_content": "transcription",
+            "content": "For grande. Aqui no meu caso. O banco ainda está pequeno. É. Mas se você. Tiver um banco de dados. Muito grande. Você pode colocar um limite. Né. Para não trazer. Absolutamente. Todos os pedidos. Você pode. Por exemplo. Colocar um limite. Ah. Eu quero. É. Os três primeiros. Então. Ele vai trazer o top 3. De pedidos mais caros. Aí. Ele trouxe. Ranqueou.",
+            "topic_reference": "FILTRANDO E ORDENANDO - Fundamentos de Banco de Dados - Parte 5",
+            "sequence": 18
+        },
+        {
+            "type_content": "transcription",
+            "content": "Do. Maior. Para. O menor. Beleza. Vou. Diminuir o limite. Quero só o top 2. Ó. Tirou. A linha ali. Quero o primeiro. Só o primeiro. O mais caro de todos. Tá aí. Vamos voltar para o 3. Aí. Ó. A palavra. Limit 3. Né. Eu acabo de criar. Basicamente. Um relatório. Né. É. De top 3. Maiores vendas. Com uma. Única linha. De código. Esse. É. O poder. Da linguagem.",
+            "topic_reference": "FILTRANDO E ORDENANDO - Fundamentos de Banco de Dados - Parte 5",
+            "sequence": 19
+        },
+        {
+            "type_content": "transcription",
+            "content": "SQL. Então. Aí. Né. Fica de tarefa. Para você brincar. Bastante. Aí. Com o Air. O Order By. E o Limit. No seu banco de dados. Na próxima aula. A gente vai usar esse mesmo Air. Para nos proteger de um dos maiores desastres da programação. Que é apagar ou atualizar o banco de dados inteiro. Sem querer. Obviamente. Né. É. A gente vai aprender a usar.",
+            "topic_reference": "FILTRANDO E ORDENANDO - Fundamentos de Banco de Dados - Parte 5",
+            "sequence": 20
+        },
+        {
+            "type_content": "transcription",
+            "content": "É. O Update. E o Delete. Com segurança. Né. Vamos entender aí. As diferenças. Se você curtiu a aula. Deixa o like. E até a próxima. Falou.",
+            "topic_reference": "FILTRANDO E ORDENANDO - Fundamentos de Banco de Dados - Parte 5",
+            "sequence": 21
+        },
+        {
+            "type_content": "video",
+            "content": "moc9AxR0G2Q",
+            "topic_reference": "INSERIDO E LENDO DADOS - Fundamentos de Banco de Dados - Parte 4",
+            "sequence": 1
+        },
+        {
+            "type_content": "transcription",
+            "content": "E aí galera, beleza? Bem-vindos ao quarto episódio aqui da nossa série de banco de dados. Na última aula nós criamos a estrutura aqui dentro do nosso e-commerce com as tabelas clientes e pedidos. Mas como eu disse no episódio passado, essas tabelas não tem nenhum tipo de dados. A gente só tem as colunas. Então a gente precisa agora criar as linhas.",
+            "topic_reference": "INSERIDO E LENDO DADOS - Fundamentos de Banco de Dados - Parte 4",
+            "sequence": 2
+        },
+        {
+            "type_content": "transcription",
+            "content": "Hoje a gente vai dar vida ao nosso grupo de dados e para isso vamos usar um conceito muito importante e provavelmente o mais famoso do mundo no desenvolvimento de software, que é o CRUD. CRUD é uma sigla em inglês para quatro operações muito básicas e que a gente pode fazer com os dados, que é Create, Read, Update e Delete. Qualquer sistema que você use, desde o Instagram até o sistema do seu banco, no fundo está fazendo operações de CRUD.",
+            "topic_reference": "INSERIDO E LENDO DADOS - Fundamentos de Banco de Dados - Parte 4",
+            "sequence": 3
+        },
+        {
+            "type_content": "transcription",
+            "content": "Nesse episódio a gente vai focar nas duas primeiras letrinhas dessa palavra, que é o Create e o Read. Nós vamos inserir os nossos primeiros clientes e depois a gente vai ler essas informações. Beleza, aqui no nosso belo PGAdmin 4, vamos com a query tool aqui já engatilhada, vamos cadastrar o nosso primeiro cliente. O comando SQL, para isso, ele é bastante intuitivo.",
+            "topic_reference": "INSERIDO E LENDO DADOS - Fundamentos de Banco de Dados - Parte 4",
+            "sequence": 4
+        },
+        {
+            "type_content": "transcription",
+            "content": "Então, para a gente inserir um dado em uma tabela, a gente faz Insert Into. Beleza, temos Insert Into, só que eu tenho que escrever o nome da tabela. Insert Into aonde? Insert Into Clientes. Em seguida, a gente vai abrir os parênteses aqui para dizer quais colunas vamos preencher. Por exemplo, eu quero preencher a coluna nome e eu quero preencher a coluna e-mail.",
+            "topic_reference": "INSERIDO E LENDO DADOS - Fundamentos de Banco de Dados - Parte 4",
+            "sequence": 5
+        },
+        {
+            "type_content": "transcription",
+            "content": "Mas você deve estar pensando agora, mas e a chave primária, que é o ID lá? Lembra que na aula passada, a gente definiu o ID como Serial. Ou seja, isso significa que o banco vai cuidar do ID para nós. Ele vai preencher automaticamente o ID. A gente não precisa, na verdade, a gente nem deve enviar aqui o ID manualmente. Isso a gente definiu lá a chave primária como Serial.",
+            "topic_reference": "INSERIDO E LENDO DADOS - Fundamentos de Banco de Dados - Parte 4",
+            "sequence": 6
+        },
+        {
+            "type_content": "transcription",
+            "content": "Depois aqui de fechar nossos parênteses, a gente pode dar um Enter aqui e escrever a palavra Values de Valores. Eu tenho a minha coluna nome, eu tenho a minha coluna e-mail e eu vou escolher, vou preencher ela com valores. Vamos abrir uma nova. Vamos abrir um novo parênteses aqui. E como os dados lá de nome e-mail, eles são caracteres variáveis, eu tenho que usar, eu tenho que colocar esses dados entre aspas simples.",
+            "topic_reference": "INSERIDO E LENDO DADOS - Fundamentos de Banco de Dados - Parte 4",
+            "sequence": 7
+        },
+        {
+            "type_content": "transcription",
+            "content": "Então, por exemplo aqui, eu quero preencher o nome dele. Então, como eu estou colocando primeiro nome aqui no Insert, eu tenho que colocar o nome como primeiro aqui no Values. Então, por exemplo, vai ser João Silva. Entre aspas simples, porque ele é carácter. Damos um vírgula aqui, agora a gente faz a parte do e-mail. Aspas simples também. Vamos lá, João arroba e-mail.",
+            "topic_reference": "INSERIDO E LENDO DADOS - Fundamentos de Banco de Dados - Parte 4",
+            "sequence": 8
+        },
+        {
+            "type_content": "transcription",
+            "content": "com. Sempre bom, ponto e vírgula no final. Beleza. Com o Insert e o Values aqui, a gente pode mandar. Insert 01. Query return successfully. Beleza, mas inserir um por um vai demorar. Então, vamos apagar esse código aqui e vamos inserir três clientes de uma vez para a gente ganhar tempo aqui. Por exemplo, eu não preciso digitar Insert into Values, Insert into Values, Insert into E Values.",
+            "topic_reference": "INSERIDO E LENDO DADOS - Fundamentos de Banco de Dados - Parte 4",
+            "sequence": 9
+        },
+        {
+            "type_content": "transcription",
+            "content": "Eu dou apenas um Insert, Insert into a tabela de índices, as colores que eu vou preencher, nome e e-mail, Values. E aqui a gente pode colocar, por exemplo, Maria. Vou copiar essa linha aqui. Só dar um CTRL V. Eu posso seguir isso até o infinito e ele vai adicionar várias Marias no meu banco de dados. Mas eu vou mudar aqui os novos. Vou adicionar só três.",
+            "topic_reference": "INSERIDO E LENDO DADOS - Fundamentos de Banco de Dados - Parte 4",
+            "sequence": 10
+        },
+        {
+            "type_content": "transcription",
+            "content": "Então, por exemplo, a gente tem a Maria, a gente tem o Marcos. E a gente tem... Sei lá. Alisson. Só mudar aqui o e-mail. Beleza. Vamos executar. Opa, já esqueci do ponto e vírgula. Olha como é que ele deu erro. Erro. Erro de sintaxe no fim da entrada. Ele me acusa aqui que a linha 6 está com erro de sintaxe. Porque eu esqueci o do ponto e vírgula no final.",
+            "topic_reference": "INSERIDO E LENDO DADOS - Fundamentos de Banco de Dados - Parte 4",
+            "sequence": 11
+        },
+        {
+            "type_content": "transcription",
+            "content": "Vamos executar de novo. Beleza. Deu sucesso. Então, agora, a gente tem quatro clientes na nossa base. A gente acabou de inserir os dados. Só que onde que eles estão? Como que eu vejo esses dados? Se eu quero ter informações visuais. Quero confirmar, de fato, se esses clientes, eles foram incluídos na base. A gente inseriu os dados. Só que agora é a hora, né?",
+            "topic_reference": "INSERIDO E LENDO DADOS - Fundamentos de Banco de Dados - Parte 4",
+            "sequence": 12
+        },
+        {
+            "type_content": "transcription",
+            "content": "De usar o R lá do CRUDE, que é o READ. E o comando que você vai mais usar na sua vida, né? Profissional aí, quando você está lidando com banco de dados. É o comando SELECT. SELECT. O SELECT, como a tradução diz, ele é para selecionar. Ele serve para buscar informações. Então, vamos editar aqui SELECT, espaço, asterisco, espaço, from, clientes. O que que essa linha aqui está me dizendo?",
+            "topic_reference": "INSERIDO E LENDO DADOS - Fundamentos de Banco de Dados - Parte 4",
+            "sequence": 13
+        },
+        {
+            "type_content": "transcription",
+            "content": "Selecione. Esse asterisco aqui, ele diz ao banco para a gente pegar tudo. Traga todas as colunas e linhas disponíveis. E o from, ele serve, ele indica qual tabela a gente está querendo pegar. Então, selecione tudo da tabela clientes. Beleza? Dando o play aqui, ele, na parte inferior, ele já mostra aqui, ó, a nossa tabelinha. O nosso ID, aqui, ó, está funcionando.",
+            "topic_reference": "INSERIDO E LENDO DADOS - Fundamentos de Banco de Dados - Parte 4",
+            "sequence": 14
+        },
+        {
+            "type_content": "transcription",
+            "content": "A nossa primary key aqui. O serial está funcionando, porque ele preencheu aqui, de maneira serial, 1, 2, 3, 4. Sem eu precisar criar uma coluna ID. Quer dizer, sem eu precisar manualmente colocar, né? Como um insert into. Temos o nome, né? João Silva, Maria, Marcos, Alisson e o e-mail, né? Foram os dados que a gente adicionou usando o insert. Beleza?",
+            "topic_reference": "INSERIDO E LENDO DADOS - Fundamentos de Banco de Dados - Parte 4",
+            "sequence": 15
+        },
+        {
+            "type_content": "transcription",
+            "content": "Agora que a gente tem aqui os nossos clientes, a gente pode começar a registrar os pedidos, né? As compras. Então, vamos aqui apagar esse set. E vamos começar a inserir dados. Como que a gente tem que inserir dados? Inserir into. Inserir into aonde? Pedido. Que colunas eu quero usar? Data pedido. Eu quero inserir dados na coluna valor. Inserir dados na coluna cliente ID.",
+            "topic_reference": "INSERIDO E LENDO DADOS - Fundamentos de Banco de Dados - Parte 4",
+            "sequence": 16
+        },
+        {
+            "type_content": "transcription",
+            "content": "Vamos já colocar aqui o values. Vamos adicionar aqui, como o nosso primeiro campo aqui, nossa primeira coluna é a data. Vou colocar por primeiro aqui a data. Aqui a gente precisa ter cuidado. A data, o padrão de banco de dados, quando você está falando de data, ela é sempre ano, traço mês, traço dia. Então, aqui ó, 2026, traço 02, traço 27. Nosso segundo coluna é o valor.",
+            "topic_reference": "INSERIDO E LENDO DADOS - Fundamentos de Banco de Dados - Parte 4",
+            "sequence": 17
+        },
+        {
+            "type_content": "transcription",
+            "content": "Então, a gente coloca aqui, por exemplo, 150.50. Aqui, outro ponto de atenção muito importante. Aqui no Brasil, a gente costuma usar, para separar as casas decimais de valores monetários, a vírgula. Só que a sintaxe do SQL, e a maioria das sintaxes de linguagem de programação, elas usam o ponto para delimitar as casas decimais em valores monetários.",
+            "topic_reference": "INSERIDO E LENDO DADOS - Fundamentos de Banco de Dados - Parte 4",
+            "sequence": 18
+        },
+        {
+            "type_content": "transcription",
+            "content": "Então, precisa ter muito cuidado com isso. Agora, a gente vai usar a nossa chave estrangeira. Se eu colocar o número 1 aqui, que está relacionado aqui com a coluna cliente ID, eu estou dizendo para o banco que esse pedido de 150 e 50 centavos, nesse tal dia, ela pertence ao João Silva, que aqui nessa tabelinha aqui, a ID dele é 1. Então, se eu quero relacionar essa compra com o João Silva, eu uso aqui a minha chave estrangeira, que é o ID 1.",
+            "topic_reference": "INSERIDO E LENDO DADOS - Fundamentos de Banco de Dados - Parte 4",
+            "sequence": 19
+        },
+        {
+            "type_content": "transcription",
+            "content": "Se eu quiser fazer isso com o cliente Alisson, eu troco esse 1 pelo ID dele, que é o ID 4. Então, por exemplo, eu coloco o 4 aqui, essa compra vai estar relacionada ao Alisson. Então, é muito importante você entender desde já esses conceitos de chaves primárias e chaves estrangeiras. Você vai usar bastante ao longo aí da sua jornada com os bancos de dados.",
+            "topic_reference": "INSERIDO E LENDO DADOS - Fundamentos de Banco de Dados - Parte 4",
+            "sequence": 20
+        },
+        {
+            "type_content": "transcription",
+            "content": "Vou criar aqui outros dados, né, para preencher ali para os clientes. Aqui, a gente fez um insert, né, com as colunas, com os valores, só que, na mesma query, a gente pode fazer já um select, né. Eu já economizo um tempo, então, quero selecionar tudo. É, tabela pedidos. Uma coisa muito interessante que eu não abordei anteriormente, é que você pode fazer comentários, é, como qualquer linguagem de programação, você pode comentar os seus códigos.",
+            "topic_reference": "INSERIDO E LENDO DADOS - Fundamentos de Banco de Dados - Parte 4",
+            "sequence": 21
+        },
+        {
+            "type_content": "transcription",
+            "content": "Aqui na linguagem SQL, a gente usa o traço-traço. Ali, a linha fica verdinha, assim, ó. Você pode colocar qualquer coisa aqui, né, que o código vai desconsiderar. É um comentário, e isso é ótimo para você deixar o seu código bem legível, fácil de dar manutenção. Então, por exemplo, isso aqui, ó, é, mostra a tabela de pedidos. Posso colocar aqui um comentário também, ó.",
+            "topic_reference": "INSERIDO E LENDO DADOS - Fundamentos de Banco de Dados - Parte 4",
+            "sequence": 22
+        },
+        {
+            "type_content": "transcription",
+            "content": "Em série, valores, na tabela de pedidos. Então, a linguagem SQL, aqui, né, vai ignorar, porque isso aqui é um comentário. Você pode também usar o comentário, né, para desconsiderar linhas. Então, por exemplo, ah, eu não quero esse insertinho aqui, não precisa apagar. Você pode usar ele depois. Você só dá uma comentada aqui, falta um traço-traço antes, que o SQL, aqui, o postgres, ele vai desconsiderar.",
+            "topic_reference": "INSERIDO E LENDO DADOS - Fundamentos de Banco de Dados - Parte 4",
+            "sequence": 23
+        },
+        {
+            "type_content": "transcription",
+            "content": "Então, beleza, deixa eu deixar aqui o comentário direitinho. Vamos rodar. Perfeito. Successfully. Então, temos aqui, no data output, id, 123, a chave primária da tabela pedidos. A data que o pedido foi feito, o valor, né, relacionado, e o ID do cliente. Não podemos confundir com o ID, né, com a chave primária da tabela pedidos. Isso aqui é o ID do pedido, não é o ID do cliente.",
+            "topic_reference": "INSERIDO E LENDO DADOS - Fundamentos de Banco de Dados - Parte 4",
+            "sequence": 24
+        },
+        {
+            "type_content": "transcription",
+            "content": "O ID do cliente está aqui bem explícito. Beleza, nossa compra aí está registrada. Hoje foi uma aula um pouquinho mais extensa, né, a gente aprendeu aí a colocar dados para dentro do sistema e puxar eles de volta. A sua tarefa é praticar, né, use o comando insert, cadastre aí pelo menos os 10 clientes fictícios e mais 15 pedidos espalhados por esses clientes, né.",
+            "topic_reference": "INSERIDO E LENDO DADOS - Fundamentos de Banco de Dados - Parte 4",
+            "sequence": 25
+        },
+        {
+            "type_content": "transcription",
+            "content": "Coloque valores diferentes e datas diferentes. Sabe por quê? Porque na próxima aula, a gente vai aprender que o comando select, ele é muito perigoso em grandes, em bancos de dados gigantescos. A gente vai aprender a usar o comando where para filtrar os dados. A gente vai descobrir a buscar apenas os clientes que se chamam Maria, por exemplo. Ou apenas os clientes que fizeram uma compra em uma data específica.",
+            "topic_reference": "INSERIDO E LENDO DADOS - Fundamentos de Banco de Dados - Parte 4",
+            "sequence": 26
+        },
+        {
+            "type_content": "transcription",
+            "content": "Ou apenas pedidos acima de 100 reais. A gente vai trabalhar bastante a lógica. Então, pratique bastante, deixe seu like se essa aula te ajudou. E eu te vejo no próximo episódio. Até a próxima.",
+            "topic_reference": "INSERIDO E LENDO DADOS - Fundamentos de Banco de Dados - Parte 4",
+            "sequence": 27
+        },
+        {
+            "type_content": "video",
+            "content": "lBU3897NTHk",
+            "topic_reference": "MODELAGEM BÁSICA - Fundamentos de Banco de Dados - Parte 2",
+            "sequence": 1
+        },
+        {
+            "type_content": "transcription",
+            "content": "E aí galera, sejam bem-vindos de volta a nossa minissérie aqui sobre banco de dados. Na aula passada, nós entendemos por que os bancos de dados são superiores a planilhas e você ficou com a tarefa de instalar o pgadmin4 e o postgreSQL. Se você já fez isso, ótimo! Hoje você deve estar ansioso para começar a digitar códigos, mas nós vamos dar um passo essencial antes disso.",
+            "topic_reference": "MODELAGEM BÁSICA - Fundamentos de Banco de Dados - Parte 2",
+            "sequence": 2
+        },
+        {
+            "type_content": "transcription",
+            "content": "Ninguém constrói uma casa começando pelo telhado. Primeiro, a gente precisa desenhar a planta. No banco de dados, essa planta se chama modelagem de dados. Se você errar a modelagem, todo o seu sistema, o seu site ou o seu aplicativo vai sofrer com lentidão e erros no futuro. Hoje a gente vai desenhar o nosso projeto de e-commerce. Essa ideia desse projeto de e-commerce eu vou levar até o final da série, beleza?",
+            "topic_reference": "MODELAGEM BÁSICA - Fundamentos de Banco de Dados - Parte 2",
+            "sequence": 3
+        },
+        {
+            "type_content": "transcription",
+            "content": "Em um banco de dados relacional, a gente guarda informações em tabelas. Pense numa tabela como uma gaveta específica para um único assunto. No nosso e-commerce, nós teremos apenas uma gaveta para clientes e uma só para os pedidos. Dentro de uma tabela, nós temos as duas dimensões principais, que são colunas e linhas. As colunas vão ser atributos, características daquela informação.",
+            "topic_reference": "MODELAGEM BÁSICA - Fundamentos de Banco de Dados - Parte 2",
+            "sequence": 4
+        },
+        {
+            "type_content": "transcription",
+            "content": "Por exemplo, para um produto, que colunas a gente precisa? Eu estou usando aqui essa imagem de exemplo. A gente precisa, por exemplo, de data, precisamos do código desse produto, precisamos do nome desse produto, a descrição do produto, a unidade, o local, a nota, a quantidade, o preço e etc. Para um cliente, quais colunas a gente precisa? Nome, e-mail, data de nascimento, por exemplo, o banco de dados exige que você defina isso logo de cara, beleza?",
+            "topic_reference": "MODELAGEM BÁSICA - Fundamentos de Banco de Dados - Parte 2",
+            "sequence": 5
+        },
+        {
+            "type_content": "transcription",
+            "content": "Já as linhas, elas são os registros reais. Cada vez que uma pessoa nova se cadastra no seu site, uma nova linha é inserida nessa tabela. Por exemplo, para clientes, o João é a linha 1, a Maria é a linha 2 e assim por diante. Nesse exemplo aqui, a gente tem um certo produto com certa quantidade, com um certo preço. Aí outra linha tem outro produto com outra numeração de quantidade, outro preço.",
+            "topic_reference": "MODELAGEM BÁSICA - Fundamentos de Banco de Dados - Parte 2",
+            "sequence": 6
+        },
+        {
+            "type_content": "transcription",
+            "content": "E assim por diante até o infinito. Mas aqui vai surgir um problema clássico. Imagina que seu e-commerce cresceu e agora você tem duas clientes cadastradas com o nome, sei lá, Maria Silva. As duas nasceram no mesmo ano. Como que o banco de dados vai saber qual Maria pediu um celular e qual Maria pediu um livro, por exemplo? Se a gente não pensar nisso, o banco de dados pode fazer alguma confusão.",
+            "topic_reference": "MODELAGEM BÁSICA - Fundamentos de Banco de Dados - Parte 2",
+            "sequence": 7
+        },
+        {
+            "type_content": "transcription",
+            "content": "A gente precisa, para resolver isso, de um identificador único. Algo que nunca vai se repetir. No mundo real, aqui no Brasil, a gente tem o CPF. O CPF é único e nunca vai se repetir. No banco de dados, a gente tem as chaves primárias. Quase toda tabela que você criar na sua vida terá uma coluna chamada, por exemplo, ID ou código de tal coisa. Código do cliente ou código do produto.",
+            "topic_reference": "MODELAGEM BÁSICA - Fundamentos de Banco de Dados - Parte 2",
+            "sequence": 8
+        },
+        {
+            "type_content": "transcription",
+            "content": "Geralmente, ele vai ser um número sequencial, por exemplo, código 1, código 3, código 4 e assim até o infinito. Por exemplo, nessa imagem de exemplo que eu estou usando aqui, nós temos o cliente 1, o cliente 2. Isso, a chave primária vai distinguir esses dois. E conforme eu vou adicionando linhas, ela vai crescendo sequencialmente. Ou seja, o banco de dados nunca mais vai confundir se houver alguma confusão.",
+            "topic_reference": "MODELAGEM BÁSICA - Fundamentos de Banco de Dados - Parte 2",
+            "sequence": 9
+        },
+        {
+            "type_content": "transcription",
+            "content": "A regra de ouro aqui é que uma chave primária nunca pode se repetir e nunca pode ficar vazia. Agora vem a parte relacional do nosso banco de dados. Nós temos essa tabela aqui e ela tem a sua própria chave primária, que no caso aqui é código do cliente. Mas como que eu informo ao banco de dados que o pedido número, sei lá, número 500 foi feito pela Maria Silva com o ID2?",
+            "topic_reference": "MODELAGEM BÁSICA - Fundamentos de Banco de Dados - Parte 2",
+            "sequence": 10
+        },
+        {
+            "type_content": "transcription",
+            "content": "Nós fazemos isso pegando a chave primária da Maria, que é o ID2, e colocando dentro da tabela pedidos uma coluna especial, onde essa coluna vai receber o nome de chave estrangeira. A chave estrangeira é simplesmente a chave primária de uma tabela passeando em outra tabela. É esse número que cria o relacionamento. Se amanhã a Maria mudar de e-mail, não precisamos mexer nos pedidos dela.",
+            "topic_reference": "MODELAGEM BÁSICA - Fundamentos de Banco de Dados - Parte 2",
+            "sequence": 11
+        },
+        {
+            "type_content": "transcription",
+            "content": "O ID2 continua no pedido, apontando para a Maria, com os seus dados sempre atualizados, sempre de forma escalável. Beleza. O que eu tenho aqui é um diagrama de entidade e relacionamento. É um diagrama bem simples, apenas com duas caixas. Uma caixa de tabela, uma caixa de cliente e uma caixa de pedidos, que elas estão conectadas. Mas isso aqui representa, basicamente vai representar o núcleo aqui do nosso banco de dados, por enquanto.",
+            "topic_reference": "MODELAGEM BÁSICA - Fundamentos de Banco de Dados - Parte 2",
+            "sequence": 12
+        },
+        {
+            "type_content": "transcription",
+            "content": "Ele está bem simples. Você deve estar se perguntando, como que esse desenho aqui, ele vira realidade lá no postgreSQL? Na próxima aula, a gente vai abrir o pgadmin4 e traduzir esse exato desenho aqui para o idioma que o banco de dados entende, que é a linguagem SQL. Então, veja aqui, só para dar um belo de um spoiler, nós vamos usar comandos aqui, comandos SQL, como por exemplo, o create table, para criar tabelas e definir quem é a nossa chave primária e quem que é a nossa chave estrangeira.",
+            "topic_reference": "MODELAGEM BÁSICA - Fundamentos de Banco de Dados - Parte 2",
+            "sequence": 13
+        },
+        {
+            "type_content": "transcription",
+            "content": "Não se preocupe em copiar isso agora, nós vamos fazer junto, linha a linha, no próximo episódio. Se você entendeu a diferença entre uma chave primária e uma chave estrangeira hoje, você está na frente de muita gente, deixe seu like aí, revise esse conceito se precisar. Eu não falei no vídeo anterior, mas caso você tenha alguma dúvida, alguma dificuldade, algum problema, tanto na hora da instalação como na sintaxe do SQL, lembre-se que existem diversas documentações.",
+            "topic_reference": "MODELAGEM BÁSICA - Fundamentos de Banco de Dados - Parte 2",
+            "sequence": 14
+        },
+        {
+            "type_content": "transcription",
+            "content": "Se você tiver algum problema, existem os fóruns, como o Reddit, é um fórum bem comum, o Stack Overflow, é um fórum bem comum, onde as pessoas relatam problemas relacionados, né? E sempre tem algum abençoado lá para resolver a nossa vida. Mas por enquanto, eu vou ficando por aqui, tá bom? Até o próximo vídeo.",
+            "topic_reference": "MODELAGEM BÁSICA - Fundamentos de Banco de Dados - Parte 2",
+            "sequence": 15
+        },
+        {
+            "type_content": "video",
+            "content": "JwnXs1gzVLk",
+            "topic_reference": "O QUE E UM BANCO DE DADOS - Fundamentos de Banco de Dados - Parte 1",
+            "sequence": 1
+        },
+        {
+            "type_content": "transcription",
+            "content": "E aí galera, beleza? Sejam muito bem-vindos a nossa nova série aqui no canal. Essa série eu vou abordar sobre fundamentos de bancos de dados. Para você que não me conhece, meu nome é João Pedro e ao longo dos próximos 10 vídeos, eu vou te guiar desde os conceitos mais básicos até a criação e a manipulação de um banco de dados real. Bom, se você trabalha com tecnologia, seja no desenvolvimento de software, análise de dados ou até mesmo na gestão de projetos, entender como os dados são armazenados e consultados não é apenas um diferencial, ele é um requisito.",
+            "topic_reference": "O QUE E UM BANCO DE DADOS - Fundamentos de Banco de Dados - Parte 1",
+            "sequence": 2
+        },
+        {
+            "type_content": "transcription",
+            "content": "E para que essa jornada seja extremamente prática, nós vamos utilizar uma das ferramentas mais poderosas do mercado, que é o PostgreSQL. Mas antes de abrirmos o software e começarmos a digitar os códigos, nós precisamos dar um passo atrás e precisamos entender por que bancos de dados existem. A primeira pergunta que muitos fazem é, por que eu preciso de um banco de dados complexo se eu posso gerenciar o meu negócio em uma simples planilha?",
+            "topic_reference": "O QUE E UM BANCO DE DADOS - Fundamentos de Banco de Dados - Parte 1",
+            "sequence": 3
+        },
+        {
+            "type_content": "transcription",
+            "content": "A verdade é que as planilhas são fantásticas para análises rápidas e volumes de pequenos de dados. Mas elas têm limitações severas quando o sistema cresce. Imagine um e-commerce, você tem clientes acessando o seu site 24 horas por dia. Se a gente tentar usar uma planilha como um banco de dados, a gente vai enfrentar três grandes problemas. O primeiro problema é a concorrência.",
+            "topic_reference": "O QUE E UM BANCO DE DADOS - Fundamentos de Banco de Dados - Parte 1",
+            "sequence": 4
+        },
+        {
+            "type_content": "transcription",
+            "content": "O que acontece se 50 clientes tentarem comprar um produto exatamente no mesmo segundo? Uma planilha não consegue gerenciar múltiplas edições simultâneas de forma eficiente. Já o banco de dados consegue fazer esse processamento tranquilo. O segundo problema é a integridade dos dados. Numa planilha, se a coluna é de data de nascimento, um usuário desatento pode digitar uma outra coisa nada a ver.",
+            "topic_reference": "O QUE E UM BANCO DE DADOS - Fundamentos de Banco de Dados - Parte 1",
+            "sequence": 5
+        },
+        {
+            "type_content": "transcription",
+            "content": "O banco de dados possui regras muito rígidas. Se o campo é de tipo data, ele só vai aceitar datas válidas, tirando a qualidade da informação. Isso torna tudo mais fácil de gerenciar e evita muitos problemas. O terceiro grande problema é a volume e a performance. O Excel e outros gerenciadores de planilhas, eles têm um limite de um pouco mais de um milhão de linhas.",
+            "topic_reference": "O QUE E UM BANCO DE DADOS - Fundamentos de Banco de Dados - Parte 1",
+            "sequence": 6
+        },
+        {
+            "type_content": "transcription",
+            "content": "Para um banco de dados moderno, um milhão de linhas não é absolutamente nada. Ele é construído para buscar uma informação específica no meio de bilhões de registros em frações de segundo. Beleza, agora a gente precisa entender o que é um banco de dados relacional. Existem vários tipos de bancos de dados hoje em dia, mas nessa série a gente vai focar no padrão ouro do mercado, que são os bancos de dados relacionais.",
+            "topic_reference": "O QUE E UM BANCO DE DADOS - Fundamentos de Banco de Dados - Parte 1",
+            "sequence": 7
+        },
+        {
+            "type_content": "transcription",
+            "content": "Essa palavra relacional, ela significa que nós não jogamos todas as informações apenas em um lugar. A gente divide os dados em tabelas baseadas em entidades no mundo real. Por exemplo, nós teremos uma tabela exclusiva para clientes e outra exclusiva para os pedidos desses clientes. Mas como o sistema sabe qual cliente fez qual pedido, é aí que entra a mágica.",
+            "topic_reference": "O QUE E UM BANCO DE DADOS - Fundamentos de Banco de Dados - Parte 1",
+            "sequence": 8
+        },
+        {
+            "type_content": "transcription",
+            "content": "Nós criamos relações entre essas tabelas, isso tudo usando chaves de identificação. Isso evita a duplicação. Se o cliente mudar de endereço, nós atualizamos o endereço apenas na tabela clientes. E todos os milhares de pedidos deles que estão vinculados por essa relação, automaticamente estarão associados ao endereço correto. É organizado, é seguro e é extremamente escalável.",
+            "topic_reference": "O QUE E UM BANCO DE DADOS - Fundamentos de Banco de Dados - Parte 1",
+            "sequence": 9
+        },
+        {
+            "type_content": "transcription",
+            "content": "E para gerenciar tudo isso, o nosso motor do nosso carro aqui, será o PostgreSQL. Ele é um sistema de gerenciamento de banco de dados de código aberto e 100% gratuito, mas que bate de frente com soluções caríssimas do mercado. É o banco de dados por trás de muitas grandes empresas pelo mundo, por ser extremamente confiável. O que vocês estão vendo aqui na tela é a interface do PGAdmin.",
+            "topic_reference": "O QUE E UM BANCO DE DADOS - Fundamentos de Banco de Dados - Parte 1",
+            "sequence": 10
+        },
+        {
+            "type_content": "transcription",
+            "content": "O PostgreSQL roda nos bastidores e o PGAdmin é a nossa interface gráfica, é o nosso painel de controle para interagir com o banco de dados de forma visual, sem precisar fazer tudo por uma linha de comando. Então vamos dar um passeio rápido aqui e vamos nos familiarizar com essa interface do PGAdmin. Aqui do lado esquerdo, você pode ver que tem bastante coisa.",
+            "topic_reference": "O QUE E UM BANCO DE DADOS - Fundamentos de Banco de Dados - Parte 1",
+            "sequence": 11
+        },
+        {
+            "type_content": "transcription",
+            "content": "Isso aqui é a árvore de navegação. É aqui que a gente conecta os nossos servidores. Então, você pode ver que ele tem um formato muito parecido com as pastas. Então, por exemplo, eu tenho um banco de dados. Automaticamente, quando eu estou usando o PostgreSQL, ele cria um banco de dados aqui para mim. E esse banco de dados está vazio, mas eu posso ver aqui a estrutura dele.",
+            "topic_reference": "O QUE E UM BANCO DE DADOS - Fundamentos de Banco de Dados - Parte 1",
+            "sequence": 12
+        },
+        {
+            "type_content": "transcription",
+            "content": "Dentro desse banco de dados tem várias coisas, catálogos, event triggers, extensões, mas a principal coisa que a gente usa são esquemas. Dentro de esquemas tem toda uma outra estrutura, onde você tem funções, operadores, sequências, views, tipos. Só que a principal coisa que a gente vai usar aqui são as tabelas. Então, se eu expandir aqui, não tem nada.",
+            "topic_reference": "O QUE E UM BANCO DE DADOS - Fundamentos de Banco de Dados - Parte 1",
+            "sequence": 13
+        },
+        {
+            "type_content": "transcription",
+            "content": "Eu não criei nenhuma tabela ainda. Então, eu fiz aqui a expansão dessa árvore de navegação e eu vim aqui em tabela. Vou clicar com o botão direito. E a principal coisa que a gente vai usar ao longo dessa série, a gente vai praticamente fazer toda hora, é fazer as query tools. Então, aqui nessa tela das query tools, eu vou lançar os meus códigos, as minhas queries, os meus comandos.",
+            "topic_reference": "O QUE E UM BANCO DE DADOS - Fundamentos de Banco de Dados - Parte 1",
+            "sequence": 14
+        },
+        {
+            "type_content": "transcription",
+            "content": "Você pode ver aqui que tem várias abas aqui na cima. Tem dashboard, propriedades, SQL, estatísticas, dependências, dependentes, processos. E aqui ele abriu, quando eu clico aqui com o botão direito aqui, ele abriu essa query tool. E a partir daqui eu posso já criar, fazer meu banco de dados, criar tabelas, etc. Só que isso vai ficar para o próximo vídeo.",
+            "topic_reference": "O QUE E UM BANCO DE DADOS - Fundamentos de Banco de Dados - Parte 1",
+            "sequence": 15
+        },
+        {
+            "type_content": "transcription",
+            "content": "Por hoje, o objetivo era alinhar essa base teórica. Você precisa entender o porquê antes de como fazer. E aqui vai a sua primeira tarefa antes do próximo vídeo. Para a gente não perder muito tempo mostrando barras de carregamento aqui no vídeo, eu deixei aqui na descrição um link com o tutorial oficial, passo a passo, de como baixar e instalar o PostgreSQL e o PgAdmin 4.",
+            "topic_reference": "O QUE E UM BANCO DE DADOS - Fundamentos de Banco de Dados - Parte 1",
+            "sequence": 16
+        },
+        {
+            "type_content": "transcription",
+            "content": "Como eu expliquei antes, o PgAdmin 4 é só a interface. E o PostgreSQL é apenas o sistema de gerenciamento. Então você precisa fazer a instalação desses dois. Então nesse link que eu vou deixar aqui, você pode fazer a instalação aí no seu sistema operacional. Faça essa instalação, abra o PgAdmin e vai se familiarizando com a tela. No próximo vídeo, a gente vai pegar o conceito de tabelas que a gente deu uma leve introduzida hoje e vamos fazer a nossa primeira modelagem.",
+            "topic_reference": "O QUE E UM BANCO DE DADOS - Fundamentos de Banco de Dados - Parte 1",
+            "sequence": 17
+        },
+        {
+            "type_content": "transcription",
+            "content": "Vamos desenhar a estrutura do nosso sistema e entender a fundo o que são as famosas chaves primárias e chaves estrangeiras. Espero que esse vídeo tenha ajudado a clarear as suas ideias e sanar as suas dúvidas sobre bancos de dados. Vejo vocês no próximo vídeo. Falou! Tchau!",
+            "topic_reference": "O QUE E UM BANCO DE DADOS - Fundamentos de Banco de Dados - Parte 1",
+            "sequence": 18
+        },
+        {
+            "type_content": "video",
+            "content": "JncFBpxdu_U",
+            "topic_reference": "PROJETO FINAL - Fundamentos de Banco de Dados - Parte 10",
+            "sequence": 1
+        },
+        {
+            "type_content": "transcription",
+            "content": "E aí galera, beleza? Sejam bem-vindos ao último episódio aqui da nossa série. Nós aqui não vamos ensinar nenhum comando novo. O objetivo aqui é mostrar o SQL como a gente se fosse montar blocos de Lego, por exemplo. Quando você entende as peças isoladas, a gente consegue construir qualquer castelinho. Nesse episódio a gente vai construir aí um desafio, uma consulta mais complexa, que junta praticamente tudo que a gente viu até agora, da aula 1 até a aula 9.",
+            "topic_reference": "PROJETO FINAL - Fundamentos de Banco de Dados - Parte 10",
+            "sequence": 2
+        },
+        {
+            "type_content": "transcription",
+            "content": "É o teste que provavelmente vai cair ainda na sua entrevista de emprego para uma vaga júnior. Então vamos parar por um segundo e pensar o quanto você evoluiu. No episódio 1 você provavelmente mal sabia a diferença entre uma planilha e um banco de dados relacional. Hoje a gente já sabe aprender a modelar, a criar tabelas, a criar chaves primárias, a criar chaves estrangeiras.",
+            "topic_reference": "PROJETO FINAL - Fundamentos de Banco de Dados - Parte 10",
+            "sequence": 3
+        },
+        {
+            "type_content": "transcription",
+            "content": "Nós aprendemos a dominar o CRUDE, a entender exatamente o que cada letrinha da palavra CRUDE significa. Aprendemos a cruzar dados complexos com os JOINS e com as VIEWS. Mas no mundo real o seu chefe não vai pedir para você rodar um MinerJoin, ele vai te dar um problema de negócios. Ele vai fazer a pergunta para você em português e seu trabalho é traduzir isso na sua cabeça para jogar dentro da SQL.",
+            "topic_reference": "PROJETO FINAL - Fundamentos de Banco de Dados - Parte 10",
+            "sequence": 4
+        },
+        {
+            "type_content": "transcription",
+            "content": "Então vamos aqui preparar o nosso PGDmin porque hoje a gente vai resolver o nosso desafio final. Nós vamos construir do zero uma daquelas consultas monstruosas que separam os amadores dos profissionais. Então vamos pensar no cenário. A diretoria do nosso e-commerce aqui quer enviar um kit de vinhos de presente de fim de ano para os nossos melhores clientes.",
+            "topic_reference": "PROJETO FINAL - Fundamentos de Banco de Dados - Parte 10",
+            "sequence": 5
+        },
+        {
+            "type_content": "transcription",
+            "content": "Então o nosso CEO mandou o seguinte e-mail. Eu preciso de um relatório urgente. Quero saber o nome dos nossos três clientes VIPs, os que mais gastaram dinheiro com a gente. Mas atenção, eu só quero contabilizar as compras feitas no ano de 2026. Parece muita coisa, mas top 3 de soma de valores, filtro de data e nome de cliente. Com um bom programador você não vai entrar em planning.",
+            "topic_reference": "PROJETO FINAL - Fundamentos de Banco de Dados - Parte 10",
+            "sequence": 6
+        },
+        {
+            "type_content": "transcription",
+            "content": "Você quebra o problema em partes. Então vamos dividir para conquistar. Vamos começar puxando os dados cruz das vendas. Então vamos apagar essa cruz aqui. E a gente sabe que a gente precisa do nome do cliente e do valor da compra. Isso significa que a gente vai ter que usar duas tabelas. Então vamos começar. Vamos selecionar clientes, ponto, nome e os valores da tabela pedidos.",
+            "topic_reference": "PROJETO FINAL - Fundamentos de Banco de Dados - Parte 10",
+            "sequence": 7
+        },
+        {
+            "type_content": "transcription",
+            "content": "Beleza. Tudo isso foram pedidos. Vamos dar um inner join De clientes On Pedidos.clientes Igual cliente Id Ok. Aqui a gente construiu a nossa ponte Mas lá o chefe do marketing foi claro Ele só quer as vendas do ano de 2026 Se a gente somar as vendas de 2025 O relator vai ficar errado Onde a gente filtra dados? Que cláusula que a gente usa? A gente usa o where Então vamos adicionar essa regra Aqui Para a nossa query Abaixo do inner join Então Where Da tabela pedidos Da coluna Data pedido Qual que é a nossa condição aqui?",
+            "topic_reference": "PROJETO FINAL - Fundamentos de Banco de Dados - Parte 10",
+            "sequence": 8
+        },
+        {
+            "type_content": "transcription",
+            "content": "A partir Do ano de 2026 Vou colocar 26 do mês 1 Do dia 1 Não posso esquecer das ações simples Mas aqui Temos que Prestar atenção em uma coisa O seu chefe Ele pode estar pedindo isso Para você Em 2027 Pensa que você está lá Sei lá No dia 30 de janeiro De 2027 E ele pediu o relatório De 2026 Se você apenas Colocar essa condição Ele vai considerar A partir do dia 26 Até o dia 30 de janeiro De 2027 Então a gente precisa Colocar um limite Então vou colocar um end Pedidos.",
+            "topic_reference": "PROJETO FINAL - Fundamentos de Banco de Dados - Parte 10",
+            "sequence": 9
+        },
+        {
+            "type_content": "transcription",
+            "content": "data pedido E coloco aqui 2026 31 Opa É 12 31 Beleza O que eu fiz aqui? Então Eu disse ao banco Para pegar apenas os pedidos Onde a data é maior Ou igual O primeiro dia de 2026 E o menor Ou igual Ao último dia de 2026 Então Até agora A gente só tem uma lista De vendas Isoladas De 2026 Mas o chefe Quer saber Quanto Cada um gastou No total Esse foi o requisito Do e-mail dele Lá Nós precisamos Somar E agrupar Vou voltar lá Na primeira linha Aqui de pedidos Valor E vou abraçar ele Aqui Com um são Beleza Fiz o meu select Aqui Clientes.",
+            "topic_reference": "PROJETO FINAL - Fundamentos de Banco de Dados - Parte 10",
+            "sequence": 10
+        },
+        {
+            "type_content": "transcription",
+            "content": "9 Vírgula Soma dos valores Da tabela Pedidos Como Total Gasto Se eu usei Uma função De agregação Que é Essa função De soma Eu preciso Eu sou Na verdade Eu sou obrigado A usar o que? O nosso bom e velho Groupby Então vamos lá Para a última linha De código E digitar aqui Groupby Clientes.9 Agora Para finalizar Aqui A nossa lógica O chefe Ele quer O top 3 Ou seja Os maiores valores Primeiro Então a gente Vai usar Order By Total Gasto Decrescente Limitando A 3 Ponto e vírgula Perceba Antes de começar A explicar Lógica Perceba Que eu não Coloco Ponto e vírgula A cada vez Que eu dou Enter Porque o SQL Vai considerar Isso como Tudo Uma linha Só Você poderia Fazer Toda Essa Query De 7 Linhas Em uma Linha Só Só Que assim Fica Bem Mais Organizado Então Vamos Olhar Para Esse Código 7 Linhas De Pura Lógica Relacional A gente Tem Filtro De Data Junção De Tabela Soma Matemática Agrupamento E ordenação Com limite Vamos dar o play Aqui E aí Beleza O banco O banco De Dados Varreu A loja Inteira Filtrou O ano Somou Tudo E te Deu Aqui O pódio Mastigado Então Aqui Estão Os 3 Clientes Que vão Receber O kit Vinhos Vinhos De Vinhos Vinhos Da empresa Então A gente Aí Superou Mais Um Desafio Se Você Acompanhou Até Aqui E Conseguiu Entender A lógica Por Trás Dessa Última Consulta Você Já Tem Uma Base Necessária Para Trabalhar Aí Para Começar Trabalhar Com Banco De Dados Relacional Seja Ele Postgre SQL My SQL SQL Server Or Oracle A lógica Do SQL Ela É Universal Só Que O Que Fazer Agora O Próximo Passo É Sempre Continuar Praticando Crie Um Novo Banco De Dados Para Seus Hobbies Sei Lá Para Fazer Catálogo De Livros Seus Jogos Os Gastos Da Praticando Pro Futuro Você Pode Estudar Conceitos Mais Avançados Como Índices Para Deixar Esse Banco Mais Ávido Triggers Que São Os Gatilhos Ou Até Mesmo Para Conectar Esse Banco De Dados Que Criamos Aqui A Uma Linguagem De Programação Como Python Javascript Java Como Que Eu Uso Esse Banco De Dados Em Um Site Por Exemplo Todas Essas Coisas São Tópicos Avançados De Banco De Dados E Quem Sabe No Futuro Próximo Eu Possa Trazer Uma Série Foi Um Prazer Imenso Gero Se Nessa Jornada Do Zero Se Essa Minissérie Te Ajudou O Maior Presente Que Você Pode Me Dar É Deixar Um Like Se Você Tá A Programar Muito Obrigado Por Ficar Até O Fim E Até Uma Próxima Série Série",
+            "topic_reference": "PROJETO FINAL - Fundamentos de Banco de Dados - Parte 10",
+            "sequence": 11
         }
     ]
 }
