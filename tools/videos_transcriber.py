@@ -5,7 +5,7 @@ import torch
 from pathlib import Path
 
 class Transcriber:
-    def __init__(self):
+    def __init__(self, model_name: str = 'tiny'):
         # Determine device for Whisper model
         if torch.cuda.is_available():
             self.device = "cuda"
@@ -17,7 +17,7 @@ class Transcriber:
             self.device = "cpu"
             print("Usando CPU para transcrição.")
 
-        self.model = whisper.load_model("tiny", device=self.device)
+        self.model = whisper.load_model(model_name, device=self.device)
         self.audios_folder = str(Path('./audios').absolute())
         self.output_name = str(Path('./transcription/transcription.json').absolute())
 
